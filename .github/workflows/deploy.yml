@@ -20,6 +20,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Enable Corepack before setting up Node
+        run: corepack enable
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
