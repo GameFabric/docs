@@ -1,0 +1,37 @@
+{
+  "text": "Multiplayer Services",
+  "collapsed": false,
+  "order": 3,
+  "items": [
+    {
+      "text":"Server Allocation",
+      "items": [
+        {
+          "text": "Allocating from Armadas",
+          "link":  "/multiplayer-services/server-allocation/allocating-from-armadas"
+        },
+        {
+          "text": "Automatically Registering Game Servers",
+          "link":  "/multiplayer-services/server-allocation/automatically-registering-game-servers"
+        },
+        {
+          "text": "Manually Registering Game Servers",
+          "link":  "/multiplayer-services/server-allocation/manually-registering-game-servers"
+        },
+        {
+          "text": "Integration Examples",
+          "items": [
+            {
+              "text": "Amazon GameLift",
+              "link": "/multiplayer-services/server-allocation/integration-examples/gamelift"
+            },
+            {
+              "text": "Amazon GameLift FlexMatch",
+              "link": "/multiplayer-services/server-allocation/integration-examples/flexmatch"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

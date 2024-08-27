@@ -1,0 +1,48 @@
+@startuml
+
+' Header.
+
+hide footbox
+
+participant "Game client"
+participant "Backend service"
+
+participant "Game server"
+
+box Nitrado #FFD744
+    participant Allocator
+end box
+
+' Sequence diagram.
+
+note right of "Game server": Status = Ready
+
+hnote over "Backend service" : Request\nallocation
+
+"Backend service" -> Allocator : ""/allocate""
+
+activate "Backend service"
+activate Allocator
+
+hnote over Allocator : Selects\ngame server
+
+"Game server" <- Allocator: activate trigger
+activate "Game server"
+
+note right of "Game server": Status = Allocated
+
+Allocator --> "Backend service"
+deactivate Allocator
+
+"Game client" <- "Backend service"
+deactivate "Backend service"
+
+hnote over "Game client" : Connects to\ngame server
+activate "Game client"
+
+"Game client" -> "Game server"
+
+
+hnote over "Game server" : Host game clients
+
+@enduml

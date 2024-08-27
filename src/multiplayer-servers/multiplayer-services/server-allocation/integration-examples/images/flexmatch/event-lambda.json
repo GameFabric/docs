@@ -1,0 +1,53 @@
+{
+  "version": "0",
+  "id": "74ad8f1c-b6ef-11ee-a506-0242ac120002",
+  "detail-type": "GameLift Matchmaking Event",
+  "source": "aws.gamelift",
+  "account": "506882755011",
+  "time": "2023-12-21T11:45:04.641Z",
+  "region": "eu-central-1",
+  "resources": [
+    "arn:aws:gamelift:eu-central-1:506882755011:matchmakingconfiguration/myconfig-standalone"
+  ],
+  "detail": {
+    "tickets": [
+      {
+        "ticketId": "c7ebd0c2-fa69-4050-b716-9cc851d01833",
+        "startTime": "2023-12-21T11:43:48.183Z",
+        "players": [
+          {
+            "playerId": "Player1",
+            "team": "blue_team"
+          }
+        ]
+      },
+      {
+        "ticketId": "5b78df64-77eb-4845-b88e-d1def76b77be",
+        "startTime": "2023-12-21T11:45:03.409Z",
+        "players": [
+          {
+            "playerId": "Player2",
+            "team": "red_team"
+          }
+        ]
+      }
+    ],
+    "customEventData": "{\"region\":\"eu\",\"attributes\":{}}",
+    "type": "MatchmakingSucceeded",
+    "gameSessionInfo": {
+      "ipAddress": "35.246.171.125",
+      "port": 15269,
+      "players": [
+        {
+          "playerId": "Player1",
+          "team": "blue_team"
+        },
+        {
+          "playerId": "Player2",
+          "team": "red_team"
+        }
+      ]
+    },
+    "matchId": "7ff4a0db-380c-4cdd-a197-a5353fe02b26"
+  }
+}

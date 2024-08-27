@@ -1,0 +1,28 @@
+@startuml
+
+' Header.
+
+hide footbox
+
+activate "Game Server"
+
+box Nitrado #FFD744
+    activate "Agones"
+end box
+
+' Sequence diagram.
+
+hnote over "Game Server" : Match ended
+
+"Game Server" -> "Agones" : ""agones.Shutdown()""
+
+hnote over "Agones" : Set status to ""Shutdown""\nRecycle resources
+
+"Game Server" <-- "Agones" : (""SIGTERM"")
+deactivate "Game Server"
+
+"Game Server" <-- "Agones" : (""SIGKILL"")
+
+deactivate "Game Server"
+
+@enduml

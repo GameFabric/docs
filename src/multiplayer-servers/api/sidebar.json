@@ -1,0 +1,35 @@
+{
+  "text": "API",
+  "collapsed": false,
+  "order": 4,
+  "items": [
+    {
+      "text": "Guide",
+      "link": "/api/guide"
+    },
+    {
+      "text": "Examples",
+      "link": "/api/examples"
+    },
+    {
+      "text":"GF: API Server ⤴",
+      "link": "/api-specs/apiserver",
+      "external": true
+    },
+    {
+      "text": "GF: Web API ⤴",
+      "link": "/api-specs/webapi",
+      "external": true
+    },
+    {
+      "text": "Allocation: Registry ⤴",
+      "link": "/api-specs/allocation-registry",
+      "external": true
+    },
+    {
+      "text": "Allocation: Allocator ⤴",
+      "link": "/api-specs/allocation-allocator",
+      "external": true
+    }
+  ]
+}

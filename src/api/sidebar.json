@@ -1,0 +1,23 @@
+{
+  "text": "API",
+  "collapsed": false,
+  "order": 4,
+  "items": [
+    {
+      "text": "Multiplayer Servers: API Server",
+      "link": "/api/multiplayer-servers/apiserver"
+    },
+    {
+      "text": "Multiplayer Servers: Web API",
+      "link": "/api/multiplayer-servers/webapi"
+    },
+    {
+      "text": "Allocation: Registry",
+      "link": "/api/multiplayer-servers/allocation-registry"
+    },
+    {
+      "text": "Allocation: multiplayer-servers",
+      "link": "/api/multiplayer-servers/allocation-allocator"
+    }
+  ]
+}

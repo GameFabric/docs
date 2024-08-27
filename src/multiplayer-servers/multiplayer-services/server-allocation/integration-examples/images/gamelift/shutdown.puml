@@ -1,0 +1,23 @@
+@startuml
+
+' Header.
+
+hide footbox
+
+activate "Game Server"
+
+box Amazon #white
+    activate GameLift
+end box
+
+' Sequence diagram.
+
+hnote over "Game Server" : Game session ended
+
+"Game Server" -> GameLift : ""aws.ProcessEnding""
+
+deactivate "Game Server"
+
+hnote over GameLift : Set status to ""Terminated""\nUpload logs, recycle resources
+
+@enduml

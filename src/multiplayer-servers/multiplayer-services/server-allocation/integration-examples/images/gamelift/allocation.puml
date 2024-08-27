@@ -1,0 +1,66 @@
+@startuml
+
+' Header.
+
+hide footbox
+
+participant "Game client"
+participant "Backend service"
+participant "Game server"
+
+box Amazon #white
+    participant GameLift
+end box
+
+' Sequence diagram.
+
+hnote over "Backend service" : Request\ngame session
+
+"Backend service" -> GameLift : ""aws.StartGameSessionPlacement()""
+
+activate "Backend service"
+activate GameLift
+
+note left of GameLift: Status = Pending
+
+hnote over GameLift : Initiates\ngame session\nplacement
+
+"Backend service" <-- GameLift
+
+note left of GameLift: Status = Activating
+
+"Game server" <- GameLift : ""sdk.onStartGameSession()""
+
+activate "Game server"
+
+hnote over "Game server" : Accept game session
+
+
+"Game server" -> GameLift : ""aws.ActivateGameSession()""
+deactivate "Game server"
+
+note left of GameLift: Status = Active
+
+loop until game session is active
+
+"Backend service" -> GameLift : ""aws.DescribeGameSessionPlacement()""
+"Backend service" <-- GameLift: <connection information>
+
+|||
+
+end
+
+deactivate GameLift
+"Game client" <- "Backend service"
+deactivate "Backend service"
+
+hnote over "Game client" : Connects to\ngame server
+activate "Game client"
+
+"Game client" -> "Game server"
+
+hnote over "Game server" : Host game clients
+
+activate "Game server"
+
+@enduml

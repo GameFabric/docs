@@ -1,0 +1,59 @@
+{
+  "version": "0",
+  "id": "ebbef050-cd7a-4b23-b3b0-0d4b7dc68ea6",
+  "detail-type": "GameLift Matchmaking Event",
+  "source": "aws.gamelift",
+  "account": "506882755011",
+  "time": "2023-12-21T10:59:24.969Z",
+  "region": "eu-central-1",
+  "resources": [
+    "arn:aws:gamelift:eu-central-1:506882755011:matchmakingconfiguration/myconfig"
+  ],
+  "detail": {
+    "tickets": [
+      {
+        "ticketId": "67d05c6e-ccfe-4c4c-bb17-bf6beca760f1",
+        "startTime": "2023-12-21T10:55:38.333Z",
+        "players": [
+          {
+            "playerId": "Player1",
+            "playerSessionId": "psess-107c4d73-af96-72c6-c479-b794441d98dd",
+            "team": "blue_team"
+          }
+        ]
+      },
+      {
+        "ticketId": "5c6bb578-64f7-4a28-89ef-9f5e6d7e3ca1",
+        "startTime": "2023-12-21T10:55:51.963Z",
+        "players": [
+          {
+            "playerId": "Player2",
+            "playerSessionId": "psess-107c4d73-af96-72c6-c479-b794441d9c9f",
+            "team": "red_team"
+          }
+        ]
+      }
+    ],
+    "customEventData": "",
+    "type": "MatchmakingSucceeded",
+    "gameSessionInfo": {
+      "gameSessionArn": "arn:aws:gamelift:eu-central-1::gamesession/fleet-2c584b26-4994-4919-ab14-cd1ad84e7d04/d4ff4881-6440-485f-b281-4ef9b3634ed3",
+      "ipAddress": "3.73.129.198",
+      "dnsName": "ec2-3-73-129-198.eu-central-1.compute.amazonaws.com",
+      "port": 33435,
+      "players": [
+        {
+          "playerId": "Player1",
+          "playerSessionId": "psess-107c4d73-af96-72c6-c479-b794441d98dd",
+          "team": "blue_team"
+        },
+        {
+          "playerId": "Player2",
+          "playerSessionId": "psess-107c4d73-af96-72c6-c479-b794441d9c9f",
+          "team": "red_team"
+        }
+      ]
+    },
+    "matchId": "d4ff4881-6440-485f-b281-4ef9b3634ed3"
+  }
+}

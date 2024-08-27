@@ -1,0 +1,51 @@
+{
+  "version": "0",
+  "id": "4bd780c4-7133-4b3b-ba52-4023e2f7eb7d",
+  "detail-type": "GameLift Matchmaking Event",
+  "source": "aws.gamelift",
+  "account": "506882755011",
+  "time": "2023-12-21T11:45:03.738Z",
+  "region": "eu-central-1",
+  "resources": [
+    "arn:aws:gamelift:eu-central-1:506882755011:matchmakingconfiguration/myconfig-standalone"
+  ],
+  "detail": {
+    "tickets": [
+      {
+        "ticketId": "c7ebd0c2-fa69-4050-b716-9cc851d01833",
+        "startTime": "2023-12-21T11:43:48.183Z",
+        "players": [
+          {
+            "playerId": "Player1",
+            "team": "blue_team"
+          }
+        ]
+      },
+      {
+        "ticketId": "5b78df64-77eb-4845-b88e-d1def76b77be",
+        "startTime": "2023-12-21T11:45:03.409Z",
+        "players": [
+          {
+            "playerId": "Player2",
+            "team": "red_team"
+          }
+        ]
+      }
+    ],
+    "customEventData": "{\"region\":\"eu\",\"attributes\":{}}",
+    "type": "MatchmakingSucceeded",
+    "gameSessionInfo": {
+      "players": [
+        {
+          "playerId": "Player1",
+          "team": "blue_team"
+        },
+        {
+          "playerId": "Player2",
+          "team": "red_team"
+        }
+      ]
+    },
+    "matchId": "7ff4a0db-380c-4cdd-a197-a5353fe02b26"
+  }
+}

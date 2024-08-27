@@ -1,0 +1,39 @@
+{
+  "text": "Getting Started",
+  "collapsed": false,
+  "order": 1,
+  "items": [
+    {
+      "text":"Introduction",
+      "link": "/getting-started/introduction"
+    },
+    {
+      "text":"Authentication",
+      "link": "/getting-started/authentication"
+    },
+    {
+      "text": "Configuring your Cloud Provider",
+      "link": "/getting-started/cloud-provider-setup"
+    },
+    {
+      "text": "Building a Container Image",
+      "link": "/getting-started/building-a-container-image"
+    },
+    {
+      "text": "Using the Agones SDK",
+      "link": "/getting-started/using-the-agones-sdk"
+    },
+    {
+      "text": "Pushing Container Images",
+      "link": "/getting-started/pushing-container-images"
+    },
+    {
+      "text": "Running your Game Server",
+      "link": "/getting-started/running-your-game-server"
+    },
+    {
+      "text": "Glossary",
+      "link": "/getting-started/glossary"
+    }
+  ]
+}

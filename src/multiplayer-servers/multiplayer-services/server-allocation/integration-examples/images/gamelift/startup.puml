@@ -1,0 +1,24 @@
+@startuml
+
+' Header.
+
+hide footbox
+
+participant "Game Server"
+box Amazon #white
+    participant GameLift
+end box
+
+' Sequence diagram.
+
+"Game Server" <- GameLift : Launch executable
+|||
+activate "Game Server"
+"Game Server" -> GameLift : ""aws.InitSDK()""
+"Game Server" -> GameLift : ""aws.ProcessReady()""
+|||
+loop
+    "Game Server" <- GameLift : ""aws.onHealthCheck()""
+    "Game Server" --> GameLift : ""Health status (bool)""
+end
+@enduml

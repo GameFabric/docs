@@ -1,0 +1,23 @@
+@startuml
+
+' Header.
+
+hide footbox
+
+participant "Game Server"
+
+' Sequence diagram.
+
+box Nitrado #FFD744
+    participant "Agones"
+end box
+
+"Game Server" <- "Agones" : Launch executable
+|||
+activate "Game Server"
+"Game Server" -> "Agones" : ""agones.Ready()""
+|||
+loop
+    "Game Server" -> "Agones" : ""agones.Health()""
+end
+@enduml
