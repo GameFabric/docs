@@ -30,7 +30,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
-        run: yarn ci 
+        run: yarn install 
       - name: Build with VitePress
         run: yarn docs:build
       - name: Upload artifact
