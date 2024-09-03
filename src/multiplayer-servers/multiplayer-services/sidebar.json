@@ -32,6 +32,15 @@
           ]
         }
       ]
+    },
+    {
+      "text":"SteelShield",
+      "items": [
+        {
+          "text": "SteelShield for Agones",
+          "link":  "/multiplayer-services/steelshield/steelshield-for-agones"
+        }
+      ]
     }
   ]
 }
