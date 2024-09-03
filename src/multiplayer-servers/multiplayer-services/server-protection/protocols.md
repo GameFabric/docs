@@ -31,8 +31,8 @@ You can restrict your Protocol to only support either UDP or TCP, even though th
 Allowing both protocols while only one is supported by the Mitigation is not allowed.
 :::
 
-Once the Protocol is created, it is available to all ArmadaSets, Armadas, Formations and Vessels.
-Nonetheless you need to actively select a Protection Protocol for each game server port of these entities.
+Once the Protocol is created, you may use it in any ArmadaSet, Armada, Formation or Vessel.
+In order to do so, in their Container configuration page, you must select a Protection Protocol for each game server port.
 
 ## Protect Game Server Ports
 
