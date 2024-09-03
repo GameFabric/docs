@@ -47,7 +47,7 @@ SteelShield applies a mitigation action to the traffic on these ports.
 When the port is unprotected (`none`), SteelShield forwards any traffic without checking or filtering it.
 
 You can find the Protocol assignment right next to the port specification under 
-Vessel » Settings » Containers » Container Ports. It is the same for Armada Sets, Armadas and Formations.
+Vessel » Settings » Containers » Container Ports. It is the same for ArmadaSets, Armadas and Formations.
 
 ![game-server-ports.png](images/game-server-ports.png)
 
