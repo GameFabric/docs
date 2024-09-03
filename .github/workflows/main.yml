@@ -20,3 +20,9 @@ jobs:
         run: yarn install
       - name: Build Docs
         run: yarn docs:build
+  spellcheck:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Markdown Spellcheck 
+      uses: rojopolis/spellcheck-github-actions@0.41.0
+            
