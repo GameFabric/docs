@@ -45,12 +45,9 @@ In order to make all of your game server's ports secure, it is strongly recommen
 
 When the port is unprotected (`none`), traffic is forwarded as-is.
 
-You can find the Protocol assignment to the right of the port specification under 
-Vessel » Settings » Containers » Container Ports. It is the same for ArmadaSets, Armadas and Formations.
+You can find the Protocol assignment to the right of the port specification for your containers.
 
 ![game-server-ports.png](images/game-server-ports.png)
-
-You are only allowed to select Protection Protocols that are compatible with the selected network protocol (UDP, TCP).
 
 ::: warning
 The assignment triggers an immediate rollout with the new port assignment.
