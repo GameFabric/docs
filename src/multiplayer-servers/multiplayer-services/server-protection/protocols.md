@@ -31,14 +31,14 @@ You can restrict your Protocol to only support one UDP or TCP, even though the M
 The other way around – allow both where only one is supported by the Mitigation – is not allowed.
 :::
 
-Once the Protocol is created, it is available to all ArmadaSets, Armadas, Formations or Vessels.
+Once the Protocol is created, it is available to all ArmadaSets, Armadas, Formations and Vessels.
 Nonetheless you need to actively select a Protection Protocol for each game server port of these entities.
 
 ## Protect game server ports
 
 Any ArmadaSet, Armada, Formation or Vessel requires at least one game server port. 
 This port is usually to allow communication between your game server and your connecting game clients.
-It is common to even use multiple ports, one for the game engine, one for query services and so on.
+It is however common to use multiple ports, one for the game engine, one for query services and so on.
 For each of them you can apply different Protocols.
 
 All ports are potentially vulnerable to attack, so by setting a Protection Protocol,
@@ -46,7 +46,7 @@ SteelShield applies a mitigation action to the traffic on these ports.
 
 When the port is unprotected (`none`), SteelShield forwards any traffic without checking or filtering it.
 
-You can find the Protocol assignment right next to the port specification under 
+You can find the Protocol assignment to the right of the port specification under 
 Vessel » Settings » Containers » Container Ports. It is the same for ArmadaSets, Armadas and Formations.
 
 ![game-server-ports.png](images/game-server-ports.png)
