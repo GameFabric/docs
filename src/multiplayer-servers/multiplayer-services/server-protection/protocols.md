@@ -19,7 +19,7 @@ To make use of the pre-defined mitigations you must create a new Protocol.
 
 A Protocol — sometimes referred to as Protection Protocol, to distinguish it from a 
 network protocol such as UDP or TCP,
-describes the application protocol used by your game traffic or service.
+describes the application protocol used by your game or service.
 
 When you create a new Protocol, you must select a Mitigation and a network protocol.
 The network protocol that you select must be compatible with the Mitigation and their network protocol in order to be selectable.
