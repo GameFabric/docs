@@ -28,7 +28,7 @@ The network protocol that you select must be compatible with the Mitigation and 
 
 ::: warning
 You can restrict your Protocol to only support one UDP or TCP, even though the Mitigation would allow both.
-The other way round – allow both where only one is supported by the Mitigation – is not allowed.
+The other way around – allow both where only one is supported by the Mitigation – is not allowed.
 :::
 
 Once the Protocol is created, it is available to all ArmadaSets, Armadas, Formations or Vessels.
