@@ -34,11 +34,11 @@
       ]
     },
     {
-      "text":"SteelShield",
+      "text":"Server Protection",
       "items": [
         {
-          "text": "SteelShield for Agones",
-          "link":  "/multiplayer-services/steelshield/steelshield-for-agones"
+          "text": "Ports and Protocols",
+          "link":  "/multiplayer-services/server-protection/protocols"
         }
       ]
     }

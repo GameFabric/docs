@@ -1,13 +1,13 @@
-# SteelShield for Agones
+# Ports and Protocols
 
-SteelShield for Agones protects the Agones game server traffic from your GameFabric installation
-with powerful mitigations.
+Game server ports are often vulnerable to attacks. 
+GameFabric offers so-called Protocols to protect your ports with powerful SteelShield mitigations.
 
 ## Pre-requisites
 
-In order to protect the Agones game server traffic, your GameFabric installation requires:
+In order to protect the your game server traffic, your GameFabric installation requires:
 
-- The SteelShield for Agones support enabled, usually indicated by the presence of the Protection/SteelShield navigation item.
+- Protection support enabled, usually indicated by the presence of the Protection/SteelShield navigation item.
 - Sites that support SteelShield, e.g. bare-metal.
 
 ## Mitigations
