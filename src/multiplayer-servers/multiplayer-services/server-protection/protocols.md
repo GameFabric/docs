@@ -8,7 +8,7 @@ GameFabric offers Protocols to protect your game server traffic with powerful St
 In order to protect your game server's traffic, your GameFabric installation requires:
 
 - Protection support enabled, usually indicated by the presence of the Protection/SteelShield navigation item.
-- Sites that support SteelShield, e.g. bare-metal.
+- Sites that support SteelShield.
 
 ## Mitigations
 
@@ -17,12 +17,12 @@ To make use of the pre-defined mitigations you must create a new Protocol.
 
 ## Protocols
 
-A Protocol — sometimes referred to as Protection Protocol, to distinguish it from a 
-network protocol such as UDP or TCP,
+A Protocol — sometimes referred to as Protection Protocol, 
+to distinguish it from a network protocol such as UDP or TCP,
 describes the application protocol used by your game or service.
 
-When you create a new Protocol, you must select a Mitigation and a network protocol.
-The network protocol that you select must be compatible with the Mitigation and their network protocol in order to be selectable.
+Some Mitigations only support specific network protocols, such as UDP and TCP.
+In those cases, it is impossible to select a network protocol that is not supported by the Mitigation you selected.
 
 ![create-protocol.png](images/create-protocol.png)
 
