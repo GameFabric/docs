@@ -19,7 +19,7 @@ To make use of the pre-defined mitigations you must create a new Protocol.
 
 A Protocol – sometimes referred to as Protection Protocol, to distinguish it from a 
 network protocol such as UDP or TCP –
-describes your game traffic or what ever type of traffic you send through your game server ports.
+describes the application protocol used by your game traffic or service.
 
 When you create a new Protocol, you must select a Mitigation and a network protocol.
 The network protocol that you select must be compatible with the Mitigation and their network protocol in order to be selectable.
@@ -31,18 +31,18 @@ You can restrict your Protocol to only support one UDP or TCP, even though the M
 The other way round – allow both where only one is supported by the Mitigation – is not allowed.
 :::
 
-Once the Protocol is created, it is available to all Armada Sets, Armadas, Formations or Vessels.
+Once the Protocol is created, it is available to all ArmadaSets, Armadas, Formations or Vessels.
 Nonetheless you need to actively select a Protection Protocol for each game server port of these entities.
 
 ## Protect game server ports
 
-Any Armada Set, Armada, Formation or Vessel requires at least one game server port. 
+Any ArmadaSet, Armada, Formation or Vessel requires at least one game server port. 
 This port is usually to allow communication between your game server and your connecting game clients.
 It is common to even use multiple ports, one for the game engine, one for query services and so on.
 For each of them you can apply different Protocols.
 
-All ports are potentially vulnerable to attacks, so by setting a Protection Protocol,
-SteelShield applies a mitigation action to the traffic that goes through these ports.
+All ports are potentially vulnerable to attack, so by setting a Protection Protocol,
+SteelShield applies a mitigation action to the traffic on these ports.
 
 When the port is unprotected (`none`), SteelShield forwards any traffic without checking or filtering it.
 
@@ -64,5 +64,5 @@ Sites represent the clusters where game servers run, and SteelShield is not supp
 If you scale up and end up having game servers on multiple Sites, you may have game servers that are protected,
 and game servers that are not protected, even if they run under the same revision.
 
-We are working on a feature to provide insights on whether an Armada Sets,
+We are working on a feature to provide insights on whether an ArmadaSets,
 Armada, Formation or Vessel is protected, partially protected, or unprotected.
