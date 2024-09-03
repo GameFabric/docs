@@ -5,20 +5,20 @@ GameFabric offers Protocols to protect your game server traffic with powerful St
 
 ## Pre-requisites
 
-In order to protect the your game server traffic, your GameFabric installation requires:
+In order to protect your game server's traffic, your GameFabric installation requires:
 
 - Protection support enabled, usually indicated by the presence of the Protection/SteelShield navigation item.
 - Sites that support SteelShield, e.g. bare-metal.
 
 ## Mitigations
 
-SteelShield provides mitigations that are tailored to check and let through only specific game or network traffic.
+SteelShield provides mitigations that are tailored to check and only allow specific network traffic.
 To make use of the pre-defined mitigations you must create a new Protocol.
 
 ## Protocols
 
-A Protocol – sometimes referred to as Protection Protocol, to distinguish it from a 
-network protocol such as UDP or TCP –
+A Protocol — sometimes referred to as Protection Protocol, to distinguish it from a 
+network protocol such as UDP or TCP,
 describes the application protocol used by your game traffic or service.
 
 When you create a new Protocol, you must select a Mitigation and a network protocol.
@@ -27,24 +27,23 @@ The network protocol that you select must be compatible with the Mitigation and 
 ![create-protocol.png](images/create-protocol.png)
 
 ::: warning
-You can restrict your Protocol to only support one UDP or TCP, even though the Mitigation would allow both.
-The other way around – allow both where only one is supported by the Mitigation – is not allowed.
+You can restrict your Protocol to only support either UDP or TCP, even though the Mitigation would allow both.
+Allowing both protocols while only one is supported by the Mitigation is not allowed.
 :::
 
 Once the Protocol is created, it is available to all ArmadaSets, Armadas, Formations and Vessels.
 Nonetheless you need to actively select a Protection Protocol for each game server port of these entities.
 
-## Protect game server ports
+## Protect Game Server Ports
 
 Any ArmadaSet, Armada, Formation or Vessel requires at least one game server port. 
-This port is usually to allow communication between your game server and your connecting game clients.
-It is however common to use multiple ports, one for the game engine, one for query services and so on.
-For each of them you can apply different Protocols.
+This port is usually meant for communication between your game server and game clients.
+In most cases however, your game server exposes more than a single port.
+Each of those ports can be configured to use a different Protocol.
 
-All ports are potentially vulnerable to attack, so by setting a Protection Protocol,
-SteelShield applies a mitigation action to the traffic on these ports.
+In order to make all of your game server's ports secure, it is strongly recommended to apply a Protection Protocol to each of them.
 
-When the port is unprotected (`none`), SteelShield forwards any traffic without checking or filtering it.
+When the port is unprotected (`none`), traffic is forwarded as-is.
 
 You can find the Protocol assignment to the right of the port specification under 
 Vessel » Settings » Containers » Container Ports. It is the same for ArmadaSets, Armadas and Formations.
@@ -54,13 +53,13 @@ Vessel » Settings » Containers » Container Ports. It is the same for ArmadaSe
 You are only allowed to select Protection Protocols that are compatible with the selected network protocol (UDP, TCP).
 
 ::: warning
-The assignment will trigger a rollout with the new port assignment.
+The assignment triggers an immediate rollout with the new port assignment.
 Allocated game servers as always are not affected, so they keep running under the old setup.
 :::
 
-## Unsupported sites
+## Unsupported Sites
 
-Sites represent the clusters where game servers run, and SteelShield is not supported on all Sites. 
+Sites are game server clusters, and SteelShield is not supported on all Sites. 
 If you scale up and end up having game servers on multiple Sites, you may have game servers that are protected,
 and game servers that are not protected, even if they run under the same revision.
 
