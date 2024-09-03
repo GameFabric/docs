@@ -1,7 +1,7 @@
 # Ports and Protocols
 
 Game server ports are often vulnerable to attacks. 
-GameFabric offers so-called Protocols to protect your ports with powerful SteelShield mitigations.
+GameFabric offers Protocols to protect your game server traffic with powerful SteelShield mitigations.
 
 ## Pre-requisites
 
