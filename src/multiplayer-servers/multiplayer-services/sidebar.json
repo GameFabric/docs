@@ -32,6 +32,15 @@
           ]
         }
       ]
+    },
+    {
+      "text":"Server Protection",
+      "items": [
+        {
+          "text": "Ports and Protocols",
+          "link":  "/multiplayer-services/server-protection/protocols"
+        }
+      ]
     }
   ]
 }
