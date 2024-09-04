@@ -3,8 +3,7 @@
 Gateway policies provide an additional layer of protection for your game infrastructure by 
 redirecting specific outgoing game server traffic to destinations such as your game backend.
 
-If SteelShield is active, it might also block legitimate connection attempts or responses 
-due to its lack of awareness of your legitimate outgoing traffic.
+If SteelShield is active while unaware of your legitimate outgoing traffic, it might block connection attempts or responses that are not meant to be filtered.
 
 Implementing Gateway Policies offers an effective solution to prevent both issues.
 
@@ -32,8 +31,8 @@ A Gateway Policy specifies a set of destination CIDRs for which outgoing traffic
 
 ![create-gateway-policy.png](images/create-gateway-policy.png)
 
-To manage your various game backends or other services you interact with,
-you can create multiple Gateway Policies and assign them to your ArmadaSet, Armada, Formation, and Vessel.
+To manage the services and backends you interact with,
+you can create multiple Gateway Policies and assign them to your ArmadaSets, Armadas, Formations, and Vessels.
 
 You can assign the Gateway Policies in the Advanced Settings section of your game server configuration in GameFabric.
 
@@ -41,15 +40,13 @@ You can assign the Gateway Policies in the Advanced Settings section of your gam
 
 ::: info
 The assignment triggers an immediate rollout with the new policy assignment.
-Allocated game servers as always are not affected, so they keep running under the old setup.
+Allocated game servers are not affected, so they keep running under the old setup.
 
 Updating an existing Gateway Policy on the other hand, does _not_ trigger a rollout.
 :::
-
 
 ## Exceptions
 
 In some cases, especially when there is a large number of new game servers,
 the application of the policy to a new game server may be delayed, 
 allowing traffic that is meant to be routed through the gateway to leave via the game host.
-
