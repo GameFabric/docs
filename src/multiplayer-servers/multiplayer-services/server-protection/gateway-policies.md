@@ -14,7 +14,7 @@ would no longer be able to communicate with your game backend.
 
 By redirecting traffic from your game server through the gateway, 
 the traffic originates from gateway IP addresses that are typically unknown to attackers. 
-This makes spoofing a game host's IP address [largely](#exceptions) ineffective.
+This makes spoofing a game host's IP address [largely](#exceptions) ineffective at disrupting communications with your game backend.
 
 ## Pre-requisites
 
