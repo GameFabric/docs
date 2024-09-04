@@ -7,7 +7,7 @@ If SteelShield is active while unaware of your legitimate outgoing traffic, it m
 
 ## Attack Scenario
 
-Without gateway policies, an attacker can spoof a game host's IP address and send malicious requests to your game backend. 
+Without Gateway Policies, an attacker can spoof a game host's IP address and send malicious requests to your game backend. 
 In response, you or your hosting provider might decide to block the IP address. 
 As a result, your game host, including legitimate game server traffic, 
 would no longer be able to communicate with your game backend.
