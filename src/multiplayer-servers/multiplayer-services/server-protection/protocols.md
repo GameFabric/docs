@@ -43,7 +43,8 @@ Each of those ports can be configured to use a different Protocol.
 
 In order to make all of your game server's ports secure, it is strongly recommended to apply a Protection Protocol to each of them.
 
-When the port is unprotected (`none`), traffic is forwarded as-is.
+When the port is unprotected (`none`), traffic is forwarded as-is with no DDoS protection in place, 
+leaving your server vulnerable to attacks despite protection applies to the other ports.
 
 You can find the Protocol assignment to the right of the port specification for your containers.
 
