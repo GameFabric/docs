@@ -5,8 +5,6 @@ redirecting specific outgoing game server traffic to destinations such as your g
 
 If SteelShield is active while unaware of your legitimate outgoing traffic, it might block connection attempts or responses that are not meant to be filtered.
 
-Implementing Gateway Policies offers an effective solution to prevent both issues.
-
 ## Attack Scenario
 
 Without gateway policies, an attacker can spoof a game host's IP address and send malicious requests to your game backend. 
