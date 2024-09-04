@@ -32,17 +32,20 @@ A Gateway Policy specifies a set of destination CIDRs for which outgoing traffic
 
 ![create-gateway-policy.png](images/create-gateway-policy.png)
 
-To manage your various game backends or other services you interact with, 
+To manage your various game backends or other services you interact with,
 you can create multiple Gateway Policies and assign them to your ArmadaSet, Armada, Formation, and Vessel.
-
-![select-gateway-policies.png](images/select-gateway-policies.png)
 
 You can assign the Gateway Policies in the Advanced Settings section of your game server configuration in GameFabric.
 
-::: warning
+![select-gateway-policies.png](images/select-gateway-policies.png)
+
+::: info
 The assignment triggers an immediate rollout with the new policy assignment.
 Allocated game servers as always are not affected, so they keep running under the old setup.
+
+Updating an existing Gateway Policy on the other hand, does _not_ trigger a rollout.
 :::
+
 
 ## Exceptions
 
