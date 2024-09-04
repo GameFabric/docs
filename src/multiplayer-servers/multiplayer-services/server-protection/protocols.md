@@ -60,6 +60,3 @@ Allocated game servers as always are not affected, so they keep running under th
 Sites are game server clusters, and SteelShield is not supported on all Sites. 
 If you scale up and end up having game servers on multiple Sites, you may have game servers that are protected,
 and game servers that are not protected, even if they run under the same revision.
-
-We are working on a feature to provide insights on whether an ArmadaSets,
-Armada, Formation or Vessel is protected, partially protected, or unprotected.
