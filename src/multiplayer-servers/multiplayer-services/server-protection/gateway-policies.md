@@ -47,4 +47,4 @@ Updating an existing Gateway Policy on the other hand, does _not_ trigger a roll
 
 In some cases, especially when there is a large number of new game servers,
 the application of the policy to a new game server may be delayed, 
-allowing traffic that is meant to be routed through the gateway to leave via the game host.
+allowing traffic that is meant to be routed through the gateway to leave via the game host for a limited time.
