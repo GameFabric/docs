@@ -39,6 +39,10 @@
         {
           "text": "Gateway Policies",
           "link":  "/multiplayer-services/server-protection/gateway-policies"
+        },
+        {
+          "text": "Ports and Protocols",
+          "link":  "/multiplayer-services/server-protection/protocols"
         }
       ]
     }
