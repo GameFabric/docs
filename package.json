@@ -10,7 +10,7 @@
     "docs:serve": "vitepress serve"
   },
   "devDependencies": {
-    "vue": "3.5.0"
+    "vue": "3.5.1"
   },
   "dependencies": {
     "core-js": "^3.38.1",
