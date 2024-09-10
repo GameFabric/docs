@@ -1491,7 +1491,7 @@ __metadata:
   dependencies:
     core-js: "npm:^3.38.1"
     medium-zoom: "npm:^1.1.0"
-    mobx: "npm:^6.13.1"
+    mobx: "npm:^6.13.2"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     redoc: "npm:^2.1.5"
@@ -2634,10 +2634,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:^6.13.1":
-  version: 6.13.1
-  resolution: "mobx@npm:6.13.1"
-  checksum: 10c0/5c1933b6d36bab9f253ec252f42ec3ff4b76d8b3d416a2a3948d097d7aca1eea773a4fa483437409754e60fbed9903432e1f26cc69aae74151750b0052d55cc5
+"mobx@npm:^6.13.2":
+  version: 6.13.2
+  resolution: "mobx@npm:6.13.2"
+  checksum: 10c0/144b408e452e7e4b43a57f0d9b589f614c2549f6440a769ceb90bb4434e7d45915872dee8b8c50775a4b0aa600c89406b4b589f992352cfa58fe3bce68a84711
   languageName: node
   linkType: hard
 
