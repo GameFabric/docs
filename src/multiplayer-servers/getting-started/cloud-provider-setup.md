@@ -1,7 +1,7 @@
 ## Configuring your Cloud Provider
 
 This document describes the steps required to set up your Cloud provider for use with GameFabric. Currently supported
-Cloud providers are Google Cloud, Azure, and AWS.
+Cloud providers are Google Cloud (GCP), Azure, and Amazon Web Services (AWS).
 
 Public documentation is currently limited to Google Cloud. For setup instructions for other Cloud providers, please
 contact your Nitrado Account Manager.
