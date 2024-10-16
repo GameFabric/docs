@@ -35,7 +35,7 @@ This specific resource is not configurable through the Armada UI. It is configur
 
 ## Site
 
-A Site is a cluster that belongs to a Region.
+A Site is a cluster that belongs to a Location.
 This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
 
 ## Branch
