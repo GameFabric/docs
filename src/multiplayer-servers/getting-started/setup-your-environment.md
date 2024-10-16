@@ -4,7 +4,7 @@ In this section you will learn how to setup an Environment and a Region in that 
 
 ## Prerequisites
 
-In order to follow this guide, make sure you have access to ser credentials to access your GameFabric UI with permissions to create Environments and Regions.
+In order to follow this guide, make sure you have credentials to access your GameFabric UI with permissions to create Environments and Regions.
 
 Log into the GameFabric UI before proceeding.
 
