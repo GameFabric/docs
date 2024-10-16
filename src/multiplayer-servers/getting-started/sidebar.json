@@ -4,11 +4,11 @@
   "order": 1,
   "items": [
     {
-      "text":"Introduction",
+      "text": "Introduction",
       "link": "/getting-started/introduction"
     },
     {
-      "text":"Authentication",
+      "text": "Authentication",
       "link": "/getting-started/authentication"
     },
     {
@@ -26,6 +26,10 @@
     {
       "text": "Pushing Container Images",
       "link": "/getting-started/pushing-container-images"
+    },
+    {
+      "text": "Setup your Environment",
+      "link": "/getting-started/setup-your-environment"
     },
     {
       "text": "Running your Game Server",

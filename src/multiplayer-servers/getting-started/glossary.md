@@ -26,12 +26,16 @@ This resource is always managed by an Armada, and can't be configured through th
 
 ## Region
 
-A Region is a geographic area made up of one or more Sites where resources can be hosted.
+A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
+
+## Location
+
+A Location is a group of Sites that share a geographical area and other characteristics.
 This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
 
 ## Site
 
-A Site is a cluster that belongs to a Region.
+A Site is a cluster that belongs to a Location.
 This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
 
 ## Branch
