@@ -8,10 +8,6 @@
       "link": "/getting-started/introduction"
     },
     {
-      "text": "Setup your Environment",
-      "link": "/getting-started/setup-your-environment"
-    },
-    {
       "text": "Authentication",
       "link": "/getting-started/authentication"
     },
@@ -30,6 +26,10 @@
     {
       "text": "Pushing Container Images",
       "link": "/getting-started/pushing-container-images"
+    },
+    {
+      "text": "Setup your Environment",
+      "link": "/getting-started/setup-your-environment"
     },
     {
       "text": "Running your Game Server",
