@@ -22,14 +22,14 @@ If any of those pre-requisites are not met, like if you don't yet have an organi
   * You might have to press **F5** for the folder to become visible
 * Select the _Nitrado_ folder
 * Click the _Add Principal_ button
-* Input `ec-armada-ops@nitrado.net` as the value for _New Principal_
+* Input `operations@gamefabric.com` as the value for _New Principal_
 
 #### Allowing project management
 
 The Nitrado principal requires the permissions to manage all resources within the Nitrado folder.
 **Everything else within your organization is invisible and inaccessible to Nitrado.**
 
-Assign the following roles to the `ec-armada-ops@nitrado.net` principal:
+Assign the following roles to the `operations@gamefabric.com` principal:
 
 * Folder Admin
 * Owner
