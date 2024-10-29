@@ -1,4 +1,4 @@
-## Configuring your Cloud Provider
+# Configuring your Cloud Provider
 
 This document describes the steps required to set up your Cloud provider for use with GameFabric. Currently supported
 Cloud providers are Google Cloud (GCP), Azure, and Amazon Web Services (AWS).
@@ -8,14 +8,14 @@ contact your Nitrado Account Manager.
 
 ## Google Cloud
 
-#### Prerequisites
+### Prerequisites
 
 * You **must** already have an existing Google Cloud organization
 * You **must** possess the necessary permissions to manage principals and billing accounts in your organization
 
 If any of those pre-requisites are not met, like if you don't yet have an organization, you must contact Nitrado as the steps will be different from what is described below.
 
-#### Creating a Principal
+### Creating a Principal
 
 * Visit the [Cloud Resource Manager](https://console.cloud.google.com/cloud-resource-manager) page
   * Click the _Create Folder_ button and name it _Nitrado_
@@ -24,7 +24,7 @@ If any of those pre-requisites are not met, like if you don't yet have an organi
 * Click the _Add Principal_ button
 * Input `ec-armada-ops@nitrado.net` as the value for _New Principal_
 
-#### Allowing project management
+### Allowing project management
 
 The Nitrado principal requires the permissions to manage all resources within the Nitrado folder.
 **Everything else within your organization is invisible and inaccessible to Nitrado.**
@@ -39,7 +39,7 @@ Now follow the same steps in the Organization page, but instead, assign the foll
 
 * Organization Viewer
 
-#### Allowing billing management
+### Allowing billing management
 
 In order to link your billing account to the projects managed by Nitrado, and to create Billing Reports, the Nitrado principal requires following the steps below:
 
@@ -50,6 +50,6 @@ In order to link your billing account to the projects managed by Nitrado, and to
     * `Billing Account User`
     * `Billing Account Viewer`
 
-#### Confirming the setup
+### Confirming the setup
 
 After you have completed the steps above, please contact Nitrado to confirm that the setup is complete.
