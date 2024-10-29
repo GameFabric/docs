@@ -47,6 +47,7 @@ export default defineConfig({
                 text: 'Documentation',
                 items: [
                     {text: 'Multiplayer Servers', link: '/multiplayer-servers/getting-started/introduction'},
+                    {text: 'SteelShield', link: 'adjust me'},
                 ]
             }, {
                 text: 'API Reference',

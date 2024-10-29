@@ -9,8 +9,11 @@ hero:
     tagline: Game Server Orchestration and Management
     actions:
       - theme: brand
-        text: Documentation
+        text: Multiplayer Servers Documentation
         link: /multiplayer-servers/getting-started/introduction
+      - theme: brand
+        text: SteelShield Documentation
+        # link: adjust me
       - theme: brand
         text: Nitrado for Business
         link: https://gamefabric.com/
