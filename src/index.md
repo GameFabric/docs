@@ -13,7 +13,7 @@ hero:
         link: /multiplayer-servers/getting-started/introduction
       - theme: brand
         text: SteelShield Documentation
-        # link: adjust me
+        link: /steelshield/unreal-engine-plugin/introduction
       - theme: brand
         text: Nitrado for Business
         link: https://gamefabric.com/

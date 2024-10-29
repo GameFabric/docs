@@ -47,7 +47,7 @@ export default defineConfig({
                 text: 'Documentation',
                 items: [
                     {text: 'Multiplayer Servers', link: '/multiplayer-servers/getting-started/introduction'},
-                    {text: 'SteelShield', link: 'adjust me'},
+                    {text: 'SteelShield', link: '/steelshield/unreal-engine-plugin/introduction'},
                 ]
             }, {
                 text: 'API Reference',
