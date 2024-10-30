@@ -6,15 +6,11 @@ Token Service*.
 There are 2 Token Provider implementations which are supplied with the *SteelShield Plugin*, but the plugin integrator
 is able to develop their own Token Provider that works with their backend should they have a custom backend solution.
 
-***
-**NOTE**
-
+> [!CAUTION]
 > It is advised that as much of the authentication and JWT generation as 
 > possible is done on the game backend server so that attackers are not 
 > able to reverse engineer and extract certificates on the client side 
 > in order to generate valid tokens that can be used in an attack. 
-
-***
 
 ## EOS Token Provider
 
