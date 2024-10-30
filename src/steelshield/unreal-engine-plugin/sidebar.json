@@ -5,23 +5,23 @@
   "items": [
     {
       "text": "Introduction",
-      "link": "/steelshield/unreal-engine-plugin/introduction"
+      "link": "/unreal-engine-plugin/introduction"
     },
     {
       "text": "Required Components",
-      "link": "/steelshield/unreal-engine-plugin/requirements"
+      "link": "/unreal-engine-plugin/requirements"
     },
     {
       "text": "Token Provider",
-      "link": "/steelshield/unreal-engine-plugin/tokenprovider"
+      "link": "/unreal-engine-plugin/tokenprovider"
     },
     {
       "text": "Getting Started",
-      "link": "/steelshield/unreal-engine-plugin/getting-started"
+      "link": "/unreal-engine-plugin/getting-started"
     },
     {
       "text": "Using The Plugin",
-      "link": "/steelshield/unreal-engine-plugin/using-the-plugin"
+      "link": "/unreal-engine-plugin/using-the-plugin"
     }
   ]
 }

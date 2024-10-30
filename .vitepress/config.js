@@ -121,7 +121,7 @@ function getEntries(srcPath, dirs) {
         }
         const sidebar = JSON.parse(sidebarRAW);
 
-        entries.push(rewriteLinksRecursive('multiplayer-servers', sidebar));
+        entries.push(rewriteLinksRecursive(srcPath.split('/').pop(), sidebar));
     }
 
     if (hasDuplicatePosition(entries)) {
