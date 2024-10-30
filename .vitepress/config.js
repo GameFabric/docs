@@ -47,6 +47,7 @@ export default defineConfig({
                 text: 'Documentation',
                 items: [
                     {text: 'Multiplayer Servers', link: '/multiplayer-servers/getting-started/introduction'},
+                    {text: 'SteelShield', link: '/steelshield/unreal-engine-plugin/introduction'},
                 ]
             }, {
                 text: 'API Reference',
@@ -120,7 +121,7 @@ function getEntries(srcPath, dirs) {
         }
         const sidebar = JSON.parse(sidebarRAW);
 
-        entries.push(rewriteLinksRecursive('multiplayer-servers', sidebar));
+        entries.push(rewriteLinksRecursive(srcPath.split('/').pop(), sidebar));
     }
 
     if (hasDuplicatePosition(entries)) {
