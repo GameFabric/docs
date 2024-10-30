@@ -1,6 +1,6 @@
 # Using the Plugin
 
-Please ensure you have the SteelShield plugin correctly set up as described in the Getting Started section.
+Please ensure you have the SteelShield plugin correctly set up as described in the [Getting Started](/steelshield/unreal-engine-plugin/getting-started) section.
 
 To use the SteelShield Plugin from within your game, you will first need to configure the settings unique to your game,
 initialise the subsystem and provide it with a token provider which the subsystem can use to get new tokens, and finally
