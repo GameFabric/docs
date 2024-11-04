@@ -1491,7 +1491,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     redoc: "npm:^2.2.0"
     styled-components: "npm:^6.1.13"
-    vitepress: "npm:^1.4.2"
+    vitepress: "npm:^1.4.5"
     vue: "npm:3.5.12"
   languageName: unknown
   linkType: soft
@@ -4007,9 +4007,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitepress@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "vitepress@npm:1.4.2"
+"vitepress@npm:^1.4.5":
+  version: 1.4.5
+  resolution: "vitepress@npm:1.4.5"
   dependencies:
     "@docsearch/css": "npm:^3.6.2"
     "@docsearch/js": "npm:^3.6.2"
@@ -4038,7 +4038,7 @@ __metadata:
       optional: true
   bin:
     vitepress: bin/vitepress.js
-  checksum: 10c0/43fb3c3a34bcaf9331a61ca859d8a2e046d08084382786556bbd7deac6c439c1bccdb9461e2337578acef73ada83fdf1464ee556d1b0c8ed3fc0c048dd97d307
+  checksum: 10c0/f5aeb951183f66cb1a8bc22e9fa022df3c8ccc14acaf95eaeeb0fd81f34ba8d231fd5badebe4933e383aded3c739142e4abad08712e2d6e88a2056423bcd0e3a
   languageName: node
   linkType: hard
 
