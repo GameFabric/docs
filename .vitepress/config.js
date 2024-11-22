@@ -23,6 +23,9 @@ export default defineConfig({
         ['meta', {property: 'og:url', content: 'https://docs.gamefabric.com/'}],
     ],
     themeConfig: {
+        search: {
+          provider: 'local'
+        },
         socialLinks: [
             { icon: 'github', link: 'https://github.com/GameFabric' },
         ],
