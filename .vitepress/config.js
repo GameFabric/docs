@@ -13,7 +13,6 @@ export default defineConfig({
     metaChunk: true,
     head: [
         ['link', {rel: 'icon', href: '/favicon.ico'}],
-        ['meta', {name: "robots", content: "noindex"}],
         ['meta', {name: 'theme-color', content: '#ffd744'}],
         ['meta', {property: 'og:type', content: 'website'}],
         ['meta', {property: 'og:locale', content: 'en'}],
