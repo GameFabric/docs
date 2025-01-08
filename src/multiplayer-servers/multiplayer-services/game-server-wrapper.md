@@ -42,7 +42,7 @@ Here are the steps to do this this:
 
 ### Add the Wrapper to your Container Image
 
-Releases of the wrapper are publicly available here: https://github.com/gamefabric/gswrapper/releases.
+Releases of the wrapper are publicly available at: https://github.com/gamefabric/gswrapper/releases.
 
 Depending on how you create your container image, the integration for it can be as simple as:
 
@@ -124,8 +124,10 @@ The available template variables are:
 
 #### Configuration Files
 
-The wrapper can be configured to generate a template configuration file before invoking the game server.
+The wrapper can be configured to render a templated configuration file before executing the game server.
+
 It needs a template file as input, which must be available in the wrapper's container, and an output file path.
+
 The available template variables are the same as for the [command-line arguments](#command-line-arguments).
 
 | Command-line argument    | Environment variable   | Description                                                |
@@ -153,8 +155,7 @@ gsw --config.template-path=template.yaml --config.output-path=config.yaml -- /ap
 
 The wrapper supports tailing log files and printing them to stdout using the wrapper's logger. This can be used to enable log collection for log files, which would otherwise be inaccessible.
 
-This allows you to see the logs in real time, for example if you're using a Vessel,
-and implies that they will be sent to our aggregated log solution.
+In a containerized environment, only logs that are printed to stdout from the first process (PID 1) are collected and are available to be displayed and searched.
 Log files, on the other hand, would otherwise be lost as soon as the container of the gameserver is stopped.
 
 | Command-line argument | Environment variable | Description                                                       |
@@ -189,7 +190,7 @@ gsw --shutdown.ready=1h --shutdown.allocated=24h -- /app/gameserver
 
 ### Crash Reporting
 
-Lastly, the crash handler can be configured to automatically run an executable in the event of a server crash.
+Lastly, the crash handler can be configured to run an executable in the event of a server crash. This executable could, for instance, run a debugger on the coredump file to generate a stack trace or to upload the full dump somewhere.
 The path to the executable must be specified, and the executable file itself must be present at the path in the image and carry the executable flag.
 
 | Command-line argument               | Environment variable              | Description                                                                                                                        |
@@ -206,10 +207,9 @@ gsw --crashhandler.exec=crash.sh --crashhandler.args="{{ .GameServerIP }}" --cra
 
 ## Summary
 
-The wrapper extends the capabilities of your game server to facilitate interaction with Agones and within the Kubernetes infrastructure.
-You can choose to use some features while leaving others unused, and you can choose to integrate features into your game server yourself.
-Especially when gathering information about Agones, we encourage you to take the first steps as early as possible, as they will be needed later on anyway for an
-ideal integration.
+The wrapper provides a number of convenience features to facilitate the integration with GameFabric.
+The offered features could all be implemented in the gameserver itself, however.
+Especially using the Agones SDK to implement signaling of state and to obtain runtime information about your running Gameserver instances is recommended.
 
 A more technical but up-to-date documentation about the features can be found here, along with the latest version:
 https://github.com/GameFabric/gswrapper.
