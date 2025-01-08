@@ -40,7 +40,7 @@ Here are the steps to do this this:
     - Use the new image
     - Configure the wrapper
 
-### Add the wrapper to your container image
+### Add the Wrapper to your Container Image
 
 Releases of the wrapper are publicly available here: https://github.com/gamefabric/gswrapper/releases.
 
@@ -60,20 +60,19 @@ We provide builds for common used architectures and operating systems.
 Contact us if you need a build that is not available.
 
 ::: info
-The wrapper is dependency free with one exception. It expects an Agones sidecar, which is always present in GameFabric.
-If you want to run it locally for development, you need run the Agones SDK server dummy locally (
-see [Agones documentation](https://agones.dev/site/docs/guides/client-sdks/local/)).
+The wrapper is dependency-free with one exception. It expects an Agones sidecar, which is always present in GameFabric.
+If you want to run it locally for development, you need run the Agones SDK server dummy locally
+(see [Agones documentation](https://agones.dev/site/docs/guides/client-sdks/local/)).
 :::
 
-We also follow [semantic versioning](https://semver.org/), which implies which version you can safely use or upgrade to without breaking changes.
+We use [semantic versioning](https://semver.org/), which indicates that minor and patch updates are safe to use without breaking changes.
 
-Finally, push your new image back into the GameFabric image registry, and make sure that the Armada or Vessel you're working with
-uses the updated image.
+Finally, push your new image to the GameFabric image registry, and ensure that the Armada or Vessel uses it.
 
 ### Configure GameFabric
 
 Whether you're using an Armada or a Vessel, configuring them to use the wrapper is the same.
-Go to Settings > Containers and update the new command for your game server container image.
+Go to Settings > Containers and update the command for your game server container image.
 
 Before:
 
@@ -84,30 +83,30 @@ Before:
 After (with the wrapper):
 
 ```shell
-/app/gsw -- /app/gameserver <ARG> [--option]
+/app/gsw [--gsw-option] -- /app/gameserver <ARG> [--option]
 ```
 
-This calls the wrapper instead of the game server (assuming `gameserver` this is the executable of your game server),
-but instructs the wrapper to call the game server with the arguments or options that your game server requires.
+This executes the wrapper instead of the game server (assuming `gameserver` this is the executable of your game server),
+but lets the wrapper pass the arguments on to your gameserver binary.
 
 ## Features
 
-The wrapper comes with a number of features to minimize your integration efforts with GameFabric or Agones,
-and to provide value around your stack, such as [log tailing](#log-tailing) or [crash reports](#crash-reporting).
+The wrapper provides a number of convenience features to facilitate the integration with GameFabric, such as [tailing of log files](#log-tailing) or [handling crashes and unclena exits](#crash-reporting).
 
 ### Templating
 
-The wrapper consumes basic information from the Agones Sidecar, like IP address or game port, as well as
-environment variables, e.g. set via GameFabric. This can also be implemented by your game server, and we encourage you to
-do so, but if you're not there yet, or if your game server relies on having a port passed to it
-you can access these variables through the wrapper.
+The wrapper collects basic runtime information from Agones, like IP address and ports, and the set of
+environment variables for your gameserver.
 
-The wrapper uses the standard Go templating syntax and its basic functionality as
-described [here](https://pkg.go.dev/text/template#section-documentation).
+It is able to pass the collected information as command-line arguments to your gameserver, or to render them into confugration files.
 
-#### Command-line arguments
+> [!TIP]
+> The information collected is also available by directly querying the information via the Agones SDK.
 
-The wrapper can be configured to generate a templated command to run the game server.
+The wrapper uses the standard [Go templating syntax](https://pkg.go.dev/text/template#section-documentation) to configure the command line to run your game server.
+
+#### Command-line Arguments
+
 The available template variables are:
 
 | Placeholder                            | Type                | Description                                                                                                                                                                                                 |
@@ -150,13 +149,13 @@ gameserver:
 gsw --config.template-path=template.yaml --config.output-path=config.yaml -- /app/gameserver --config=config.yaml
 ```
 
-### Log tailing
+### Log Tailing
 
-The wrapper supports tailing log files and printing them to stdout using the wrapper's logger.
+The wrapper supports tailing log files and printing them to stdout using the wrapper's logger. This can be used to enable log collection for log files, which would otherwise be inaccessible.
 
 This allows you to see the logs in real time, for example if you're using a Vessel,
 and implies that they will be sent to our aggregated log solution.
-This can be important because containers, including their log files, are volatile and would otherwise be lost if the container is stopped.
+Log files, on the other hand, would otherwise be lost as soon as the container of the gameserver is stopped.
 
 | Command-line argument | Environment variable | Description                                                       |
 |-----------------------|----------------------|-------------------------------------------------------------------|
@@ -168,12 +167,11 @@ This can be important because containers, including their log files, are volatil
 gsw --tail-log.paths=gameserver.log --tail-log.paths=error.log -- /app/gameserver
 ```
 
-### Shutdown handling
+### Shutdown Handling
 
-The wrapper can manage the lifetime of the game server by initiating the shutdown for different phases and after a configured
-duration.
+The wrapper can terminate the game server after an elapsed amount of time, by shutting it down a configured duration, depending on it's state (`Scheduled`, `Ready`, `Allocated`).
 
-This can be useful to force the shutdown of stuck game servers or to allow fleet compaction.
+This is useful to force the shutdown of stuck game servers or to allow fleet compaction.
 
 | Command-line argument  | Environment variable | Description                                                                                          |
 |------------------------|----------------------|------------------------------------------------------------------------------------------------------|
@@ -189,10 +187,10 @@ This can be useful to force the shutdown of stuck game servers or to allow fleet
 gsw --shutdown.ready=1h --shutdown.allocated=24h -- /app/gameserver
 ```
 
-### Crash reporting
+### Crash Reporting
 
 Lastly, the crash handler can be configured to automatically run an executable in the event of a server crash.
-The executable (e.g. a shell script to upload a crash dump) must be provided, executable and be part of the container image.
+The path to the executable must be specified, and the executable file itself must be present at the path in the image and carry the executable flag.
 
 | Command-line argument               | Environment variable              | Description                                                                                                                        |
 |-------------------------------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
