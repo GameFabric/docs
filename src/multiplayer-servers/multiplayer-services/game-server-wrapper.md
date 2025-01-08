@@ -4,6 +4,7 @@ The game server wrapper, also known as the wrapper, gswrapper or gsw, can be use
 inside the container image that runs your GameFabric Armadas or Vessels.
 
 The following features are available:
+
 - [Parameter templating](#command-line-arguments)
 - [Configuration file templating](#configuration-files),
 - [Shutdown handling](#shutdown-handling),
@@ -15,7 +16,7 @@ The following features are available:
 Before using the wrapper, make sure that:
 
 - You have a container image that contains your game server binary
-  (see [Building](/multiplayer-servers/getting-started/building-a-container-image) & 
+  (see [Building](/multiplayer-servers/getting-started/building-a-container-image) &
   [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)),
 - You have either an Armada or Vessel configured to run the container image
   (see [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server)).
@@ -25,25 +26,26 @@ the wrapper can already help with its templating features.
 
 ## Integration
 
-The wrapper is a binary executable file. 
+The wrapper is a binary executable file.
 You have to run the wrapper instead of your game server, and the wrapper runs your game server,
 including parameters or options.
 
 Here are the steps to do this this:
 
 - [Add the wrapper to your container image](#add-the-gsw-to-your-container-image)
-  - Download the binary file,
-  - Make it executable,
-  - Build and push the new image.
+    - Download the binary file,
+    - Make it executable,
+    - Build and push the new image.
 - [Configure GameFabric](#configure-gamefabric)
-  - Use the new image
-  - Configure the wrapper
+    - Use the new image
+    - Configure the wrapper
 
 ### Add the wrapper to your container image
 
 Releases of the wrapper are publicly available here: https://github.com/gamefabric/gswrapper/releases.
 
 Depending on how you create your container image, the integration for it can be as simple as:
+
 ```Dockerfile
 ARG version=v2.2.0
 
@@ -59,7 +61,8 @@ Contact us if you need a build that is not available.
 
 ::: info
 The wrapper is dependency free with one exception. It expects an Agones sidecar, which is always present in GameFabric.
-If you want to run it locally for development, you need run the Agones SDK server dummy locally (see [Agones documentation](https://agones.dev/site/docs/guides/client-sdks/local/)).
+If you want to run it locally for development, you need run the Agones SDK server dummy locally (
+see [Agones documentation](https://agones.dev/site/docs/guides/client-sdks/local/)).
 :::
 
 We also follow [semantic versioning](https://semver.org/), which implies which version you can safely use or upgrade to without breaking changes.
@@ -69,15 +72,17 @@ uses the updated image.
 
 ### Configure GameFabric
 
-Whether you're using an Armada or a Vessel, configuring them to use the wrapper is the same. 
+Whether you're using an Armada or a Vessel, configuring them to use the wrapper is the same.
 Go to Settings > Containers and update the new command for your game server container image.
 
 Before:
+
 ```shell
 /app/gameserver <ARG> [--option]
 ```
 
 After (with the wrapper):
+
 ```shell
 /app/gsw -- /app/gameserver <ARG> [--option]
 ```
@@ -92,7 +97,7 @@ and to provide value around your stack, such as [log tailing](#log-tailing) or [
 
 ### Templating
 
-The wrapper consumes basic information from the Agones Sidecar, like IP address or game port, as well as 
+The wrapper consumes basic information from the Agones Sidecar, like IP address or game port, as well as
 environment variables, e.g. set via GameFabric. This can also be implemented by your game server, and we encourage you to
 do so, but if you're not there yet, or if your game server relies on having a port passed to it
 you can access these variables through the wrapper.
@@ -105,12 +110,12 @@ described [here](https://pkg.go.dev/text/template#section-documentation).
 The wrapper can be configured to generate a templated command to run the game server.
 The available template variables are:
 
-| Placeholder           | Type                | Description                                                                                                                                                                                                 |
-|-----------------------|:--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `{{.GameServerIP}}`   | `string`            | The IP given by Agones to the game server.                                                                                                                                                                  |
-| `{{.GameServerPort}}` | `uint16`            | The port given by Agones to the game server. Defaults to the port named `game`, or if there is no port with that name, to the first port found. A different name can be configured using `--ports.primary`. |
-| `{{.Ports}}`          | `map[string]uint16` | The known game server ports.                                                                                                                                                                                |
-| `{{.Env}}`            | `map[string]string` | The environment variables.                                                                                                                                                                                  |
+| Placeholder                            | Type                | Description                                                                                                                                                                                                 |
+|----------------------------------------|:--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code v-pre>{{.GameServerIP}}</code>   | `string`            | The IP given by Agones to the game server.                                                                                                                                                                  |
+| <code v-pre>{{.GameServerPort}}</code> | `uint16`            | The port given by Agones to the game server. Defaults to the port named `game`, or if there is no port with that name, to the first port found. A different name can be configured using `--ports.primary`. |
+| <code v-pre>{{.Ports}}</code>          | `map[string]uint16` | The known game server ports.                                                                                                                                                                                |
+| <code v-pre>{{.Env}}</code>            | `map[string]string` | The environment variables.                                                                                                                                                                                  |
 
 **Example:**
 
@@ -136,9 +141,9 @@ The available template variables are the same as for the [command-line arguments
 gameserver:
   ip: "{{ .GameServerIP }}"
   port: "{{ .GameServerPort }}"
-  {{- if .Env.POD_NAME }}
+  {{ - if .Env.POD_NAME }}
   servername: "{{ .Env.POD_NAME }}"
-  {{- end }}
+  {{ - end }}
 ```
 
 ```shell
@@ -205,7 +210,8 @@ gsw --crashhandler.exec=crash.sh --crashhandler.args="{{ .GameServerIP }}" --cra
 
 The wrapper extends the capabilities of your game server to facilitate interaction with Agones and within the Kubernetes infrastructure.
 You can choose to use some features while leaving others unused, and you can choose to integrate features into your game server yourself.
-Especially when gathering information about Agones, we encourage you to take the first steps as early as possible, as they will be needed later on anyway for an ideal integration.
+Especially when gathering information about Agones, we encourage you to take the first steps as early as possible, as they will be needed later on anyway for an
+ideal integration.
 
 A more technical but up-to-date documentation about the features can be found here, along with the latest version:
 https://github.com/GameFabric/gswrapper.
