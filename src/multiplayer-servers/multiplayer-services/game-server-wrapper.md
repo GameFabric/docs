@@ -87,7 +87,7 @@ After (with the wrapper):
 /app/gsw [--gsw-option] -- /app/gameserver <ARG> [--option]
 ```
 
-This executes the wrapper instead of the game server (assuming `gameserver` this is the executable of your game server),
+This executes the wrapper instead of the game server (assuming `gameserver` is the executable of your game server),
 but lets the wrapper pass the arguments on to your gameserver binary.
 
 ## Features
@@ -143,13 +143,13 @@ The available template variables are the same as for the [command-line arguments
 gameserver:
   ip: "{{ .GameServerIP }}"
   port: "{{ .GameServerPort }}"
-  {{ - if .Env.POD_NAME }}
+  {{- if .Env.POD_NAME }}
   servername: "{{ .Env.POD_NAME }}"
-  {{ - end }}
+  {{- end }}
 ```
 
 ```shell
-gsw --config.template-path=template.yaml --config.output-path=config.yaml -- /app/gameserver --config=config.yaml
+/app/gsw --config.template-path=template.yaml --config.output-path=config.yaml -- /app/gameserver --config=config.yaml
 ```
 
 ### Log Tailing
@@ -166,12 +166,12 @@ Log files, on the other hand, would otherwise be lost as soon as the container o
 **Example:**
 
 ```shell
-gsw --tail-log.paths=gameserver.log --tail-log.paths=error.log -- /app/gameserver
+/app/gsw --tail-log.paths=gameserver.log --tail-log.paths=error.log -- /app/gameserver
 ```
 
 ### Shutdown Handling
 
-The wrapper can terminate the game server after an elapsed amount of time, by shutting it down a configured duration, depending on it's state (`Scheduled`, `Ready`, `Allocated`).
+The wrapper can terminate the game server after an elapsed amount of time, by shutting it down a configured duration, depending on its state (`Scheduled`, `Ready`, `Allocated`).
 
 This is useful to force the shutdown of stuck game servers or to allow fleet compaction.
 
@@ -181,12 +181,10 @@ This is useful to force the shutdown of stuck game servers or to allow fleet com
 | `--shutdown.ready`     | `SHUTDOWN_READY`     | Shutdown when the game server has been `Ready` for the given duration (default: `0s`, disabled).     |
 | `--shutdown.allocated` | `SHUTDOWN_ALLOCATED` | Shutdown when the game server has been `Allocated` for the given duration (default: `0s`, disabled). |
 
-`Scheduled`, `Ready` and `Allocated` refer to the Agones states explained [here](https://agones.dev/site/docs/reference/gameserver/#gameserver-state-diagram).
-
 **Example:**
 
 ```shell
-gsw --shutdown.ready=1h --shutdown.allocated=24h -- /app/gameserver
+/app/gsw --shutdown.ready=1h --shutdown.allocated=24h -- /app/gameserver
 ```
 
 ### Crash Reporting
@@ -203,7 +201,7 @@ The path to the executable must be specified, and the executable file itself mus
 **Example:**
 
 ```shell
-gsw --crashhandler.exec=crash.sh --crashhandler.args="{{ .GameServerIP }}" --crashhandler.args="{{ .GameServerPort }}" --crashhandler.max-execution-time=5m
+/app/gsw --crashhandler.exec=crash.sh --crashhandler.args="{{ .GameServerIP }}" --crashhandler.args="{{ .GameServerPort }}" --crashhandler.max-execution-time=5m
 ```
 
 ## Summary
