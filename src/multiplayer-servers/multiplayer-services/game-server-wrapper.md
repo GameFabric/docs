@@ -74,18 +74,26 @@ Finally, push your new image to the GameFabric image registry, and ensure that t
 ### Configure GameFabric
 
 Whether you're using an Armada or a Vessel, configuring them to use the wrapper is the same.
-Go to Settings > Containers and update the command for your game server container image.
+Go to Settings > Containers and update the command and arguments for your game server container image.
 
 Before:
 
 ```shell
-/app/gameserver <ARG> [--option]
+# Command
+/app/gameserver 
+
+# Arguments
+<ARG> [--option]
 ```
 
 After (with the wrapper):
 
 ```shell
-/app/gsw [--gsw-option] -- /app/gameserver <ARG> [--option]
+# Command
+/app/gsw 
+
+# Arguments
+[--gsw-option] -- /app/gameserver <ARG> [--option]
 ```
 
 This executes the wrapper instead of the game server (assuming `gameserver` is the executable of your game server),
