@@ -61,7 +61,8 @@ We provide builds for common used architectures and operating systems.
 Contact us if you need a build that is not available.
 
 ::: info
-The wrapper is dependency-free with one exception. It expects an Agones sidecar, which is always present in GameFabric.
+The wrapper is dependency-free with one exception. 
+It communicates with the Agones sidecar container via localhost which is always available in GameFabric.
 If you want to run it locally for development, you need run the Agones SDK server dummy locally
 (see [Agones documentation](https://agones.dev/site/docs/guides/client-sdks/local/)).
 :::
