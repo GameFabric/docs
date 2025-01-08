@@ -4,7 +4,7 @@
   "order": 3,
   "items": [
     {
-      "text":"Server Allocation",
+      "text":"Game Server Allocation",
       "items": [
         {
           "text": "Allocating from Armadas",
@@ -34,7 +34,11 @@
       ]
     },
     {
-      "text":"Server Protection",
+      "text": "Game Server Wrapper",
+      "link": "/multiplayer-services/game-server-wrapper"
+    },
+    {
+      "text":"Game Server Protection",
       "items": [
         {
           "text": "Gateway Policies",
