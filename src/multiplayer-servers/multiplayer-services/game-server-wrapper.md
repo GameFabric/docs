@@ -1,7 +1,9 @@
 # Game Server Wrapper
 
-The game server wrapper, also known as the wrapper, gswrapper or gsw, can be used to run your game server executable
+The game server wrapper, also known as the wrapper, gswrapper or gsw, can be used to launch your game server executable
 inside the container image that runs your GameFabric Armadas or Vessels.
+
+By starting the executable as a wrapper it can enable various convenience features.
 
 The following features are available:
 
@@ -16,7 +18,7 @@ The following features are available:
 Before using the wrapper, make sure that:
 
 - You have a container image that contains your game server binary
-  (see [Building](/multiplayer-servers/getting-started/building-a-container-image) &
+  (see [Building](/multiplayer-servers/getting-started/building-a-container-image) and
   [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)),
 - You have either an Armada or Vessel configured to run the container image
   (see [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server)).
@@ -27,15 +29,14 @@ the wrapper can already help with its templating features.
 ## Integration
 
 The wrapper is a binary executable file.
-You have to run the wrapper instead of your game server, and the wrapper runs your game server,
-including parameters or options.
+It is executed as the main command in the container and in turn executes your game server binary, passing it its command-line arguments.
 
 Here are the steps to do this this:
 
 - [Add the wrapper to your container image](#add-the-gsw-to-your-container-image)
-    - Download the binary file,
-    - Make it executable,
-    - Build and push the new image.
+    - Download the binary file
+    - Make it executable
+    - Build and push the new image
 - [Configure GameFabric](#configure-gamefabric)
     - Use the new image
     - Configure the wrapper
