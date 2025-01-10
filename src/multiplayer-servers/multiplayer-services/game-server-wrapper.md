@@ -48,7 +48,7 @@ Releases of the wrapper are publicly available at: https://github.com/gamefabric
 Depending on how you create your container image, the integration for it can be as simple as:
 
 ```Dockerfile
-ARG version=v2.2.0
+ARG version=v2.3.0
 
 ADD https://github.com/GameFabric/gswrapper/releases/download/${version}/gsw_linux_x86_64 \
     /app/gsw
@@ -97,18 +97,18 @@ After (with the wrapper):
 ```
 
 This executes the wrapper instead of the game server (assuming `gameserver` is the executable of your game server),
-but lets the wrapper pass the arguments on to your gameserver binary.
+but lets the wrapper pass the arguments on to your game server binary.
 
 ## Features
 
-The wrapper provides a number of convenience features to facilitate the integration with GameFabric, such as [tailing of log files](#log-tailing) or [handling crashes and unclena exits](#crash-reporting).
+The wrapper provides a number of convenience features to facilitate the integration with GameFabric, such as [tailing of log files](#log-tailing) or [handling crashes and unclean exits](#crash-reporting).
 
 ### Templating
 
 The wrapper collects basic runtime information from Agones, like IP address and ports, and the set of
-environment variables for your gameserver.
+environment variables for your game server.
 
-It is able to pass the collected information as command-line arguments to your gameserver, or to render them into confugration files.
+It is able to pass the collected information as command-line arguments to your game server, or to render them into configuration files.
 
 > [!TIP]
 > The information collected is also available by directly querying the information via the Agones SDK.
@@ -166,7 +166,7 @@ gameserver:
 The wrapper supports tailing log files and printing them to stdout using the wrapper's logger. This can be used to enable log collection for log files, which would otherwise be inaccessible.
 
 In a containerized environment, only logs that are printed to stdout from the first process (PID 1) are collected and are available to be displayed and searched.
-Log files, on the other hand, would otherwise be lost as soon as the container of the gameserver is stopped.
+Log files, on the other hand, would otherwise be lost as soon as the container of the game server is stopped.
 
 | Command-line argument | Environment variable | Description                                                       |
 |-----------------------|----------------------|-------------------------------------------------------------------|
@@ -180,7 +180,7 @@ Log files, on the other hand, would otherwise be lost as soon as the container o
 
 ### Shutdown Handling
 
-The wrapper can terminate the game server after an elapsed amount of time, by shutting it down a configured duration, depending on its state (`Scheduled`, `Ready`, `Allocated`).
+The wrapper can terminate the game server after an elapsed amount of time, by shutting it down after a configured duration, depending on its state (`Scheduled`, `Ready`, `Allocated`).
 
 This is useful to force the shutdown of stuck game servers or to allow fleet compaction.
 
@@ -198,7 +198,7 @@ This is useful to force the shutdown of stuck game servers or to allow fleet com
 
 ### Crash Reporting
 
-Lastly, the crash handler can be configured to run an executable in the event of a server crash. This executable could, for instance, run a debugger on the coredump file to generate a stack trace or to upload the full dump somewhere.
+Lastly, the crash handler can be configured to run an executable in the event of a server crash. This executable could, for instance, run a debugger on the coredump file to generate a stack trace or to upload the full dump.
 The path to the executable must be specified, and the executable file itself must be present at the path in the image and carry the executable flag.
 
 | Command-line argument               | Environment variable              | Description                                                                                                                        |
@@ -216,8 +216,8 @@ The path to the executable must be specified, and the executable file itself mus
 ## Summary
 
 The wrapper provides a number of convenience features to facilitate the integration with GameFabric.
-The offered features could all be implemented in the gameserver itself, however.
-Especially using the Agones SDK to implement signaling of state and to obtain runtime information about your running Gameserver instances is recommended.
+The offered features could all be implemented in the game server itself, however.
+Especially using the Agones SDK to implement signaling of state and to obtain runtime information about your running game server instances is recommended.
 
 A more technical but up-to-date documentation about the features can be found here, along with the latest version:
 https://github.com/GameFabric/gswrapper.
