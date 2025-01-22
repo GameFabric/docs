@@ -19,7 +19,7 @@ Before setting up a third-party OAuth provider, ensure the following:
 Delegating authentication to an external provider is straightforward with GameFabric. Follow the steps below to configure a new OIDC provider.
 
 ### Step 1: Add a New Provider
-1. Navigate to the [OIDC Providers page](https://development.gamefabric.dev/ui/rbac/providers/oidc).
+1. Navigate to the [OIDC Providers page](From Left Main Menu -> Access Management -> OIDC Providers).
 2. Click **Add Provider**.
 
 ![Add Provider Screenshot](image.png)
