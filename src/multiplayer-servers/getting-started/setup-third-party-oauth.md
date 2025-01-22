@@ -10,17 +10,13 @@ GameFabric allows our Users to plug their own Authentication Provider, to carry 
 - An OIDC Provider and "ClientID", "ClientSecret" ()
 
 # How to set up Third Party OAuth?
-Integrate Single Sign-On, authorization and authentication without sharing credentials to GF
-
-setup your provider,assign roles to users, make your installation ready to be used by others
+Delegating the Authentication Flow on GameFabric to an external provider can be accomplished via configuring a new OIDC Provider.
 
 # OIDC Provider
-
 OIDC (OpenID Connect) is an Identity Layer built on top of the OAuth 2.0 that enables secure User Authentication and 
 Identity Information exchange between a client application, like GameFabric, and an identity provider.
 
 # Setting up a new OIDC
-
 - Navigate to "https://development.gamefabric.dev/ui/rbac/providers/oidc" and click "Add Provider"
 
 ![alt text](image.png)
