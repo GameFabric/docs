@@ -1,67 +1,62 @@
-# What is it?
-GameFabric excels at seperating concepts and concerns in order to provide our Users flexibility, security and sustainability.
 
-One of those concepts is Authentication.
+# GameFabric: Setting Up Third-Party OAuth Integration
 
-GameFabric allows our Users to plug their own Authentication Provider in, to carry out their own Authentication Flow externally, without GameFabric knowing or having access to sensitive Authentication data.
+## Overview
+GameFabric is designed to separate concepts and concerns, providing users with enhanced flexibility, security, and sustainability. 
 
-# Pre-requisites
-- An existing GameFabric Installation and access to it via the default user
-- An OIDC Provider and "ClientID", "ClientSecret" ()
+One key feature is **Authentication**. GameFabric enables seamless integration with external authentication providers, allowing users to execute their own authentication flows without GameFabric accessing or storing sensitive authentication data.
 
-# How to set up Third Party OAuth?
-Delegating the Authentication Flow on GameFabric to an external provider can be accomplished via configuring a new OIDC Provider.
+## Prerequisites
+Before setting up a third-party OAuth provider, ensure the following:
 
-# OIDC Provider
-OIDC (OpenID Connect) is an Identity Layer built on top of the OAuth 2.0 that enables secure User Authentication and 
-Identity Information exchange between a client application, like GameFabric, and an identity provider.
+- An active GameFabric installation with access through the default user.
+- An OIDC (OpenID Connect) provider, including a **Client ID** and **Client Secret**.
 
-# Setting up a new OIDC
-- Navigate to "https://development.gamefabric.dev/ui/rbac/providers/oidc" and click "Add Provider"
+## What Is OIDC?
+**OIDC (OpenID Connect)** is an identity layer built on OAuth 2.0. It enables secure user authentication and identity information exchange between a client application, such as GameFabric, and an external identity provider.
 
-![alt text](image.png)
+## Setting Up Third-Party OAuth in GameFabric
+Delegating authentication to an external provider is straightforward with GameFabric. Follow the steps below to configure a new OIDC provider.
 
-- Enter a desired display "ID" and display "Name" for your new Provider
+### Step 1: Add a New Provider
+1. Navigate to the [OIDC Providers page](https://development.gamefabric.dev/ui/rbac/providers/oidc).
+2. Click **Add Provider**.
 
-![alt text](image-1.png)
+![Add Provider Screenshot](image.png)
 
-- On the second step, configure the "Issuer" you'd like to use, and the "Client ID" and "Client Secret" that was provided to you via this issuer.
+3. Enter a desired **Display ID** and **Display Name** for your new provider.
 
-![alt text](image-2.png)
+![Provider Details Screenshot](image-1.png)
 
-- Third step is for configuring which claims will be requested with given scopes
+### Step 2: Configure Issuer and Credentials
+1. Specify the **Issuer URL** provided by your OIDC provider.
+2. Enter the **Client ID** and **Client Secret** issued by the provider.
 
-![alt text](image-3.png)
+![Issuer Configuration Screenshot](image-2.png)
 
-- Claim configurations
+### Step 3.1: Define Claim Configurations
+1. Configure the claims to request from the OIDC provider using the **Scopes** textbox. Common scopes include:
 
-    - "Scopes" textbox can be used for requesting additional scopes from the OIDC to GameFabric
+![Scopes Screenshot](image-5.png)
 
-    Here are some common "scopes":
+2. Define the following mappings:
+   - **UserID Key**: Maps the OIDC provider’s claim to the **User ID** in GameFabric (default: `sub`).
+   - **UserName Key**: Maps the OIDC provider’s claim to the **UserName** in GameFabric (default: `name`).
 
-    ![alt text](image-5.png)
+3. Specify the **Prompt** parameter to control user interaction during authentication. The default value is `consent`. Available prompt options include:
 
-    - "UserID Key" can be used for configuring which claim from the OIDC Provider will be mapped to the "User ID" on GameFabric. Default value is "sub" unless configured otherwise.
+![Prompt Options Screenshot](image-4.png)
 
-    - "UserName Key" can be used for configuring which calim from the OIDC Provider will be mapped to the "UserName" on GameFabric. Default value is "name" unless configured otherwise.
+### Step 3.2: Claim Mapping
+Some OIDC providers return non-standard claims. Use the **Claim Mapping** section to align these with standardized claims in GameFabric.
 
-    - Prompts
-    "Prompt" textbox can be used for forwarding this to the OIDC Provider, which in effect will configure the behaviour of the authentication prompt. Default value is "consent" unless configured otherwise.
+### Step 3.3: Provider Discovery Override
+GameFabric performs a discovery pre-flight to fetch required configuration details from the OIDC provider. If necessary, override the default values for:
+- **Token URL**
+- **Auth URL**
+- **JWKs URL**
 
-    Prompts are specific instructions or parameters that control how the authentication process behaves, particularly when interacting with users. They are part of the authorization request sent from a client application to the identity provider.
+This customization ensures compatibility with providers returning non-standard discovery responses.
 
-    Prompts are defined in the prompt parameter of the OAuth 2.0/OpenID Connect authentication request. They specify how the identity provider should handle user interaction during authentication.
-
-    Here are some "prompt" options:
-
-    ![alt text](image-4.png)
-
-- Claim Mapping
-
-It's possible for some OIDC Providers to return non-standard claims. "Claim Mapping" section can be used for mapping these non-standard claims to more "standardized" GameFabric claims.
-
-- Provider Discovery Override
-
-When a custom OIDC Provider is configured, GameFabric sends an initial "discovery pre-flight" to the provider, which in turn provider returns with necessary information required for carrying out the authentication.
-
-This section allows overriding the "Token URL", "Auth URL" and "JWKs URL" that is returned from the discovery endpoint of the provider.
+## Summary
+By following these steps, you can configure a third-party OAuth integration in GameFabric, enhancing security and maintaining control over your authentication flows. For further assistance, refer to GameFabric’s support resources or consult your OIDC provider documentation.
