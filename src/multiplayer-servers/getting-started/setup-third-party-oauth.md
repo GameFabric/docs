@@ -22,7 +22,7 @@ Delegating authentication to an external provider is straightforward with GameFa
 1. Navigate to the [OIDC Providers page](From Left Main Menu -> Access Management -> OIDC Providers).
 2. Click **Add Provider**.
 
-![Add Provider Screenshot](image.png)
+![Add Provider Screenshot](image-7.png)
 
 3. Enter a desired **Display ID** and **Display Name** for your new provider.
 
