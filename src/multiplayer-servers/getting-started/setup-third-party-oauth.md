@@ -3,7 +3,7 @@ GameFabric excels at seperating concepts and concerns in order to provide our Us
 
 One of those concepts is Authentication.
 
-GameFabric allows our Users to plug their own Authentication Provider, to carry out their own Authentication Flow, without GameFabric knowing or having access to sensitive Authentication data.
+GameFabric allows our Users to plug their own Authentication Provider in, to carry out their own Authentication Flow externally, without GameFabric knowing or having access to sensitive Authentication data.
 
 # Pre-requisites
 - An existing GameFabric Installation and access to it via the default user
