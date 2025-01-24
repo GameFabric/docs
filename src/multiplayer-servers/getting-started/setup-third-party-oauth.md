@@ -2,11 +2,11 @@
 
 ## Overview
 
-GameFabric supports 3rd party OAuth Integration with every OAuth-compatible Identiy Provider, allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
+GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Identiy Provider, allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
 
 ## Prerequisites
 
-Before setting up a third-party OIDC Provider, ensure the following conditions are met:
+Before setting up a Third-Party OIDC Provider, ensure the following conditions are met:
 
 - You have access to an active GameFabric installation with access through the default user.
 - You have an OIDC ([OpenID Connect](https://openid.net/developers/how-connect-works/)) provider, including a **Client ID** and **Client Secret**.
@@ -18,18 +18,18 @@ Before setting up a third-party OIDC Provider, ensure the following conditions a
 1. Navigate to the OIDC Providers page (From Sidebar -> Access Management -> OIDC Providers).
 2. Click **Add Provider**.
 
-![Add Provider Screenshot](create-oidc-provider-main-screenshot.png)
+![Add Provider Screenshot](images/authentication/create-oidc-provider-main-screenshot.png)
 
-3. Enter a desired **Display ID** and **Display Name** for your new provider.
+3. Enter a desired **ID** and **Display Name** for your new provider.
 
-![Provider Details Screenshot](create-oidc-provider-firststep-screenshot.png)
+![Provider Details Screenshot](images/authentication/create-oidc-provider-firststep-screenshot.png)
 
 ### Step 2: Configure Issuer and Credentials
 
 1. Specify the **Issuer URL** of your OIDC provider.
 2. Enter the **Client ID** and **Client Secret** issued by the provider.
 
-![Issuer Configuration Screenshot](create-oidc-provider-secondstep-screenshot.png)
+![Issuer Configuration Screenshot](images/authentication/create-oidc-provider-secondstep-screenshot.png)
 
 ### Step 3: Advanced Details
 
@@ -37,7 +37,7 @@ Before setting up a third-party OIDC Provider, ensure the following conditions a
 
 1. Configure the claims to request from the OIDC provider using the **Scopes** text input.
 
-![Scopes Screenshot](create-oidc-provider-thirdstep-screenshot.png)
+![Scopes Screenshot](images/authentication/create-oidc-provider-thirdstep-screenshot.png)
 
  Common scopes include:
 
@@ -102,7 +102,7 @@ About further information on how to accomplish this, please refer to: https://le
 
 On "Create OIDC Provider" page, fill in ID and Name for Entra:
 
-![Add ENTRA Screenshot](microsoft-entra-main-screenshot.png)
+![Add ENTRA Screenshot](images/authentication/microsoft-entra-main-screenshot.png)
 
 On the next step:
 
@@ -114,7 +114,7 @@ On the next step:
 
   Client ID & Secret should be presented to you by ENTRA when GameFabric is configured as an Application on ENTRA following the steps mentioned in prerequisites
 
-![Microsoft ENTRA Details Screenshot](microsoft-entra-secondstep-screenshot.png)
+![Microsoft ENTRA Details Screenshot](images/authentication/microsoft-entra-secondstep-screenshot.png)
 
 ### Advanced Details
 

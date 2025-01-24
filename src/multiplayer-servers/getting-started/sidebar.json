@@ -32,6 +32,10 @@
       "link": "/getting-started/setup-your-environment"
     },
     {
+      "text": "Setup 3rd-Party Authentication",
+      "link": "/getting-started/setup-third-party-oauth"
+    },
+    {
       "text": "Running your Game Server",
       "link": "/getting-started/running-your-game-server"
     },
