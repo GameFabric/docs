@@ -33,7 +33,9 @@ Before setting up a third-party OIDC Provider, ensure the following conditions a
 
 ![Issuer Configuration Screenshot](create-oidc-provider-secondstep-screenshot.png)
 
-### Step 3.1: Define Claim Configurations
+### Step 3: Advanced Details
+
+#### Define Claim Configurations
 
 1. Configure the claims to request from the OIDC provider using the **Scopes** text input.
 
@@ -62,7 +64,7 @@ Before setting up a third-party OIDC Provider, ensure the following conditions a
 | consent   | Forces the identity provider to show a consent screen, even if the user has already granted consent. |
 | select_account    | Prompts the user to choose an account if they are logged in with multiple accounts. |
 
-### Step 3.2: Claim Mapping
+#### Claim Mapping
 
 Some OIDC providers return non-standard claims. Use the **Claim Mapping** section to align these with standardized claims in GameFabric.
 
@@ -75,7 +77,7 @@ Some of the non-standard claims, and how would they map to GameFabric claims:
 | normalized_username| preferred_username | Lowercased username |
 | secondary_email    | email | Secondary email, that might be wished to map to the principal "email" |
 
-### Step 3.3: Provider Discovery Override
+#### Provider Discovery Override
 
 GameFabric performs a preparatory request to the OIDC Provider to fetch required configuration details. If necessary, override the default values for:
 
