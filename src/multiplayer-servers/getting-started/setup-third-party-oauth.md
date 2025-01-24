@@ -96,7 +96,7 @@ This customization ensures compatibility with providers returning non-standard d
 
 Before configuring ENTRA as a new OIDC Provider on GameFabric, it's required to ensure that GameFabric is configured as an application on ENTRA.
 
-About further information on how to accomplish this, please refer to: https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/add-application-portal
+About further information on how to accomplish this, please refer to: https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens ("Enable ID Tokens" Section)
 
 #### Add ENTRA as a provider
 
