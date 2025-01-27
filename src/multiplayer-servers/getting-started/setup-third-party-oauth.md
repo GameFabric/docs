@@ -1,4 +1,4 @@
-# Setting Up Third-Party OAuth Integration
+# Setup Third-Party OAuth Integration
 
 ## Overview
 
@@ -8,34 +8,52 @@ GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Id
 
 Before setting up a Third-Party OIDC Provider, ensure the following conditions are met:
 
-- You have access to an active GameFabric installation with access through the default user.
+- You have access to an active GameFabric installation with permissions to modify OAuth Providers or the default user. 
 - You have an OIDC ([OpenID Connect](https://openid.net/developers/how-connect-works/)) provider, including a **Client ID** and **Client Secret**.
 
 ## Setting up a new OIDC Provider
 
-### Step 1: Add a New Provider
-
-1. Navigate to the OIDC Providers page (From Sidebar -> Access Management -> OIDC Providers).
-2. Click **Add Provider**.
+Navigate to the "Access Management" section from the Sidebar Menu, and then into the "OIDC Providers" page. You may add a new OIDC Provider via the **Add Provider** button.
 
 ![Add Provider Screenshot](images/authentication/create-oidc-provider-main-screenshot.png)
 
-3. Enter a desired **ID** and **Display Name** for your new provider.
+For outstanding providers such as Microsoft ENTRA or Google Identity Platform; following instructions in [Preliminary Configurations](#preliminary-configurations) are sufficient to complete the integration.
+
+If you are using a non-standardized OIDC Provider, or would like to further customize the authentication flow (modifying prompt behaviour of your OIDC Provider, etc.) please refer to [Advanced Configurations](#advanced-configurations).
+
+### Preliminary configurations
+
+On the "General" step, enter a desired **ID** and **Display Name** for your provider. The OIDC Provider you are about to add will be saved under this **ID** and **Display Name** on GameFabric.
 
 ![Provider Details Screenshot](images/authentication/create-oidc-provider-firststep-screenshot.png)
 
-### Step 2: Configure Issuer and Credentials
+On the "Provider" step, you need to specify the **Issuer URL** of your OIDC provider. This URL points to the OIDC Discovery Document of that particular provider, and GameFabric uses this Discovery Document for integrating with that provider.
 
-1. Specify the **Issuer URL** of your OIDC provider.
-2. Enter the **Client ID** and **Client Secret** issued by the provider.
+GameFabric has to be configured as an external application in the OIDC Provider, for the provider to assign **Client ID & Secret** ([Client ID & Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/)) for GameFabric. GameFabric requires this to connect to your provider.
+
+Fill in the **Client ID & Secret** to their respective text inputs, and click "Next".
 
 ![Issuer Configuration Screenshot](images/authentication/create-oidc-provider-secondstep-screenshot.png)
 
-### Step 3: Advanced Details
+For OIDC Providers with standard behaviour no further configuration is necessary and you may click "Create" button to finish adding your provider.
 
-#### Define Claim Configurations
+![Basic Provider Create Screenshot](images/authentication/create-oidc-provider-basic-finish.png)
 
-1. Configure the claims to request from the OIDC provider using the **Scopes** text input.
+### Advanced Configurations
+
+This section allows further configuration of **Scopes & Claims**, **Prompt**, **Claim Mapping** and **Provider Discovery Override**.
+
+#### Scopes & Claims
+
+GameFabric requests further data about the authenticated user using **Scopes & Claims**.
+
+For example, you may want to use a different email field as the users display email on GameFabric, or a different username than the one your provider forwards you by default.
+
+This is accomplished via requesting additional **Scopes** ([OpenID Scopes](https://auth0.com/docs/get-started/apis/scopes/openid-connect-scopes)) from the OIDC Provider.
+
+As a result, OIDC Provider will return additional **Claims** that contains further information about the authenticated user.
+
+**Scopes** text input can be used for requesting these additional claims during the authentication process. GameFabric will request these **Scopes** from the OIDC Provider.
 
 ![Scopes Screenshot](images/authentication/create-oidc-provider-thirdstep-screenshot.png)
 
@@ -49,12 +67,21 @@ Before setting up a Third-Party OIDC Provider, ensure the following conditions a
 | groups        | Requests group membership claims (if supported by the identity provider)  |
 | custom scopes | Applications or APIs can define their own scopes for specific permissions |
 
+OIDC Providers return **Claims** as a result of a successful authentication. These **Claims** denote information about the authenticated user.
 
-2. Define the following mappings:
-   - **UserID Key**: Maps the OIDC provider’s claim to the **User ID** in GameFabric (default: `sub`).
-   - **UserName Key**: Maps the OIDC provider’s claim to the **UserName** in GameFabric (default: `name`).
+GameFabric uses these **Claims** to map to data related to the user, such as **UserID** and **UserName**
 
-3. Specify the **Prompt** parameter to control user interaction during authentication. The default value is `consent`. Available prompt options include:
+When configuring outstanding providers, such as Microsoft ENTRA, these values are standard. Claim `sub` is mapped to **UserID** and `name` is mapped to **UserName**.
+
+But, it is still possible to use different **Claims** to be configured onto **UserID** and **UserName**.
+
+**UserID Key** text input allows an incoming **Claim** to be mapped onto **UserID** field and **UserName Key** text input allows an incoming **Claim** to be mapped onto **UserName** field.
+
+#### Prompt
+
+OIDC Providers execute authentication via displaying a prompt to the user. This behaviour of the provider may be configured via forwarding the **Prompt** parameter with the authentication request.
+
+Possible **Prompt** values are:
 
 | Prompt         | Description                                                                                                        |
 |----------------|--------------------------------------------------------------------------------------------------------------------|
@@ -63,10 +90,13 @@ Before setting up a Third-Party OIDC Provider, ensure the following conditions a
 | consent        | Forces the identity provider to show a consent screen, even if the user has already granted consent.               |
 | select_account | Prompts the user to choose an account if they are logged in with multiple accounts.                                |
 
+**Prompt** text input allows configuring this parameter, therefore specifying how the OIDC Provider should prompt the user during the authentication. GameFabric will forward this parameter to the provider. Default value will be `consent` if not configured otherwise.
+
+![Prompt Section Screenshot](images/authentication/create-oidc-provider-prompt-screenshot.png)
 
 #### Claim Mapping
 
-Some OIDC providers return non-standard claims. Use the **Claim Mapping** section to align these with standardized claims in GameFabric.
+Some OIDC providers return non-standard claims. **Claim Mapping** section allows mapping these claims into standardized claims in GameFabric.
 
 Some of the non-standard claims, and how would they map to GameFabric claims:
 
@@ -80,7 +110,7 @@ Some of the non-standard claims, and how would they map to GameFabric claims:
 
 #### Provider Discovery Override
 
-GameFabric performs a preparatory request to the OIDC Provider to fetch required configuration details. If necessary, override the default values for:
+GameFabric performs a preparatory request to the OIDC Provider to fetch required configuration details. In the event this request returns incorrect information for your needs, these values can be overridden:
 
 - **Token URL**
 - **Auth URL**
@@ -116,7 +146,5 @@ On the next step:
 
 ![Microsoft ENTRA Details Screenshot](images/authentication/microsoft-entra-secondstep-screenshot.png)
 
-### Advanced Details
-
-Third Step (Advanced) is up to preference with ENTRA, since it already sends expected claims.
+No additional details are required as ENTRA returns all necessary claims and information. You can now start using ENTRA to authenticate users with GameFabric.
 
