@@ -17,7 +17,7 @@ Navigate to the "Access Management" section from the Sidebar Menu, and then into
 
 ![Add Provider Screenshot](images/authentication/create-oidc-provider-main-screenshot.png)
 
-For outstanding providers such as Microsoft ENTRA or Google Identity Platform; following instructions in [Preliminary Configurations](#preliminary-configurations) are sufficient to complete the integration.
+For providers such as Microsoft ENTRA or Google Identity Platform; following instructions in [Preliminary Configurations](#preliminary-configurations) are sufficient to complete the integration.
 
 If you are using a non-standardized OIDC Provider, or would like to further customize the authentication flow (modifying prompt behaviour of your OIDC Provider, etc.) please refer to [Advanced Configurations](#advanced-configurations).
 
@@ -28,6 +28,18 @@ On the "General" step, enter a desired **ID** and **Display Name** for your prov
 ![Provider Details Screenshot](images/authentication/create-oidc-provider-firststep-screenshot.png)
 
 On the "Provider" step, you need to specify the **Issuer URL** of your OIDC provider. This URL points to the OIDC Discovery Document of that particular provider, and GameFabric uses this Discovery Document for integrating with that provider.
+
+**Issuer URL** must only point to the exact discovery endpoint, similar to the examples below; and must NOT include any trailing path (such as "/.well-known/openid-configuration" etc.)
+
+Some **Issuer URL**s are:
+
+| Provider                 | IssuerURL                                               |
+|--------------------------|---------------------------------------------------------|
+| Microsoft ENTRA          | https://login.microsoftonline.com/{tenantID}/v2.0       |
+| Google Identity Platform | https://accounts.google.com                             |
+| Okta                     | https://{yourOktaDomain}/oauth2/default                 |
+| Auth0                    | https://{yourTenant}.auth0.com/                         |
+| Amazon Cognito           | https://cognito-idp.{region}.amazonaws.com/{userPoolId} |
 
 GameFabric has to be configured as an external application in the OIDC Provider, for the provider to assign **Client ID & Secret** ([Client ID & Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/)) for GameFabric. GameFabric requires this to connect to your provider.
 
@@ -41,19 +53,19 @@ For OIDC Providers with standard behaviour no further configuration is necessary
 
 ### Advanced Configurations
 
-This section allows further configuration of **Scopes & Claims**, **Prompt**, **Claim Mapping** and **Provider Discovery Override**.
+This section allows configuration of **Scopes & Claims**, **Prompt**, **Claim Mapping** and **Provider Discovery Override**.
 
 #### Scopes & Claims
 
-GameFabric requests further data about the authenticated user using **Scopes & Claims**.
+GameFabric requests additional data about the authenticated user using **Scopes & Claims**.
 
 For example, you may want to use a different email field as the users display email on GameFabric, or a different username than the one your provider forwards you by default.
 
-This is accomplished via requesting additional **Scopes** ([OpenID Scopes](https://auth0.com/docs/get-started/apis/scopes/openid-connect-scopes)) from the OIDC Provider.
+This is accomplished via requesting **Scopes** ([OpenID Scopes](https://auth0.com/docs/get-started/apis/scopes/openid-connect-scopes)) from the OIDC Provider.
 
-As a result, OIDC Provider will return additional **Claims** that contains further information about the authenticated user.
+As a result, OIDC Provider will return **Claims** that contains additional information about the authenticated user.
 
-**Scopes** text input can be used for requesting these additional claims during the authentication process. GameFabric will request these **Scopes** from the OIDC Provider.
+**Scopes** text input can be used for requesting these claims during the authentication process. GameFabric will request these **Scopes** from the OIDC Provider.
 
 ![Scopes Screenshot](images/authentication/create-oidc-provider-thirdstep-screenshot.png)
 
@@ -79,7 +91,7 @@ But, it is still possible to use different **Claims** to be configured onto **Us
 
 #### Prompt
 
-OIDC Providers execute authentication via displaying a prompt to the user. This behaviour of the provider may be configured via forwarding the **Prompt** parameter with the authentication request.
+OIDC Providers execute authentication via displaying a prompt to the user. This behaviour of the provider may be configured via forwarding the **Prompt** parameter with the authentication request. The default value will be `consent` if not configured.
 
 Possible **Prompt** values are:
 
@@ -89,8 +101,6 @@ Possible **Prompt** values are:
 | login          | Forces the user to **re-authenticate**, even if they are already logged in.                                        |
 | consent        | Forces the identity provider to show a consent screen, even if the user has already granted consent.               |
 | select_account | Prompts the user to choose an account if they are logged in with multiple accounts.                                |
-
-**Prompt** text input allows configuring this parameter, therefore specifying how the OIDC Provider should prompt the user during the authentication. GameFabric will forward this parameter to the provider. Default value will be `consent` if not configured otherwise.
 
 ![Prompt Section Screenshot](images/authentication/create-oidc-provider-prompt-screenshot.png)
 
@@ -110,7 +120,7 @@ Some of the non-standard claims, and how would they map to GameFabric claims:
 
 #### Provider Discovery Override
 
-GameFabric performs a preparatory request to the OIDC Provider to fetch required configuration details. In the event this request returns incorrect information for your needs, these values can be overridden:
+GameFabric performs a preparatory request to the OIDC Provider to fetch required configuration details. If this query returns incorrect information, you can override these values:
 
 - **Token URL**
 - **Auth URL**
