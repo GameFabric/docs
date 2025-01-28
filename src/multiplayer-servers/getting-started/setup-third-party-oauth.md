@@ -41,7 +41,7 @@ Some **Issuer URL**s are:
 | Auth0                    | https://{yourTenant}.auth0.com/                         |
 | Amazon Cognito           | https://cognito-idp.{region}.amazonaws.com/{userPoolId} |
 
-GameFabric has to be configured as an external application in the OIDC Provider, for the provider to assign **Client ID & Secret** ([Client ID & Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/)) for GameFabric. GameFabric requires this to connect to your provider.
+GameFabric must be configured as an external application in the OIDC Provider in order for the provider to assign the [Client ID & Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) for GameFabric.
 
 Fill in the **Client ID & Secret** to their respective text inputs, and click "Next".
 
@@ -79,13 +79,8 @@ As a result, OIDC Provider will return **Claims** that contains additional infor
 | groups        | Requests group membership claims (if supported by the identity provider)  |
 | custom scopes | Applications or APIs can define their own scopes for specific permissions |
 
-OIDC Providers return **Claims** as a result of a successful authentication. These **Claims** denote information about the authenticated user.
 
-GameFabric uses these **Claims** to map to data related to the user, such as **UserID** and **UserName**
-
-When configuring outstanding providers, such as Microsoft ENTRA, these values are standard. Claim `sub` is mapped to **UserID** and `name` is mapped to **UserName**.
-
-But, it is still possible to use different **Claims** to be configured onto **UserID** and **UserName**.
+By default the claim `sub` is mapped to **UserID** and `name` is mapped to **UserName**. It is, however, possible to use different **Claims** to be configured onto **UserID** and **UserName**.
 
 **UserID Key** text input allows an incoming **Claim** to be mapped onto **UserID** field and **UserName Key** text input allows an incoming **Claim** to be mapped onto **UserName** field.
 
