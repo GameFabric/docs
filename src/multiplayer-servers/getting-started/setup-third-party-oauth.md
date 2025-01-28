@@ -63,7 +63,7 @@ For example, you may want to use a different email field as the users display em
 
 This is accomplished via requesting **Scopes** ([OpenID Scopes](https://auth0.com/docs/get-started/apis/scopes/openid-connect-scopes)) from the OIDC Provider.
 
-As a result, OIDC Provider will return **Claims** that contains additional information about the authenticated user.
+As a result, OIDC Provider will return **Claims** that contains information about the authenticated user.
 
 **Scopes** text input can be used for requesting these claims during the authentication process. GameFabric will request these **Scopes** from the OIDC Provider.
 
