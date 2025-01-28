@@ -2,7 +2,7 @@
 
 ## Overview
 
-GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Identiy Provider, allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
+GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Identity Provider, allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
 
 ## Prerequisites
 
@@ -10,6 +10,18 @@ Before setting up a Third-Party OIDC Provider, ensure the following conditions a
 
 - You have access to an active GameFabric installation with permissions to modify OAuth Providers or the default user. 
 - You have an OIDC ([OpenID Connect](https://openid.net/developers/how-connect-works/)) provider, including a **Client ID** and **Client Secret**.
+
+### Configuring Permissions for modifying OIDC Providers
+
+To be able to setup a new OIDC Provider, associated role of the active user must have "GET" and "POST" permissions for the "Providers" resource. This can be configured on RBAC page of the GameFabric UI.
+
+You may check which group(s) a user belongs to from "Groups / Users" page (under "Access Management"). You may also add/remove user(s) from/to group(s) on the "Groups / Users" page.
+
+Navigate to the "Access Management" from the Sidebar Menu, and then into the "Roles" page. On the list that displays roles, find the role you would like to modify permissions of, and click "Edit". 
+
+UI will show you a matrix of "Role - Resource" configurations. Scroll down to the "Providers" resource, and make sure that "GET" and "POST" permissions are ticked.
+
+![Role Resource Matrix Screenshot](images/authentication/create-oidc-provider-role-resource-matrix.png)
 
 ## Setting up a new OIDC Provider
 
@@ -19,7 +31,7 @@ Navigate to the "Access Management" section from the Sidebar Menu, and then into
 
 For providers such as Microsoft ENTRA or Google Identity Platform; following instructions in [Preliminary Configurations](#preliminary-configurations) are sufficient to complete the integration.
 
-If you are using a non-standardized OIDC Provider, or would like to further customize the authentication flow (modifying prompt behaviour of your OIDC Provider, etc.) please refer to [Advanced Configurations](#advanced-configurations).
+If you are using a non-standardized OIDC Provider, or would like to further customize the authentication flow (modifying prompt behavior of your OIDC Provider, etc.) please refer to [Advanced Configurations](#advanced-configurations).
 
 ### Preliminary configurations
 
@@ -47,7 +59,7 @@ Fill in the **Client ID & Secret** to their respective text inputs, and click "N
 
 ![Issuer Configuration Screenshot](images/authentication/create-oidc-provider-secondstep-screenshot.png)
 
-For OIDC Providers with standard behaviour no further configuration is necessary and you may click "Create" button to finish adding your provider.
+For OIDC Providers with standard behavior no further configuration is necessary and you may click "Create" button to finish adding your provider.
 
 ![Basic Provider Create Screenshot](images/authentication/create-oidc-provider-basic-finish.png)
 
@@ -86,7 +98,7 @@ By default the claim `sub` is mapped to **UserID** and `name` is mapped to **Use
 
 #### Prompt
 
-OIDC Providers execute authentication via displaying a prompt to the user. This behaviour of the provider may be configured via forwarding the **Prompt** parameter with the authentication request. The default value will be `consent` if not configured.
+OIDC Providers execute authentication via displaying a prompt to the user. This behavior of the provider may be configured via forwarding the **Prompt** parameter with the authentication request. The default value will be `consent` if not configured.
 
 Possible **Prompt** values are:
 
@@ -135,7 +147,7 @@ About further information on how to accomplish this, please refer to: https://le
 
 #### Add ENTRA as a provider
 
-On "Create OIDC Provider" page, fill in ID and Name for Entra:
+On "Create OIDC Provider" page, fill in ID and Name for ENTRA:
 
 ![Add ENTRA Screenshot](images/authentication/microsoft-entra-main-screenshot.png)
 
