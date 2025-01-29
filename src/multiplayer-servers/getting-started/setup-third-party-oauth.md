@@ -83,21 +83,20 @@ As a result, OIDC Provider will return **Claims** that contains information abou
 
  Common scopes include:
 
-| Scope          | Description                                                                                           |
-|----------------|-------------------------------------------------------------------------------------------------------|
-| openid         | Required for OpenID Connect; requests and ID token                                                    |
-| email          | Requests the user's email address                                                                     |
-| profile        | Requests additional user profile information, such as name and picture                                |
-| groups         | Requests group membership claims (if supported by the identity provider)                              |
-| offline_access | Requests refresh tokens that GameFabric uses if the session of the user with the provider expires |
-| custom scopes  | Applications or APIs can define their own scopes for specific permissions                             |
-
+| Scope          | Description                                                                                                                 |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------|
+| openid         | Required for OpenID Connect; requests and ID token                                                                          |
+| email          | Requests the user's email address                                                                                           |
+| profile        | Requests additional user profile information, such as name and picture                                                      |
+| groups         | Requests group membership claims (if supported by the identity provider)                                                    |
+| offline_access | Requests refresh tokens that GameFabric uses to obtain new access tokens when the user’s session with the provider expires. |
+| custom scopes  | Applications or APIs can define their own scopes for specific permissions                                                   |
 
 By default the claim `sub` is mapped to **UserID** and `name` is mapped to **UserName**. It is, however, possible to use different **Claims** to be configured onto **UserID** and **UserName**.
 
 **UserID Key** text input allows an incoming **Claim** to be mapped onto **UserID** field and **UserName Key** text input allows an incoming **Claim** to be mapped onto **UserName** field.
 
-Scope **offline_access** enables GameFabric to obtain **refresh tokens** from the OIDC Provider. This allows GameFabric to extend your session beyond the default duration, preventing unexpected timeouts during usage. Without this scope, your session may expire abruptly.
+Scope **offline_access** enables GameFabric to obtain **refresh tokens** from the OIDC Provider. This makes automatic renewal of access tokens possible, extending user session beyond the default expiration period. Without this scope, user session will end once the access token of the user expires, requiring them to log in again.
 
 #### Prompt
 
