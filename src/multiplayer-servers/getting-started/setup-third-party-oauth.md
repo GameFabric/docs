@@ -89,7 +89,7 @@ As a result, OIDC Provider will return **Claims** that contains information abou
 | email          | Requests the user's email address                                                                     |
 | profile        | Requests additional user profile information, such as name and picture                                |
 | groups         | Requests group membership claims (if supported by the identity provider)                              |
-| offline_access | Requests **refresh tokens** that GameFabric uses if the session of the user with the provider expires |
+| offline_access | Requests refresh tokens that GameFabric uses if the session of the user with the provider expires |
 | custom scopes  | Applications or APIs can define their own scopes for specific permissions                             |
 
 
