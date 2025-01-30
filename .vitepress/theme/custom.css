@@ -14,6 +14,11 @@
     --vp-c-brand-4: #ccac36;
     --vp-button-brand-bg: unset;
     --vp-button-brand-border: #ccac36;
+
+    --vp-c-tip-1: var(--vp-c-yellow-1);
+    --vp-c-tip-2: var(--vp-c-yellow-2);
+    --vp-c-tip-3: var(--vp-c-yellow-3);
+    --vp-c-tip-soft: var(--vp-c-yellow-soft);
 }
 
 
