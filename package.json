@@ -13,7 +13,7 @@
     "vue": "3.5.13"
   },
   "dependencies": {
-    "core-js": "^3.39.0",
+    "core-js": "^3.40.0",
     "medium-zoom": "^1.1.0",
     "mobx": "^6.13.5",
     "react": "^18.3.1",
