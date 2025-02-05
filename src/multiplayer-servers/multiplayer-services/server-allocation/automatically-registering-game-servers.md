@@ -141,7 +141,16 @@ _ = agones.WatchGameServer(func (gs *sdk.GameServer) {
 })
 ```
 
-Be advised that the annotation keys are not only prefixed, but sanitized to adhere to certain format and length restrictions.
+::: info
+Due to a limitation in the Agones SDK, annotations are not applied in a single call. For this reason a 
+[configurable annotation `ALLOC_PAYLOAD_ANNOTATION_LAST_APPLIED_NAME`](#alloc_payload_annotation_last_applied_name-stringlast-applied)
+is applied last to indicate that all annotations have been applied. Any code needing multiple annocations
+should wait for this annotation to be applied before proceeding.
+:::
+
+Be advised that the annotation keys are not only prefixed, but sanitized to adhere to certain format and length restrictions
+imposed by Kubernetes. The key case is however maintained. See [`ALLOC_PAYLOAD_ANNOTATION`](#alloc_payload_annotation-string) for an example
+on how the payload is mapped to annotations.
 
 ### Read payload from a file
 
@@ -202,7 +211,7 @@ Here is an example mapping:
       2                 // agones.dev/sdk-payload-my-other-key.1.1
     ],                  //
     {                   //
-      "sub": "value"    // agones.dev/sdk-payload-my-other-key.2.sub
+      "Sub": "value"    // agones.dev/sdk-payload-my-other-key.2.Sub
     }
   ]
 }
