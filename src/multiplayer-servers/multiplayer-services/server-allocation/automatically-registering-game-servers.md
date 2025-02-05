@@ -144,7 +144,7 @@ _ = agones.WatchGameServer(func (gs *sdk.GameServer) {
 ::: info
 Due to a limitation in the Agones SDK, annotations are not applied in a single call. For this reason a 
 [configurable annotation `ALLOC_PAYLOAD_ANNOTATION_LAST_APPLIED_NAME`](#alloc_payload_annotation_last_applied_name-stringlast-applied)
-is applied last to indicate that all annotations have been applied. Any code needing multiple annocations
+is applied last to indicate that all annotations have been applied. Any code needing multiple annotations
 should wait for this annotation to be applied before proceeding.
 :::
 
