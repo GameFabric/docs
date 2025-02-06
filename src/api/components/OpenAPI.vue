@@ -99,7 +99,9 @@ onUnmounted(() => {
 .dark, :deep(tbody > tr > td > div ) {
     background:var(--vp-c-bg) !important;
 }
-
+.dark, :deep(.react-tabs__tab--selected) {
+  background: rgba(57, 57, 55, 0.4) !important;
+}
 #redocly {
   background-color: #fff;
   height: 100%;
