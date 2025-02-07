@@ -4,16 +4,17 @@ In this section, you will learn different methods for deleting container images.
 
 ## Prerequisites
 
-Before following this guide, ensure that you have already  [pushed container images](pushing-container-images.md).
+Before following this guide, ensure that you have already [pushed container images](pushing-container-images.md).
 
-1. Log into the GameFabric UI.
-
-2. Navigate to the **Branches** section. 
+1. Navigate to the **Branches** section in the GameFabric UI. 
 ![GUI_branches_overview.png](images/branches/GUI_branches_overview.png)
 
-3. Click View Images to open the branch detail view, which displays all images associated with that branch.
+2. Click View Images to open the branch detail view, which displays all images associated with that branch.
 ![GUI_images_view.png](images/branches/GUI_images_view.png)
 
+::: warning
+Images that are actively in use cannot be deleted!
+:::
 
 ## Delete a Single Tag
 To delete a single tag:
@@ -32,7 +33,6 @@ You can also delete multiple images or tags simultaneously:
 
 2. Click Delete Images at the bottom of the screen. A confirmation modal will appear.
 3. Click Delete to confirm or Cancel to abort.
-![GUI_delete_multiple_modal.png](images/branches/GUI_delete_multiple_modal.png)
 
 ## Delete All Tags of an Image
 If you want to delete all tags of an image at once:
@@ -40,5 +40,4 @@ If you want to delete all tags of an image at once:
 ![GUI_delete_all_tags.png](images/branches/GUI_delete_all_tags.png)
 
 2. A confirmation modal will appear. Click **Delete** to confirm or **Cancel** to abort.
-![GUI_delete_all_tags_modal.png](images/branches/GUI_delete_all_tags_modal.png)
 
