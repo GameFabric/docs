@@ -22,7 +22,7 @@ To delete a single tag:
 2. Select **Delete Tag**.
 ![GUI_delete_tag_dropdown.png](images/branches/GUI_delete_tag_dropdown.png)
 
-3. A confirmation modal will appear. Verify that you have selected the correct image.
+3. A confirmation pop-up will appear. Verify that you have selected the correct image.
 4. Click **Delete** to confirm or **Cancel** to abort.
 ![GUI_delete_tag_modal.png](images/branches/GUI_delete_tag_modal.png)
 
@@ -31,7 +31,7 @@ You can also delete multiple images or tags simultaneously:
 1. Select the images by checking the boxes for each desired row **OR** Use the dropdown above the table to select the entire page or all items at once.
 ![GUI_delete_multiple_selection.png](images/branches/GUI_delete_multiple_selection.png)
 
-2. Click **Delete Images** at the bottom of the screen. A confirmation modal will appear.
+2. Click **Delete Images** at the bottom of the screen. A confirmation pop-up will appear.
 3. Click **Delete** to confirm or **Cancel** to abort.
 
 ## Delete All Tags of an Image
@@ -39,5 +39,5 @@ If you want to delete all tags of an image at once:
 1. Select the **Delete Image (all Tags)** option in the dropdown on the right side of the image row.
 ![GUI_delete_all_tags.png](images/branches/GUI_delete_all_tags.png)
 
-2. A confirmation modal will appear. Click **Delete** to confirm or **Cancel** to abort.
+2. A confirmation pop-up will appear. Click **Delete** to confirm or **Cancel** to abort.
 
