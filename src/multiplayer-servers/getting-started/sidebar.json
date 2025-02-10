@@ -28,6 +28,10 @@
       "link": "/getting-started/pushing-container-images"
     },
     {
+      "text": "Deleting Container Images",
+      "link": "/getting-started/deleting-container-images"
+    },
+    {
       "text": "Setup your Environment",
       "link": "/getting-started/setup-your-environment"
     },
