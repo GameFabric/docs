@@ -9,7 +9,7 @@ Before following this guide, ensure that you have already [pushed container imag
 1. Navigate to the **Branches** section in the GameFabric UI. 
 ![GUI_branches_overview.png](images/branches/GUI_branches_overview.png)
 
-2. Click View Images to open the branch detail view, which displays all images associated with that branch.
+2. Click **View Images** to open the branch detail view, which displays all images associated with that branch.
 ![GUI_images_view.png](images/branches/GUI_images_view.png)
 
 ::: warning
@@ -31,8 +31,8 @@ You can also delete multiple images or tags simultaneously:
 1. Select the images by checking the boxes for each desired row **OR** Use the dropdown above the table to select the entire page or all items at once.
 ![GUI_delete_multiple_selection.png](images/branches/GUI_delete_multiple_selection.png)
 
-2. Click Delete Images at the bottom of the screen. A confirmation modal will appear.
-3. Click Delete to confirm or Cancel to abort.
+2. Click **Delete Images** at the bottom of the screen. A confirmation modal will appear.
+3. Click **Delete** to confirm or **Cancel** to abort.
 
 ## Delete All Tags of an Image
 If you want to delete all tags of an image at once:
