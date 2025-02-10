@@ -23,7 +23,7 @@ If the callback endpoint returns a JSON response body, this will be embedded und
 to the `/allocate` call. This is especially useful to transmit identifiers that are important for matching telemetry,
 such as host names.
 
-![request-payload.png](images/allocating-from-armadas/request-payload.png)
+![request-payload.png "Payload flow during registration and allocation"](images/allocating-from-armadas/request-payload.png)
 
 In addition to this custom data, the response to `/allocate` will also include the `token` that was used for
 authentication towards the callback endpoint. This establishes a common identifier for the allocation between the
