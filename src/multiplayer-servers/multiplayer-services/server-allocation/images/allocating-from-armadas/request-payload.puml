@@ -1,0 +1,33 @@
+@startuml
+
+' Header.
+
+title Payload flow during registration and allocation
+
+hide footbox
+
+participant Agones
+participant "Game Server"
+participant Allocator
+participant "Match Maker"
+
+"Game Server" -> Agones : ""sdk.ready()""
+"Game Server" -> Allocator : ""register(name:gs-1)""
+note left: register with (optional)\ngame server payload
+
+group allocation
+"Match Maker" -> "Allocator" : ""allocate(mode:ffa)""
+note right: allocate with (optional)\nmatchmaker payload
+
+"Allocator" -> "Game Server" : ""notify(mode:ffa)""
+
+"Game Server" -> Agones : ""sdk.allocate()""
+"Game Server" --> "Match Maker" : "" return (name=gs-1)""
+
+"Game Server" -> Agones : ""sdk.annotate(mode:ffa)""
+
+|||
+
+end
+
+@enduml
