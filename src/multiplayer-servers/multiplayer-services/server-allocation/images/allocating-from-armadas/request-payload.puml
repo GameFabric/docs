@@ -12,17 +12,17 @@ participant Allocator
 participant "Match Maker"
 
 "Game Server" -> Agones : ""sdk.ready()""
-"Game Server" -> Allocator : ""register(name:gs-1)""
-note left: register with (optional)\ngame server payload
+"Game Server" -> Allocator : ""register()""
 
 group allocation
 "Match Maker" -> "Allocator" : ""allocate(mode:ffa)""
-note right: allocate with (optional)\nmatchmaker payload
+note right: allocate with\npayload
 
 "Allocator" -> "Game Server" : ""notify(mode:ffa)""
 
 "Game Server" -> Agones : ""sdk.allocate()""
 "Game Server" --> "Match Maker" : "" return (name=gs-1)""
+note left: respond with\ngame server payload
 
 "Game Server" -> Agones : ""sdk.annotate(mode:ffa)""
 
