@@ -15,16 +15,16 @@ participant "Match Maker"
 "Game Server" -> Allocator : ""register()""
 
 group allocation
-    "Match Maker" -> "Allocator" : ""allocate(mode:ffa)""
+    "Match Maker" -> "Allocator" : ""allocate(mode:ctf)""
     note right: allocate with\npayload
 
-    "Allocator" -> "Game Server" : ""notify(mode:ffa)""
+    "Allocator" -> "Game Server" : ""notify(mode:ctf)""
 
     "Game Server" -> Agones : ""sdk.allocate()""
     "Game Server" --> "Match Maker" : "" return (name=gs-1)""
     note left: respond with\ngame server payload
 
-    "Game Server" -> Agones : ""sdk.annotate(mode:ffa)""
+    "Game Server" -> Agones : ""sdk.annotate(mode:ctf)""
 
     |||
 end
