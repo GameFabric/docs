@@ -45,13 +45,13 @@ is used for.
 
 Select the Region that this Vessel should be run in. Please note that you do not need to specify the type of
 capacity within the Region (i.e. Bare Metal vs. Cloud). This scheduling decision is performed automatically and will
-be adjusted dynamically when capacity changes. 
+be adjusted dynamically when capacity changes.
 
 ![GUI_Create_Vessel_Region.png](images/formation/GUI_Create_Vessel_General.png)
 
 ### Volumes
 
-Volumes are an advanced mechanism to share data between multiple containers within the same pod. Skip it for now. 
+Volumes are an advanced mechanism to share data between multiple containers within the same pod. Skip it for now.
 
 ### Containers
 
@@ -71,12 +71,30 @@ whenever you push a new version.
 :::
 
 #### Environment Variables
+
 Environment variables are a convenient way of exposing configuration options to the game server without defining a
 full configuration file. You can define them as static key/value pairs, or, by selecting the "Pod Field" type, expose
 metadata about the deployed game server, such as the name of the region the game server is deployed to or the version
 of the image in use.
 
 ![GUI_Create_Vessel_Containers_Environment_Variables.png](images/formation/GUI_Create_Vessel_Containers_Environment_Variables.png)
+
+Supported pod fields are:
+
+| Pod field                  | Description                                                        | Resolved by                 |
+|----------------------------|--------------------------------------------------------------------|-----------------------------|
+| `metadata.name`            | Name of the game server, usually referring to the unique pod name. | Kubernetes                  |
+| `metadata.labels['<KEY>']` | Accessor to the game server labels.                                | Kubernetes                  |
+| `metadata.armadaName`      | Name of the associated Armada.                                     | GameFabric (Armada only)    |
+| `metadata.vesselName`      | Name of the associated Vessel.                                     | GameFabric (Formation only) |
+| `metadata.regionName`      | Name of the region.                                                | GameFabric (any)            |
+| `metadata.regionTypeName`  | Name of the region type.                                           | GameFabric (any)            |
+| `metadata.siteName`        | Name of the site.                                                  | GameFabric (any)            |
+| `metadata.imageBranch`     | Name of the image branch of the used game server image.            | GameFabric (any)            |
+| `metadata.imageName`       | Name of the used game server image.                                | GameFabric (any)            |
+| `metadata.imageTag`        | Tag name of the used game server image.                            | GameFabric (any)            |
+
+For a full list of supported Kubernetes fields, see https://kubernetes.io/docs/concepts/workloads/pods/downward-api/#downwardapi-fieldRef.
 
 #### Ports
 
@@ -94,11 +112,9 @@ There are two types of ports you can configure:
   being a notable example). The public port will be randomly chosen at runtime, and the game server then has to locally
   bind to that specific port after retrieving it from the Agones SDK. Passthrough should only be used when required.
 
-
 ![GUI_Create_Vessel_Containers_Ports.png](images/formation/GUI_Create_Vessel_Containers_Ports.png)
 
 Below are some port name conventions and what they are typically used for:
-
 
 | Port Name | Usage                                                                              |
 |-----------|------------------------------------------------------------------------------------|
