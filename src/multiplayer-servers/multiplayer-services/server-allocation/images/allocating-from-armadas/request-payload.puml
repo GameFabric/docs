@@ -11,20 +11,21 @@ participant "Game Server"
 participant Allocator
 participant "Match Maker"
 
-"Game Server" -> Agones : ""sdk.ready()""
-"Game Server" -> Allocator : ""register()""
+"Game Server" -> Agones : ""sdk.Ready()""
+"Game Server" -> Allocator : register
 
 group allocation
-    "Match Maker" -> "Allocator" : ""allocate(mode:ctf)""
+    "Match Maker" -> "Allocator" : ""/allocate {mode:ctf}""
     note right: allocate with\npayload
 
-    "Allocator" -> "Game Server" : ""notify(mode:ctf)""
+    "Allocator" -> "Game Server" : ""/notify {mode:ctf}""
 
-    "Game Server" -> Agones : ""sdk.allocate()""
-    "Game Server" --> "Match Maker" : "" return (name=gs-1)""
+    "Game Server" -> Agones : ""sdk.Allocate()""
+    "Game Server" --> Allocator : ""return {name=gs-1}""
     note left: respond with\ngame server payload
+    Allocator --> "Match Maker" : ""return {name=gs-1}""
 
-    "Game Server" -> Agones : ""sdk.annotate(mode:ctf)""
+    "Game Server" -> Agones : ""sdk.SetAnnotation(mode:ctf)""
 
     |||
 end
