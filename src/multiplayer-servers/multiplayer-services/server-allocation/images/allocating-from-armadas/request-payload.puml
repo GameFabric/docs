@@ -2,7 +2,7 @@
 
 ' Header.
 
-title Payload flow during registration and allocation
+title Payload flow during allocation
 
 hide footbox
 
@@ -15,19 +15,18 @@ participant "Match Maker"
 "Game Server" -> Allocator : ""register()""
 
 group allocation
-"Match Maker" -> "Allocator" : ""allocate(mode:ffa)""
-note right: allocate with\npayload
+    "Match Maker" -> "Allocator" : ""allocate(mode:ffa)""
+    note right: allocate with\npayload
 
-"Allocator" -> "Game Server" : ""notify(mode:ffa)""
+    "Allocator" -> "Game Server" : ""notify(mode:ffa)""
 
-"Game Server" -> Agones : ""sdk.allocate()""
-"Game Server" --> "Match Maker" : "" return (name=gs-1)""
-note left: respond with\ngame server payload
+    "Game Server" -> Agones : ""sdk.allocate()""
+    "Game Server" --> "Match Maker" : "" return (name=gs-1)""
+    note left: respond with\ngame server payload
 
-"Game Server" -> Agones : ""sdk.annotate(mode:ffa)""
+    "Game Server" -> Agones : ""sdk.annotate(mode:ffa)""
 
-|||
-
+    |||
 end
 
 @enduml
