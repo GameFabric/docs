@@ -1,0 +1,33 @@
+@startuml
+
+' Header.
+
+title Payload flow during allocation
+
+hide footbox
+
+participant Agones
+participant "Game Server"
+participant Allocator
+participant "Match Maker"
+
+"Game Server" -> Agones : ""sdk.Ready()""
+"Game Server" -> Allocator : register
+
+group allocation
+    "Match Maker" -> "Allocator" : ""/allocate {mode:ctf}""
+    note right: allocate with\npayload
+
+    "Allocator" -> "Game Server" : ""/notify {mode:ctf}""
+
+    "Game Server" -> Agones : ""sdk.Allocate()""
+    "Game Server" --> Allocator : ""return {name=gs-1}""
+    note left: respond with\ngame server payload
+    Allocator --> "Match Maker" : ""return {name=gs-1}""
+
+    "Game Server" -> Agones : ""sdk.SetAnnotation(mode:ctf)""
+
+    |||
+end
+
+@enduml
