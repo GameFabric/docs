@@ -149,7 +149,7 @@ should wait for this annotation to be applied before proceeding.
 :::
 
 Be advised that the annotation keys are not only prefixed, but sanitized to adhere to certain format and length restrictions
-imposed by Kubernetes. The key case is however maintained. See [`ALLOC_PAYLOAD_ANNOTATION`](#alloc_payload_annotation-string) for an example
+imposed by Kubernetes. The key case is however maintained. See [`ALLOC_PAYLOAD_ANNOTATION`](#alloc-payload-annotation-string) for an example
 on how the payload is mapped to annotations.
 
 ### Write payload to a file
@@ -171,7 +171,7 @@ This has to be done manually.
 ### Return a payload to the Allocator
 
 In order to return information about the game server to the process calling `/allocate` 
-[add the environment variable `ALLOC_CALLBACK_PAYLOAD_ANNOTATION`](#alloc_callback_payload_annotation-string) on the Allocation Sidecar container.
+[add the environment variable `ALLOC_CALLBACK_PAYLOAD_ANNOTATION`](#alloc-callback-payload-annotation-string) on the Allocation Sidecar container.
 The Allocation Sidecar will read the annotations of the game server, and those prefixed with the given string will be compiled
 into a payload that will be sent to the Allocator when the game server is allocated.
 
@@ -181,7 +181,7 @@ ready, otherwise there is no guarantee that the Allocation Sidecar will see all 
 a partial payload may be sent.
 :::
 
-Static payload variables can also be sent by [adding the environment variable `ALLOC_CALLBACK_PAYLOAD_VARS`](#alloc_callback_payload_vars-string) on
+Static payload variables can also be sent by [adding the environment variable `ALLOC_CALLBACK_PAYLOAD_VARS`](#alloc-callback-payload-vars-string) on
 the Allocation Sidecar container.
 
 ## Advanced Configuration
@@ -300,7 +300,7 @@ Given the annotations:
 ```
 "agones.dev/sdk-payload-foo.bar.baz": "test",
 "agones.dev/sdk-payload-foo.bar.Bat": "test2",
-"agones.dev/sdk-payload-key":       "value",
+"agones.dev/sdk-payload-key":         "value",
 ```
 and a prefix of `payload-` the following payload will be sent to the allocator:
 
