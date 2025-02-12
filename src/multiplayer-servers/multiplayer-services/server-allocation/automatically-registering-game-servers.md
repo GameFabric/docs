@@ -172,10 +172,10 @@ This has to be done manually.
 
 In order to return information about the game server to the process calling `/allocate` 
 [add the environment variable `ALLOC_CALLBACK_PAYLOAD_ANNOTATION`](#alloc-callback-payload-annotation-string) on the Allocation Sidecar container.
-The Allocation Sidecar will read the annotations of the game server, and those prefixed with the given string will be compiled
-into a payload that will be sent to the Allocator when the game server is allocated.
+The Allocation Sidecar reads game server annotations, and those prefixed with the given string get compiled
+into a payload that is sent to the Allocator when the game server is allocated.
 
-:::info
+:::danger
 The annotations must be set on the game server before notifying the Agones SDK that the game server is
 ready, otherwise there is no guarantee that the Allocation Sidecar will see all the annotations, and
 a partial payload may be sent.
@@ -285,16 +285,16 @@ The name of the allocator port. The port must be added for the Allocation Sideca
 
 #### `ALLOC_CALLBACK_PAYLOAD_VARS` (`string`)
 
-A comma seperated list of environment variables to include in the response payload to the Allocator.
+A comma-separated list of environment variables to include in the response payload to the Allocator.
 
 #### `ALLOC_CALLBACK_PAYLOAD_ANNOTATION` (`string`)
 
 Uses annotations as the response payload to the Allocator.
-By setting a non-empty value, string extends the existing Agones prefix that is used for annotations.
-Setting it to e.g. `payload-` results in the final prefix being `agones.dev/sdk-payload-`.  
+By setting a non-empty value, the string extends the existing Agones standard prefix to filter annotations.
+Setting it to e.g. `payload-` results in the final prefix being `agones.dev/sdk-payload-`.
 The annotation keys are split using '.' as a separator to create a complex payload.
 
-Here is an example mapping:
+The following is an example mapping.
 
 Given the annotations:
 ```
@@ -302,7 +302,7 @@ Given the annotations:
 "agones.dev/sdk-payload-foo.bar.Bat": "test2",
 "agones.dev/sdk-payload-key":         "value",
 ```
-and a prefix of `payload-` the following payload will be sent to the allocator:
+and a prefix of `payload-` the following payload is sent to the allocator:
 
 ```
 {
