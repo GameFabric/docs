@@ -3,7 +3,6 @@
 The Protection API is a key component of the SteelShield system, a specialized anti-DDoS solution tailored for game server traffic.
 
 The API enables both customers and developers to interact with SteelShield's protection mechanisms, providing visibility into the protection status of game server IPs and allowing configuration of protection settings.
-It integrates with external data sources such as GoBGP and FastNetMon to ensure real-time updates and accurate status monitoring.
 
 ## Purpose
 
