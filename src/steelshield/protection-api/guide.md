@@ -123,10 +123,10 @@ curl -X PATCH \
 
 ## FAQ & Troubleshooting
 
-> Can I use location names instead of location IDs when filtering?
+### Q: Can I use location names instead of location IDs when filtering?
 
-No, that is not supported at the moment.
+A: No, that is not supported at the moment.
 
-> How can I update a single IP instead of a whole network?
+### Q: How can I update a single IP instead of a whole network?
 
-You can specify the individual IP, followed by a `/32` network mask.
+A: You can specify the individual IP, followed by a `/32` network mask.
