@@ -196,22 +196,38 @@ This is useful to force the shutdown of stuck game servers or to allow fleet com
 /app/gsw --shutdown.ready=1h --shutdown.allocated=24h -- /app/gameserver
 ```
 
-### Crash Reporting
+### Post-Stop Hook
 
-Lastly, the crash handler can be configured to run an executable in the event of a server crash. This executable could, for instance, run a debugger on the coredump file to generate a stack trace or to upload the full dump.
+Allows configuration of running an executable after game server stops. This can be a planned shutdown, or a crash. The configured post-stop hook will act according to the configured parameters (see table below).
+
+After game server application stops, post-stop hook will run the configured executable. This executable could, for instance, run a debugger on the coredump file to generate a stack trace or to upload the full dump.
+
 The path to the executable must be specified, and the executable file itself must be present at the path in the image and carry the executable flag.
 
-| Command-line argument               | Environment variable              | Description                                                                                                                        |
-|-------------------------------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| `--crashhandler.exec`               | `CRASHHANDLER_EXEC`               | Path to the crash handler executable.                                                                                              |
-| `--crashhandler.args`               | `CRASHHANDLER_ARGS`               | Crash handler arguments. Can be passed multiple times.                                                                             |
-| `--crashhandler.max-execution-time` | `CRASHHANDLER_MAX_EXECUTION_TIME` | Timeout after which the crash handler should be aborted (default: `30m`). Please add the time unit, as the default is nanoseconds. |
 
-**Example:**
+| Command-line argument                 | Environment variable                | Description                                                                                                                                                                                                                                             |
+|---------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--post-stop-hook.path`               | `POST_STOP_HOOK_PATH`               | Path to the post-stop hook.                                                                                                                                                                                                                             |
+| `--post-stop-hook.args`               | `POST_STOP_HOOK_ARGS`               | The post-stop hooks arguments. Can be used multiple times.                                                                                                                                                                                              |
+| `--post-stop-hook.max-execution-time` | `POST_STOP_HOOK_MAX_EXECUTION_TIME` | Maximum execution time for the post-stop hook (default: `30m`). Warning: The maximum execution time cannot exceed the termination grace period, which is set to 30s. This can be configured on GameFabric-Armadas/Formations-Settings-Advanced section. |
+| `--post-stop-hook.on-error`           | `POST_STOP_HOOK_ON_ERROR`           | Determines if the post-start hook should run, when the game server exited with a non-zero exit code. Core dump crashes always cause the post-start hook to run.                                                                                         |
+| `--post-stop-hook.on-success`         | `POST_STOP_HOOK_ON_SUCCESS`         | Determines if the post-start hook should run, when the game server exited with exit code 0.                                                                                                                                                             |
+
+
+Example:
 
 ```shell
-/app/gsw --crashhandler.exec=crash.sh --crashhandler.args="{{ .GameServerIP }}" --crashhandler.args="{{ .GameServerPort }}" --crashhandler.max-execution-time=5m
+gsw \
+  --post-stop-hook.path=hook.sh \
+  --post-stop-hook.args="{{ .GameServerIP }}" \
+  --post-stop-hook.args="{{ .GameServerPort }}" \
+  --post-stop-hook.max-execution-time=5m \
+  --post-stop-hook.on-error=true \
+  --post-stop-hook.on-success=false
 ```
+
+The GSW provides access to the detected game server exit code and signal (if any)
+by setting the the environment variables `GAMESERVER_EXITCODE` (`int`) and `GAMESERVER_SIGNAL` (`string`) accordingly before calling the hook.
 
 ## Summary
 
