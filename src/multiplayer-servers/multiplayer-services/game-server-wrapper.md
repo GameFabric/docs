@@ -200,7 +200,7 @@ This is useful to force the shutdown of stuck game servers or to allow fleet com
 
 A Post-Stop hook allows an executable to run after the game server stops. It can be configured to trigger in both error and non-error scenarios — whether the server exits due to a failure or shuts down normally.  
 
-Once the game server application stops, the Post-Stop hook executes the configured program. This program can, for example, analyze a core dump to generate a stack trace or upload the full dump for further investigation.  
+Once the game server stops, the Post-Stop hook runs the configured executable. The executable can, for example, analyze a core dump to generate a stack trace or upload the full dump for further investigation.  
 
 The path to the executable must be specified, and the executable file itself must be present at the path in the image and carry the executable flag.
 
