@@ -224,7 +224,7 @@ gsw \
   --post-stop-hook.on-success=false
 ```
 
-Before invoking the hook, the GSW sets the environment variables `GAMESERVER_EXITCODE` (`int`) and `GAMESERVER_SIGNAL` (`string`) to expose the detected game server exit code and signal (if applicable).
+Before invoking the hook, the GSW sets the environment variables `GAMESERVER_EXITCODE` (`int`) and `GAMESERVER_EXITSIGNAL` (`int`) to expose the detected game server exit code and signal (if applicable).
 
 ## Summary
 
