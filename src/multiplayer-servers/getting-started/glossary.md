@@ -52,6 +52,7 @@ You could also run your own sidecars for monitoring or other purposes.
 ## Wrapper
 
 A wrapper can be used to call your game server binary in order to provide additional functionalities.
+
 We provide a wrapper called [Game Server Wrapper](https://docs.gamefabric.com/multiplayer-servers/multiplayer-services/game-server-wrapper).
 
 You could also write your own wrapper.
