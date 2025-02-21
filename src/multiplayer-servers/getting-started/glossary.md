@@ -48,3 +48,10 @@ Those images are scoped by branch. For example, a standard use case would be to 
 A sidecar is a container that runs alongside your game server container, providing additional functionality.
 For example, Nitrado provides an allocator sidecar which can handle the allocation process for you.
 You could also run your own sidecars for monitoring or other purposes.
+
+## Wrapper
+
+A wrapper can be used to call your game server binary in order to provide additional functionalities.
+
+We provide a wrapper called [Game Server Wrapper](https://docs.gamefabric.com/multiplayer-servers/multiplayer-services/game-server-wrapper)
+You could also write your own wrapper.
