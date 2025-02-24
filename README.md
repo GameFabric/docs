@@ -4,7 +4,7 @@
 The static files that are shipped to end users are generated using Vitepress. A full documentation on how to use Vitepress can be found here: https://vitepress.dev/guide/getting-started
 
 ### Local development
-For development, use `yarn install` followed by `yarn docs:dev` and navigate to `http://localhost:5173`.
+For development, either use the containerized variant using `make dev`, or use `yarn install` followed by `yarn docs:dev` and navigate to `http://localhost:5173`.
 
 For a production build, use `yarn docs:build`.
 
