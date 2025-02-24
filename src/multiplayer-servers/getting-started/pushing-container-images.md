@@ -55,6 +55,11 @@ $ docker push ${URL}/${BRANCH}/my-game:v1.2.3
 
 You should now see the game image listed in the branch detail view.
 
+::: info
+We currently can not guarantee that all features work with `podman` due to an open bug related to a [non standard behaviour](https://github.com/containers/podman/issues/15187).
+With that being said we support the full feature set of docker CLI and tests its functionality with each release.
+:::
+
 ![GUI_Branches_Details.png](images/armada/GUI_Branches_Details.png)
 
 This means you can now select that image when creating an Armada.
