@@ -3,6 +3,17 @@
 In GameFabric, there are multiple objects you need to be aware of, that are referenced throughout the documentation. Their names and description are detailed in this section in alphabetical order.
 
 
+## Allocation Sidecar
+The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by Nitrado for easy integration with the [Allocator](#allocator)
+
+
+## Allocator
+The Allocator is a extra product Feature that let's you register you gameservers against it so that your MatchMaker can choose the best available server.
+
+
+see also [docs for using the Allocation Sidecar](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers)
+
+
 ## Armada
 
 An Armada is a collection of Fleets, distributed across multiple Sites within one Region.
