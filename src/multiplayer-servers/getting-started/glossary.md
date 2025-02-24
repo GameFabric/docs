@@ -1,16 +1,28 @@
 # Glossary
 
-In GameFabric, there are multiple objects you need to be aware of, that are referenced throughout the documentation. Their names and description are detailed in this section.
+In GameFabric, there are multiple objects you need to be aware of, that are referenced throughout the documentation. Their names and description are detailed in this section in alphabetical order.
 
-## ArmadaSet
-
-An ArmadaSet is the configuration for a set of Armadas that share the same Fleet template and automatic scaling strategy.
 
 ## Armada
 
 An Armada is a collection of Fleets, distributed across multiple Sites within one Region.
 It can have multiple revisions, which are essentially different versions of the same Armada, as it gets updated.
 Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade)
+
+
+see also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+
+## ArmadaSet
+
+An ArmadaSet is the configuration for a set of Armadas that share the same Fleet template and automatic scaling strategy.
+
+
+see also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+
+## Branch
+
+GameFabric runs its own internal Docker registry proxy, which is where you should push your game server images to in order to have them available in Fleets.
+Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch. The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
 ## Environment
 
@@ -24,30 +36,46 @@ A Fleet is a set of warm GameServers that are available to be allocated from.
 It is an Agones object, which you can find [described in more details in their documentation reference](https://agones.dev/site/docs/reference/fleet/).
 This resource is always managed by an Armada, and can't be configured through the Armada UI any other way than by configuring the relevant Armada's Fleet Template.
 
-## Region
+## Formation
 
-A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
+A Formation acts as a template for individual game servers (Vessels) spawned within it. Vessels inherit all properties from their respective Formation, but environment variables and command line arguments can be overridden on a per-vessel basis. Recommended for production workloads.
+
+
+see also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
 
 ## Location
 
 A Location is a group of Sites that share a geographical area and other characteristics.
 This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
 
-## Site
+## Region
 
-A Site is a cluster that belongs to a Location.
-This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
-
-## Branch
-
-GameFabric runs its own internal Docker registry proxy, which is where you should push your game server images to in order to have them available in Fleets.
-Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch. The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
+A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
 
 ## Sidecar
 
 A sidecar is a container that runs alongside your game server container, providing additional functionality.
 For example, Nitrado provides an allocator sidecar which can handle the allocation process for you.
 You could also run your own sidecars for monitoring or other purposes.
+
+## Site
+
+A Site is a cluster that belongs to a Location.
+This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
+
+## SteelShield™
+SteelShield is a DDOS protection system designed for the specific purpose of protecting game servers from large scale DDOS attacks.
+
+
+see also [SteelShield docs](/steelshield/unreal-engine-plugin/introduction)
+
+## Vessel
+
+A Vessel is a single **named** gameserver instance, it can but dosen't have to be part of a [Formation](#formation).
+Each Vessel can configured completely independently.
+
+
+see also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
 
 ## Wrapper
 
