@@ -90,7 +90,7 @@ see also [hosting model](/multiplayer-servers/hosting-models/identifying-your-ho
 
 ## Wrapper
 
-A wrapper can be used to call your game server binary in order to provide additional functionalities.
+A wrapper can be used to call your game server binary in order to provide additional functionality.
 
 We provide a wrapper called [Game Server Wrapper](/multiplayer-servers/multiplayer-services/game-server-wrapper).
 
