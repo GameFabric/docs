@@ -4,7 +4,7 @@ ServiceAccounts are required to push images and interact with the GameFabric RES
 
 ## Managing Service Accounts
 
-To manage service accounts, navigate to the "RBAC" section of the WebUI, and into the "Groups/Users" page.
+To manage service accounts, navigate to the "Access Management" section of the WebUI, and into the "Groups/Users" page.
 
 ![RBAC_Groups_Users.png](images/authentication/RBAC_Groups_Users.png)
 

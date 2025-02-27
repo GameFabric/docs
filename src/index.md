@@ -1,7 +1,7 @@
 ---
 layout: home
 hero:
-    image: 
+    image:
       dark: gf.webp
       light: gf-dark.webp
     name: GameFabric
