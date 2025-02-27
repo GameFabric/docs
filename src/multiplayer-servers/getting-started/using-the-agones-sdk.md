@@ -24,7 +24,7 @@ has to signal the Ready() call to the SDK once.
 
 By default, the Unreal Engine SDK automatically calls Connect() once the SDK is initialised.
 Connect() polls the gameserver endpoint until a successful response is received and then calls Ready().
-hile convenient, we recommend to consider disabling this default behaviour (bDisableAutoConnect) and instead
+While convenient, we recommend to consider disabling this default behaviour (bDisableAutoConnect) and instead
 perform this call explicitly (either Connect() or Ready()),
 as the game server might not immediately be able to accept connections.
 
