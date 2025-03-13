@@ -28,7 +28,7 @@ See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-ho
 An ArmadaSet is the configuration for a set of Armadas that share the same Fleet template and automatic scaling strategy.
 
 
-see also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
 ## Branch
 
