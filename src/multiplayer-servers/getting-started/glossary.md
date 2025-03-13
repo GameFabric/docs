@@ -78,7 +78,7 @@ This specific resource is not configurable through the Armada UI. It is configur
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
 
 
-see also [SteelShield docs](/steelshield/unreal-engine-plugin/introduction)
+See also [SteelShield docs](/steelshield/unreal-engine-plugin/introduction).
 
 ## Vessel
 
