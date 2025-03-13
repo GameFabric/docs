@@ -75,7 +75,7 @@ A Site is a cluster that belongs to a Location.
 This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
 
 ## SteelShield™
-SteelShield is a DDOS protection system designed for the specific purpose of protecting game servers from large scale DDOS attacks.
+SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
 
 
 see also [SteelShield docs](/steelshield/unreal-engine-plugin/introduction)
