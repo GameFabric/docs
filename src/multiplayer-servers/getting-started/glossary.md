@@ -4,7 +4,7 @@ In GameFabric, there are multiple objects you need to be aware of, that are refe
 
 
 ## Allocation Sidecar
-The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by Nitrado for easy integration with the [Allocator](#allocator)
+The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by Nitrado for easy integration with the [Allocator](#allocator).
 
 
 ## Allocator
