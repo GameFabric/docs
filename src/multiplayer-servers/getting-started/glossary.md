@@ -82,7 +82,7 @@ see also [SteelShield docs](/steelshield/unreal-engine-plugin/introduction)
 
 ## Vessel
 
-A Vessel is a single **named** gameserver instance, it can but dosen't have to be part of a [Formation](#formation).
+A Vessel is a single **named** game server instance. It can, but doesn't have to be part of a [Formation](#formation).
 Each Vessel can configured completely independently.
 
 
