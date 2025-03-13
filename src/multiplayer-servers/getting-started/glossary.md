@@ -86,7 +86,7 @@ A Vessel is a single **named** game server instance. It can, but doesn't have to
 Each Vessel can configured completely independently.
 
 
-see also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
 ## Wrapper
 
