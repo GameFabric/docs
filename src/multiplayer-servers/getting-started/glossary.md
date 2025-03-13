@@ -8,7 +8,7 @@ The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by Nitrado for easy i
 
 
 ## Allocator
-The Allocator is a extra product Feature that let's you register you gameservers against it so that your MatchMaker can choose the best available server.
+The Allocator is an extra product feature that lets you register your game servers against it so that your matchmaker can choose the best available server.
 
 
 see also [docs for using the Allocation Sidecar](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers)
