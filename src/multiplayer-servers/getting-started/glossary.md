@@ -21,7 +21,7 @@ It can have multiple revisions, which are essentially different versions of the 
 Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade)
 
 
-see also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
 ## ArmadaSet
 
