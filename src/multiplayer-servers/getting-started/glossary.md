@@ -52,7 +52,7 @@ This resource is always managed by an Armada, and can't be configured through th
 A Formation acts as a template for individual game servers (Vessels) spawned within it. Vessels inherit all properties from their respective Formation, but environment variables and command line arguments can be overridden on a per-vessel basis. Recommended for production workloads.
 
 
-see also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
 ## Location
 
