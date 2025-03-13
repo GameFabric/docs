@@ -4,7 +4,7 @@ This document describes the steps required to set up your Cloud provider for use
 Cloud providers are Google Cloud (GCP), Azure, and Amazon Web Services (AWS).
 
 Public documentation is currently limited to Google Cloud and AWS. For setup instructions for other Cloud providers, please
-contact your Nitrado Account Manager.
+contact your Customer Success Manager at Nitrado.
 
 ## Google Cloud
 
