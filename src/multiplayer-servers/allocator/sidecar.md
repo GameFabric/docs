@@ -1,0 +1,3 @@
+#  Allocation Sidecar
+
+The allocation sidecar allows easy integration against an GameFabric allocator...

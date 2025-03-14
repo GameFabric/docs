@@ -1,0 +1,15 @@
+{
+  "text": "Allocator",
+  "collapsed": false,
+  "order": 4,
+  "items": [
+    {
+      "text": "Server Allocation",
+      "link": "/allocation/index"
+    },
+    {
+      "text": "Allocator Sidecar",
+      "link": "/allocation/sidecar"
+    }
+  ]
+}
