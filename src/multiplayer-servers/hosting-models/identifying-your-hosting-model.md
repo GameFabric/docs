@@ -1,6 +1,6 @@
 # Identifying your Hosting Model
 
-Nitrado's systems support two major hosting models.
+GameFabric support two major hosting models.
 
 - **Formations** are intended for long-running game servers that have game or player progression associated with them.
   Typically, players are given the ability to return to a specific game server, for example by selecting it from a
