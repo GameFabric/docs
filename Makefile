@@ -1,6 +1,6 @@
 BUILD_DOC_DOCKER_IMAGE ?= gamefabric-docs-dev
 DOCKER_RUN_DOC_PORT := 5173
-DOCKER_RUN_DOC_MOUNT := -v $(CURDIR)/docs:/docs/docs
+DOCKER_RUN_DOC_MOUNT := -v $(CURDIR)/src:/docs/src
 DOCKER_RUN_DOC_OPTS := --name gf-docs --rm $(DOCKER_RUN_DOC_MOUNT) -it
 
 image:
