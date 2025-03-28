@@ -228,7 +228,7 @@ Before invoking the hook, the GSW sets the environment variables `GAMESERVER_EXI
 
 | Command-line argument | Environment variable | Description                                                                                                                       |
 |-----------------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `--local`             | `LOCAL`              | The flag is used to run the GSW locally. Its effect is that the gsw will not wait for the Agones Shutdown signal before stopping. |
+| `--local`             | `LOCAL`              | The flag is used to run the GSW locally. Its effect is that the GSW will not wait for the Agones Shutdown signal before stopping. |
 
 Example:
 
