@@ -11,12 +11,13 @@ The following features are available:
 - [Configuration file templating](#configuration-files),
 - [Shutdown handling](#shutdown-handling),
 - [Log tailing](#log-tailing), and
-- [Crash reporting](#crash-reporting).
+- [Post-stop hook](#post-stop-hook).
 
 ## Pre-requisites
 
 Before using the wrapper, make sure that:
 
+- Your game server is integrated against the Agones SDK (see [using Agones SDK](../getting-started/using-the-agones-sdk.md)),
 - You have a container image that contains your game server binary
   (see [Building](/multiplayer-servers/getting-started/building-a-container-image) and
   [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)),
@@ -29,9 +30,13 @@ the wrapper can already help with its templating features.
 ## Integration
 
 The wrapper is a binary executable file.
-It is executed as the main command in the container and in turn executes your game server binary, passing it its command-line arguments.
+It is executed as the main command in the container.
 
-Here are the steps to do this this:
+Before starting your game server, the wrapper collects information from Agones, allowing you to template your game server arguments.
+In GameFabric, the Agones SDK server is running in a sidecar container.
+For development, you can [run the Agones SDK server locally](https://agones.dev/site/docs/guides/client-sdks/local/).
+
+Here are the steps for the integration:
 
 - [Add the wrapper to your container image](#add-the-gsw-to-your-container-image)
     - Download the binary file
@@ -59,13 +64,6 @@ This downloads the x86 architecture build for Linux and makes it executable.
 
 We provide builds for common used architectures and operating systems.
 Contact us if you need a build that is not available.
-
-::: info
-The wrapper is dependency-free with one exception. 
-It communicates with the Agones sidecar container via localhost which is always available in GameFabric.
-If you want to run it locally for development, you need run the Agones SDK server dummy locally
-(see [Agones documentation](https://agones.dev/site/docs/guides/client-sdks/local/)).
-:::
 
 We use [semantic versioning](https://semver.org/), which indicates that minor and patch updates are safe to use without breaking changes.
 
@@ -225,6 +223,18 @@ gsw \
 ```
 
 Before invoking the hook, the GSW sets the environment variables `GAMESERVER_EXITCODE` (`int`) and `GAMESERVER_EXITSIGNAL` (`int`) to expose the detected game server exit code and signal (if applicable).
+
+### Other features
+
+| Command-line argument | Environment variable | Description                                                                                                                       |
+|-----------------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `--local`             | `LOCAL`              | The flag is used to run the GSW locally. Its effect is that the gsw will not wait for the Agones Shutdown signal before stopping. |
+
+Example:
+
+```shell
+gsw --local -- /app/gameserver
+```
 
 ## Summary
 
