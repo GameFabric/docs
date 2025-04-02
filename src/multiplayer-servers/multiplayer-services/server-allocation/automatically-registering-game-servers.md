@@ -69,7 +69,7 @@ This is so that the allocation service can reach the Allocation Sidecar.
 
 Now specify the URL and authentication token for the allocation service
 using the `ALLOC_URL` and `ALLOC_TOKEN` environment variables.
-It is recommended to set it in a superordinate resource such as the Region, so any Formation, Vessel, Armada Set or Armada
+It is recommended to set it in the Region, so any Formation, Vessel, Armada Set or Armada
 within that region is automatically configured.
 
 ::: warning
