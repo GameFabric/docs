@@ -31,11 +31,6 @@ It also ensures that when the game server stops that its registration gets remov
 It is not enabled by default.
 For details how to enable it, see section [Configuration](#configuration).
 
-The allocation service is usually pre-configured and connects your Formation, Vessel, Armada Set
-or Armada with an allocation service within the same region where it is deployed.
-This means that your game servers are automatically registered in the correct region and 
-will be selected for matches of the respective region.
-
 ## Allocation
 
 When the matchmaker requests a game server from the allocation service, the allocation service notifies the game server
@@ -66,12 +61,16 @@ To gain more control over filtering you can configure [required game server attr
 
 To enable the automatic game server registration and allocation handling, edit your Formation, Vessel, Armada Set or Armada, 
 and add a sidecar container. Select **Allocation Sidecar**, so that your new sidecar container is preconfigured.
-As stated earlier, the allocation service is pre-configured.
 
 If you want to create the sidecar container from scratch select **Create from scratch**. 
 It requires you to select the image, which is provided under the `system` branch, 
 and a `Passthrough` port, using `TCP` protocol, named `allocator`.
 This is so that the allocation service can reach the Allocation Sidecar.
+
+Now specify the URL and authentication token for the allocation service
+using the `ALLOC_URL` and `ALLOC_TOKEN` environment variables.
+It is recommended to set it in the Region, so any Formation, Vessel, Armada Set or Armada
+within that region is automatically configured.
 
 ::: warning
 The port name `allocator` must not be changed, otherwise it is not recognized by the Allocation Sidecar.
@@ -81,7 +80,7 @@ Also do not use `UDP/TCP`, as this results in a different naming scheme.
 **Optional**: If you want use [attributes](#attributes), add one or more label prefixed with `allocator.nitrado.net/`, e.g.
 `allocator.nitrado.net/env=prod` so your matchmaker can filter for them.
 
-That's it. The Allocation Sidecar watches for the state change `Ready`, registers the game server to the pre-configured
+The Allocation Sidecar watches for the state change `Ready`, registers the game server to the pre-configured
 allocation service, and when allocated, transitions the state to `Allocated`.
 
 ## Game Server Integration
@@ -152,6 +151,9 @@ Be advised that the annotation keys are not only prefixed, but sanitized to adhe
 imposed by Kubernetes. The key case is however maintained. See [`ALLOC_PAYLOAD_ANNOTATION`](#alloc-payload-annotation-string) for an example
 on how the payload is mapped to annotations.
 
+It is not permitted to use the same value for `ALLOC_PAYLOAD_ANNOTATION` and for `ALLOC_CALLBACK_PAYLOAD_ANNOTATION`,
+as this would lead to the values of different purposes being mixed up.
+
 ### Write payload to a file
 
 In order to automatically store the payload from the matchmaker and make it accessible via file,
@@ -188,11 +190,11 @@ the Allocation Sidecar container.
 
 All environment variables described in this guide must be added to the Allocation Sidecar container, 
 not to your game server container.
-Any parent resource, such as Region Type or Site can also provide these environment variables, but is usually managed by Nitrado. 
+Any parent resource, such as Region or Site can also provide these environment variables
 
 #### `ALLOC_URL` (`string`)
 
-The allocation service endpoint URL. Defaults to a regional allocator pre-configured for you.
+The allocation service endpoint URL.
 
 #### `ALLOC_TOKEN` (`string`)
 
