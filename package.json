@@ -19,7 +19,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "redoc": "^2.4.0",
-    "styled-components": "^6.1.15",
+    "styled-components": "^6.1.17",
     "vitepress": "^1.6.3"
   },
   "packageManager": "yarn@4.1.1"
