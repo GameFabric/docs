@@ -17,7 +17,7 @@ Log into the GameFabric UI before proceeding.
 
 If you do not already have a branch in which to push images, you need to create one.
 In case you haven't already done so, there are two options available to you:
-- **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry—you can always change the names and policies later.
+- **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry - you can always change the display names and policies later. See how to [edit a branch](edit-a-branch.md).
 - **Create Branch**: This will allow you to create a custom branch with a name and an Image Retention Policy of your choice.
 
 ### Add default Branches
