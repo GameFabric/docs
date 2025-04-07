@@ -16,22 +16,45 @@ Log into the GameFabric UI before proceeding.
 ## Create a Branch
 
 If you do not already have a branch in which to push images, you need to create one.
+In case you haven't already done so, there are two options available to you:
+- **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry—you can always change the names and policies later.
+- **Create Branch**: This will allow you to create a custom branch with a name and an Image Retention Policy of your choice.
 
-First, visit the "Branches" section of the UI to view the existing ones.
+### Add default Branches
+::: info
+This option is only available if you have not created any branches yet.
+:::
 
-![GUI_Branches.png](images/armada/GUI_Branches.png)
+1. Navigate to the **Branches** section in the GameFabric UI.
+![GUI_branches_empty_overview.png](images/branches/GUI_branches_empty_overview.png)
 
-If none are relevant for your case, create one by pressing the "Add Branch" button, at the top right of the interface.
+2. Click the **Add Default Branches** button.
+3. A confirmation pop-up will appear. Click **Create** to confirm or **Cancel** to abort.
+![GUI_branches_add_default.png](images/branches/GUI_branches_add_default.png)
 
-![GUI_Branches_Create.png](images/armada/GUI_Branches_Create.png)
+4. The default branches are created. You can now see them in the branches overview.
+![GUI_branches_created_default.png](images/branches/GUI_branches_created_default.png)
 
-Give it a name that makes it easy for other users to identify its purpose, then click the "Next" button.
 
-![GUI_Branches_Summary.png](images/armada/GUI_Branches_Summary.png)
+### Create custom Branch
+You can also create custom branches with a name and an Image Retention Policy of your choice.
 
-Before creating your branch, the UI shows you the URL at which you will be able to push Docker images, to make them a part of this branch. Make note of that URL, as you will need it in the next step.
+1. Click the **Create Branch** button in the branches overview.
+2. A new window will open, allowing you to create a custom branch.
+![GUI_branches_create.png](images/branches/GUI_branches_create.png)
+3. Give it a name that makes it easy for other users to identify its purpose, then click the **Next** button.
+4. Create the Image Retention Policy. You can define a policy by the **Image Retention Policy Name**, an **Image Regex**, a **Tag Regex**, as well as **Keep Count** and **Keep Days**. You can also add multiple policies through the **+ Add** Button, or remove policies through the **Remove** Button.
+![GUI_branches_create_policy.png](images/branches/GUI_branches_create_policy.png)
+5. (Optional) If you don't wish to define an Image Retention Policy, you can toggle the switch - **but please be aware that this is not recommended**.
+![GUI_branches_create_no_policies.png](images/branches/GUI_branches_create_no_policies.png)
+6. Before creating your branch, the UI shows you the URL at which you will be able to push Docker images, to make them a part of this branch. **Make note of that URL, as you will need it in the next step.**
+![GUI_branches_create_summary.png](images/branches/GUI_branches_create_summary.png)
+7. Click the **Create Branch** button to finish the process. The newly created branch will now be visible in the branches overview.
+![GUI_branches_created.png](images/branches/GUI_branches_created.png)
 
-Once the branch is created, you can find that URL again by clicking the "View Images" button in the row for your branch. This leads you to the branch details page, which displays the relevant URL at the top of the interface, in the blue information box.
+Once the branch is created, you can find that URL again by clicking the **View Images** button in the row for your branch. This leads you to the branch details page, which displays the relevant URL at the top of the interface, in the blue information box.
+![GUI_branches_see_url.png](images/branches/GUI_branches_see_url.png)
+
 
 ## Push the game server image
 
