@@ -6,4 +6,4 @@ layout: page
 import OpenAPI from '../components/OpenAPI.vue'
 </script>
 
-<OpenAPI spec-url="https://allocator-nitrado-b2b-allocator-1fec35236861dff28edad21dc66bcc3.gitlab.io/registry-spec.json"/>
+<OpenAPI spec-url="https://gamefabric.github.io/alloc-allocator/registry-spec.json"/>
