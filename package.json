@@ -13,13 +13,13 @@
     "vue": "3.5.13"
   },
   "dependencies": {
-    "core-js": "^3.41.0",
+    "core-js": "^3.42.0",
     "medium-zoom": "^1.1.0",
-    "mobx": "^6.13.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "redoc": "^2.4.0",
-    "styled-components": "^6.1.15",
+    "mobx": "^6.13.7",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "redoc": "^2.5.0",
+    "styled-components": "^6.1.18",
     "vitepress": "^1.6.3"
   },
   "packageManager": "yarn@4.1.1"

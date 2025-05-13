@@ -1323,10 +1323,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.41.0":
-  version: 3.41.0
-  resolution: "core-js@npm:3.41.0"
-  checksum: 10c0/a29ed0b7fe81acf49d04ce5c17a1947166b1c15197327a5d12f95bbe84b46d60c3c13de701d808f41da06fa316285f3f55ce5903abc8d5642afc1eac4457afc8
+"core-js@npm:^3.42.0":
+  version: 3.42.0
+  resolution: "core-js@npm:3.42.0"
+  checksum: 10c0/2913d3d5452d54ad92f058d66046782d608c05e037bcc523aab79c04454fe640998f94e6011292969d66dfa472f398b085ce843dcb362056532a5799c627184e
   languageName: node
   linkType: hard
 
@@ -1405,27 +1405,27 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:."
   dependencies:
-    core-js: "npm:^3.41.0"
+    core-js: "npm:^3.42.0"
     medium-zoom: "npm:^1.1.0"
-    mobx: "npm:^6.13.6"
-    react: "npm:^19.0.0"
-    react-dom: "npm:^19.0.0"
-    redoc: "npm:^2.4.0"
-    styled-components: "npm:^6.1.15"
+    mobx: "npm:^6.13.7"
+    react: "npm:^19.1.0"
+    react-dom: "npm:^19.1.0"
+    redoc: "npm:^2.5.0"
+    styled-components: "npm:^6.1.18"
     vitepress: "npm:^1.6.3"
     vue: "npm:3.5.13"
   languageName: unknown
   linkType: soft
 
-"dompurify@npm:^3.0.6":
-  version: 3.2.4
-  resolution: "dompurify@npm:3.2.4"
+"dompurify@npm:^3.2.4":
+  version: 3.2.5
+  resolution: "dompurify@npm:3.2.5"
   dependencies:
     "@types/trusted-types": "npm:^2.0.7"
   dependenciesMeta:
     "@types/trusted-types":
       optional: true
-  checksum: 10c0/6be56810fb7ad2776155c8fc2967af5056783c030094362c7d0cf1ad13f2129cf922d8eefab528a34bdebfb98e2f44b306a983ab93aefb9d6f24c18a3d027a05
+  checksum: 10c0/b564167cc588933ad2d25c185296716bdd7124e9d2a75dac76efea831bb22d1230ce5205a1ab6ce4c1010bb32ac35f7a5cb2dd16c78cbf382111f1228362aa59
   languageName: node
   linkType: hard
 
@@ -2242,10 +2242,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:^6.13.6":
-  version: 6.13.6
-  resolution: "mobx@npm:6.13.6"
-  checksum: 10c0/4419003efdcc7ce964c5a20d5630987b936c60202d782ffe6b34f57848418a2b7f33ea2a5038d4e004c25758c4cf474c20a894c52d4234dd7cfda76887a3e4fd
+"mobx@npm:^6.13.7":
+  version: 6.13.7
+  resolution: "mobx@npm:6.13.7"
+  checksum: 10c0/3ae7f8c586a48a0a2b9b4900871455bc93d3878bdff70b6820ba830c6b883d7f8a0222aa2a0fec7201d25f38a19cb340e62a18a3939182a676dc35d857f35dd6
   languageName: node
   linkType: hard
 
@@ -2583,14 +2583,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.0.0":
-  version: 19.0.0
-  resolution: "react-dom@npm:19.0.0"
+"react-dom@npm:^19.1.0":
+  version: 19.1.0
+  resolution: "react-dom@npm:19.1.0"
   dependencies:
-    scheduler: "npm:^0.25.0"
+    scheduler: "npm:^0.26.0"
   peerDependencies:
-    react: ^19.0.0
-  checksum: 10c0/a36ce7ab507b237ae2759c984cdaad4af4096d8199fb65b3815c16825e5cfeb7293da790a3fc2184b52bfba7ba3ff31c058c01947aff6fd1a3701632aabaa6a9
+    react: ^19.1.0
+  checksum: 10c0/3e26e89bb6c67c9a6aa86cb888c7a7f8258f2e347a6d2a15299c17eb16e04c19194e3452bc3255bd34000a61e45e2cb51e46292392340432f133e5a5d2dfb5fc
   languageName: node
   linkType: hard
 
@@ -2613,21 +2613,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^19.0.0":
-  version: 19.0.0
-  resolution: "react@npm:19.0.0"
-  checksum: 10c0/9cad8f103e8e3a16d15cb18a0d8115d8bd9f9e1ce3420310aea381eb42aa0a4f812cf047bb5441349257a05fba8a291515691e3cb51267279b2d2c3253f38471
+"react@npm:^19.1.0":
+  version: 19.1.0
+  resolution: "react@npm:19.1.0"
+  checksum: 10c0/530fb9a62237d54137a13d2cfb67a7db6a2156faed43eecc423f4713d9b20c6f2728b026b45e28fcd72e8eadb9e9ed4b089e99f5e295d2f0ad3134251bdd3698
   languageName: node
   linkType: hard
 
-"redoc@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "redoc@npm:2.4.0"
+"redoc@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "redoc@npm:2.5.0"
   dependencies:
     "@redocly/openapi-core": "npm:^1.4.0"
     classnames: "npm:^2.3.2"
     decko: "npm:^1.2.0"
-    dompurify: "npm:^3.0.6"
+    dompurify: "npm:^3.2.4"
     eventemitter3: "npm:^5.0.1"
     json-pointer: "npm:^0.6.2"
     lunr: "npm:^2.3.9"
@@ -2651,7 +2651,7 @@ __metadata:
     react: ^16.8.4 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.4 || ^17.0.0 || ^18.0.0 || ^19.0.0
     styled-components: ^4.1.1 || ^5.1.1 || ^6.0.5
-  checksum: 10c0/94a8c02e4f4962a808a58775036d99c1d09553f8ed31b2780efe43f639a5a7d9affe7a0a77513eed78143a1247cf2b2c79055c06b956d14767e203177f7fb5ae
+  checksum: 10c0/fb58e934e77d671dcbf4aa60d2369e194a649f25e58a14147882cab21dca673d3c32f1d5ffe9cada06846b6eb71d959b92e4467458c439f057aeff4eb4d11726
   languageName: node
   linkType: hard
 
@@ -2792,10 +2792,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.25.0":
-  version: 0.25.0
-  resolution: "scheduler@npm:0.25.0"
-  checksum: 10c0/a4bb1da406b613ce72c1299db43759526058fdcc413999c3c3e0db8956df7633acf395cb20eb2303b6a65d658d66b6585d344460abaee8080b4aa931f10eaafe
+"scheduler@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "scheduler@npm:0.26.0"
+  checksum: 10c0/5b8d5bfddaae3513410eda54f2268e98a376a429931921a81b5c3a2873aab7ca4d775a8caac5498f8cbc7d0daeab947cf923dbd8e215d61671f9f4e392d34356
   languageName: node
   linkType: hard
 
@@ -3041,9 +3041,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^6.1.15":
-  version: 6.1.15
-  resolution: "styled-components@npm:6.1.15"
+"styled-components@npm:^6.1.18":
+  version: 6.1.18
+  resolution: "styled-components@npm:6.1.18"
   dependencies:
     "@emotion/is-prop-valid": "npm:1.2.2"
     "@emotion/unitless": "npm:0.8.1"
@@ -3057,7 +3057,7 @@ __metadata:
   peerDependencies:
     react: ">= 16.8.0"
     react-dom: ">= 16.8.0"
-  checksum: 10c0/7c29db75af722599e10962ef74edd86423275385a3bf6baeb76783dfacc3de7608d1cc07b0d5866986e5263d60f0801b0d1f5b3b63be1af23bed68fdca8eaab6
+  checksum: 10c0/067778b8cf9aa24b23590d23210b0e7964c6469630e5ab821c68dac64af6e0c0270c972a836f60a8bbd9753770f0475f911fcd34eeba6bd003c233a79a391e6b
   languageName: node
   linkType: hard
 
