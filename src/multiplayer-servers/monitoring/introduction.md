@@ -10,9 +10,10 @@ To access it simply click on "Monitoring".
 ![Screenshot of the Monitoring sidebar in the GameFabric interface](images/sidebar.png)
 
 ## Permissions
-To access the monitoring the user needs be in a group with an role that least have the permission `GET` for the resource `monitoring`.
+"To access monitoring, a user must belong to a `group` with a `role` that has at least `GET` permission for the `monitoring` resource.
 
-`POST` will enable the user to create custom dashboards and alerts.
+
+Users with `POST` permission can create custom dashboards and alerts.
 
 ## Metrics
 There are metrics for every feature of the product.
