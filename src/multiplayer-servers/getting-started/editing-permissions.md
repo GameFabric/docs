@@ -1,7 +1,7 @@
 # Editing Permissions
 
 ## Overview
-In GameFabric, you can manage permissions for users, groups, and roles. This allows you to control who can access features and resources within your GameFabric environment.
+In GameFabrics RBAC (Role-Based Access Control), you can manage permissions for specific roles, which can then be assigned to groups. This allows you to control who can access features and resources within your GameFabric environment.
 To edit permissions, navigate to the **Access Management** section in the GameFabric UI and select either the **Groups/Users** or **Roles** page.
 
 ## Group
@@ -32,7 +32,7 @@ Click **Save** to apply your changes.
 ![add-groups-to-user.png](images/permissions/add-groups-to-user.png)
 
 ## Role
-A role is a collection of permissions that can be assigned to users or groups.
+A role is a collection of permissions that can be assigned to groups.
 To edit roles, navigate to the **Access Management** section in the GameFabric UI and select the **Roles** page.
 To modify an existing role, click the **Edit** button next to it.
 ![roles-overview.png](images/permissions/roles-overview.png)
@@ -46,3 +46,6 @@ Resources can be environment-specific, meaning that a role will only have access
 To edit environment-based permissions, expand the resource by clicking the arrow next to it.
 To bulk edit these permissions, use the checkboxes beside the resource name.
 ![edit-role-env-based.png](images/permissions/edit-role-env-based.png)
+
+## Service Account
+For the management of Service Accounts, refer to the [Authentication](authentication.md) section.
