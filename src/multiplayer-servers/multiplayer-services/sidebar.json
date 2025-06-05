@@ -34,6 +34,10 @@
       ]
     },
     {
+      "text": "Game Server Lifecycle",
+      "link": "/multiplayer-services/lifecycle"
+    },
+    {
       "text": "Game Server Wrapper",
       "link": "/multiplayer-services/game-server-wrapper"
     },

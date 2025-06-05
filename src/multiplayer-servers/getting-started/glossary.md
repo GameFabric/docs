@@ -54,6 +54,9 @@ A Formation acts as a template for individual game servers (Vessels) spawned wit
 
 See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
+## Health Checks
+TODO
+
 ## Location
 
 A Location is a group of Sites that share a geographical area and other characteristics.
