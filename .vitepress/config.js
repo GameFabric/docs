@@ -42,7 +42,7 @@ export default defineConfig({
             alt: 'GameFabric Logo'
         },
         footer: {
-            copyright: 'Copyright © 2024 marbis GmbH. All rights reserved.'
+            copyright: 'Copyright © 2025 marbis GmbH. All rights reserved.'
         },
         nav: [
             {
@@ -72,6 +72,10 @@ export default defineConfig({
                     }
                 ]
 
+            },
+            {
+                text: 'GameFabric Status',
+                link: 'https://status.gamefabric.com/'
             },
             {
                 text: 'Legal Information',
