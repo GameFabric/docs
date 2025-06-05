@@ -4,11 +4,13 @@
 
 GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Identity Provider, allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
 
+see [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions) for information about permissions management.
+
 ## Prerequisites
 
 Before setting up a Third-Party OIDC Provider, ensure the following conditions are met:
 
-- You have access to an active GameFabric installation with permissions to modify OAuth Providers or the default user. 
+- You have access to an active GameFabric installation with permissions to modify OAuth Providers.
 - You have an OIDC ([OpenID Connect](https://openid.net/developers/how-connect-works/)) provider, including a **Client ID** and **Client Secret**.
 
 ### Configuring Permissions for modifying OIDC Providers
@@ -17,7 +19,7 @@ To be able to setup a new OIDC Provider, associated role of the active user must
 
 You may check which group(s) a user belongs to from "Groups / Users" page (under "Access Management"). You may also add/remove user(s) from/to group(s) on the "Groups / Users" page.
 
-Navigate to the "Access Management" from the Sidebar Menu, and then into the "Roles" page. On the list that displays roles, find the role you would like to modify permissions of, and click "Edit". 
+Navigate to the "Access Management" from the Sidebar Menu, and then into the "Roles" page. On the list that displays roles, find the role you would like to modify permissions of, and click "Edit".
 
 UI will show you a matrix of "Role - Resource" configurations. Scroll down to the "Providers" resource, and make sure that "GET" and "POST" permissions are ticked.
 
@@ -157,7 +159,7 @@ On the next step:
 
 - Fill in the "Issuer URL" of ENTRA
 
-  For ENTRA this is "https://login.microsoftonline.com/{tenant-id}/v2.0" 
+  For ENTRA this is "https://login.microsoftonline.com/{tenant-id}/v2.0"
 
 - Fill in the ClientID & Secret you have obtained from ENTRA for GameFabric
 
