@@ -1,7 +1,7 @@
 # Editing Permissions
 
 ## Overview
-In GameFabrics RBAC (Role-Based Access Control), you can manage permissions for specific roles, which can then be assigned to groups. This allows you to control who can access features and resources within your GameFabric environment.
+GameFabric uses RBAC (Role-Based Access Control) to manage who can access specific features and resources within your environment. This is achieved by defining permissions for particular roles, which are then assigned to groups of users.
 To edit permissions, navigate to the **Access Management** section in the GameFabric UI and select either the **Groups/Users** or **Roles** page.
 
 ## Group
