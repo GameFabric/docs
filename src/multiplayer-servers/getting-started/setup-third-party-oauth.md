@@ -4,11 +4,13 @@
 
 GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Identity Provider, allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
 
+see [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions) for information about permissions management.
+
 ## Prerequisites
 
 Before setting up a Third-Party OIDC Provider, ensure the following conditions are met:
 
-- You have access to an active GameFabric installation with permissions to modify OAuth Providers or the default user.
+- You have access to an active GameFabric installation with permissions to modify OAuth Providers.
 - You have an OIDC ([OpenID Connect](https://openid.net/developers/how-connect-works/)) provider, including a **Client ID** and **Client Secret**.
 
 ### Configuring Permissions for modifying OIDC Providers
