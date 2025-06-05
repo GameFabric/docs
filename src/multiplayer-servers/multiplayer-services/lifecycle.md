@@ -16,14 +16,15 @@ For best expericene, make sure that:
 ## Best practices
 
 ## Health Checks
-
+see [Running your gameserver](/multiplayer-servers/getting-started/running-your-game-server#health-checks)
 
 [agones docs](https://agones.dev/site/docs/guides/health-checking/)
 
 ### How to Shutdown your gameserver
+The best way to shutdown your gameserver is by calling agones sdk Shutdown() and then wait for the incoming TERM signal before calling your engiens variation of `System.exit(0)`
+otherwise the Gameserver will be recreated.
 
 ### Agones state cycle
 * make sure do either shutdown yor gameserver or call ready again, after the current allocated sessions end (e.g.: last player leaves)
-
 
 
