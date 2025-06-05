@@ -25,11 +25,15 @@ To remove a user, click the **X** next to their email address. Then click **Save
 ![remove-user-from-group.png](images/permissions/remove-user-from-group.png)
 
 ## User
-A user is an individual account that can be assigned to groups and roles.
+A user is an individual account that can be assigned to groups.
 Users are managed on the **Groups/Users** page of the GameFabric UI, under the **Users** tab.
 To edit a user, click the **Edit** button next to their name. In the user edit modal, select the groups to which the user should belong.
 Click **Save** to apply your changes.
 ![add-groups-to-user.png](images/permissions/add-groups-to-user.png)
+
+::: info
+To set up a Third-Party OIDC Provider, refer to the [Setup Third-Party OAuth Integration](setup-third-party-oauth.md) section.
+:::
 
 ## Role
 A role is a collection of permissions that can be assigned to groups.
