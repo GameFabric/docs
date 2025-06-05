@@ -74,6 +74,10 @@ export default defineConfig({
 
             },
             {
+                text: 'GameFabric Status',
+                link: 'https://status.gamefabric.com/'
+            },
+            {
                 text: 'Legal Information',
                 link: 'https://server.nitrado.net/en-GB/legal/legal-information'
             },
