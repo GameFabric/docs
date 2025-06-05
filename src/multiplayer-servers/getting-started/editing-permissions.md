@@ -4,7 +4,7 @@
 In GameFabric, you can manage permissions for users, groups, and roles. This allows you to control who can access features and resources within your GameFabric environment. 
 To edit permissions, navigate to the **Access Management** section in the GameFabric UI and select either the **Groups/Users** or **Roles** page.
 
-## Groups
+## Group
 A group is a collection of users that can be assigned roles. 
 Existing groups are listed on the **Groups/Users** page of the GameFabric UI, under the **Groups** tab. 
 From here, you can view all groups, create new ones, or edit existing groups.
@@ -31,7 +31,7 @@ To edit a user, click the **Edit** button next to their name. In the user edit m
 Click **Save** to apply your changes.
 ![add-groups-to-user.png](images/permissions/add-groups-to-user.png)
 
-## Roles
+## Role
 A role is a collection of permissions that can be assigned to users or groups. 
 To edit roles, navigate to the **Access Management** section in the GameFabric UI and select the **Roles** page. 
 To modify an existing role, click the **Edit** button next to it.
