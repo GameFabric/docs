@@ -59,9 +59,15 @@ See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-ho
 A Location is a group of Sites that share a geographical area and other characteristics.
 This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
 
+## User
+see [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#user)
+
 ## Region
 
 A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
+
+## Role
+see [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#role)
 
 ## Sidecar
 
