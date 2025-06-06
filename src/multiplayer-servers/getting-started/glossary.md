@@ -17,7 +17,9 @@ See also [docs for using the Allocation Sidecar](/multiplayer-servers/multiplaye
 ## Armada
 
 An Armada is a collection of Fleets, distributed across multiple Sites within one Region.
-It can have multiple revisions, which are essentially different versions of the same Armada, as it gets updated.
+It can have multiple [revisions](/multiplayer-servers/getting-started/glossary#revision), which are essentially different versions of the same Armada, as it gets updated.
+
+
 Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade)
 
 
@@ -62,6 +64,11 @@ This specific resource is not configurable through the Armada UI. It is configur
 ## Region
 
 A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
+
+## Revision
+A revision is a discrete configuration of either an [ArmadaSet](#armadaset), [Armada](#armada) or [Formation](#formation). They are numbered consecutively starting from 1.
+
+Revisions are kept to allow you to roll back to a previous configuration, as well as manage multiple revisions running in parallel (for example during a rollout upgrade).
 
 ## Sidecar
 
