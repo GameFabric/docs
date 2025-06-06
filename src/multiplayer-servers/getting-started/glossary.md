@@ -55,7 +55,7 @@ A Formation acts as a template for individual game servers (Vessels) spawned wit
 See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
 ## Group
-see [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group)
+See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group)
 
 ## Location
 
