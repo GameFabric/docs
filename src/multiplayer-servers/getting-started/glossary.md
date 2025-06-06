@@ -63,6 +63,11 @@ This specific resource is not configurable through the Armada UI. It is configur
 
 A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
 
+## Revision
+A revision is a rollout state of either a [Armada](#armada) or [Formation](#formation). They are numbered consecutively starting from 1.
+
+Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade).
+
 ## Sidecar
 
 A sidecar is a container that runs alongside your game server container, providing additional functionality.
