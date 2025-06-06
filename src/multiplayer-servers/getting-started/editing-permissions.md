@@ -6,7 +6,7 @@ To edit permissions, navigate to the **Access Management** section in the GameFa
 
 ## Group
 A group is a collection of users that can be assigned to roles.
-Existing groups are listed on the **Groups/Users** page of the GameFabric UI, under the **Groups** tab.
+Existing groups are listed on the **Groups/Users** page of the GameFabric UI, under the **Groups** section.
 From here, you can view all groups, create new ones, or edit existing groups.
 ![groups-overview.png](images/permissions/groups-overview.png)
 
