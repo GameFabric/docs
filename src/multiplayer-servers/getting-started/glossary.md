@@ -66,7 +66,7 @@ This specific resource is not configurable through the Armada UI. It is configur
 A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
 
 ## Revision
-A revision is a discrete configuration of either an [ArmadaSet](#armadaSet), [Armada](#armada) or [Formation](#formation). They are numbered consecutively starting from 1.
+A revision is a discrete configuration of either an [ArmadaSet](#armadaset), [Armada](#armada) or [Formation](#formation). They are numbered consecutively starting from 1.
 
 Revisions are kept to allow you to roll back to a previous configuration, as well as manage multiple revisions running in parallel (for example during a rollout upgrade).
 
