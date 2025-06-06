@@ -68,7 +68,7 @@ A Region is typically a geographic area made up of one or more Locations where r
 ## Revision
 A revision is a discrete configuration of either an [ArmadaSet](#armadaSet), [Armada](#armada) or [Formation](#formation). They are numbered consecutively starting from 1.
 
-Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade).
+Revisions are kept to allow you to roll back to a previous configuration, as well as manage multiple revisions running in parallel (for example during a rollout upgrade).
 
 ## Sidecar
 
