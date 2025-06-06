@@ -21,7 +21,7 @@ Click **Add User**, select the desired user, and then click **Save** to apply yo
 ![add-user-to-group.png](images/permissions/add-user-to-group.png)
 
 #### Remove User From Group
-To remove a user, click the **X** next to their email address. Then click **Save** to confirm.
+To remove a user, click the **X** icon next to their email address. Then click **Save** to confirm.
 ![remove-user-from-group.png](images/permissions/remove-user-from-group.png)
 
 ## User
