@@ -12,6 +12,7 @@ The following are essential for deploying your game server on GameFabric.
     * **Ready State**: Signaling when the server is ready to accept players.
     * **Allocated State**: Signaling when the server is in use with active players. Any other state might get terminated by the system if necessary.
     * **Health Checks**: Periodically pinging to indicate the server is alive and healthy.
+
     See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for implementation details.
 
 
@@ -32,7 +33,3 @@ The `gswrapper` is a valuable tool for launching your game server executable wit
 * **Post-Stop Hooks (Advanced Crash Handling)**: You can configure executables to run after your game server stops. This is useful for tasks like analyzing core dumps for crash reporting or uploading logs for further investigation.
 
 For more information, you can refer to the [Game Server Wrapper documentation](/multiplayer-servers/multiplayer-services/game-server-wrapper) and the [gswrapper GitHub repository](https://github.com/GameFabric/gswrapper).
-
-
-
-The gswrapper is safe your production and can be used for advanced crash handling
