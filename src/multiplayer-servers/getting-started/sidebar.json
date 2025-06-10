@@ -44,6 +44,10 @@
       "link": "/getting-started/setup-third-party-oauth"
     },
     {
+      "text": "Editing Permissions",
+      "link": "/getting-started/editing-permissions"
+    },
+    {
       "text": "Running your Game Server",
       "link": "/getting-started/running-your-game-server"
     },
