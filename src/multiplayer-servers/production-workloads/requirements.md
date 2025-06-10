@@ -15,6 +15,16 @@ The following are essential for deploying your game server on GameFabric.
 
     See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for implementation details.
 
+### **Life cycle managment**:
+
+#### Armadas
+* return to `Agones Ready` after session ends (e.g. last player leaves) or simply shutdown
+* **Shutdown hints** or limit max game server lifetime to 24h
+
+#### Formations
+* **Shutdown hints**: (Required for Formations) see [running-your-game-server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods)
+* TODO ^^
+
 
 ## Best Practices
 
