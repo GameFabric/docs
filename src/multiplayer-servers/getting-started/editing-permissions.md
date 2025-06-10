@@ -29,6 +29,12 @@ A user is an individual account that can be assigned to groups.
 Users are managed on the **Groups/Users** page of the GameFabric UI, under the **Users** tab.
 To edit a user, click the **Edit** button next to their name. In the user edit modal, select the groups to which the user should belong.
 Click **Save** to apply your changes.
+
+::: warning
+- Only Users that are assigned to a group will be shown here
+- For proper offboarding, a user must be removed from all groups
+:::
+
 ![add-groups-to-user.png](images/permissions/add-groups-to-user.png)
 
 ::: info
