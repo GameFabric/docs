@@ -45,7 +45,7 @@ wait for an allocation to happen.
 ### Allocate()
 
 This call signals to the hosting environment that the game server is in use and should not
-be shut down.
+be shut down. **In any other state the game server might be terminated at any time for scaling or other operational reasons.**
 
 You generally only need to call Allocate() yourself in one of two cases:
 
