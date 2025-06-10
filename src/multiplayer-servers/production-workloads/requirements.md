@@ -9,7 +9,8 @@ The following are essential for deploying your game server on GameFabric.
 * **Linux Build (Required)**: Your game server must be built for a Linux environment to be compatible with GameFabric's containerized infrastructure. For more details on creating a compatible container, see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image).
 
 * **Agones SDK Integration**: Integrating the Agones SDK is crucial for your game server to communicate its state with the GameFabric platform. This includes:
-    * **Allocated State**: Signaling when the server is ready to accept players.
+    * **Ready State**: Signaling when the server is ready to accept players.
+    * **Allocated State**: Signaling when the server is in use with active players. Any other state might get terminated by the system if necessary.
     * **Health Checks**: Periodically pinging to indicate the server is alive and healthy.
     See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for implementation details.
 
