@@ -10,17 +10,17 @@ Existing groups are listed on the **Groups/Users** page of the GameFabric UI, un
 From here, you can view all groups, create new ones, or edit existing groups.
 ![groups-overview.png](images/permissions/groups-overview.png)
 
-### Add Roles To A Group
+### Assign Roles To A Group
 To add roles to a group, click the **Edit** button next to the desired group.
 This will open the group edit modal, where you can add or remove roles. Select the roles you want to assign, then click **Save**.
 ![add-role-to-group.png](images/permissions/add-role-to-group.png)
 
-### Add User To A Group
-In the group edit modal, click the **Users** tab. Here, you can search for users by their email address.
+### Assign User To A Group
+In the group edit modal, click the **Users** tab. Here, you can enter an email address that is used to sign in.
 Click **Add User**, select the desired user, and then click **Save** to apply your changes.
 ![add-user-to-group.png](images/permissions/add-user-to-group.png)
 
-#### Remove User From Group
+#### Unassign User From A Group
 To remove a user, click the **X** icon next to their email address. Then click **Save** to confirm.
 ![remove-user-from-group.png](images/permissions/remove-user-from-group.png)
 
@@ -42,7 +42,7 @@ To modify an existing role, click the **Edit** button next to it.
 ![roles-overview.png](images/permissions/roles-overview.png)
 
 Each role has a set of permissions that define the actions available to users or groups assigned to that role.
-The resources listed in the table correspond to the REST API. To grant a role access to a resource, check the box in the respective column.
+The resources listed in the table correspond to the REST API. To grant a role permission to a resource, check the box in the respective column.
 ![edit-role.png](images/permissions/edit-role.png)
 
 

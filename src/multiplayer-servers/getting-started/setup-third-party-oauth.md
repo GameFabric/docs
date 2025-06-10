@@ -19,7 +19,7 @@ To be able to setup a new OIDC Provider, associated role of the active user must
 
 You may check which group(s) a user belongs to from "Groups / Users" page (under "Access Management"). You may also add/remove user(s) from/to group(s) on the "Groups / Users" page.
 
-Navigate to the "Access Management" from the Sidebar Menu, and then into the "Roles" page. On the list that displays roles, find the role you would like to modify permissions of, and click "Edit".
+Navigate to "Access Management" from the Sidebar Menu, and then into the "Roles" page. In the list of roles, find the one you want to modify and click 'Edit'.
 
 UI will show you a matrix of "Role - Resource" configurations. Scroll down to the "Providers" resource, and make sure that "GET" and "POST" permissions are ticked.
 
