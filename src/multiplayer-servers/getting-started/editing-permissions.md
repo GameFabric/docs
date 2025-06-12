@@ -2,11 +2,11 @@
 
 ## Overview
 GameFabric uses RBAC (Role-Based Access Control) to manage who can access specific features and resources within your GameFabric installation. This is achieved by defining a role — a set of permissions — and assigning it to groups of users.
-To edit permissions, navigate to the **Access Management** section in the GameFabric UI and select either the **Groups/Users** or **Roles** page.
+To edit permissions, navigate to the **Access Management** section in the GameFabric UI and select either the **Users/Groups** or **Roles** page.
 
 ## Group
 A group is a collection of users that can be assigned to roles.
-Existing groups are listed on the **Groups/Users** page of the GameFabric UI, under the **Groups** section.
+Existing groups are listed on the **Users/Groups** page of the GameFabric UI, under the **Groups** section.
 From here, you can view all groups, create new ones, or edit existing groups.
 ![groups-overview.png](images/permissions/groups-overview.png)
 
@@ -26,7 +26,7 @@ To remove a user, click the **X** icon next to their email address. Then click *
 
 ## User
 A user is an individual account that can be assigned to groups.
-Users are managed on the **Groups/Users** page of the GameFabric UI, under the **Users** tab.
+Users are managed on the **Users/Groups** page of the GameFabric UI, under the **Users** tab.
 To edit a user, click the **Edit** button next to their name. In the user edit modal, select the groups to which the user should belong.
 Click **Save** to apply your changes.
 
