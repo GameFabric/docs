@@ -17,7 +17,7 @@ Before setting up a Third-Party OIDC Provider, ensure the following conditions a
 
 To be able to setup a new OIDC Provider, associated role of the active user must have "GET" and "POST" permissions for the "Providers" resource. This can be configured on RBAC page of the GameFabric UI.
 
-You may check which group(s) a user belongs to from "Groups / Users" page (under "Access Management"). You may also add/remove user(s) from/to group(s) on the "Groups / Users" page.
+You may check which group(s) a user belongs to from "Users/Groups" page (under "Access Management"). You may also add/remove user(s) from/to group(s) on the "Users/Groups" page.
 
 Navigate to "Access Management" from the Sidebar Menu, and then into the "Roles" page. In the list of roles, find the one you want to modify and click 'Edit'.
 
