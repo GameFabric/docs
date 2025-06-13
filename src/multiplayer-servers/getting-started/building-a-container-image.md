@@ -52,7 +52,7 @@ For example, this typically includes fetching dependencies required to run the b
 on certain folders or just copying and moving files.
 
 ::: warning Container User
-Container users are currently restricted to using `uid` 1000, as shown in the example below. 
+Container users are currently restricted to using `uid` 1000, as shown in the example below.
 :::
 
 Here is an example, where this Dockerfile builds an image that runs the game server:
@@ -80,7 +80,7 @@ WORKDIR /app
 CMD ["/app/gameserver"]
 ```
 
-1. First, select a Linux operating system, ideally a minimal one to reduce the overall image size, but 
+1. First, select a Linux operating system, ideally a minimal one to reduce the overall image size, but
    for the sake of simplicity this example uses Ubuntu 22.04 (LTS).
 
 2. Update the dependencies to ensure all security patches are included in the built image.
