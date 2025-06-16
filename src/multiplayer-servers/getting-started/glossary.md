@@ -47,7 +47,7 @@ Alongside the RBAC features, it also allows limiting the access to certain envir
 
 A Fleet is a set of warm GameServers that are available to be allocated from.
 It is an Agones object, which you can find [described in more details in their documentation reference](https://agones.dev/site/docs/reference/fleet/).
-This resource is always managed by an Armada, and can't be configured through the Armada UI any other way than by configuring the relevant Armada's Fleet Template.
+This resource is always managed by an Armada, and can't be configured through the UI any other way than by configuring the relevant Armada's Fleet Template.
 
 ## Formation
 
@@ -62,7 +62,7 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 ## Location
 
 A Location is a group of Sites that share a geographical area and other characteristics.
-This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
+This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 ## User
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#user)
@@ -88,7 +88,7 @@ You could also run your own sidecars for monitoring or other purposes.
 ## Site
 
 A Site is a cluster that belongs to a Location.
-This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
+This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 ## SteelShield™
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
