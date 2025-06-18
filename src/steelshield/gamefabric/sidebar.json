@@ -1,0 +1,15 @@
+{
+  "text": "SteelShield",
+  "collapsed": false,
+  "order": 1,
+  "items": [
+    {
+      "text": "Introduction",
+      "link": "/gamefabric/introduction"
+    },
+    {
+      "text": "Configure GameFabric",
+      "link": "/gamefabric/gamefabric"
+    }
+  ]
+}
