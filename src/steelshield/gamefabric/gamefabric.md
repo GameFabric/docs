@@ -16,4 +16,5 @@ your can see all all available Mitigations under `SteelShild`->`Mitigations`
 
 
 # GatewayPolicies
-`TODO`
+In order to make sure return traffic from any outgoing connections is not blocked you have to configure your backend services CIDRs insde a GatewayPolicy.
+
