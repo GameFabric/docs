@@ -67,6 +67,13 @@ This specific resource is not configurable through the GameFabric UI. It is conf
 ## User
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#user)
 
+## Permission
+See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions)
+
+## RBAC
+Role-Based Access Control (RBAC) is the system used in the GameFabric to manage your team's access to the platform.
+See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions)
+
 ## Region
 
 A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
