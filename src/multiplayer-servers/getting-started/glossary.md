@@ -38,7 +38,7 @@ GameFabric runs its own internal Container registry proxy, which is where you sh
 Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch. The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
 ## Cluster
-A cluster refers to a group of baremetal or cloud servers located in the same location.
+A cluster refers to a group of bare metal or cloud servers located in the same location.
 In context of GameFabric this is the same as a [site](/multiplayer-servers/getting-started/glossary#site).
 
 ## Environment
