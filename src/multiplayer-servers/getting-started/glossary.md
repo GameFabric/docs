@@ -39,7 +39,7 @@ Those images are scoped by branch. For example, a standard use case would be to 
 
 ## Cluster
 A cluster refers to a group of bare metal or cloud servers located in the same location.
-In context of GameFabric this is the same as a [site](/multiplayer-servers/getting-started/glossary#site).
+In the context of GameFabric this is the same as a [site](/multiplayer-servers/getting-started/glossary#site).
 
 ## Environment
 
