@@ -37,6 +37,10 @@ See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-ho
 GameFabric runs its own internal Container registry proxy, which is where you should push your game server images to in order to have them available in Fleets.
 Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch. The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
+## Cluster
+A cluster refers to a group of baremetal or cloud servers located in the same location.
+In context of GameFabric this is the same as a [site](/multiplayer-servers/getting-started/glossary#site).
+
 ## Environment
 
 Environments are a mechanism for isolating groups of resources. Resource names must be unique within each environment, but not across environments.
@@ -60,7 +64,6 @@ See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-ho
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group)
 
 ## Location
-
 A Location is a group of Sites that share a geographical area and other characteristics.
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
@@ -93,8 +96,7 @@ For example, Nitrado provides an allocator sidecar which can handle the allocati
 You could also run your own sidecars for monitoring or other purposes.
 
 ## Site
-
-A Site is a cluster that belongs to a Location.
+A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a Location.
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 ## SteelShield™
