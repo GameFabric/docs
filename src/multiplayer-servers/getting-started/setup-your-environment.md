@@ -20,7 +20,7 @@ Create a new Environment by clicking the "Create Environment" button.
 
 ![GUI_Environments_Create.png](images/environment/GUI_Environments_Create.png)
 
-The name of the Environment uniquely identifies it and is restricted to a maximum of 4 letters. Common names are "prod", "stge" and "dev".
+The name of the Environment uniquely identifies it and is restricted to a maximum of 4 letters (see [Quotas](../multiplayer-services/quotas.md#environment-name-length) for details). Common names are "prod", "stge" and "dev".
 The display name is the human readable name, and the description optionally notes the uses of the Environment. Click the "Create Environment"
 when the form is filled out.
 
