@@ -82,7 +82,7 @@ shut it down.
 
 ## Player count and capacity tracking
 
-Game Servers created by GameFabric have a counter for players by default which you can use to track player numbers and capacity per game servers.
+Game Servers created by GameFabric have a counter for players by default which you can use to track player numbers and capacity per game server.
 
 
 ### How to update
