@@ -80,3 +80,22 @@ Shutdown() instead. This will cause the hosting environment to properly clean up
 game server and send a termination signal to the process, which can then be used to
 shut it down.
 
+## Player count and capacity tracking
+
+Game Servers created by GameFabric have a counter for players by default which you can use to track player numbers and capacity per game servers.
+
+
+### How to update
+Please see the [offical Agones SDK documentation](https://agones.dev/site/docs/guides/client-sdks/).
+
+Name of the counter: `players`
+
+Note that a Counter Capacity of 0 means no limits. When incrementing a counter beyond its capacity, Agones will return an error.
+
+The Agones Counters and Lists API is currently in Beta state.
+
+curl example:
+`curl -d '{"count": "17", "capacity": "64"}' -H "Content-Type: application/json" -X PATCH http://localhost:${AGONES_SDK_HTTP_PORT}/v1beta1/counters/players`
+
+### Dashboard
+In the monitoring Grafana is a pre build Dashboard under `Agones`->`CCUs`
