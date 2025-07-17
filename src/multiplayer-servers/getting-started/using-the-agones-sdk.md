@@ -98,4 +98,4 @@ curl example:
 `curl -d '{"count": "17", "capacity": "64"}' -H "Content-Type: application/json" -X PATCH http://localhost:${AGONES_SDK_HTTP_PORT}/v1beta1/counters/players`
 
 ### Dashboard
-The monitoring Grafana has a pre-built Dashboard under `Agones`->`CCUs`
+You can find a dashboard which shows the current and historic CCU numbers by opening Grafana via the "Monitoring" menu item on the left side of your GameFabric instance and navigating to the "Agones" folder which contains the "CCUs" dashboard.
