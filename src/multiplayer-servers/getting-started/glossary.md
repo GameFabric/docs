@@ -39,7 +39,7 @@ Those images are scoped by branch. For example, a standard use case would be to 
 
 ## Cluster
 A cluster refers to a group of bare metal or cloud servers located in the same location.
-In the context of GameFabric this is the same as a [site](/multiplayer-servers/getting-started/glossary#site).
+In the context of GameFabric, clusters are implemented as [sites](/multiplayer-servers/getting-started/glossary#site). While a "Cluster" refers to the physical or virtual grouping of servers, a "Site" represents the GameFabric-specific abstraction used to manage and interact with these clusters.
 
 ## Environment
 
