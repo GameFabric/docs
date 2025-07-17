@@ -86,7 +86,7 @@ Game Servers created by GameFabric have a counter for players by default which y
 
 
 ### How to update
-Please see the [offical Agones SDK documentation](https://agones.dev/site/docs/guides/client-sdks/).
+Please see the [official Agones SDK documentation](https://agones.dev/site/docs/guides/client-sdks/).
 
 Name of the counter: `players`
 
