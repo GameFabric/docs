@@ -49,6 +49,10 @@
           "link":  "/multiplayer-services/server-protection/protocols"
         }
       ]
+    },
+    {
+      "text": "Quotas",
+      "link": "/multiplayer-services/quotas"
     }
   ]
 }
