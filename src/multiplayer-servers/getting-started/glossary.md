@@ -37,7 +37,7 @@ See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-ho
 GameFabric runs its own internal Container registry proxy, which is where you should push your game server images to in order to have them available in Fleets.
 Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch. The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
-# CCU
+## CCU
 CCU stands for Concurrent Users. It is a key metric that represents the total number of players who are actively playing on a game server at the same time.
 
 See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk.md#player-count-and-capacity-tracking)
