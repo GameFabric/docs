@@ -16,7 +16,7 @@ export default defineConfig({
         ['meta', {name: 'theme-color', content: '#ffd744'}],
         ['meta', {property: 'og:type', content: 'website'}],
         ['meta', {property: 'og:locale', content: 'en'}],
-        ['meta', {property: 'og:title', content: 'GameFabric Documentation | One Stop Shop for Multiplayer Services'}],
+        ['meta', {property: 'og:title', content: 'GameFabric Documentation | One Stop Shop for Multiplayer Servers'}],
         ['meta', {property: 'og:site_name', content: 'GameFabric Documentation'}],
         ['meta', {property: 'og:image', content: 'https://docs.gamefabric.com/og-preview.png'}],
         ['meta', {property: 'og:url', content: 'https://docs.gamefabric.com/'}],
