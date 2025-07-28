@@ -42,6 +42,10 @@ CCU stands for Concurrent Users. It is a key metric that represents the total nu
 
 See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk.md#player-count-and-capacity-tracking)
 
+## Cluster
+A cluster refers to a group of bare metal or cloud servers located in the same location.
+In the context of GameFabric, clusters are implemented as [sites](/multiplayer-servers/getting-started/glossary#site). While a "Cluster" refers to the physical or virtual grouping of servers, a "Site" represents the GameFabric-specific abstraction used to manage and interact with these clusters.
+
 
 ## Environment
 
@@ -66,7 +70,6 @@ See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-ho
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group)
 
 ## Location
-
 A Location is a group of Sites that share a geographical area and other characteristics.
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
@@ -99,8 +102,7 @@ For example, Nitrado provides an allocator sidecar which can handle the allocati
 You could also run your own sidecars for monitoring or other purposes.
 
 ## Site
-
-A Site is a cluster that belongs to a Location.
+A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a Location.
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 ## SteelShield™
