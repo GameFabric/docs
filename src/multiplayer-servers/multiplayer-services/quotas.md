@@ -4,9 +4,13 @@ This page lists all known system limitations that developers should be aware of 
 
 ## Server Limitations
 
-### Game Servers per Node
-- **Limit**: 100 Game Servers per node
-- **Description**: Each node in the GameFabric cluster can host a maximum of 100 game server instances simultaneously.
+### Game Servers per baremetal Node
+- **Limit**: 150 Game Servers per baremetal node
+- **Description**: Each node in the GameFabric baremetal cluster can host a maximum of 150 game server instances simultaneously.
+
+### Game Servers per cloud Node
+- **Limit**: 100 Game Servers per cloud node
+- **Description**: Each node in the GameFabric cloud cluster can host a maximum of 100 game server instances simultaneously.
 
 ## Environment Limitations
 
