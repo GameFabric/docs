@@ -44,7 +44,7 @@ This ensures that large DDOS attacks from botnets or via reflection attacks are 
 server* as they would not have been able to go through the authentication process to receive a valid *SteelShield Token*
 which allows their traffic to pass through the *SteelShield Service*
 
-Should an attacker perform the authentication process and then use their received *SteelShield Token* is used in an attack,
+Should an attacker perform the authentication process and then use their received *SteelShield Token* in an attack,
 the *SteelShield Token* would be able to be traced back to that individuals account, and the user banned.
 
 *SteelShield Tokens* are also set to *roll over* every 15 minutes (by default) in order to ensure that the token can not
