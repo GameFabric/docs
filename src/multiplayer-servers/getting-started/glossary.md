@@ -97,7 +97,7 @@ Revisions are kept to allow you to roll back to a previous configuration, as wel
 The revision of an Armada in an ArmadaSet is independent from the revision of its controlling ArmadaSet.
 
 
-E.g: Due its flexible nature a ArmadaSet can be revsion 12 and control Armadas
+E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Armadas
  - "a" revision 12
  - "b" revision 12
  - "c" revision 8
