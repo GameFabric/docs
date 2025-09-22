@@ -92,6 +92,17 @@ A revision is a discrete configuration of either an [ArmadaSet](#armadaset), [Ar
 
 Revisions are kept to allow you to roll back to a previous configuration, as well as manage multiple revisions running in parallel (for example during a rollout upgrade).
 
+
+::: info
+The revision of a Armada in an ArmadaSet is independent from the revision of its controlling ArmadaSet.
+
+
+E.g: Due its flexible nature a ArmadaSet can be revsion 12 and control Armadas
+ - "a" revision 12
+ - "b" revision 12
+ - "c" revision 8
+:::
+
 ## Role
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#role)
 
