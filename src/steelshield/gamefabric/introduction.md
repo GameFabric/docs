@@ -7,8 +7,6 @@ attacks. It achieves this by intercepting network traffic on the path to the gam
 combination of source address, destination address, port and network packet contents match the type of packets which
 would normally be expected for that game server.
 
-
-
 ## Protection Levels
 
 ::: info
@@ -21,8 +19,6 @@ This describes the situation inside Nitrado's own infrastructure.
 
 
 Reactive Rate Limiting based on packet size and packets per second. Level 1 is always activated for all customers at no additional charge, in available locations.
-
-
 
 ### Level 2 - Basic Traffic Filtering and Whitelisting
 > No integration needed from the developer.
@@ -44,4 +40,3 @@ Best level of protection from SteelShield
 > This level of protection requires integration into the game by the developer.
 
 see [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin) for how to implement
-
