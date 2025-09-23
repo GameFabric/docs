@@ -21,7 +21,8 @@ This describes the situation inside Nitrado's own infrastructure.
 Reactive Rate Limiting is based on packet size and packets per second. Level 1 is always enabled for all customers at no additional charge, in available locations.
 
 ### Level 2 - Basic Traffic Filtering and Whitelisting
-> No integration needed from the developer.
+
+> No integration is needed from the game developers.
 
 Restrict traffic to specific ports and apply game specific basic filtering to block obvious malicious traffic, ensuring a first layer of protection against DDoS attacks. Level 2 has to be purchased in available locations.
 
