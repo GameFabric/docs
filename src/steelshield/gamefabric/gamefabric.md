@@ -30,5 +30,5 @@ These are following possible values:
 
 ::: info
 At the moment **Partially Protected** is also shown if all of your nodes are protected but the buffer nodes are not.
-For non maintenance operation this means that all of your capacity is protected.
+For operations outside of maintenance, this means that all of your capacity is protected.
 :::
