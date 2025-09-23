@@ -22,7 +22,7 @@ In order to return traffic from any outgoing connections is not blocked, you hav
 
 In the UI, under `Capacity`->`Sites` you can see the *Protection Status* for each of your Sites.
 
-There are following possible values:
+These are following possible values:
 
 - **Unprotected**: No node in this site is protected
 - **Protected**: Every node in this site is protected
