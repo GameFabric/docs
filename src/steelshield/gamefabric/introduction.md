@@ -40,4 +40,4 @@ Best level of protection from SteelShield
 
 > This level of protection requires integration into the game by the developer.
 
-see [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin) for how to implement
+See [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin) to learn how to implement Level 3 protection into your game.
