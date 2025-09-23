@@ -14,8 +14,8 @@ This describes the situation inside Nitrado's own infrastructure.
 :::
 
 ### Level 1 - Reactive Rate Limiting
+
 > No integration is needed from the game developers.
-> This system is enabled for every game server running on our bare metal servers
 
 Reactive Rate Limiting is based on packet size and packets per second. Level 1 is always enabled for all customers at no additional charge, in available locations.
 
@@ -33,10 +33,10 @@ See [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric) to 
 
 ### Level 3 - Full Proof of Identity using Deep Packet Inspection
 
+> This level of protection requires integration into the game by the developer.
+
 Level 3 uses deep packet inspection for real-time network flow analysis, while sFlow data provides insights into traffic patterns over time. With 0% false positive, it only lets valid traffic flow through.
 
 Best level of protection from SteelShield
-
-> This level of protection requires integration into the game by the developer.
 
 See [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin) to learn how to implement Level 3 protection into your game.
