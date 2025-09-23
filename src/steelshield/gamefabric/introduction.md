@@ -12,7 +12,7 @@ would normally be expected for that game server.
 ## Protection Levels
 
 ::: info
-This describe the situation inside Nitrado own infrastructure.
+This describes the situation inside Nitrado's own infrastructure.
 :::
 
 ### Level 1 - Reactive Rate Limiting
