@@ -8,7 +8,7 @@ select the **Protection Protocol** you want to use for each port and hit `Save`.
 
 
 # Managing Protocols
-You can manage your Protection Protections under `SteelShield`->`Protocols`
+You can manage your Protection Protocols under `SteelShield`->`Protocols`
 
 
 # Mitigations
