@@ -1,8 +1,6 @@
 # How to enable advanced protection for game servers
 
-For each Armada or Vessel go to `Settings`->`Containers`->`Container Ports`
-
-select the **Protection Protocol** you want to use for each port and hit `Save`.
+For each Armada or Vessel go to `Settings`->`Containers`->`Container Ports`, select the **Protection Protocol** you want to use for each port and press the `Save` button.
 
 ![Ports](images/ports.png)
 
