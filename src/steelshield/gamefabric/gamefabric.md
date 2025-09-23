@@ -28,6 +28,6 @@ There are following possible values:
 - **Partially Protected**: Some nodes in this site are protected
 
 ::: info
-At the moment **Partially Protected** is also show if all of your nodes are protected but the spare nodes are not.
-For non maintaince operation this means that all of your capacity is protected.
+At the moment **Partially Protected** is also shown if all of your nodes are protected but the spare nodes are not.
+For non maintenance operation this means that all of your capacity is protected.
 :::
