@@ -16,7 +16,7 @@ This describes the situation inside Nitrado's own infrastructure.
 :::
 
 ### Level 1 - Reactive Rate Limiting
-> No integration needed from the Developer<br>
+> No integration needed from the developer<br>
 > this is enabled for every gameserver running on our bare metal servers
 
 
