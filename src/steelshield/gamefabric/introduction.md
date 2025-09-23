@@ -30,7 +30,7 @@ For example: Unreal Engine generic protection
 
 The customer can choose protocols to improve protection ( UDP / TCP).
 
-see [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric) for how to enable this
+See [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric) to learn how to enable Level 2 protection.
 
 ### Level 3 - Full Proof of Identity using Deep Packet Inspection
 
