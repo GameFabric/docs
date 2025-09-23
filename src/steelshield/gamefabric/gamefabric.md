@@ -15,7 +15,7 @@ You can see all available Mitigations under `SteelShield`->`Mitigations`.
 
 # GatewayPolicies
 
-In order to return traffic from any outgoing connections is not blocked, you have to configure your backend services' CIDRs inside a GatewayPolicy.
+In order to ensure that return traffic from any outgoing connections is not blocked, you have to configure your backend services' CIDRs inside a GatewayPolicy.
 
 # Protection Status
 
