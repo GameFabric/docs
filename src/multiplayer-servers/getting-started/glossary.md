@@ -37,6 +37,16 @@ See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-ho
 GameFabric runs its own internal Container registry proxy, which is where you should push your game server images to in order to have them available in Fleets.
 Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch. The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
+## CCU
+CCU stands for Concurrent Users. It is a key metric that represents the total number of players who are actively playing on a game server at the same time.
+
+See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk.md#player-count-and-capacity-tracking)
+
+## Cluster
+A cluster refers to a group of bare metal or cloud servers located in the same location.
+In the context of GameFabric, clusters are implemented as [sites](/multiplayer-servers/getting-started/glossary#site). While a "Cluster" refers to the physical or virtual grouping of servers, a "Site" represents the GameFabric-specific abstraction used to manage and interact with these clusters.
+
+
 ## Environment
 
 Environments are a mechanism for isolating groups of resources. Resource names must be unique within each environment, but not across environments.
@@ -47,7 +57,7 @@ Alongside the RBAC features, it also allows limiting the access to certain envir
 
 A Fleet is a set of warm GameServers that are available to be allocated from.
 It is an Agones object, which you can find [described in more details in their documentation reference](https://agones.dev/site/docs/reference/fleet/).
-This resource is always managed by an Armada, and can't be configured through the Armada UI any other way than by configuring the relevant Armada's Fleet Template.
+This resource is always managed by an Armada, and can't be configured through the UI any other way than by configuring the relevant Armada's Fleet Template.
 
 ## Formation
 
@@ -60,12 +70,18 @@ See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-ho
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group)
 
 ## Location
-
 A Location is a group of Sites that share a geographical area and other characteristics.
-This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
+This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 ## User
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#user)
+
+## Permission
+See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions)
+
+## RBAC
+Role-Based Access Control (RBAC) is the system used in the GameFabric to manage your team's access to the platform.
+See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions)
 
 ## Region
 
@@ -75,6 +91,17 @@ A Region is typically a geographic area made up of one or more Locations where r
 A revision is a discrete configuration of either an [ArmadaSet](#armadaset), [Armada](#armada) or [Formation](#formation). They are numbered consecutively starting from 1.
 
 Revisions are kept to allow you to roll back to a previous configuration, as well as manage multiple revisions running in parallel (for example during a rollout upgrade).
+
+
+::: info
+The revision of an Armada in an ArmadaSet is independent from the revision of its controlling ArmadaSet.
+
+
+E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Armadas
+ - "a" revision 12
+ - "b" revision 12
+ - "c" revision 8
+:::
 
 ## Role
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#role)
@@ -86,9 +113,8 @@ For example, Nitrado provides an allocator sidecar which can handle the allocati
 You could also run your own sidecars for monitoring or other purposes.
 
 ## Site
-
-A Site is a cluster that belongs to a Location.
-This specific resource is not configurable through the Armada UI. It is configured by Nitrado, for you.
+A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a Location.
+This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 ## SteelShield™
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
