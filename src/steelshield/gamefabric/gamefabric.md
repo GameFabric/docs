@@ -25,7 +25,7 @@ There are following possible values:
 
 - **Unprotected**: No node in this site is protected
 - **Protected**: Every node in this site is protected
-- **Partially Protected**: Some nodes in this site are proteted
+- **Partially Protected**: Some nodes in this site are protected
 
 ::: info
 At the moment **Partially Protected** is also show if all of your nodes are protected but the spare nodes are not.
