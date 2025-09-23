@@ -2,7 +2,7 @@
 
 ## Description
 
-SteelShield is a DDOS protection system designed for the specific purpose of protecting game servers from large scale DDOS
+SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS
 attacks. It achieves this by intercepting network traffic on the path to the game server, and identifying whether the
 combination of source address, destination address, port and network packet contents match the type of packets which
 would normally be expected for that game server.
