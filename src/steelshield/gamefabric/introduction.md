@@ -24,7 +24,7 @@ Reactive Rate Limiting is based on packet size and packets per second. Level 1 i
 
 > No integration is needed from the game developers.
 
-Restrict traffic to specific ports and apply game specific basic filtering to block obvious malicious traffic, ensuring a first layer of protection against DDoS attacks. Level 2 has to be purchased in available locations.
+Level 2 restricts traffic to specific ports and applies game specific basic filtering to block obvious malicious traffic, ensuring a first layer of protection against DDoS attacks. Level 2 has to be purchased in available locations.
 
 For example: Unreal Engine generic protection
 
