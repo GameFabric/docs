@@ -33,7 +33,7 @@ For example: Unreal Engine generic protection
 
 The customer can choose protocols to improve protection ( UDP / TCP).
 
-see [Configure protection in GameFabric]() for how to enable this
+see [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric) for how to enable this
 
 ### Level 3 - Full Proof of Identity using Deep Packet Inspection
 Usage of deep packet inspection for real-time network flow analysis, while sFlow data provides insights into traffic patterns over time. With 0% false positive, it allows us only to pass valid traffic.
@@ -42,5 +42,5 @@ Best level of protection from SteelShield
 
 > Integration work required by the developer
 
-see [Unreal Engine Plugin]() for how to implement
+see [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin) for how to implement
 
