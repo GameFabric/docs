@@ -38,5 +38,5 @@ Best level of protection from SteelShield
 
 > Integration work required by the developer
 
-see [Unreal Engine Plugin]() for how to implment
+see [Unreal Engine Plugin]() for how to implement
 
