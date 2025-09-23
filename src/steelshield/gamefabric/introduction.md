@@ -36,7 +36,8 @@ The customer can choose protocols to improve protection ( UDP / TCP).
 see [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric) for how to enable this
 
 ### Level 3 - Full Proof of Identity using Deep Packet Inspection
-Usage of deep packet inspection for real-time network flow analysis, while sFlow data provides insights into traffic patterns over time. With 0% false positive, it allows us only to pass valid traffic.
+
+Level 3 uses deep packet inspection for real-time network flow analysis, while sFlow data provides insights into traffic patterns over time. With 0% false positive, it only lets valid traffic flow through.
 
 Best level of protection from SteelShield
 
