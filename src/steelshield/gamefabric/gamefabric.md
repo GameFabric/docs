@@ -1,4 +1,4 @@
-# Howto enable advanced protection for game servers
+# How to enable advanced protection for game servers
 
 For each Armada or Vessel go to `Settings`->`Containers`->`Container Ports`
 
