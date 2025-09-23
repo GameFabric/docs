@@ -19,7 +19,7 @@ your can see all all available Mitigations under `SteelShield`->`Mitigations`
 In order to make sure return traffic from any outgoing connections is not blocked you have to configure your backend services CIDRs inside a GatewayPolicy.
 
 # Protection Status
-In the UI under `Capacity`->`Sites` you can see the *Protection Status* for each of you Sites.
+In the UI under `Capacity`->`Sites` you can see the *Protection Status* for each of your Sites.
 
 There are following possible values:
 
