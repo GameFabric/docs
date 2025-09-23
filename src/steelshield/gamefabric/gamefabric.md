@@ -12,7 +12,8 @@ You can manage your Protection Protocols under `SteelShield`->`Protocols`
 
 
 # Mitigations
-your can see all all available Mitigations under `SteelShield`->`Mitigations`
+
+You can see all available Mitigations under `SteelShield`->`Mitigations`.
 
 
 # GatewayPolicies
