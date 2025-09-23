@@ -41,7 +41,7 @@ Level 3 uses deep packet inspection for real-time network flow analysis, while s
 
 Best level of protection from SteelShield
 
-> Integration work required by the developer
+> This level of protection requires integration into the game by the developer.
 
 see [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin) for how to implement
 
