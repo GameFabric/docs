@@ -9,11 +9,9 @@ For each Armada or Vessel go to `Settings`->`Containers`->`Container Ports`, sel
 
 You can manage your Protection Protocols under `SteelShield`->`Protocols`.
 
-
 # Mitigations
 
 You can see all available Mitigations under `SteelShield`->`Mitigations`.
-
 
 # GatewayPolicies
 

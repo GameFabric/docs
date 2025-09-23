@@ -17,7 +17,6 @@ This describes the situation inside Nitrado's own infrastructure.
 > No integration needed from the developer<br>
 > this is enabled for every gameserver running on our bare metal servers
 
-
 Reactive Rate Limiting based on packet size and packets per second. Level 1 is always activated for all customers at no additional charge, in available locations.
 
 ### Level 2 - Basic Traffic Filtering and Whitelisting
