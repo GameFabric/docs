@@ -2,7 +2,7 @@
 
 For each Armada or Vessel go to `Settings`->`Containers`->`Container Ports`, select the **Protection Protocol** you want to use for each port and press the `Save` button.
 
-![Ports](images/ports.png)
+![Screenshot of the Container Ports settings page showing how to select a Protection Protocol for each port.](images/ports.png)
 
 
 # Managing Protocols
