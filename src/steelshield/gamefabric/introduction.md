@@ -12,7 +12,7 @@ would normally be expected for that game server.
 ## Protection Levels
 
 ### Level 1 - Reactive Rate Limiting
-> No integration needed form the Developer<br>
+> No integration needed from the Developer<br>
 > this is enabled for every gameserver running on our bare metal servers
 
 
