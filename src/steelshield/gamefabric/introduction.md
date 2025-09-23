@@ -14,7 +14,8 @@ This describes the situation inside Nitrado's own infrastructure.
 :::
 
 ### Level 1 - Reactive Rate Limiting
-> No integration needed from the developer<br>
+> No integration is needed from the game developers.
+> This system is enabled for every game server running on our bare metal servers
 > this is enabled for every gameserver running on our bare metal servers
 
 Reactive Rate Limiting based on packet size and packets per second. Level 1 is always activated for all customers at no additional charge, in available locations.
