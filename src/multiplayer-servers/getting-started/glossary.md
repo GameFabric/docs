@@ -112,6 +112,10 @@ A sidecar is a container that runs alongside your game server container, providi
 For example, Nitrado provides an allocator sidecar which can handle the allocation process for you.
 You could also run your own sidecars for monitoring or other purposes.
 
+## Shutdown Hints
+
+See [Vessel shutdown behavior](/getting-started/vessel-shutdown-behavior")
+
 ## Site
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a Location.
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
