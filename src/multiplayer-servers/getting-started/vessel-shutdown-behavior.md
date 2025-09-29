@@ -1,10 +1,10 @@
-# Shutdown behavior for Vessels
+# Vessel Shutdown Behavior
 
-To be able to do maintenance on long running vessels without interfere with running game servers the game server should responde to shutdown Hints set via annotations.
+To perform maintenance on long-running vessels without interfering with active game servers, the game server should respond to shutdown hints provided via annotations.
 
 ## Allocated Vessel
 
-If someing leading to an vessel shutdown or restart, following two annotations will be added to each affected Vessel:
+If a vessel shutdown or restart is required, the following two annotations will be added to each affected vessel:
 
 `g8c.io/shutdown-reason` with one of the following reasons:
 - `UserInitiated`
