@@ -1,0 +1,33 @@
+# Shutdown behavior for Vessels
+
+To be able to do maintenance on long running vessels without interfere with running game servers the game server should responde to shutdown Hints set via annotations.
+
+## Allocated Vessel
+
+If someing leading to an vessel shutdown or restart, following two annotations will be added to each affected Vessel:
+
+`g8c.io/shutdown-reason` with one of the following reasons:
+- `UserInitiated`
+- `SpecChange`
+- `Maintenance`
+
+and
+
+`g8c.io/shutdown-timestamp` with a timestamp in the format of "2006-01-02T15:04:05Z07:00"
+
+
+The timestamp will be `now` + the time configured for each reason via: `Settings`->`Advanced`->`Shutdown Notification`
+
+::: info Multiple shutdown reasons
+* The annotations are on set once and never updated
+* they will disapear with the shutdown of the Vessel
+
+So, if there is a `SpecChange` with a higher wait period than a following a` UserInitiated` shutdown, GameFabric will still wait the full `SpecChange period` before shutting it down
+
+it can of course beeing shutdown early by the game server itself responing to the annotations or leaving `Allocated` after all players left
+:::
+
+
+## Non allocated Vessel
+
+Vessel will be shut down immediately, in accordance with the "Termination Grace Period" (under `Settings`->`Advanced`).
