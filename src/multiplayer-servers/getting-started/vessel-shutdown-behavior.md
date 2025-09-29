@@ -20,7 +20,7 @@ The timestamp will be `now` + the time configured for each reason via: `Settings
 
 ::: info Multiple shutdown reasons
 * The annotations are set once and never updated
-* they will disappear with the shutdown of the game server
+* They will disappear with the shutdown of the game server
 
 So, if there is a `SpecChange` with a higher wait period than a following `UserInitiated` shutdown, GameFabric will still wait the full `SpecChange period` before shutting it down.
 
