@@ -2,9 +2,9 @@
 
 To perform maintenance on long-running vessels without interfering with active game servers, the game server should respond to shutdown hints provided via annotations.
 
-## Allocated Vessel
+## Allocated Vessels
 
-If a vessel shutdown or restart is required, the following two annotations will be added to each affected vessel:
+If shutdown or restart is required for an already allocated Vessel, the following two annotations will be added to each affected Vessel:
 
 `g8c.io/shutdown-reason` with one of the following reasons:
 - `UserInitiated`
@@ -28,6 +28,6 @@ it can of course being shutdown early by the game server itself responding to th
 :::
 
 
-## Non allocated Vessel
+## Non allocated Vessels
 
-Vessel will be shut down immediately, in accordance with the "Termination Grace Period" (under `Settings`->`Advanced`).
+Non allocated Vessels will be shut down immediately, in accordance with the `Termination Grace Period` (under `Settings`->`Advanced`).
