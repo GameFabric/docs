@@ -67,21 +67,27 @@ A Formation acts as a template for individual game servers (Vessels) spawned wit
 See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
 ## Group
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group)
+
+See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group).
 
 ## Location
+
 A Location is a group of Sites that share a geographical area and other characteristics.
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 ## User
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#user)
+
+See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#user).
 
 ## Permission
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions)
+
+See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
 
 ## RBAC
+
 Role-Based Access Control (RBAC) is the system used in the GameFabric to manage your team's access to the platform.
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions)
+
+See also [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
 
 ## Region
 
@@ -104,7 +110,8 @@ E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Arm
 :::
 
 ## Role
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#role)
+
+See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#role).
 
 ## Sidecar
 
@@ -114,13 +121,15 @@ You could also run your own sidecars for monitoring or other purposes.
 
 ## Shutdown Hints
 
-See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/vessel-shutdown-behavior)
+See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/vessel-shutdown-behavior).
 
 ## Site
+
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a Location.
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 ## SteelShield™
+
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
 
 
