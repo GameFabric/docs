@@ -114,7 +114,7 @@ You could also run your own sidecars for monitoring or other purposes.
 
 ## Shutdown Hints
 
-See [Vessel shutdown behavior](/getting-started/vessel-shutdown-behavior")
+See [Vessel shutdown behavior](/getting-started/vessel-shutdown-behavior)
 
 ## Site
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a Location.
