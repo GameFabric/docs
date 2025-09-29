@@ -24,7 +24,7 @@ The timestamp will be `now` + the time configured for each reason via: `Settings
 
 So, if there is a `SpecChange` with a higher wait period than a following `UserInitiated` shutdown, GameFabric will still wait the full `SpecChange period` before shutting it down.
 
-it can of course being shutdown early by the game server itself responding to the annotations or leaving `Allocated` after all players left
+It can of course being shutdown early by the game server itself responding to the annotations or leaving `Allocated` after all players left.
 :::
 
 
