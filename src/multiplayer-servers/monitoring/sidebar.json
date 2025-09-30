@@ -6,6 +6,10 @@
     {
       "text": "Introduction",
       "link": "/monitoring/introduction"
+    },
+    {
+      "text": "Audit Logs",
+      "link": "/monitoring/auditlogs"
     }
   ]
 }

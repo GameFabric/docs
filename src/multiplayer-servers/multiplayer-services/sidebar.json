@@ -1,22 +1,22 @@
 {
-  "text": "Multiplayer Services",
+  "text": "Multiplayer Servers",
   "collapsed": false,
   "order": 4,
   "items": [
     {
-      "text":"Server Allocation",
+      "text": "Server Allocation",
       "items": [
         {
           "text": "Allocating from Armadas",
-          "link":  "/multiplayer-services/server-allocation/allocating-from-armadas"
+          "link": "/multiplayer-services/server-allocation/allocating-from-armadas"
         },
         {
           "text": "Automatically Registering Game Servers",
-          "link":  "/multiplayer-services/server-allocation/automatically-registering-game-servers"
+          "link": "/multiplayer-services/server-allocation/automatically-registering-game-servers"
         },
         {
           "text": "Manually Registering Game Servers",
-          "link":  "/multiplayer-services/server-allocation/manually-registering-game-servers"
+          "link": "/multiplayer-services/server-allocation/manually-registering-game-servers"
         },
         {
           "text": "Integration Examples",
@@ -38,17 +38,25 @@
       "link": "/multiplayer-services/game-server-wrapper"
     },
     {
-      "text":"Server Protection",
+      "text": "Resource Management",
+      "link": "/multiplayer-services/resource-management"
+    },
+    {
+      "text": "Server Protection",
       "items": [
         {
           "text": "Gateway Policies",
-          "link":  "/multiplayer-services/server-protection/gateway-policies"
+          "link": "/multiplayer-services/server-protection/gateway-policies"
         },
         {
           "text": "Ports and Protocols",
-          "link":  "/multiplayer-services/server-protection/protocols"
+          "link": "/multiplayer-services/server-protection/protocols"
         }
       ]
+    },
+    {
+      "text": "Quotas",
+      "link": "/multiplayer-services/quotas"
     }
   ]
 }

@@ -52,6 +52,14 @@
       "link": "/getting-started/running-your-game-server"
     },
     {
+      "text": "Terminating ArmadaSets",
+      "link": "/getting-started/terminating-armadasets"
+    },
+    {
+      "text": "Vessel Shutdown Behavior",
+      "link": "/getting-started/vessel-shutdown-behavior"
+    },
+    {
       "text": "Glossary",
       "link": "/getting-started/glossary"
     }

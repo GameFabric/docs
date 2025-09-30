@@ -20,6 +20,12 @@ In case you haven't already done so, there are two options available to you:
 - **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry - you can always change the display names and policies later. See how to [edit a branch](edit-a-branch.md).
 - **Create Branch**: This will allow you to create a custom branch with a name and an Image Retention Policy of your choice.
 
+When creating a custom branch, please adhere to the following naming conventions:
+
+* Branch names must only contain lowercase letters, numbers, hyphens (-), and periods (.).
+* Branch names must begin and end with a lowercase letter.
+
+
 ::: warning Image Retention Policy
 The Image Retention Policy defines how long images are stored in the registry and how many tags are retained.
 The default settings for the **Production** branch are 30 days and 10 tags. **Development** and **Custom** branches have default settings of **14 days** and **10 tags**. _These default settings can be adjusted for any branch._
