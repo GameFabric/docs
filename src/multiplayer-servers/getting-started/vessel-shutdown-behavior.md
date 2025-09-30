@@ -7,9 +7,9 @@ To perform maintenance on long-running vessels without interfering with active g
 If shutdown or restart is required for an already allocated Vessel, the following two annotations will be added to each affected Vessel:
 
 `g8c.io/shutdown-reason` with one of the following reasons:
-- `UserInitiated` (eg. restart/shutdown request via the GameFabric UI)
-- `SpecChange`    (eg. changes to vessel or region configuration)
-- `Maintenance`   (eg. request from SRE to perform maintenance on a node)
+- `UserInitiated` (e.g. restart/shutdown request via the GameFabric UI)
+- `SpecChange`    (e.g. changes to vessel or region configuration)
+- `Maintenance`   (e.g. request from SRE to perform maintenance on a node)
 
 and
 
