@@ -20,7 +20,7 @@ These parameters should be provided to you by Nitrado, and can be configured by 
 2. **Developer** — The name of your company
 3. **Game** — The name of the game you are integrating SteelShield with
 4. **Platform** — The platform on which this version of the game is for (PC/PS5/XBox etc) or a generic platform in the
-   case of a non—platform specific token service
+   case of a non-platform specific token service
 5. **Platform Key** — Unique secret key for this game provided by Nitrado. This is used by the
    `SteelShield Token Service` to authenticate the token requests. Keep this secret!
 6. **Backend URL** — Base URL of the `SteelShield Token Service`
