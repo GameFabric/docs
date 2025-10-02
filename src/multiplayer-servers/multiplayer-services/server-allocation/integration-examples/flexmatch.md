@@ -79,7 +79,7 @@ The allocation request requires a region and attributes so that the allocation s
 The first hard requirement is to match the requested region against the registered regions.
 If registered servers have specified required keys (e.g. `canary`) the presence of these keys in the requested attributes is
 enforced.
-Additionally, all requested attributes must be a sub-set of the registered attributes, taking keys and values into account.
+Additionally, all requested attributes must be a subset of the registered attributes, taking keys and values into account.
 
 This means letting aside regions, a request with no attributes matches all game servers, except those that require certain
 attribute keys.
