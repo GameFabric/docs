@@ -15,8 +15,8 @@ version numbers. For example, patch `ue5.2.1` can be applied to `ue5.2.0` withou
 Once the patch file is applied, please rebuild the Unreal Engine using your preferred method.
 
 ```bash
-$ cd $BASE_DIR/unreal_engine
-$ git apply $BASE_DIR/steelshield_plugin/ue5.2.1-001_engine.patch
+cd $BASE_DIR/unreal_engine
+git apply $BASE_DIR/steelshield_plugin/ue5.2.1-001_engine.patch
 ```
 
 ## 2. Copy Plugin Files
@@ -24,8 +24,8 @@ $ git apply $BASE_DIR/steelshield_plugin/ue5.2.1-001_engine.patch
 The next step is to copy the plugin files to your local projects plugins folder.
 
 ```bash
-$ cd $BASE_DIR/plugin
-$ cp -r SteelShield $UNREAL_PROJECTS_DIR/MyNewGame/Plugins
+cd $BASE_DIR/plugin
+cp -r SteelShield $UNREAL_PROJECTS_DIR/MyNewGame/Plugins
 ```
 
 ## 3. Enable the Plugin

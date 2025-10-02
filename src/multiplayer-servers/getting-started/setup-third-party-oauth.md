@@ -141,7 +141,6 @@ Some of the non-standard claims, and how would they map to GameFabric claims:
 | normalized_username | preferred_username             | Lowercased username                                                            |
 | secondary_email     | email                          | Secondary email, that might be wished to map to the principal "email"          |
 
-
 #### Provider Discovery Override
 
 GameFabric performs a preparatory request to the OIDC Provider to fetch required configuration details.
@@ -161,7 +160,8 @@ This customization ensures compatibility with providers returning non-standard d
 
 Before configuring ENTRA as a new OIDC Provider on GameFabric, it's required to ensure that GameFabric is configured as an application on ENTRA.
 
-About further information on how to accomplish this, please refer to: https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens ("Enable ID Tokens" Section)
+About further information on how to accomplish this, please refer to the "Enable ID Tokens" section of the
+[official Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens).
 
 #### Add ENTRA as a provider
 
@@ -172,7 +172,7 @@ On "Create OIDC Provider" page, fill in ID and Name for ENTRA:
 On the next step:
 
 - Fill in the "Issuer URL" of ENTRA
-  For ENTRA this is "https://login.microsoftonline.com/{tenant-id}/v2.0"
+  For ENTRA this is `https://login.microsoftonline.com/{tenant-id}/v2.0`
 
 - Fill in the ClientID & Secret you have obtained from ENTRA for GameFabric
   Client ID & Secret should be presented to you by ENTRA when GameFabric is configured as an Application on ENTRA following the steps mentioned in prerequisites

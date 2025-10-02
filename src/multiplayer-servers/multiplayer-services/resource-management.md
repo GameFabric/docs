@@ -67,6 +67,7 @@ When your server tries to use more CPU than its limit, it gets **throttled** (sl
 If there's unused CPU capacity available, your game server can temporarily use more CPU than its request (up to its limit) without being throttled.
 
 **Example**: Your server has a 500m request and 1000m limit
+
 - Normal operation: Uses 400m CPU ✓
 - Sudden activity spike: Can burst to 900m CPU if available ✓  
 - Heavy load: Gets throttled if trying to exceed 1000m CPU ⚠️
@@ -92,7 +93,8 @@ Only set CPU limits if you have specific requirements and thoroughly understand 
 
 **You can safely lower CPU requests** if your monitoring shows actual usage is consistently below your current request. This allows GameFabric to pack more game servers onto each physical machine, reducing your costs.
 
-**Example scenario**: 
+**Example scenario**:
+
 - Current setting: `2000m` CPU request
 - Monitoring shows: Average usage of 400-600m, peaks of 800-1000m
 - **Safe optimization**: Lower request to `1000m` or `1200m`
@@ -174,6 +176,7 @@ When creating game servers in GameFabric (through the UI or Terraform), you'll s
 - Include safety margin to prevent unexpected terminations
 
 **Example**: If your game server uses 800Mi baseline and peaks at 1.2Gi with players, set:
+
 - Memory Request: `800Mi`
 - Memory Limit: `1.4Gi` (1.2Gi + 20% safety margin)
 
@@ -220,7 +223,7 @@ Use this to:
 - Identify memory usage patterns for setting limits
 - Spot unusual spikes that might indicate performance issues
 
-#### "Cluster Nodes USE Overview" 
+#### "Cluster Nodes USE Overview"
 
 Shows overall node resource utilization.
 

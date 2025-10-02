@@ -80,7 +80,7 @@ WORKDIR /app
 CMD ["/app/gameserver"]
 ```
 
-1. First, select a Linux operating system, ideally a minimal one to reduce the overall image size, but 
+1. First, select a Linux operating system, ideally a minimal one to reduce the overall image size, but
    for the sake of simplicity this example uses Ubuntu 22.04 (LTS).
 
 2. Update the dependencies to ensure all security patches are included in the built image.

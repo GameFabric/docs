@@ -6,7 +6,7 @@ In this section, you will learn different methods for deleting container images.
 
 Before following this guide, ensure that you have already [pushed container images](pushing-container-images.md).
 
-1. Navigate to the **Branches** section in the GameFabric UI. 
+1. Navigate to the **Branches** section in the GameFabric UI.
 ![GUI_branches_overview.png](images/branches/GUI_branches_overview.png)
 2. Click **View Images** to open the branch detail view, which displays all images associated with that branch.
 ![GUI_images_view.png](images/branches/GUI_images_view.png)

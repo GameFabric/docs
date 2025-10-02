@@ -121,6 +121,6 @@ You can do so by deleting the Vessel using the REST API.
 curl -X 'DELETE' \
      "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSSEL_NAME}" \
      -H "Authorization: Bearer ${GF_API_TOKEN}"
-``` 
+```
 
 This results in your Vessel switching to the Terminating status, and eventually disappearing once the termination process is complete.

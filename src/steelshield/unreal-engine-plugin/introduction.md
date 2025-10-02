@@ -17,7 +17,6 @@ There are few specific keywords used in this document, which have specific meani
     the `SteelShield Token`
 :::
 
-
 ## Description
 
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS

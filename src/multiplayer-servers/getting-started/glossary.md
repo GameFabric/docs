@@ -35,6 +35,7 @@ Those images are scoped by branch. For example, a standard use case would be to 
 The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
 ## CCU
+
 CCU stands for Concurrent Users. It is a key metric that represents the total number of players who are actively playing on a game server at the same time.
 
 See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk.md#player-count-and-capacity-tracking)
@@ -101,9 +102,9 @@ Revisions are kept to allow you to roll back to a previous configuration, as wel
 The revision of an Armada in an ArmadaSet is independent from the revision of its controlling ArmadaSet.
 
 E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Armadas
- - "a" revision 12
- - "b" revision 12
- - "c" revision 8
+* "a" revision 12
+* "b" revision 12
+* "c" revision 8
 :::
 
 ## Role

@@ -3,9 +3,11 @@
 ## Overview
 
 GameFabric allows you to gracefully or forcefully terminate ArmadaSets.
+
 The GameFabric UI offers two options:
-- **Terminate Unallocated**
-- **Terminate All**
+
+* **Terminate Unallocated**
+* **Terminate All**
 
 These options are available in the Armada Overview:
 ![Armada_Terminate_Overview.png](images/armada/Armada_Terminate_Overview.png)

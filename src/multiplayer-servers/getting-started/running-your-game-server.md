@@ -91,7 +91,7 @@ Supported pod fields are:
 | `metadata.imageName`       | Name of the used game server image.                                | GameFabric (any)            |
 | `metadata.imageTag`        | Tag name of the used game server image.                            | GameFabric (any)            |
 
-For a full list of supported Kubernetes fields, see https://kubernetes.io/docs/concepts/workloads/pods/downward-api/#downwardapi-fieldRef.
+For more information, see the [full list of supported Kubernetes fields](https://kubernetes.io/docs/concepts/workloads/pods/downward-api/#downwardapi-fieldRef).
 
 #### Ports
 

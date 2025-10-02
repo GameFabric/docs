@@ -19,9 +19,9 @@ These parameters should be provided to you by Nitrado, and can be configured by 
 1. **Api Version** — `SteelShield Token Service` end point API version
 2. **Developer** — The name of your company
 3. **Game** — The name of the game you are integrating SteelShield with
-4. **Platform** — The platform on which this version of the game is for (PC/PS5/XBox etc) or a generic platform in the 
+4. **Platform** — The platform on which this version of the game is for (PC/PS5/XBox etc) or a generic platform in the
    case of a non—platform specific token service
-5. **Platform Key** — Unique secret key for this game provided by Nitrado. This is used by the 
+5. **Platform Key** — Unique secret key for this game provided by Nitrado. This is used by the
    `SteelShield Token Service` to authenticate the token requests. Keep this secret!
 6. **Backend URL** — Base URL of the `SteelShield Token Service`
 7. **Auth Provider** — Provider used to issue the JWT token
@@ -61,7 +61,7 @@ restarted or in the case of the EOSTokenProvider, the user logs out of EOS.
 ## Starting the Plugin
 
 Starting the plugin should take place right before the user attempts to join a server. By starting the plugin, the
-subsystem makes a request to the backend `SteelShield Token Service` using the JWT/TokenProvider given during 
+subsystem makes a request to the backend `SteelShield Token Service` using the JWT/TokenProvider given during
 initialization process.
 This then allows the engine component to begin "wrapping" the network packets with a `SteelShield Token`.
 

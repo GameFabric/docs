@@ -17,8 +17,8 @@ Log into the GameFabric UI before proceeding.
 If you do not already have a branch in which to push images, you need to create one.
 In case you haven't already done so, there are two options available to you:
 
-- **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry - you can always change the display names and policies later. See how to [edit a branch](edit-a-branch.md).
-- **Create Branch**: This will allow you to create a custom branch with a name and an Image Retention Policy of your choice.
+* **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry - you can always change the display names and policies later. See how to [edit a branch](edit-a-branch.md).
+* **Create Branch**: This will allow you to create a custom branch with a name and an Image Retention Policy of your choice.
 
 When creating a custom branch, please adhere to the following naming conventions:
 
@@ -31,7 +31,7 @@ The default settings for the **Production** branch are 30 days and 10 tags. **De
 
 For example, with **Keep Days** set to 14 and **Keep Count** set to 10, images older than 14 days will be deleted, but the process stops if removing an image would leave fewer than 10 images.
 
-_Note: Either **Keep Days** or **Keep Count** (or both) must be >0. Setting **Keep Days** or **Keep Count** to *0* means that specific rule will be ignored._
+_Note: Either **Keep Days** or **Keep Count** (or both) must be >0. Setting **Keep Days** or **Keep Count** to _0_ means that specific rule will be ignored._
 :::
 
 ### Add default Branches
@@ -72,7 +72,7 @@ Once the branch is created, you can find that URL again by clicking the **View I
 Now, login to the GameFabric Container Registry by running the following command:
 
 ```bash
-$ docker login -u ${USERNAME} -p ${PASSWORD} $URL
+docker login -u ${USERNAME} -p ${PASSWORD} $URL
 ```
 
 ::: info
@@ -83,8 +83,8 @@ Once you are logged in, tag your image against the registry, and push it.
 Do not forget to include the branch name after the registry URL.
 
 ```bash
-$ docker tag my-game:v1.2.3 ${URL}/${BRANCH}/my-game:v1.2.3
-$ docker push ${URL}/${BRANCH}/my-game:v1.2.3
+docker tag my-game:v1.2.3 ${URL}/${BRANCH}/my-game:v1.2.3
+docker push ${URL}/${BRANCH}/my-game:v1.2.3
 ```
 
 You should now see the game image listed in the branch detail view.
