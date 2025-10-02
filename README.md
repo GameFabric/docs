@@ -1,16 +1,19 @@
-# GameFabric Documentation - docs.gamefabric.com
+# GameFabric Documentation — docs.gamefabric.com
 
 ## Contributing
-The static files that are shipped to end users are generated using Vitepress. A full documentation on how to use Vitepress can be found here: https://vitepress.dev/guide/getting-started
+
+The static files that are shipped to end users are generated using Vitepress.
+See the [full documentation on how to use Vitepress](https://vitepress.dev/guide/getting-started).
 
 ### Local development
+
 For development, either use the containerized variant using `make dev`, or use `yarn install` followed by `yarn docs:dev` and navigate to `http://localhost:5173`.
 
 For a production build, use `yarn docs:build`.
 
 ### Repository Structure
 
-```
+```text
 .
 ├── src/                                            # Vitepress "srcDir"
 │   ├── multiplayer-servers/                        # Multiplayer Server specific documentation
@@ -32,6 +35,7 @@ For a production build, use `yarn docs:build`.
 ```
 
 ### Adding Documentation
+
 To contribute to the documentation, simply edit the relevant files within the appropriate subfolder in `src` or create a new subfolder following the established naming convention.
 To include new pages in the navigation, modify the sidebar.json file within the respective folder, ensuring you add the order property to maintain the correct sequence in the sidebar.
 
@@ -39,9 +43,11 @@ All changes are automatically integrated into `.vitepress/config.js`. You can re
 [Vitepress Documentation](https://vitepress.dev/reference/default-theme-sidebar) or guidance on configuring sidebars.
 
 ### Adding API Specs
+
 API Specs are placed in the `src/api` folder using the preexisting component.
 
 To add new specs simply create a new markdown file for the desired spec and add the following code to it:
+
 ```vue
 ---
 layout: page
@@ -53,8 +59,8 @@ import OpenAPI from '../components/OpenAPI.vue'
 
 <OpenAPI spec-url="$SPEC_URL"/>
 ```
-Afterwards it can be referenced in the `.vitepress/config.js`.
 
+Afterwards, it can be referenced in the `.vitepress/config.js`.
 
 ---
 

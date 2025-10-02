@@ -1,8 +1,7 @@
 # Manually Registering Game Servers
 
 This guide describes the steps to take to integrate GameFabric Allocator within your game.
-The steps described here are in contrast to an upcoming GameFabric feature ("Allocator Sidecar")
-that will perform these actions automatically for simple use cases.
+The steps described here are in contrast to the [Allocator Sidecar](automatically-registering-game-servers.md) feature that performs these actions automatically for simple use cases.
 
 ## Pre-requisites
 
@@ -16,8 +15,8 @@ In order to integrate with our Allocator, your game needs to meet the following 
 ### Authentication
 
 To access both the Allocator service and the Registry service, you need to specify authentication tokens as part of
-the `Authorization` header in the requests you send in the following guide. Note that this is different to the protection
-of your own allocation callback endpoint.
+the `Authorization` header in the requests you send in the following guide.
+Note that this is different to the protection of your own allocation callback endpoint.
 
 These tokens are provided by Nitrado.
 
@@ -25,7 +24,8 @@ These tokens are provided by Nitrado.
 
 An optional, but recommended callback mechanism exists to notify the game server about the allocation.
 
-In addition to ensuring that the game server is still online at the moment of allocation, this callback allows the transmission of session meta data before players connect, such as game mode, map, or the list of expected players.
+In addition to ensuring that the game server is still online at the moment of allocation, this callback allows the
+transmission of session metadata before players connect, such as game mode, map, or the list of expected players.
 
 To support callbacks, your server needs to listen for incoming HTTP queries on an endpoint of your choosing.
 That endpoint must be stopped when the server becomes allocated.
@@ -41,15 +41,14 @@ replace a crashed one with the same IP and port combination.
 
 ### Registering
 
-Once your game server is ready, you need to query the Allocator Registry in order to enter the list of
-allocatable game servers.
+Once your game server is ready, you need to query the Allocator Registry in order to enter the list of allocatable game servers.
 
 #### Knowing the address and port of your server
 
 Since Agones picks a site and potentially dynamic ports as well for your game servers, knowing the address and port to
 specify when sending your registration request requires querying the Agones SDK.
 
-For example, in Go, here is how it would be done:
+Here is an example of how it would be done in Go:
 
 ```go
 gs, _ = client.GetGameServer(ctx, &sdk.Empty{})
@@ -105,16 +104,18 @@ You should then stop sending those requests once you receive a request on the al
 
 #### Error Cases
 
-##### Keep-Alive: 404 Not Found
+##### Keep-Alive: `404 Not Found`
 
-In the event that your Keep-Alive request receives a 404 response, this typically means that the game server was removed from the registry as a result of an allocation.
+In the event that your Keep-Alive request receives a `404` response, this typically means that the game server was removed from the registry as a result of an allocation.
 
-If you use the callback mechanism and you have not received that callback, then it is highly likely that the callback failed and the game server was not served to players. In this scenario you should either
+If you use the callback mechanism, and you have not received a callback, then it is highly likely that the callback failed and the game server was not served to players.
+In this scenario you should either:
 
 * Shut down your server and start a new one.
 * Register again with your current game server, and start a new keep-alive routine instead of the old one.
 
-If you don't use the callback mechanism, a successful allocation might have happened and players are in the process of connecting to your server. You should
+If you do not use the callback mechanism, a successful allocation might have happened and players are in the process of connecting to your server.
+You should:
 
 * Stop sending Keep-Alive requests
 * Start a timer for the expected duration for players to connect
@@ -122,5 +123,4 @@ If you don't use the callback mechanism, a successful allocation might have happ
 
 ##### Game server stops
 
-If your game server needs to stop for any reason (including crashes), you need to make sure to
-deregister from the registry service before your process exits.
+If your game server needs to stop for any reason (including crashes), you need to make sure to deregister it from the registry service before your process exits.

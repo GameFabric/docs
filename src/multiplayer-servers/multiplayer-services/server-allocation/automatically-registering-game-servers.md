@@ -13,22 +13,20 @@ Your game server needs to support a minimal Agones SDK integration:
 - Transitions into state `Ready` when ready,
 - Transitions into state `Shutdown` when done.
 
-Please check [Using the Agones SDK](../../getting-started/using-the-agones-sdk) 
-for details.
+Please check [Using the Agones SDK](../../getting-started/using-the-agones-sdk)  for details.
 
 <br style="clear:right"/>
 
 ## Automatic Registration
 
-When a matchmaker requests a game server from the allocation service, the game server must not only be `Ready`, 
+When a matchmaker requests a game server from the allocation service, the game server must not only be "Ready",
 it must also be registered with the allocation service.
-The transition to the ready state can only be determined by the game server itself, 
-whereas the registration can be automated. 
-The respective component is called Allocation Sidecar or Allocator Sidecar. 
-The service waits for the game server to become `Ready` and then registers it with the allocation service.
+The transition to the ready state can only be determined by the game server itself, whereas the registration can be automated.
+The respective component is called Allocation Sidecar or Allocator Sidecar.
+The service waits for the game server to become "Ready" and then registers it with the allocation service.
 It also ensures that when the game server stops that its registration gets removed.
 
-It is not enabled by default.
+Automatic registration is not enabled by default.
 For details how to enable it, see section [Configuration](#configuration).
 
 ## Allocation
@@ -36,40 +34,39 @@ For details how to enable it, see section [Configuration](#configuration).
 When the matchmaker requests a game server from the allocation service, the allocation service notifies the game server
 about the imminent allocation. This callback has several advantages:
 
-- The game server status is automatically set to `Allocated` which protects the game server from being shutdown by Agones.
+- The game server status is automatically set to "Allocated" which protects the game server from being shutdown by Agones.
   A game server can be shutdown for various reasons, such as downscaling of the cluster, assumed unhealthiness, excess of the
   configured lifetime etc.
 
-- The callback can pass payloads from your matchmaker to your game server, e.g. the expected player IDs,
-  desired game mode etc.
-  For details on how to pass a payload see [API Specs - Allocation: Allocator](../../../api/multiplayer-servers/allocation-allocator.md).
+- The callback can pass payloads from your matchmaker to your game server, e.g. the expected player IDs, desired game mode etc.
+  For details on how to pass a payload, see [API Specs - Allocation: Allocator](../../../api/multiplayer-servers/allocation-allocator.md).
 
 ## Attributes
 
-Attributes are a way to filter game servers during the allocation process.
-Each attribute consists of a unique key and a value.
-If your matchmaker requests a game server for allocation, it can pass attributes. 
-Only game servers, where the passed attributes are a sub-set of their own attributes, are selected for allocation.
+Attributes allow filtering game servers during the allocation process.
+Each attribute consists of a unique key and value pair.
+If your matchmaker requests a game server for allocation, it can specify attributes to match against.
+Only game servers whose attributes contain at least the specified filters are selected for allocation.
 
 ::: info
 Passing no attributes for allocation matches every game server,
-as the empty set of attributes is always a sub-set of any other attributes. 
-To gain more control over filtering you can configure [required game server attributes](#alloc-required-attrs-string).
+as the empty set of attributes is always a sub-set of any other attributes.
+To gain more control over filtering you can configure [required game server attributes](#alloc_required_attrs-string).
 :::
 
 ## Configuration
 
-To enable the automatic game server registration and allocation handling, edit your Formation, Vessel, Armada Set or Armada, 
+To enable the automatic game server registration and allocation handling, edit your Formation, Vessel, ArmadaSet or Armada,
 and add a sidecar container. Select **Allocation Sidecar**, so that your new sidecar container is preconfigured.
 
-If you want to create the sidecar container from scratch select **Create from scratch**. 
-It requires you to select the image, which is provided under the `system` branch, 
+If you want to create the sidecar container from scratch select **Create from scratch**.
+It requires you to select the image, which is provided under the `system` branch,
 and a `Passthrough` port, using `TCP` protocol, named `allocator`.
 This is so that the allocation service can reach the Allocation Sidecar.
 
 Now specify the URL and authentication token for the allocation service
 using the `ALLOC_URL` and `ALLOC_TOKEN` environment variables.
-It is recommended to set it in the Region, so any Formation, Vessel, Armada Set or Armada
+It is recommended to set it in the Region, so any Formation, Vessel, ArmadaSet or Armada
 within that region is automatically configured.
 
 ::: warning
@@ -80,37 +77,37 @@ Also do not use `UDP/TCP`, as this results in a different naming scheme.
 **Optional**: If you want use [attributes](#attributes), add one or more label prefixed with `allocator.nitrado.net/`, e.g.
 `allocator.nitrado.net/env=prod` so your matchmaker can filter for them.
 
-The Allocation Sidecar watches for the state change `Ready`, registers the game server to the pre-configured
-allocation service, and when allocated, transitions the state to `Allocated`.
+The Allocation Sidecar watches for the state change "Ready", registers the game server to the pre-configured
+allocation service, and when allocated, transitions the state to "Allocated".
 
 ## Game Server Integration
 
-With the registration and allocation handling automated, 
-your game server needs to be extended to support watching for the `Allocated` state change.
+With the registration and allocation handling automated,
+your game server needs to be extended to support watching for the "Allocated" state change.
 
 Example code:
 
 ```go
 _ = agones.WatchGameServer(func (gs *sdk.GameServer) {
-	if gs.State != "Allocated" {
-		return
-	}
-	
-	// ..
+    if gs.State != "Allocated" {
+        return
+    }
+    
+    // ..
 })
 ```
 
-See [Agones Game Server Client SDKs](https://agones.dev/site/docs/guides/client-sdks/) 
+See [Agones Game Server Client SDKs](https://agones.dev/site/docs/guides/client-sdks/)
 for language or game engine specific implementation details.
 
-Payloads can be sent to your game server via either annotations or a file. 
+Payloads can be sent to your game server via either annotations or a file.
 They can allow you to specify any kind of information to the allocated game server, such as player IDs, game modes and so on.
 If payloads are irrelevant to you, ignore the sections below.
 
 ### Write payload to annotations
 
 In order to automatically store the payload from the matchmaker and make it accessible via game server annotations,
-[add the environment variable `ALLOC_PAYLOAD_ANNOTATION`](#alloc-payload-annotation-string) to the Allocation Sidecar container.
+[add the environment variable `ALLOC_PAYLOAD_ANNOTATION`](#alloc_payload_annotation-string) to the Allocation Sidecar container.
 This enables and specifies the annotation prefixes used to store the annotations.
 
 Each payload key generates one annotation, which is prefixed by Agones and with your chosen key.
@@ -118,37 +115,37 @@ To access the annotations extend your existing watch of the state change:
 
 ```go
 const (
-	agonesPrefix = "agones.dev/sdk-"
-	customPrefix = "payload-" // ALLOC_PAYLOAD_ANNOTATION
+    agonesPrefix = "agones.dev/sdk-"
+    customPrefix = "payload-" // ALLOC_PAYLOAD_ANNOTATION
 )
 
 _ = agones.WatchGameServer(func (gs *sdk.GameServer) {
-	if gs.State != "Allocated" {
-		return
-	}
-	
-	if gs.Annotations == nil { 
-		return 
-	}
-	
-	myKey, found := gs.Annotations[agonesPrefix+customPrefix+"key"]
-	if !found { 
-		return 
-	}
-	
-	// ..
+    if gs.State != "Allocated" {
+        return
+    }
+    
+    if gs.Annotations == nil { 
+        return 
+    }
+    
+    myKey, found := gs.Annotations[agonesPrefix+customPrefix+"key"]
+    if !found { 
+        return 
+    }
+    
+    // ..
 })
 ```
 
 ::: info
-Due to a limitation in the Agones SDK, annotations are not applied in a single call. For this reason a 
+Due to a limitation in the Agones SDK, annotations are not applied in a single call. For this reason a
 [configurable annotation `ALLOC_PAYLOAD_ANNOTATION_LAST_APPLIED_NAME`](#alloc_payload_annotation_last_applied_name-stringlast-applied)
 is applied last to indicate that all annotations have been applied. Any code needing multiple annotations
 should wait for this annotation to be applied before proceeding.
 :::
 
 Be advised that the annotation keys are not only prefixed, but sanitized to adhere to certain format and length restrictions
-imposed by Kubernetes. The key case is however maintained. See [`ALLOC_PAYLOAD_ANNOTATION`](#alloc-payload-annotation-string) for an example
+imposed by Kubernetes. The key case is however maintained. See [`ALLOC_PAYLOAD_ANNOTATION`](#alloc_payload_annotation-string) for an example
 on how the payload is mapped to annotations.
 
 It is not permitted to use the same value for `ALLOC_PAYLOAD_ANNOTATION` and for `ALLOC_CALLBACK_PAYLOAD_ANNOTATION`,
@@ -159,21 +156,21 @@ as this would lead to the values of different purposes being mixed up.
 In order to automatically store the payload from the matchmaker and make it accessible via file,
 you need to add environment variables to the Allocation Sidecar container, which runs alongside your game server:
 
-- `ALLOC_PAYLOAD_FILE` – Enables and specifies the file name used to store the payload.
-- `ALLOC_PAYLOAD_FILE_TEMPLATE` – [File format template](#templating). Defaults to the JSON representation of your payload.
+- `ALLOC_PAYLOAD_FILE` — Enables and specifies the file name used to store the payload.
+- `ALLOC_PAYLOAD_FILE_TEMPLATE` — [File format template](#alloc_payload_file_template-string). Defaults to the JSON representation of your payload.
 
-Both environment variables are also explained with examples in the [Advanced Configuration](#alloc-payload-file-string) section.
+Both environment variables are also explained with examples in the [Advanced Configuration](#advanced-configuration) section.
 
 ::: warning Shared volume required
-The newly created file must be accessible to your game server, 
+The newly created file must be accessible to your game server,
 which can only be achieved with a shared volume, mounted into both containers.
 This has to be done manually.
 :::
 
 ### Return a payload to the Allocator
 
-In order to return information about the game server to the process calling `/allocate` 
-[add the environment variable `ALLOC_CALLBACK_PAYLOAD_ANNOTATION`](#alloc-callback-payload-annotation-string) on the Allocation Sidecar container.
+In order to return information about the game server to the process calling `/allocate`
+[add the environment variable `ALLOC_CALLBACK_PAYLOAD_ANNOTATION`](#alloc_callback_payload_annotation-string) on the Allocation Sidecar container.
 The Allocation Sidecar reads game server annotations, and those prefixed with the given string get compiled
 into a payload that is sent to the Allocator when the game server is allocated.
 
@@ -183,43 +180,44 @@ ready, otherwise there is no guarantee that the Allocation Sidecar will see all 
 a partial payload may be sent.
 :::
 
-Static payload variables can also be sent by [adding the environment variable `ALLOC_CALLBACK_PAYLOAD_VARS`](#alloc-callback-payload-vars-string) on
+Static payload variables can also be sent by [adding the environment variable `ALLOC_CALLBACK_PAYLOAD_VARS`](#alloc_callback_payload_vars-string) on
 the Allocation Sidecar container.
 
 ## Advanced Configuration
 
-All environment variables described in this guide must be added to the Allocation Sidecar container, 
+All environment variables described in this guide must be added to the Allocation Sidecar container,
 not to your game server container.
 Any parent resource, such as Region or Site can also provide these environment variables
 
-#### `ALLOC_URL` (`string`)
+### `ALLOC_URL` (`string`)
 
 The allocation service endpoint URL.
 
-#### `ALLOC_TOKEN` (`string`)
+### `ALLOC_TOKEN` (`string`)
 
 The authentication bearer for the allocation service endpoint.
 
-#### `ALLOC_PRIORITY` (`int=0`)
+### `ALLOC_PRIORITY` (`int=0`)
 
-The priority used for the registration. 
+The priority used for the registration.
 
-#### `ALLOC_NODE_NAME` (`string`)
+### `ALLOC_NODE_NAME` (`string`)
 
-The node name used to derive the numeric registration score for compaction. 
+The node name used to derive the numeric registration score for compaction.
 Can be automatically discovered by using pod field with `spec.nodeName`.
 
-#### `ALLOC_PAYLOAD_ANNOTATION` (`string`)
+### `ALLOC_PAYLOAD_ANNOTATION` (`string`)
 
 Stores the payload as annotations.
-By setting a non-empty value, stores the payload in game server annotations. 
-The used string extends the existing Agones prefix that is used for annotations. 
-Setting it to e.g. `payload-` results in the final prefix being `agones.dev/sdk-payload-`.  
-Multi-dimensional payload results in concatenated keys using the `.` as separator.  
+By setting a non-empty value, stores the payload in game server annotations.
+The used string extends the existing Agones prefix that is used for annotations.
+Setting it to e.g. `payload-` results in the final prefix being `agones.dev/sdk-payload-`.
+Multi-dimensional payload results in concatenated keys using the `.` as separator.
 Mutual exclusive to `ALLOC_PAYLOAD_FILE`.
 
 Here is an example mapping:
-```
+
+```text
 {
   "key": "value",       // agones.dev/sdk-payload-key
   "my-other-key": [     //
@@ -235,40 +233,43 @@ Here is an example mapping:
 }
 ```
 
-#### `ALLOC_PAYLOAD_ANNOTATION_LAST_APPLIED_NAME` (`string=last-applied`)
+### `ALLOC_PAYLOAD_ANNOTATION_LAST_APPLIED_NAME` (`string=last-applied`)
 
 Name of the supplementary, last applied annotation.
-This is a helper annotation to indicate that applying the annotations –
-which is technically not an atomic operation – has completed.
+This is a helper annotation to indicate that applying the annotations —
+which is technically not an atomic operation — has completed.
 
-#### `ALLOC_PAYLOAD_FILE` (`string`)
+### `ALLOC_PAYLOAD_FILE` (`string`)
 
 Writes the payload into the given file.
 By setting a non-empty value, stores the payload in the given file.
-The parent directory is expected to be a shared volume mount, between the game server container and the Allocation Sidecar. 
+The parent directory is expected to be a shared volume mount, between the game server container and the Allocation Sidecar.
 The payload is written as JSON into the file, unless a different format is specified in `ALLOC_PAYLOAD_FILE_TEMPLATE`.  
 Mutual exclusive to `ALLOC_ANNOTATION`.
 
-#### `ALLOC_PAYLOAD_FILE_MODE` (`string=0660`)
+### `ALLOC_PAYLOAD_FILE_MODE` (`string=0660`)
 
 File permissions being used to create the file.
 
-#### `ALLOC_PAYLOAD_FILE_TEMPLATE` (`string`)
+### `ALLOC_PAYLOAD_FILE_TEMPLATE` (`string`)
 
 Template the content of the file.
-Uses [Go Template syntax](https://pkg.go.dev/text/template). 
+Uses [Go Template syntax](https://pkg.go.dev/text/template).
 Expressions are usually surrounded by <span v-pre>`{{`</span> and <span v-pre>`}}`</span>.
 
 Available variables are:
+
 - `.payload` (`map`)
 - `.token` (`string`)
 - `.env` (`map`)
-    
+
 Available functions are:
+
 - `toJSON` (`any`)
 - [standard Go Template functions](https://pkg.go.dev/text/template#hdr-Functions)
 
 Example:
+
 ```sh
 ALLOC_FILE_TEMPLATE={
   "payload": {{ toJSON .payload }},
@@ -277,19 +278,19 @@ ALLOC_FILE_TEMPLATE={
 }
 ```
 
-#### `ALLOC_PRIMARY_PORT_NAME` (`string=game`)
+### `ALLOC_PRIMARY_PORT_NAME` (`string=game`)
 
 The name of the primary game port. The port must be added for the game server container.
 
-#### `ALLOC_CALLBACK_PORT_NAME` (`string=allocator`)
+### `ALLOC_CALLBACK_PORT_NAME` (`string=allocator`)
 
 The name of the allocator port. The port must be added for the Allocation Sidecar container.
 
-#### `ALLOC_CALLBACK_PAYLOAD_VARS` (`string`)
+### `ALLOC_CALLBACK_PAYLOAD_VARS` (`string`)
 
 A comma-separated list of environment variables to include in the response payload to the Allocator.
 
-#### `ALLOC_CALLBACK_PAYLOAD_ANNOTATION` (`string`)
+### `ALLOC_CALLBACK_PAYLOAD_ANNOTATION` (`string`)
 
 Uses annotations as the response payload to the Allocator.
 By setting a non-empty value, the string extends the existing Agones standard prefix to filter annotations.
@@ -299,14 +300,16 @@ The annotation keys are split using '.' as a separator to create a complex paylo
 The following is an example mapping.
 
 Given the annotations:
-```
+
+```text
 "agones.dev/sdk-payload-foo.bar.baz": "test",
 "agones.dev/sdk-payload-foo.bar.Bat": "test2",
 "agones.dev/sdk-payload-key":         "value",
 ```
+
 and a prefix of `payload-` the following payload is sent to the allocator:
 
-```
+```json
 {
   "key": "value",
   "foo": {
@@ -318,14 +321,12 @@ and a prefix of `payload-` the following payload is sent to the allocator:
 }
 ```
 
-#### `ALLOC_REQUIRED_ATTRS` (`string`)
+### `ALLOC_REQUIRED_ATTRS` (`string`)
 
-Sets the required attribute keys that must be provided to the allocation service in order to match the game server. 
+Sets the required attribute keys that must be provided to the allocation service in order to match the game server.
 
-When the allocation service is called with attributes, 
-it checks if the attributes are a sub-set of what each game server specified.
+When the allocation service is called with attributes, it checks if the attributes are a sub-set of what each game server specified.
 Providing no attributes in the allocation call matches all game servers.
-This is not always desired, so it is possible to specify required game server attributes. 
+This is not always desired, so it is possible to specify required game server attributes.
 These keys can be added during the game server registration with `ALLOC_REQUIRED_ATTRS=<string>`.
-The value must be the key, e.g. `env`. If you want to require more than one attribute, you can
-do so using `,` as a separator.
+The value must be the key, e.g. `env`. If you want to require more than one attribute, you can do so using `,` as a separator.

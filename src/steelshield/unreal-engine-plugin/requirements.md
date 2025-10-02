@@ -2,10 +2,10 @@
 
 ## Unreal Engine Patch
 
-It is required to apply a patch to Unreal Engine which will modify the files needed to prepend the *SteelShield Token*
+It is required to apply a patch to Unreal Engine which modifies the files needed to prepend the *SteelShield Token*
 to the network packets on the *game client* and then remove the *SteelShield Token* on the *game server*.
 
-Once the patch file has been applied, the engine will need to be recompiled.
+Once the patch file has been applied, the engine must be recompiled.
 
 ## Unreal Engine Plugin
 
