@@ -104,7 +104,7 @@ You should then stop sending those requests once you receive a request on the al
 
 #### Error Cases
 
-##### Keep-Alive: 404 Not Found
+##### Keep-Alive: `404 Not Found`
 
 In the event that your Keep-Alive request receives a `404` response, this typically means that the game server was removed from the registry as a result of an allocation.
 
