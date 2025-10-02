@@ -26,7 +26,7 @@ These parameters should be provided to you by Nitrado, and can be configured by 
 6. **Backend URL** — Base URL of the `SteelShield Token Service`
 7. **Auth Provider** — Provider used to issue the JWT token
 8. **Game Client Version** — Current version of the game
-9. **Certificate** — Certificate used fro signing the JWT in the case of using the `Default Token Provider` in testing
+9. **Certificate** — Certificate used for signing the JWT in the case of using the `Default Token Provider` in testing
 10. **Certificate Type** — Type of certificate used above. Only used when using `Default Token Provider` in testing
 
 ## Initializing the Plugin
