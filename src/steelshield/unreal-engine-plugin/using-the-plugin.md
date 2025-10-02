@@ -67,7 +67,7 @@ This then allows the engine component to begin "wrapping" the network packets wi
 
 ::: info Note
 The engine components still "wrap" packets with an invalid/uninitialized token if the subsystem is not started.
-This causees any network packets to be dropped by the SteelShield firewall network appliance on the path to the game server.
+This causes any network packets to be dropped by the SteelShield firewall network appliance on the path to the game server.
 There is no effect on networks or game servers that do not pass though the SteelShield firewall network appliance.
 :::
 
