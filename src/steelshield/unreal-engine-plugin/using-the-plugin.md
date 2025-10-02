@@ -8,7 +8,7 @@ call start on the subsystem to get it to do an initial token request, and subseq
 
 ## Configuration
 
-Before you begin using the plugin, you need to set up the configuration parameters that is used by the plugin to
+Before you begin using the plugin, you need to set up the configuration parameters that are used by the plugin to
 communicate with the `SteelShield Token Service`.
 
 These parameters should be provided to you by Nitrado, and can be configured by going to
