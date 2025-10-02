@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This documentation serves as an integration guide for you, as an AWS GameLift customers, seeking to transition from a current
+This documentation serves as an integration guide for you, as an AWS GameLift customer, seeking to transition from a current
 AWS-managed hosting solution to a hosting solution supported by Nitrado, leveraging the Nitrado Allocator.
 This transition maintains compatibility with the AWS FlexMatch matchmaker.
 
