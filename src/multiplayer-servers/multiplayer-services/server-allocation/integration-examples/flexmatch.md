@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This documentation serves as an integration guide for you, as a AWS GameLift customers, seeking to transition from a current
+This documentation serves as an integration guide for you, as an AWS GameLift customers, seeking to transition from a current
 AWS-managed hosting solution to a hosting solution supported by Nitrado, leveraging the Nitrado Allocator.
 This transition maintains compatibility with the AWS FlexMatch matchmaker.
 
@@ -105,7 +105,7 @@ we recommend adding the latency between the client and the various Nitrado regio
 
 The Nitrado Ping Discovery offers ping targets for that matter, as well as various different protocols.
 
-Without adding latency to matchmaking requests, the Nitrado Allocator will be called with a default region, which
+Without adding latency to matchmaking requests, the Nitrado Allocator is called with a default region, which
 then serves a game server that may not be the fastest one available for the participants of a match.
 
 The process of selecting a region is integrated into the AWS Lambda function, as detailed in the subsequent explanation. 

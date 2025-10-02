@@ -1,7 +1,6 @@
 # Pushing Container Images
 
-In this section you will learn how to make a container image available to
-GameFabric for subsequent deployment.
+In this section, you will learn how to make a container image available to GameFabric for subsequent deployment.
 
 ## Prerequisites
 
@@ -17,6 +16,7 @@ Log into the GameFabric UI before proceeding.
 
 If you do not already have a branch in which to push images, you need to create one.
 In case you haven't already done so, there are two options available to you:
+
 - **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry - you can always change the display names and policies later. See how to [edit a branch](edit-a-branch.md).
 - **Create Branch**: This will allow you to create a custom branch with a name and an Image Retention Policy of your choice.
 
@@ -24,7 +24,6 @@ When creating a custom branch, please adhere to the following naming conventions
 
 * Branch names must only contain lowercase letters, numbers, hyphens (-), and periods (.).
 * Branch names must begin and end with a lowercase letter.
-
 
 ::: warning Image Retention Policy
 The Image Retention Policy defines how long images are stored in the registry and how many tags are retained.
@@ -36,22 +35,21 @@ _Note: Either **Keep Days** or **Keep Count** (or both) must be >0. Setting **Ke
 :::
 
 ### Add default Branches
+
 ::: info
 This option is only available if you have not created any branches yet.
 :::
 
 1. Navigate to the **Branches** section in the GameFabric UI.
 ![GUI_branches_empty_overview.png](images/branches/GUI_branches_empty_overview.png)
-
 2. Click the **Add Default Branches** button.
 3. A confirmation pop-up will appear. Click **Create** to confirm or **Cancel** to abort.
 ![GUI_branches_add_default.png](images/branches/GUI_branches_add_default.png)
-
 4. The default branches are created. You can now see them in the branches overview.
 ![GUI_branches_created_default.png](images/branches/GUI_branches_created_default.png)
 
-
 ### Create custom Branch
+
 You can also create custom branches with a name and an Image Retention Policy of your choice.
 
 1. Click the **Create Branch** button in the branches overview.
@@ -66,10 +64,8 @@ You can also create custom branches with a name and an Image Retention Policy of
 ![GUI_branches_create_summary.png](images/branches/GUI_branches_create_summary.png)
 7. Click the **Create Branch** button to finish the process. The newly created branch will now be visible in the branches overview.
 ![GUI_branches_created.png](images/branches/GUI_branches_created.png)
-
 Once the branch is created, you can find that URL again by clicking the **View Images** button in the row for your branch. This leads you to the branch details page, which displays the relevant URL at the top of the interface, in the blue information box.
 ![GUI_branches_see_url.png](images/branches/GUI_branches_see_url.png)
-
 
 ## Push the game server image
 

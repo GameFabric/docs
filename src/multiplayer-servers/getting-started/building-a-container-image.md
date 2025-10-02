@@ -1,7 +1,7 @@
 # Building a Container Image
 
 The purpose of this guide is to explain how to package game server binaries as Docker images.
-This document should help you if you do not already have a Docker image for your game server,
+This document will help you if you do not already have a Docker image for your game server,
 and you are not yet accustomed to using Docker.
 
 ::: info Container vs. Docker
@@ -91,7 +91,6 @@ CMD ["/app/gameserver"]
    configured to be owned by a custom Linux user and group that is allowed to execute it.
 
 4. The game server binary should already be compiled and is then copied from your machine to the Docker image when it is built.
-
 
 For more information, see [the reference on how Dockerfiles are formatted](https://docs.docker.com/engine/reference/builder/)
 and the various instructions that they support.

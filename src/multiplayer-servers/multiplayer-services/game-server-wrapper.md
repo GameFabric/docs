@@ -1,9 +1,9 @@
 # Game Server Wrapper
 
-The game server wrapper, also known as the wrapper, gswrapper or gsw, can be used to launch your game server executable
+The game server wrapper, also known as the "wrapper", "gswrapper" or "gsw", can be used to launch your game server executable
 inside the container image that runs your GameFabric Armadas or Vessels.
 
-By starting the executable as a wrapper it can enable various convenience features.
+The wrapper provides various convenience features over simply launching your game server standalone.
 
 The following features are available:
 
@@ -76,8 +76,8 @@ Finally, push your new image to the GameFabric image registry, and ensure that t
 
 ### Configure GameFabric
 
-Whether you're using an Armada or a Vessel, configuring them to use the wrapper is the same.
-Go to Settings > Containers and update the command and arguments for your game server container image.
+Whether you are using an Armada or a Vessel, configuring them to use the wrapper is the same.
+Go to "Settings" > "Containers" and update the command and arguments for your game server container image.
 
 Before:
 

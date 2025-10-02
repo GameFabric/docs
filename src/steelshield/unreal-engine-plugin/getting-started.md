@@ -1,13 +1,16 @@
 # Getting Started
 
+This guide will help you get started with the SteelShield Plugin for Unreal Engine. The plugin provides integration
+with the SteelShield DDoS protection system, allowing you to protect your game servers from large scale DDoS attacks.
+
 ## 1. Applying The Patch File
 
 You need to apply the provided patch file to the Unreal Engine source code. In the below examples the `$BASE_DIR`
 represents the location of both the Unreal Engine source code and the SteelShield Plugin code. You may need to change
 the version of the patch used to suite the version of the Unreal Engine you are working with.
 
-Normally patches with minor number version differences can be applied to Unreal Engine version which share similar major
-version numbers. ie. patch ue5.2.1 can be applied to ue5.2.0 without issue.
+Normally, patches with minor number version differences can be applied to Unreal Engine version which share similar major
+version numbers. For example, patch `ue5.2.1` can be applied to `ue5.2.0` without issue.
 
 Once the patch file is applied, please rebuild the Unreal Engine using your preferred method.
 
@@ -33,8 +36,8 @@ Go to `Editor→Plugins` to check that it has been picked up and enabled.
 
 ![SteelShield Plugin in Unreal Editor](images/sts_plugin_in_editor.png)
 
-After confirming the plugin is enabled, you will need to add it as a dependency of your project. You can do that by
-editing your `*.build.cs` file to include the following
+After confirming the plugin is enabled, you need to add it as a dependency of your project.
+You can do that by editing your `*.build.cs` file to include the following
 
 ```csharp
 PublicDependencyModuleNames.AddRange(new string[] { "SteelShield" });

@@ -16,7 +16,8 @@ From here, you can view all groups, create new ones, or edit existing groups.
 ### Assign Roles To A Group
 
 To add roles to a group, click the **Edit** button next to the desired group.
-This will open the group edit modal, where you can add or remove roles. Select the roles you want to assign, then click **Save**.
+This opens the group edit modal, where you can add or remove roles.
+Select the roles you want to assign, then click **Save**.
 ![add-role-to-group.png](images/permissions/add-role-to-group.png)
 
 ### Assign User To A Group
@@ -34,7 +35,8 @@ To remove a user, click the **X** icon next to their email address. Then click *
 
 A user is an individual account that can be assigned to groups.
 Users are managed on the **Users/Groups** page of the GameFabric UI, under the **Users** tab.
-To edit a user, click the **Edit** button next to their name. In the user edit modal, select the groups to which the user should belong.
+To edit a user, click the **Edit** button next to their name.
+In the user edit modal, select the groups to which the user should belong.
 Click **Save** to apply your changes.
 
 ::: info
@@ -43,7 +45,7 @@ Click **Save** to apply your changes.
 :::
 
 ::: warning
-- Only users that are assigned to a group will be shown here.
+- Only Users that are assigned to a group are shown here.
 - For proper offboarding, a user must be removed from all groups.
 :::
 
@@ -63,7 +65,6 @@ To modify an existing role, click the **Edit** button next to it.
 Each role has a set of permissions that define the actions available to users or groups assigned to that role.
 The resources listed in the table correspond to the REST API. To grant a role permission to a resource, check the box in the respective column.
 ![edit-role.png](images/permissions/edit-role.png)
-
 
 Resources can be environment-specific, meaning that a role will only have access in the specified environment.
 To edit environment-based permissions, expand the resource by clicking the arrow next to it.

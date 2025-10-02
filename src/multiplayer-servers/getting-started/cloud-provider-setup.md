@@ -1,10 +1,10 @@
 # Configuring your Cloud Provider
 
-This document describes the steps required to set up your Cloud provider for use with GameFabric. Currently supported
-Cloud providers are Google Cloud (GCP), Azure, and Amazon Web Services (AWS).
+This document describes the steps required to set up your Cloud provider for use with GameFabric.
+Currently supported Cloud providers are Google Cloud (GCP), Azure, and Amazon Web Services (AWS).
 
-Public documentation is currently limited to Google Cloud and AWS. For setup instructions for other Cloud providers, please
-contact your Customer Success Manager at Nitrado.
+Public documentation is currently limited to Google Cloud and AWS.
+For setup instructions for other Cloud providers, please contact your Customer Success Manager at Nitrado.
 
 ## Google Cloud
 
@@ -13,7 +13,7 @@ contact your Customer Success Manager at Nitrado.
 * You **must** already have an existing Google Cloud organization
 * You **must** possess the necessary permissions to manage principals and billing accounts in your organization
 
-If any of those pre-requisites are not met, like if you don't yet have an organization, you must contact Nitrado as the steps will be different from what is described below.
+If any of those pre-requisites are not met, like if you don't yet have an organization, you must contact Nitrado as the steps are different from what is described below.
 
 ### Creating a Principal
 
@@ -141,7 +141,7 @@ The two ARNs link to the role and the respective SAML provider on _our end_ (see
 
 ### Creating Policies for Resource Management
 
-Create several IAM policy documents that grant access
+Create several IAM policy documents that grant access:
 
 ```terraform
 data "aws_iam_policy_document" "deployer_eks" {
