@@ -38,12 +38,12 @@ To edit a user, click the **Edit** button next to their name. In the user edit m
 Click **Save** to apply your changes.
 
 ::: info
-- You can't add Users directly.
+- You can't add users directly.
 - You add them by assigning them to at least one group.
 :::
 
 ::: warning
-- Only Users that are assigned to a group will be shown here.
+- Only users that are assigned to a group will be shown here.
 - For proper offboarding, a user must be removed from all groups.
 :::
 
