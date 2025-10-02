@@ -6,7 +6,8 @@ To ensure your players have the best possible experience with GameFabric, we rec
 
 The following are essential for deploying your game server on GameFabric.
 
-* **Linux Build (Required)**: Your game server must be built for a Linux environment to be compatible with GameFabric's containerized infrastructure. For more details on creating a compatible container, see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image).
+* **Linux Build (Required)**: Your game server must be built for a Linux environment to be compatible with GameFabric's containerized infrastructure.
+For more details on creating a compatible container, see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image).
 
 * **Agones SDK Integration**: Integrating the Agones SDK is crucial for your game server to communicate its state with the GameFabric platform. This includes:
     * **Ready State**: Signaling when the server is ready to accept players.
@@ -18,12 +19,14 @@ The following are essential for deploying your game server on GameFabric.
 ### **Life cycle managment**:
 
 #### Armadas
+
 * return to `Agones Ready` after session ends (e.g. last player leaves) or simply shutdown
 * **Shutdown hints** or limit max game server lifetime to 24h
 
 #### Formations
+
 * **Shutdown hints**: (Required for Formations) see [running-your-game-server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods)
-* TODO ^^
+* See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/vessel-shutdown-behavior).
 
 
 ## Best Practices
