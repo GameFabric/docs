@@ -27,7 +27,6 @@ Level 2 restricts traffic to specific ports and applies game specific basic filt
 
 For example: Unreal Engine generic protection
 
-The customer can choose protocols to improve protection ( UDP / TCP).
 
 See [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric) to learn how to enable Level 2 protection.
 
