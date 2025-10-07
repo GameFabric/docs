@@ -15,7 +15,11 @@ You can see all available Mitigations under `SteelShield`->`Mitigations`.
 
 # GatewayPolicies
 
-In order to ensure that return traffic from any outgoing connections is not blocked, you have to configure your backend services' CIDRs inside a GatewayPolicy.
+A GatewayPolicy allows traffic from certain IPs to be passed back to your service.
+
+If your server communicates with other backend services, their IPs must be added here for the communication to function properly.
+
+The IPs are matched against network ranges you add as CIDR to these policies.
 
 # Protection Status
 
