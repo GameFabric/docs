@@ -25,7 +25,7 @@ The IPs are matched against network ranges you add as CIDR to these policies.
 
 In the UI, under `Capacity`->`Sites` you can see the *Protection Status* for each of your Sites.
 
-These are the following possible values:
+The UI displays one of the following states of protection:
 
 - **Unprotected**: No node in this site is protected
 - **Protected**: Every node in this site is protected
