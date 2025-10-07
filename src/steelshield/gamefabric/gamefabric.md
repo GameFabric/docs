@@ -25,7 +25,18 @@ To view available mitigations:
 
 Gateway Policies control which external IP addresses can reach your service without passing through SteelShield.
 
-This is achieved by sending and receiving such traffic on a different IP addres than the main one used for game communication.
+This is achieved by sending and receiving such traffic on a different IP addres than the main IP used for game communication.
+
+To add a Gateway Policy:
+
+1. Go to `SteelShield` → `GatewayPolicies`
+2. Click `Add GatewayPolicy`
+3. Add the `Name`, `Display Name` and `Description` for the policy
+4. Click `Next`
+5. Enter the network CIDR for your backend service
+6. Click `Add CIDR`
+7. If you have multiple backend IPs, continue to add them in the same manner
+8. Click `Create GatewayPolicy`
 
 ## When to Use Gateway Policies
 
