@@ -23,15 +23,13 @@ To view available mitigations:
 
 # Gateway Policies
 
-Gateway Policies control which IP addresses can reach your service.
+Gateway Policies control which external IP addresses can reach your service without passing through SteelShield.
+
+This is achieved by sending and receiving such traffic on a different IP addres than the main one used for game communication.
 
 ## When to Use Gateway Policies
 
-Use Gateway Policies when your server communicates with other backend services. You must add their IP addresses here for communication to work properly.
-
-## How It Works
-
-SteelShield matches IP addresses against network ranges. Add these ranges as CIDR notation to your policies.
+Use Gateway Policies when your server communicates with other backend services that you do not want SteelShield to intercept the traffic for. Ideally this should be configured for all your backend services to prevent attacks on the main game IP from impacing your servers communication with backend services.
 
 # Protection Status
 
