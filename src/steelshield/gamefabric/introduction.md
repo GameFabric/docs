@@ -34,8 +34,6 @@ See [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric) to 
 Level 3 uses deep packet inspection for real-time network flow analysis, while sFlow data provides insights into traffic patterns over time. With 0% false positives, it only lets valid traffic flow through.
 > This level of protection requires integration into the game by the developer.
 
-Level 3 uses deep packet inspection for real-time network flow analysis, while sFlow data provides insights into traffic patterns over time.
-With 0% false positives, it only lets valid traffic flow through.
 
 This is currently the highest level of protection we offer with SteelShield as it enables all capabilities through deeper integration with the game.
 
