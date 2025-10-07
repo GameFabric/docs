@@ -4,7 +4,6 @@ For each Armada or Vessel go to `Settings`->`Containers`->`Container Ports`, sel
 
 ![Screenshot of the Container Ports settings page showing how to select a Protection Protocol for each port.](images/ports.png)
 
-
 # Managing Protocols
 
 You can manage your Protection Protocols under `SteelShield`->`Protocols`.
