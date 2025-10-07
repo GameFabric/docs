@@ -40,7 +40,9 @@ To add a Gateway Policy:
 
 ## When to Use Gateway Policies
 
-Use Gateway Policies when your server communicates with other backend services that you do not want SteelShield to intercept the traffic for. Ideally this should be configured for all your backend services to prevent attacks on the main game IP from impacing your servers communication with backend services.
+Use Gateway Policies when your server communicates with other backend services that you do not want SteelShield to intercept the traffic for.
+
+Ideally this should be configured for all your backend services to prevent attacks on the main game IP from impacing your servers communication with backend services.
 
 # Protection Status
 

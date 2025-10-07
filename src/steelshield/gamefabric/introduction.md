@@ -22,7 +22,7 @@ This describes the situation inside Nitrado's own infrastructure.
 
 > No integration needed from game developers.
 
-This protection monitors packet size and packets per second. When it detects unusual network activity, it limits traffic to your server.
+This protection monitors packet size and packets per second. When it detects unusual network activity, it rate limits traffic to the server.
 
 Level 1 protection is always enabled for all customers at no additional charge.
 
@@ -32,8 +32,10 @@ Level 1 protection is always enabled for all customers at no additional charge.
 
 Level 2 protection includes:
 - Traffic restriction to specific ports
-- Game-specific filtering to block malicious traffic
-- First layer of DDoS protection
+- Generic Game-specific filtering to block malicious traffic
+- Basic filtering to remove known bot traffic
+- Traffic with corrupt or invalid payloads
+- Standard TCP mitigations for SYN floods
 
 You must purchase Level 2 protection. It is available in selected locations.
 
