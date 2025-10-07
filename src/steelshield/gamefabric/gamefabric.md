@@ -23,7 +23,7 @@ To view available mitigations:
 
 # Gateway Policies
 
-Gateway Policies allow traffic from specific IP addresses to reach your service.
+Gateway Policies control which IP addresses can reach your service.
 
 ## When to Use Gateway Policies
 
@@ -31,7 +31,7 @@ Use Gateway Policies when your server communicates with other backend services. 
 
 ## How It Works
 
-IP addresses are matched against network ranges. Add these ranges as CIDR notation to your policies.
+SteelShield matches IP addresses against network ranges. Add these ranges as CIDR notation to your policies.
 
 # Protection Status
 
