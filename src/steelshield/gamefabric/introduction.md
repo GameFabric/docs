@@ -28,7 +28,6 @@ Level 2 restricts traffic to specific ports and applies game specific basic filt
 
 An example of Level 2 protection would be our Unreal Engine 5 Generic Protection.
 
-
 See [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric) to learn how to enable Level 2 protection.
 
 ### Level 3 - Proof of Identity using Deep Packet Inspection
