@@ -37,7 +37,7 @@ Level 2 protection includes:
 
 Level 2 must be purchased and is available in selected locations.
 
-Example: Unreal Engine 5 Generic Protection uses Level 2.
+Example: Unreal Engine 5 Generic Protection is considered Level 2.
 
 See [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric) to enable Level 2 protection.
 
