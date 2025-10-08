@@ -25,7 +25,7 @@ To view available mitigations:
 
 Gateway Policies control which external IP addresses can reach your service without passing through SteelShield.
 
-This is achieved by sending and receiving such traffic on a different IP addres than the main IP used for game communication.
+This is achieved by sending and receiving such traffic on a different IP address than the main IP used for game communication.
 
 To add a Gateway Policy:
 
