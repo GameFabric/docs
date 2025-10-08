@@ -48,10 +48,13 @@ To enable Level 2 protection, see [Configure protection in GameFabric](/steelshi
 > Integration into the game by the developer is required.
 
 Level 3 features:
-- Deep packet inspection for real-time analysis
-- sFlow data for traffic pattern insights over time
+- Packets flows tracked via cryptographically signed handshake process
+- Replay attacks blocked and malicious players identified
+- Ability to block players from connecting to servers
 - 0% false positives - only valid traffic passes through
 
 Level 3 is the highest protection level available. It requires deeper game integration but provides advanced capabilities.
 
-To implement Level 3 protection, use our [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin).
+To implement Level 3 protection in an Unreal Engine game, use our [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin).
+
+For integration into a different game engine, please contact us.
