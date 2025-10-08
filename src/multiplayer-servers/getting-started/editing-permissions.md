@@ -45,7 +45,7 @@ Click **Save** to apply your changes.
 :::
 
 ::: warning
-- Only Users that are assigned to a group are shown here.
+- Only users that are assigned to a group are shown here.
 - For proper offboarding, a user must be removed from all groups.
 :::
 
