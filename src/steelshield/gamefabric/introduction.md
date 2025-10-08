@@ -1,10 +1,9 @@
 # Introduction
 
-## Description
-
 SteelShield is a DDoS mitigation solution. It protects game servers from large-scale DDoS attacks.
 
 SteelShield intercepts network traffic before it reaches your game server. It checks if packets are legitimate by examining:
+
 - Source address
 - Destination address  
 - Port
