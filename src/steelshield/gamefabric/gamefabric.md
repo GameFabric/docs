@@ -1,55 +1,55 @@
-# How to Enable Advanced Protection for Game Servers
+# Enable Advanced Protection for Game Servers
 
-To enable protection for your game servers:
+Follow these steps to protect your game servers:
 
-1. Navigate to your Armada or Vessel
+1. Open your Armada or Vessel
 2. Go to `Settings` → `Containers` → `Container Ports`
-3. Select the **Protection Protocol** for each port
-4. Click the `Save` button
+3. Choose a **Protection Protocol** for each port
+4. Click `Save`
 
 ![Screenshot of the Container Ports settings page showing how to select a Protection Protocol for each port.](images/ports.png)
 
-# Managing Protocols
+# Manage Protection Protocols
 
 To manage your Protection Protocols:
 
 1. Go to `SteelShield` → `Protocols`
 
-# Mitigations
+# View Mitigations
 
-To view available mitigations:
+To see available mitigations:
 
 1. Go to `SteelShield` → `Mitigations`
 
 # Gateway Policies
 
-Gateway Policies control which external IP addresses can reach your service without passing through SteelShield.
+Gateway Policies control which external IP addresses can reach your service directly. These connections bypass SteelShield protection.
 
-This is achieved by sending and receiving such traffic on a different IP address than the main IP used for game communication.
+This works by using a different IP address for backend traffic. Your main game IP stays separate from backend services.
 
-To add a Gateway Policy:
+To create a Gateway Policy:
 
 1. Go to `SteelShield` → `GatewayPolicies`
 2. Click `Add GatewayPolicy`
-3. Add the `Name`, `Display Name` and `Description` for the policy
+3. Enter the `Name`, `Display Name`, and `Description`
 4. Click `Next`
 5. Enter the network CIDR for your backend service
 6. Click `Add CIDR`
-7. If you have multiple backend IPs, continue to add them in the same manner
+7. Add more backend IPs if needed (repeat steps 5-6)
 8. Click `Create GatewayPolicy`
 
 ## When to Use Gateway Policies
 
-Use Gateway Policies when your server communicates with other backend services that you do not want SteelShield to intercept the traffic for.
+Use Gateway Policies when your server needs to communicate with backend services. This allows direct connections without SteelShield filtering.
 
-Ideally this should be configured for all your backend services to prevent attacks on the main game IP from impacting your servers communication with backend services.
+Configure this for all backend services. This prevents attacks on your main game IP from affecting backend communications.
 
-# Protection Status
+# Check Protection Status
 
-To check your protection status:
+To view your protection status:
 
 1. Go to `Capacity` → `Sites`
-2. View the *Protection Status* for each site
+2. Check the *Protection Status* for each site
 
 ## Protection States
 
@@ -60,5 +60,5 @@ The system shows one of three protection states:
 - **Partially Protected**: Some nodes in this site have protection
 
 ::: info
-**Partially Protected** may also appear when all your nodes are protected but buffer nodes are not. For regular operations, this means all your capacity is protected.
+**Partially Protected** can appear when all your nodes are protected but buffer nodes are not. This is normal. Your game capacity is still fully protected.
 :::

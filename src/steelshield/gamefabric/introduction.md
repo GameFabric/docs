@@ -1,16 +1,18 @@
 # Introduction
 
-## Description
+## What is SteelShield?
 
-SteelShield is a DDoS mitigation solution. It protects game servers from large-scale DDoS attacks.
+SteelShield protects your game servers from DDoS attacks. It stops malicious traffic before it can reach your servers.
 
-SteelShield intercepts network traffic before it reaches your game server. It checks if packets are legitimate by examining:
+## How SteelShield Works
+
+SteelShield filters network traffic before it reaches your game server. It examines each packet to check:
 - Source address
 - Destination address  
-- Port
-- Packet contents
+- Port number
+- Packet content
 
-SteelShield allows only expected traffic through to your game server.
+Only legitimate traffic passes through to your game server.
 
 ## Protection Levels
 
@@ -18,43 +20,43 @@ SteelShield allows only expected traffic through to your game server.
 This describes the situation inside Nitrado's own infrastructure.
 :::
 
-### Level 1 - Reactive Rate Limiting
+### Level 1 - Automatic Rate Limiting
 
-> No integration needed from game developers.
+> No setup required from developers.
 
-This protection monitors packet size and packets per second. When it detects unusual network activity, it rate limits traffic to the server.
+This protection watches packet size and speed. When unusual traffic is detected, it limits the rate of incoming packets.
 
-Level 1 protection is always enabled for all customers at no additional charge.
+Level 1 protection is always active for all customers at no extra cost.
 
-### Level 2 - Basic Traffic Filtering and Whitelisting
+### Level 2 - Advanced Traffic Filtering
 
-> No integration needed from game developers.
+> No setup required from developers.
 
 Level 2 protection includes:
-- Traffic restriction to specific ports
-- Generic Game-specific filtering to block malicious traffic
-- Basic filtering to remove known bot traffic
-- Traffic with corrupt or invalid payloads
-- Standard TCP mitigations for SYN floods
+- Limits traffic to specific ports only
+- Game-specific filters that block malicious packets
+- Removes known bot traffic
+- Blocks corrupt or invalid data
+- Protects against TCP SYN flood attacks
 
-You must purchase Level 2 protection. It is available in selected locations.
+Level 2 protection requires a purchase. Available in selected locations only.
 
-Example: Unreal Engine 5 Generic Protection is considered Level 2.
+**Example**: Unreal Engine 5 Generic Protection uses Level 2.
 
 To enable Level 2 protection, see [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric).
 
-### Level 3 - Proof of Identity using Deep Packet Inspection
+### Level 3 - Identity Verification with Deep Packet Inspection
 
-> Integration into the game by the developer is required.
+> Requires game integration by developers.
 
 Level 3 features:
-- Packets flows tracked via cryptographically signed handshake process
-- Replay attacks blocked and malicious players identified
-- Ability to block players from connecting to servers
-- 0% false positives - only valid traffic passes through
+- Tracks packet flows using secure cryptographic handshakes
+- Prevents replay attacks and identifies malicious players
+- Can block specific players from connecting
+- 100% accuracy - only legitimate traffic gets through
 
-Level 3 is the highest protection level available. It requires deeper game integration but provides advanced capabilities.
+Level 3 provides the highest protection available. It needs deeper game integration but offers the most advanced security.
 
-To implement Level 3 protection in an Unreal Engine game, use our [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin).
+**For Unreal Engine**: Use our [Unreal Engine Plugin](/steelshield/unreal-engine-plugin/using-the-plugin).
 
-For integration into a different game engine, please contact us.
+**For other game engines**: Contact us for integration help.
