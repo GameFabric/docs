@@ -19,7 +19,8 @@ This describes the situation inside Nitrado's own infrastructure.
 
 ### Level 1 - Reactive Rate Limiting
 
-> No integration needed from game developers.
+::: info No integration needed from game developers.
+:::
 
 This protection monitors packet size and packets per second. When it detects unusual network activity, it rate limits traffic to the server.
 
@@ -27,7 +28,8 @@ Level 1 protection is always enabled for all customers at no additional charge.
 
 ### Level 2 - Basic Traffic Filtering and Whitelisting
 
-> No integration needed from game developers.
+::: info No integration needed from game developers.
+:::
 
 Level 2 protection includes:
 
@@ -45,7 +47,8 @@ To enable Level 2 protection, see [Configure protection in GameFabric](/steelshi
 
 ### Level 3 - Proof of Identity using Deep Packet Inspection
 
-> Integration into the game by the developer is required.
+::: info Integration into the game by the developer is required.
+:::
 
 Level 3 features:
 
