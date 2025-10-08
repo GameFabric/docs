@@ -48,7 +48,7 @@ To enable Level 2 protection, see [Configure protection in GameFabric](/steelshi
 > Integration into the game by the developer is required.
 
 Level 3 features:
-- Packets flows tracked via cryptographically signed handshake process
+- Packet flows tracked via cryptographically signed handshake process
 - Replay attacks blocked and malicious players identified
 - Ability to block players from connecting to servers
 - 0% false positives - only valid traffic passes through
