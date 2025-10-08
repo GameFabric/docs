@@ -93,8 +93,11 @@ See also [Editing Permissions](/multiplayer-servers/getting-started/editing-perm
 
 A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
 
-## Replicas
-Number of game servers. You can define min, max and a number of buffer Replicas per region per Armada.
+## Replica
+
+A Replica is an individual game server instance within an [Armada](#armada).
+Each Replica is functionally identical to others in the same Armada and cannot be configured independently.
+Replicas are dynamically created and terminated by the Armada’s automated scaling logic.
 
 ## Revision
 A revision is a discrete configuration of either an [ArmadaSet](#armadaset), [Armada](#armada) or [Formation](#formation). They are numbered consecutively starting from 1.
