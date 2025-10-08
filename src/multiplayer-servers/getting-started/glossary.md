@@ -95,7 +95,7 @@ A Region is typically a geographic area made up of one or more Locations where r
 
 ## Replica
 
-A Replica is an individual game server instance within a Replica's [Armada](#armada).
+A Replica is an individual game server instance within an [Armada](#armada).
 Each Replica is functionally identical to others in the same Armada and cannot be configured independently.
 Replicas are dynamically created and terminated by the Armada’s automated scaling logic.
 
