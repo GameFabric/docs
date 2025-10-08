@@ -41,7 +41,7 @@ Level 2 protection includes:
 
 Level 2 protection requires a purchase. Available in selected locations only.
 
-**Example**: Unreal Engine 5 Generic Protection uses Level 2.
+**Example**: Unreal Engine 5 Generic Protection is considered Level 2.
 
 To enable Level 2 protection, see [Configure protection in GameFabric](/steelshield/gamefabric/gamefabric).
 
@@ -53,7 +53,7 @@ Level 3 features:
 - Tracks packet flows using secure cryptographic handshakes
 - Prevents replay attacks and identifies malicious players
 - Can block specific players from connecting
-- 100% accuracy - only legitimate traffic gets through
+- 0% false positives - only valid traffic passes through
 
 Level 3 provides the highest protection available. It needs deeper game integration but offers the most advanced security.
 
