@@ -30,6 +30,7 @@ Level 1 protection is always enabled for all customers at no additional charge.
 > No integration needed from game developers.
 
 Level 2 protection includes:
+
 - Traffic restriction to specific ports
 - Generic Game-specific filtering to block malicious traffic
 - Basic filtering to remove known bot traffic
