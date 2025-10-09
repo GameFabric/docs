@@ -27,6 +27,16 @@ We recommend using millicores (m) for clarity:
 - `500m` = half a CPU core  
 - `250m` = quarter of a CPU core
 
+#### How Fractional CPU Cores Work
+
+**Important concept**: Think of CPU cores as "time spent on the CPU" rather than physical cores. When you request `1200m` (1.2 cores), your game server gets 1.2 CPU-seconds of processing time for every real-world second that passes.
+
+The operating system's scheduler automatically distributes your game server's threads across all available CPU cores on the physical machine, regardless of your CPU request amount.
+
+#### Multithreading and CPU Requests
+
+Game engines (Unreal Engine, Unity, Godot, etc.) create many threads for different systems (rendering, audio, networking, gameplay, etc.). These threads are automatically distributed across available CPU cores by the operating system scheduler.
+
 ### CPU Limits
 CPU limits control the maximum CPU your game server can use. When your server tries to use more CPU than its limit, it gets **throttled** (slowed down) rather than terminated.
 
@@ -55,6 +65,18 @@ If there's unused CPU capacity available, your game server can temporarily use m
 - **Avoid CPU limits**: Unless you have specific requirements, skip CPU limits to prevent throttling issues
 - **Use GameFabric monitoring**: Check the "Gameserver Resource usage (Percentiles)" dashboard for usage patterns
 - **Target 80-90% node efficiency**: This provides burst capacity while maintaining performance
+
+#### Right-Sizing CPU Requests
+
+**You can safely lower CPU requests** if your monitoring shows actual usage is consistently below your current request. This allows GameFabric to pack more game servers onto each physical machine, reducing your costs.
+
+**Example scenario**: 
+- Current setting: `2000m` CPU request
+- Monitoring shows: Average usage of 400-600m, peaks of 800-1000m
+- **Safe optimization**: Lower request to `1000m` or `1200m`
+- **Result**: No performance impact, but ~50% cost reduction from better resource utilization
+
+**Important**: Requests are **minimums**, not **maximums**. Your game server can use more CPU than requested when available, so lowering requests based on average usage won't hurt performance.
 
 ## Memory Resources
 
@@ -103,7 +125,13 @@ When creating game servers in GameFabric (through the UI or Terraform), you'll s
 - Base on measured average usage, not peak usage
 - Start conservative and adjust based on monitoring data
 
-**Example**: If monitoring shows your game uses 300-400m CPU on average, set CPU request to `400m`.
+**Example**: If monitoring shows your game server uses 300-400m CPU on average, set CPU request to `400m`.
+
+#### Special Considerations
+
+**Server startup**: Some game servers use more CPU during startup than during normal gameplay. If you're planning to start many servers simultaneously, monitor startup CPU usage separately and consider this in your planning.
+
+**Burst capacity**: Even with lower CPU requests, your game servers can use more CPU when available. This burst capacity helps handle temporary spikes in processing needs without performance degradation.
 
 ### Step 3: Set Memory Requests and Limits
 
@@ -114,7 +142,7 @@ When creating game servers in GameFabric (through the UI or Terraform), you'll s
 - Account for memory growth during gameplay
 - Include safety margin to prevent unexpected terminations
 
-**Example**: If your game uses 800Mi baseline and peaks at 1.2Gi with players, set:
+**Example**: If your game server uses 800Mi baseline and peaks at 1.2Gi with players, set:
 - Memory Request: `800Mi`
 - Memory Limit: `1.4Gi` (1.2Gi + 20% safety margin)
 
@@ -164,3 +192,22 @@ Shows overall node resource utilization. Use this to:
 - **CPU usage vs requests**: Ensure requests match actual average usage
 - **Memory usage trends**: Prevent hitting memory limits
 - **Memory usage patterns**: Look for gradual increases that might indicate memory leaks
+
+## Frequently Asked Questions
+
+### Will lowering my CPU request from 2000m to 1200m make my game server single-threaded?
+**No.** CPU requests control the amount of processing time your game server receives, not the number of threads or physical cores it can use. Game engines create multiple threads for different systems that automatically spread across all available CPU cores regardless of your CPU request setting.
+
+### How does 1.2 CPU cores actually work? Is it 1 full core plus 20% of another?
+**No.** Think of "1.2 cores" as "1.2 CPU-seconds of processing time per real second." The operating system distributes your game server's threads across all available physical cores to provide this total amount of processing time.
+
+**Example**: On an 8-core machine, your 1200m request could use small amounts of time across all 8 cores simultaneously, totaling 1.2 CPU-seconds per real second.
+
+### Can I safely lower CPU requests if my monitoring shows low average usage?
+**Yes.** CPU requests are minimums, not maximums. If your game server averages 600m CPU but you've set 2000m requests, you can safely lower the request to around 800-1000m. Your game server can still use more CPU when available (assuming no CPU limits are set).
+
+### Will lowering CPU requests affect my game server's performance?
+**Usually no.** As long as your new CPU request is close to your actual average usage (not peak usage), performance should be unaffected. The system will still allow your game server to use more CPU when available for handling spikes in activity (provided you haven't set CPU limits).
+
+### What's the difference between CPU requests and CPU limits?
+**Requests** are guaranteed minimums - your game server will always get at least this amount of CPU time. **Limits** are hard maximums that trigger throttling when exceeded. We recommend setting requests based on average usage and avoiding limits to prevent performance issues.
