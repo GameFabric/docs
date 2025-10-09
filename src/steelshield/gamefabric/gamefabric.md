@@ -56,7 +56,7 @@ To check your protection status:
 The system shows one of three protection states:
 
 - **Unprotected**: No nodes in this site have protection
-- **Protected**: All nodes in this site have protection  
+- **Protected**: All nodes in this site have protection
 - **Partially Protected**: Some nodes in this site have protection
 
 ::: info
