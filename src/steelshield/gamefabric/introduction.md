@@ -22,7 +22,7 @@ This describes the situation inside Nitrado's own infrastructure.
 ::: info No integration needed from game developers.
 :::
 
-This protection monitors packet size and packets per second. When it detects unusual network activity, it rate limits traffic to the server.
+Reactive rate-limiting monitors packet size and traffic rate, triggering limits on server traffic in response to unusual network activity.
 
 Level 1 protection is always enabled for all customers at no additional charge.
 
