@@ -34,7 +34,7 @@ Level 1 protection is always enabled for all customers at no additional charge.
 Level 2 protection includes:
 
 - Traffic restriction to specific ports
-- Generic Game-specific filtering to block malicious traffic
+- Generic game-specific filtering to block malicious traffic
 - Basic filtering to remove known bot traffic
 - Traffic with corrupt or invalid payloads
 - Standard TCP mitigations for SYN floods
