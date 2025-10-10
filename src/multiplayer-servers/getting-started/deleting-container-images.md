@@ -2,6 +2,12 @@
 
 In this section, you will learn different methods for deleting container images.
 
+::: tip Container Image Workflow
+This guide is part of the container workflow. Make sure you've already:
+1. [Built your container image](/multiplayer-servers/getting-started/building-a-container-image)
+2. [Pushed it to a branch](/multiplayer-servers/getting-started/pushing-container-images)
+:::
+
 ## Prerequisites
 
 Before following this guide, ensure that you have already [pushed container images](pushing-container-images.md).
