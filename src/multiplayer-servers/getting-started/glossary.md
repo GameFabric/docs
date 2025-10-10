@@ -15,7 +15,7 @@ See also [docs for using the Allocation Sidecar](/multiplayer-servers/multiplaye
 
 ## Armada
 
-An Armada is a collection of Fleets, distributed across multiple Sites within one Region.
+An Armada is a collection of Fleets, distributed across multiple [Sites](#site) within one [Region](#region).
 It can have multiple [revisions](/multiplayer-servers/getting-started/glossary#revision), which are essentially different versions of the same Armada, as it gets updated.
 
 Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade)
@@ -96,9 +96,7 @@ See also [Editing Permissions](/multiplayer-servers/getting-started/editing-perm
 
 A Region is typically a geographic area made up of one or more [Locations](#location) where resources can be hosted.
 
-
 It has to be defined on a per-[environment](#environment) basis.
-
 
 While defining, you can assign a custom priority to each location. This priority determines which location will be filled first.
 
