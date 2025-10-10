@@ -95,7 +95,7 @@ See also [Editing Permissions](/multiplayer-servers/getting-started/editing-perm
 A Region is typically a geographic area made up of one or more [Locations](#location) where resources can be hosted.
 
 
-It has to be defined on a per-[environment](#Environment) basis.
+It has to be defined on a per-[environment](#environment) basis.
 
 
 While defining, you can assign a custom priority to each location. This priority determines which location will be filled first.
