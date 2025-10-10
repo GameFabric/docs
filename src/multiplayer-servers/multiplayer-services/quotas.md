@@ -28,6 +28,10 @@ This page lists all known system limitations that developers should be aware of 
 - **Limit**: uid 1000 required
 - **Description**: Container users are currently restricted to using `uid` 1000. This must be configured in your Dockerfile when creating container images.
 
+::: tip Container Image Setup
+When building your container images, make sure to configure the user as shown in the [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) guide.
+:::
+
 ## Additional Information
 
 For questions about increasing these limits or if you encounter other limitations not documented here, please contact GameFabric support.

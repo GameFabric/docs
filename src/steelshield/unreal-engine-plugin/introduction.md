@@ -48,3 +48,7 @@ the *SteelShield Token* would be able to be traced back to that individuals acco
 
 *SteelShield Tokens* are also set to *roll over* every 15 minutes (by default) in order to ensure that the token can not
 be used in future DDoS attacks.
+
+::: tip Using SteelShield with GameFabric
+SteelShield is integrated with GameFabric Multiplayer Servers to provide DDoS protection for your game servers. For more information on deploying game servers with GameFabric, see the [Multiplayer Servers documentation](/multiplayer-servers/getting-started/introduction).
+:::

@@ -2,12 +2,19 @@
 
 In this section, you will learn how to make a container image available to GameFabric for subsequent deployment.
 
+::: tip Workflow
+This guide is part of the container workflow:
+1. [Build your container image](/multiplayer-servers/getting-started/building-a-container-image)
+2. **Push it to the registry** (this guide)
+3. [Run your game server](/multiplayer-servers/getting-started/running-your-game-server)
+:::
+
 ## Prerequisites
 
 In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
-* API user credentials to push images to the GameFabric Container Registry
+* API user credentials to push images to the GameFabric Container Registry (see [Authentication](/multiplayer-servers/getting-started/authentication))
 * A [container image of your game server binary](building-a-container-image.md)
 
 Log into the GameFabric UI before proceeding.
