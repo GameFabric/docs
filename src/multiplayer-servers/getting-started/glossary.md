@@ -74,6 +74,8 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
+See also [Region](#region) for how to use it.
+
 ## User
 
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#user).
@@ -90,7 +92,7 @@ See also [Editing Permissions](/multiplayer-servers/getting-started/editing-perm
 
 ## Region
 
-A Region is typically a geographic area made up of one or more [Locations](#Location) where resources can be hosted.
+A Region is typically a geographic area made up of one or more [Locations](#location) where resources can be hosted.
 
 
 It has to be defined on a per-[environment](#Environment) basis.
