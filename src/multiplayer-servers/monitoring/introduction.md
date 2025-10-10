@@ -10,6 +10,7 @@ To access it, click on "Monitoring".
 
 ::: tip Using Monitoring
 The monitoring dashboards are especially useful for:
+
 - Tracking [CCU (Concurrent Users)](/multiplayer-servers/getting-started/using-the-agones-sdk#player-count-and-capacity-tracking)
 - Optimizing [resource requests](/multiplayer-servers/multiplayer-services/resource-management) based on actual usage
 - Viewing game server logs for debugging
