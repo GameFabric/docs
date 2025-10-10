@@ -17,6 +17,7 @@ In order to integrate with our Allocator, your game needs to meet the following 
 
 ::: tip API Documentation
 For detailed API specifications, see:
+
 - [Allocator API](/api/multiplayer-servers/allocation-allocator) for allocation endpoints
 - [Registry API](/api/multiplayer-servers/allocation-registry) for registration endpoints
 :::
