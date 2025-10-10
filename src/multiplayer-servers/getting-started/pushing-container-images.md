@@ -3,7 +3,9 @@
 In this section, you will learn how to make a container image available to GameFabric for subsequent deployment.
 
 ::: tip Workflow
+
 This guide is part of the container workflow:
+
 1. [Build your container image](/multiplayer-servers/getting-started/building-a-container-image)
 2. **Push it to the registry** (this guide)
 3. [Run your game server](/multiplayer-servers/getting-started/running-your-game-server)
