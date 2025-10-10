@@ -14,6 +14,13 @@ It is designed for minimal impact on game client and backend services (referred 
 This is achieved by acting as if there were no changes at AWS at all, except for name changes,
 which should result in configuration or variable adjustments, rather than code and logic changes.
 
+::: tip Related Documentation
+- For general allocation guidance, see [Allocating from Armadas](../allocating-from-armadas)
+- For the Allocator API specification, see [Allocator API](/api/multiplayer-servers/allocation-allocator)
+- For GameLift integration without FlexMatch, see [GameLift Integration](gamelift)
+- For understanding hosting models, see [Hosting Models](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+:::
+
 Table of contents:
 [[toc]]
 

@@ -54,3 +54,10 @@ curl -X 'GET' \
      -H 'accept: application/json' \
      -H "Authorization: Bearer ${TOKEN}"
 ```
+
+::: tip API Documentation
+For detailed API specifications and available endpoints, see:
+- [GameFabric API Guide](/multiplayer-servers/api/guide)
+- [API Server Documentation](/api/multiplayer-servers/apiserver)
+- [Web API Documentation](/api/multiplayer-servers/webapi)
+:::

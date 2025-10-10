@@ -2,12 +2,17 @@
 
 In this section, you will learn how to run your first game server.
 
+::: tip Understanding Hosting Models
+Before proceeding, consider reviewing the [hosting models guide](/multiplayer-servers/hosting-models/identifying-your-hosting-model) to understand the difference between Vessels (long-running servers) and Armadas (session-based servers), and choose the right approach for your needs.
+:::
+
 ## Prerequisites
 
 In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
 * A container image that has been [pushed to a branch in the registry](pushing-container-images)
+* Basic understanding of [Agones SDK integration](/multiplayer-servers/getting-started/using-the-agones-sdk) for proper game server lifecycle
 
 Log into the GameFabric UI before proceeding.
 
@@ -152,6 +157,10 @@ Resources are the CPU and memory required by your game server. This definition c
   game server exceeds its memory limits, it will be terminated, and if it exceeds its CPU limits, it will be throttled.
   It is generally recommended to set the memory limit to a threshold that would indicate a memory leak that warrants
   termination, and to not apply CPU limits, unless negative effects have been observed.
+
+::: tip Resource Configuration
+For detailed guidance on setting CPU and memory resources, see the [Resource Management guide](/multiplayer-servers/multiplayer-services/resource-management), which provides best practices for optimizing performance and costs.
+:::
 
 ![GUI_Create_Vessel_Containers_Resources.png](images/formation/GUI_Create_Vessel_Containers_Resources.png)
 

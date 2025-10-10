@@ -6,6 +6,10 @@ Token Service*.
 There are 2 Token Provider implementations which are supplied with the *SteelShield Plugin*, but the plugin integrator
 is able to develop their own Token Provider that works with their backend should they have a custom backend solution.
 
+::: tip Implementation Guide
+For details on how to use token providers in your game, see [Using the Plugin](/steelshield/unreal-engine-plugin/using-the-plugin).
+:::
+
 ::: warning Caution
 It is advised that as much of the authentication and JWT generation as
 possible is done on the game backend server so that attackers are not

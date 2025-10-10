@@ -4,6 +4,15 @@ The purpose of this guide is to explain how to package game server binaries as D
 This document will help you if you do not already have a Docker image for your game server,
 and you are not yet accustomed to using Docker.
 
+::: tip Next steps
+
+After building your container image, you should:
+
+1. [Push it to the GameFabric registry](/multiplayer-servers/getting-started/pushing-container-images)
+2. [Run your game server](/multiplayer-servers/getting-started/running-your-game-server) using the image
+3. Integrate the [Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for proper lifecycle management
+:::
+
 ::: info Container vs. Docker
 Docker is a popular set of tools to interact with standardized container technologies. Therefore, terms like
 "Docker Image" and "Container Image" are used interchangeably in this document, as they are in publicly

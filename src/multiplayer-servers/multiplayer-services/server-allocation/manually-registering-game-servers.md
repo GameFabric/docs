@@ -3,12 +3,24 @@
 This guide describes the steps to take to integrate GameFabric Allocator within your game.
 The steps described here are in contrast to the [Allocator Sidecar](automatically-registering-game-servers.md) feature that performs these actions automatically for simple use cases.
 
+::: tip Alternative Approach
+For simpler use cases, consider using the [Allocation Sidecar](automatically-registering-game-servers) which automates the registration and allocation process.
+:::
+
 ## Pre-requisites
 
 In order to integrate with our Allocator, your game needs to meet the following requirements.
 
 1. Be able to send outgoing HTTP requests to the allocator registry.
 2. If the game server needs to be notified about allocations, be able to bind a port on which to listen for an HTTP callback.
+3. Have integrated the [Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for game server lifecycle management.
+
+::: tip API Documentation
+For detailed API specifications, see:
+
+- [Allocator API](/api/multiplayer-servers/allocation-allocator) for allocation endpoints
+- [Registry API](/api/multiplayer-servers/allocation-registry) for registration endpoints
+:::
 
 ## Guide
 
@@ -111,15 +123,15 @@ In the event that your Keep-Alive request receives a `404` response, this typica
 If you use the callback mechanism, and you have not received a callback, then it is highly likely that the callback failed and the game server was not served to players.
 In this scenario you should either:
 
-* Shut down your server and start a new one.
-* Register again with your current game server, and start a new keep-alive routine instead of the old one.
+- Shut down your server and start a new one.
+- Register again with your current game server, and start a new keep-alive routine instead of the old one.
 
 If you do not use the callback mechanism, a successful allocation might have happened and players are in the process of connecting to your server.
 You should:
 
-* Stop sending Keep-Alive requests
-* Start a timer for the expected duration for players to connect
-* If no players connected after the timer has ended, treat it like a failed allocation as explained above (i.e. shut down or re-register)
+- Stop sending Keep-Alive requests
+- Start a timer for the expected duration for players to connect
+- If no players connected after the timer has ended, treat it like a failed allocation as explained above (i.e. shut down or re-register)
 
 ##### Game server stops
 
