@@ -123,15 +123,15 @@ In the event that your Keep-Alive request receives a `404` response, this typica
 If you use the callback mechanism, and you have not received a callback, then it is highly likely that the callback failed and the game server was not served to players.
 In this scenario you should either:
 
-* Shut down your server and start a new one.
-* Register again with your current game server, and start a new keep-alive routine instead of the old one.
+- Shut down your server and start a new one.
+- Register again with your current game server, and start a new keep-alive routine instead of the old one.
 
 If you do not use the callback mechanism, a successful allocation might have happened and players are in the process of connecting to your server.
 You should:
 
-* Stop sending Keep-Alive requests
-* Start a timer for the expected duration for players to connect
-* If no players connected after the timer has ended, treat it like a failed allocation as explained above (i.e. shut down or re-register)
+- Stop sending Keep-Alive requests
+- Start a timer for the expected duration for players to connect
+- If no players connected after the timer has ended, treat it like a failed allocation as explained above (i.e. shut down or re-register)
 
 ##### Game server stops
 
