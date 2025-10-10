@@ -15,7 +15,7 @@ See also [docs for using the Allocation Sidecar](/multiplayer-servers/multiplaye
 
 ## Armada
 
-An Armada is a collection of Fleets, distributed across multiple Sites within one Region.
+An Armada is a collection of Fleets, distributed across multiple [Sites](#site) within one [Region](#region).
 It can have multiple [revisions](/multiplayer-servers/getting-started/glossary#revision), which are essentially different versions of the same Armada, as it gets updated.
 
 Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade)
@@ -50,7 +50,9 @@ While a "Cluster" refers to the physical or virtual grouping of servers, a "Site
 
 Environments are a mechanism for isolating groups of resources. Resource names must be unique within each environment, but not across environments.
 They can therefore be used to separate production, staging, testing, and any other environments and ensure that they don't interfere.
-Alongside the RBAC features, it also allows limiting the access to certain environments from users.
+Alongside the [RBAC](#rbac) features, it also allows limiting the access to certain environments from users.
+
+Capacity is managed on a per Environment basis via [Regions](#region).
 
 ## Fleet
 
@@ -71,8 +73,10 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 
 ## Location
 
-A Location is a group of Sites that share a geographical area and other characteristics.
+A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
+
+See also [Region](#region) for how to use it.
 
 ## User
 
@@ -90,7 +94,11 @@ See also [Editing Permissions](/multiplayer-servers/getting-started/editing-perm
 
 ## Region
 
-A Region is typically a geographic area made up of one or more Locations where resources can be hosted.
+A Region is typically a geographic area made up of one or more [Locations](#location) where resources can be hosted.
+
+It has to be defined on a per-[environment](#environment) basis.
+
+While defining, you can assign a custom priority to each location. This priority determines which location will be filled first.
 
 ## Replica
 
@@ -129,7 +137,7 @@ See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/vessel-shutd
 
 ## Site
 
-A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a Location.
+A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a [Location](#location).
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 ## SteelShield™
