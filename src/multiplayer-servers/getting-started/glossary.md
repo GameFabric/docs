@@ -50,7 +50,9 @@ While a "Cluster" refers to the physical or virtual grouping of servers, a "Site
 
 Environments are a mechanism for isolating groups of resources. Resource names must be unique within each environment, but not across environments.
 They can therefore be used to separate production, staging, testing, and any other environments and ensure that they don't interfere.
-Alongside the RBAC features, it also allows limiting the access to certain environments from users.
+Alongside the [RBAC](#rbac) features, it also allows limiting the access to certain environments from users.
+
+Capacity is managed on a per Environment basis via [Regions](#region).
 
 ## Fleet
 
