@@ -110,7 +110,7 @@ These are the available triggers:
 
 The game server is responsible for watching for changes in its allocation status.
 
-Meanwhile the Allocator passes the game server allocation back to the backend service,
+Meanwhile, the Allocator passes the game server allocation back to the backend service,
 where it is passed to the game client and used to connect with the game server.
 
 ::: info Technical Background

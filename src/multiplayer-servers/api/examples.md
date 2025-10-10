@@ -9,7 +9,7 @@ This section provides examples of how to use the GameFabric REST API.
 
 ## Listing your images
 
-Before creating a Vessel, you will need to know the name of the image object you want to use.
+Before creating a Vessel, you need to know the name of the image object you want to use.
 You can list all images in a specific branch using the REST API.
 
 ```bash
@@ -19,17 +19,18 @@ curl -X 'GET' \
      -H "Authorization: Bearer ${GF_API_TOKEN}"
 ```
 
-Take note of the Image object name, since that is what you will need to reference in the Vessel specification for the next step.
+Take note of the Image object name, since that is what you need to reference in the Vessel specification for the next step.
 
 ## Creating a Vessel
 
-In this first example, we will create a Vessel using the REST API.
+In this first example, let's create a Vessel using the REST API.
 
 Make sure to edit the JSON payload to include your region, branch and image names, as well as replacing the game server arguments to fit your server.
 
 You may also add as many containers as you wish, if you want to [run sidecars](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/) alongside your game server.
 
-Take note that the `apiVersion` mentioned in the payload is the same as the resource in the URL, in this case `formation/v1beta1`. The `kind` however is `Vessel`, the singular form of the resource from the URL, `vessels`.
+Take note that the `apiVersion` mentioned in the payload is the same as the resource in the URL, in this case `formation/v1beta1`.
+The `kind` however is `Vessel`, the singular form of the resource from the URL, `vessels`.
 It is mandatory to specify the `kind` and `apiVersion` fields in the payload.
 
 ```bash
@@ -113,13 +114,13 @@ curl -X 'GET' \
 
 ## Deleting a Vessel
 
-Finally, once you are done with your test, you may want to stop your gameserver.
+Finally, once you are done with your test, you may want to stop your game server.
 You can do so by deleting the Vessel using the REST API.
 
 ```bash
 curl -X 'DELETE' \
      "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSSEL_NAME}" \
      -H "Authorization: Bearer ${GF_API_TOKEN}"
-``` 
+```
 
-This will result in your Vessel switching to the Terminating status, and eventually disappearing once the termination process is complete.
+This results in your Vessel switching to the Terminating status, and eventually disappearing once the termination process is complete.

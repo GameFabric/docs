@@ -1,15 +1,15 @@
 # Identifying your Hosting Model
 
-GameFabric support two major hosting models.
+GameFabric supports two major hosting models.
 
 - **Formations** are intended for long-running game servers that have game or player progression associated with them.
   Typically, players are given the ability to return to a specific game server, for example by selecting it from a
-  server list. Each game server is typically associated with one or more unique properties, such as the name under
+  server list. Each game server is usually associated with one or more unique properties, such as the name under
   which they are listed within the server list. Game servers like this are sometimes referred to as **Named Instances**
   or **Persistent Worlds**.
 - **Armadas** are the ideal choice for match-based or session-based game servers. For these games, typically a
-  matchmaking mechanism will decide that a set of players will play together on one server. The matchmaker, or a similar
-  service, will then _allocate_ a game server for that play session and, once the session is over, the game server shuts
+  matchmaking mechanism decides that a set of players should play together on one server. The matchmaker, or a similar
+  service, then _allocates_ a game server for that play session and, once the session is over, the game server shuts
   down. The number of available game servers is dynamically adjusted based on demand.
 
 An individual game does not necessarily have to strictly fall into one of these two categories. Some games require a
@@ -21,11 +21,12 @@ are scaled up when needed, and scaled down again later. Each approach has its ow
 outlined in more detail in the following sections.
 
 ## Formations
+
 Formations consist of **Vessels**, with each Vessel representing an individual game server that players can connect to.
-Vessels share a number of properties with the Formation that they belong to - such as the CPU and RAM resource
-requirements and the container image version to be used. However, the Region, environment variables, and command line
+Vessels share a number of properties with the Formation that they belong to — such as the CPU and RAM resource
+requirements and the container image version to be used. However, the Region, environment variables, and command-line
 arguments can be overridden on a per-Vessel basis. This allows to, for example, assign a unique server name that the
-game server will be appearing under in a server list.
+game server appears under in a server list.
 
 Because each Vessel has these unique properties, they are not automatically scaled up or down. Since player progression
 might be tied to an individual Vessel, it is expected that it is always explicitly decided by the game developer if a
@@ -44,6 +45,7 @@ start, especially when scaling to Cloud. Formations are therefore not suited to 
 throughout the day. This is the purpose of Armadas.
 
 ## Armadas
+
 Armadas automatically adjust the number of game servers within a given Region based on demand. To always be able to
 meet that demand, game servers are started in advance, and once they are ready to accept players, entered into a pool
 of available game servers.
@@ -66,6 +68,6 @@ automatically create Armadas for every Region, reducing management overhead.
 
 Armadas have the benefit of being able to serve hundreds of game server sessions every second, even if the game server
 software takes some time to start up. The caveat is that they have to be started in advance, only allowing customization
-for the individual game session via the allocation request, not through command line parameters. To allow this level
+for the individual game session via the allocation request, not through command-line parameters. To allow this level
 of scale, Armadas also only report aggregated information about the game servers within them, which can be inconvenient
-for development workflows. In these scenarios it is recommended to use Formations or even individual Vessels.
+for development workflows. In these scenarios, it is recommended to use Formations or even individual Vessels.

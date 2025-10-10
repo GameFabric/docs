@@ -44,7 +44,7 @@ Each of those ports can be configured to use a different Protocol.
 In order to make all of your game server's ports secure, it is strongly recommended to apply a Protection Protocol to each of them.
 
 When the port is unprotected (`none`), traffic is forwarded as-is with no DDoS protection in place,
-leaving your server vulnerable to attacks despite protection applies to the other ports.
+leaving your server vulnerable to attacks even if other ports are protected.
 
 You can find the Protocol assignment to the right of the port specification for your containers.
 
@@ -52,11 +52,11 @@ You can find the Protocol assignment to the right of the port specification for 
 
 ::: warning
 The assignment triggers an immediate rollout with the new port assignment.
-Allocated game servers as always are not affected, so they keep running under the old setup.
+Allocated game servers as always are not affected, so they keep running under the old configuration.
 :::
 
 ## Unsupported Sites
 
-Sites are game server clusters, and SteelShield is currently not supported on all Sites.
+Sites are game server clusters, and currently SteelShield is not supported on every Site.
 If you scale up and end up having game servers on multiple Sites, you may have game servers that are protected,
 and game servers that are not protected, even if they run under the same [revision](/multiplayer-servers/getting-started/glossary#revision).
