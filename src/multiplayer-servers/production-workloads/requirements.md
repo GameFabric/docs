@@ -14,7 +14,7 @@ For more details on creating a compatible container, see [Building a Container I
     * **Allocated State**: Signaling when the server is in use with active players. Any other state might get terminated by the system if necessary.
     * **Health Checks**: Periodically pinging to indicate the server is alive and healthy.
 
-    See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for implementation details.
+See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for implementation details.
 
 ### **Life cycle management**:
 
