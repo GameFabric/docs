@@ -22,12 +22,13 @@ Additional topics are:
 
 Before using the wrapper, make sure that:
 
-- Your game server is integrated against the Agones SDK (see [using Agones SDK](../getting-started/using-the-agones-sdk.md)),
+- Your game server is integrated against the Agones SDK (see [Using Agones SDK](../getting-started/using-the-agones-sdk.md)),
 - You have a container image that contains your game server binary
-  (see [Building](/multiplayer-servers/getting-started/building-a-container-image) and
+  (see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) and
   [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)),
 - You have either an Armada or Vessel configured to run the container image
-  (see [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server)).
+  (see [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server) and
+  [Hosting Models](/multiplayer-servers/hosting-models/identifying-your-hosting-model)).
 
 If your game server cannot run in GameFabric because it is missing vital information such as IP address or port numbers,
 the wrapper can already help with its templating features.

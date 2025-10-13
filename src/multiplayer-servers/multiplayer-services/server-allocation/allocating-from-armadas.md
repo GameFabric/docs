@@ -8,6 +8,12 @@ This registration process can be performed [from within your game server code](m
 In order for the server to then get allocated, a `POST` request must be sent to the Allocator service, on its
 [`/allocate`](/api/multiplayer-servers/allocation-allocator.html#tag/Allocator) endpoint.
 
+::: tip Related Documentation
+- For API details, see the [Allocator API documentation](/api/multiplayer-servers/allocation-allocator)
+- For integration examples, see [GameLift integration](integration-examples/gamelift) or [FlexMatch integration](integration-examples/flexmatch)
+- For automatic registration, see [Automatically Registering Game Servers](automatically-registering-game-servers)
+:::
+
 The `region` to allocate from is a mandatory parameter. The request can also include a set of additional `attributes`
 that the game server needs to have, as defined during its registration. Optionally, you may specify a `payload`
 to be sent to the game server as part of the allocation callback.

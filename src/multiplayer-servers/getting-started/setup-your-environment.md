@@ -2,11 +2,23 @@
 
 In this section, you will learn how to setup an Environment and a Region in that Environment.
 
+::: tip Key Concepts
+Before proceeding, review the [Glossary](/multiplayer-servers/getting-started/glossary) to understand key concepts like Environments, Regions, Locations, and Sites.
+:::
+
 ## Prerequisites
 
 In order to follow this guide, make sure you have credentials to access your GameFabric UI with permissions to create Environments and Regions.
 
 Log into the GameFabric UI before proceeding.
+
+::: tip Next steps
+After setting up your environment and region, you'll need to:
+
+1. [Authenticate and create a service account](/multiplayer-servers/getting-started/authentication)
+2. [Build and push your container image](/multiplayer-servers/getting-started/building-a-container-image)
+3. [Deploy your game servers](/multiplayer-servers/getting-started/running-your-game-server)
+:::
 
 ## Create an Environment
 

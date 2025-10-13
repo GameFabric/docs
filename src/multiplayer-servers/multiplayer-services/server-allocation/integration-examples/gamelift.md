@@ -9,6 +9,13 @@ The Nitrado multiplayer services consist of **GameFabric** to manage game server
 the **Nitrado Allocator** to provide a pool of ready to play game servers for matchmaking,
 and **[Agones](https://agones.dev/site/)**, which is the game server orchestration platform.
 
+::: tip Related Documentation
+- For general allocation guidance, see [Allocating from Armadas](../allocating-from-armadas)
+- For the Allocator API specification, see [Allocator API](/api/multiplayer-servers/allocation-allocator)
+- For Agones SDK integration, see [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk)
+- For FlexMatch integration, see [FlexMatch Integration](flexmatch)
+:::
+
 Table of contents:
 [[toc]]
 
