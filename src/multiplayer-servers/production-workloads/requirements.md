@@ -16,7 +16,7 @@ For more details on creating a compatible container, see [Building a Container I
 
 See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for implementation details.
 
-### **Life cycle management**:
+### **Lifecycle management**:
 
 #### Armadas
 
