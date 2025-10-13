@@ -45,4 +45,4 @@ The `gswrapper` is a valuable tool for launching your game server executable wit
 * **Log Tailing**: The wrapper can tail your game server's log files, which is useful if your server writes logs to a file instead of `stdout`.
 * **Post-Stop Hooks (Advanced Crash Handling)**: You can configure executables to run after your game server stops. This is useful for tasks like analyzing core dumps for crash reporting or uploading logs for further investigation.
 
-For more information, you can refer to the [Game Server Wrapper documentation](/multiplayer-servers/multiplayer-services/game-server-wrapper) and the [gswrapper GitHub repository](https://github.com/GameFabric/gswrapper).
+For more information, please refer to the [Game Server Wrapper documentation](/multiplayer-servers/multiplayer-services/game-server-wrapper) and the [gswrapper GitHub repository](https://github.com/GameFabric/gswrapper).
