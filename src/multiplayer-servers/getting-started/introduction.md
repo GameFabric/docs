@@ -1,6 +1,6 @@
 # Introduction
 
-GameFabric is an Developer-First Multiplayer Server Orchestration Platform across Bare and Cloud.
+GameFabric is a Developer-First Multiplayer Server Orchestration Platform across Bare and Cloud.
 
 Its based on [Agones](https://agones.dev/site/docs/).
 It provides a web interface to manage game server deployments across multiple regions, along with
