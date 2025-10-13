@@ -25,8 +25,9 @@ See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones
 
 #### Formations
 
-* **Shutdown hints**: (Required for Formations) see [running-your-game-server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods)
+* **Shutdown hints**: (Required for Formations) see [running your game server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods).
 * See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/vessel-shutdown-behavior).
+
 ## Best Practices
 
 Following these best practices will help ensure your game servers run smoothly and efficiently on GameFabric.
