@@ -33,7 +33,7 @@ See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones
 
 Following these best practices will help ensure your game servers run smoothly and efficiently on GameFabric.
 
-* **Log to stdout**: Whenever possible, configure your game server to write logs directly to the standard output (`stdout`) and standard error (`stderr`) streams. This allows for seamless integration with GameFabric's log aggregation and monitoring systems. If your server can only write to a file, use the `gswrapper` tool to tail and forward your log files to the appropriate output streams.
+* **Log to stdout**: Whenever possible, configure your game server to write logs directly to the standard output (`stdout`) and standard error (`stderr`) streams. This allows for seamless integration with GameFabric's log aggregation and monitoring systems. If your server can only write to a file, use the `gswrapper` tool to tail your log files and forward them to stdout/stderr. See the section below for more details.
 
 ## Game Server Wrapper (gswrapper)
 
