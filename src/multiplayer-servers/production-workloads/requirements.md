@@ -33,7 +33,7 @@ For more details on creating a compatible container, see [Building a Container I
 
 Following these best practices will help ensure your game servers run smoothly and efficiently on GameFabric.
 
-* **Log to stdout**: Whenever possible, configure your game server to write logs directly to the standard output (`stdout`) and standard error (`stderr`) streams. This allows for seamless integration with GameFabric's log aggregation and monitoring systems. If your server can only write to a file, use the `gswrapper
+* **Log to stdout**: Whenever possible, configure your game server to write logs directly to the standard output (`stdout`) and standard error (`stderr`) streams. This allows for seamless integration with GameFabric's log aggregation and monitoring systems. If your server can only write to a file, use the `gswrapper` tool to tail and forward your log files to the appropriate output streams.
 
 ## Game Server Wrapper (gswrapper)
 
