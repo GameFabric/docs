@@ -39,7 +39,7 @@ Following these best practices will help ensure your game servers run smoothly a
 
 The `gswrapper` is a valuable tool for launching your game server executable within the GameFabric environment. It is production-safe and offers several features to simplify integration and improve reliability.
 
-### Key Features:
+### Key Features
 
 * **Parameter and Configuration Templating**: Dynamically configure your game server's command-line arguments and configuration files with runtime information from Agones, such as IP addresses and ports.
 * **Log Tailing**: The wrapper can tail your game server's log files, which is useful if your server writes logs to a file instead of `stdout`.
