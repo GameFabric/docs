@@ -20,7 +20,7 @@ For more details on creating a compatible container, see [Building a Container I
 
 #### Armadas
 
-* return to `Agones Ready` after session ends (e.g. last player leaves) or simply shutdown
+* Return to `Agones Ready` after session ends (e.g. last player leaves) or simply shutdown.
 * **Shutdown hints** or limit max game server lifetime to 24h
 
 #### Formations
