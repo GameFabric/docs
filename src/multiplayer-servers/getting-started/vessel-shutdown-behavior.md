@@ -32,9 +32,10 @@ It can however be shutdown early by the game server itself responding to the ann
 Non-allocated Vessels are shut down immediately, in accordance with the `Termination Grace Period` (under `Settings`->`Advanced`).
 
 ## Manual Game Server Shutdown
+
 ### Summary
 
-If the game server is not integrated properly it can lead to a state, where a manual shutdown is required. This part of the document describes the process.
+If the game server is not integrated properly, it can lead to a state where a manual shutdown is required. This part of the document describes the process.
 
 ### Requirements
 
@@ -42,23 +43,32 @@ To manually shut down a game server, you must know its Site name, and Pod name.
 
 ### How & where
 
-#### Via Gamefabric UI
+#### Via GameFabric UI
 
-The Gamefabric panel offers a direct interface for managing game servers. Navigate to the "Armadas" section. In the list of game server deployments, locate the desired instance. Click on the three vertical dots positioned just after the "Details" button for that specific game server. From the dropdown menu, select the "Terminate game server" option. Enter the SiteName and Game Server Name of the game server to terminate.
+The GameFabric panel offers a direct interface for managing game servers. Navigate to the "Armadas" section. In the list of game server deployments, locate the desired instance. Click on the three vertical dots positioned just after the "Details" button for that specific game server. From the dropdown menu, select the "Terminate game server" option. Enter the Site Name and Pod Name of the game server to terminate.
 
-#### Via Gamefabric API
+#### Via GameFabric API
 This endpoint allows for the termination of a specific game server instance within a given site. The `{ns}` placeholder represents the site name, and `{name}` represents the unique identifier of the game server to be terminated. Successful execution removes the specified game server from active deployment.
 
 `DELETE /api/core/v1/sites/{ns}/gameservers/{name}`
 
 ### Identifying the Site and Pod name
 
-Determining the specific Pod name for termination requires checking pods that are actively running. Unlike the static site name, Pod names are generated dynamically and can change. Here is the primary method for identifying the correct pod name:
+Determining the specific Pod name for termination requires checking pods that are actively running. Unlike the static site name, Pod names are generated dynamically and can change.
+
+There are a few ways to determine the Pod's name, the most straightforward is described in the following sections.
 
 #### 1. Via Grafana
-This method uses the Gamefabric monitoring system. The monitoring service (Grafana) is accessible via the Gamefabric installation, located at the /monitoring path. Within the "GameServer Analysis" section, under "Current Gameservers," users can find detailed information about active game server instances. This interface displays the Pod name along with other relevant operational data. The name of the site is a concatenation of cluster and namespace.
+This method uses the GameFabric monitoring system.
+
+The monitoring service (Grafana) is accessible via the GameFabric installation, located at the `/monitoring` path.
+
+Within the "GameServer Analysis" section, under "Current Gameservers," users can find detailed information about active game server instances.
+This interface displays the Pod name along with other relevant operational data.
+The name of the site is a concatenation of cluster and namespace.
 
 Example:
+
 - cluster name: ni-dev-defra-gcp02
 - namespace: testing
 - site name: ni-dev-defra-gcp02-testing
