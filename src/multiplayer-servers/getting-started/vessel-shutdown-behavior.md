@@ -30,3 +30,48 @@ It can however be shutdown early by the game server itself responding to the ann
 ## Non-allocated Vessels
 
 Non-allocated Vessels are shut down immediately, in accordance with the `Termination Grace Period` (under `Settings`->`Advanced`).
+
+## Manual Game Server Shutdown
+### Summary
+
+If the game server is not integrated properly it can lead to a state, where a manual shutdown is required. This part of the document describes the process.
+
+### Requirements
+The two requirements to use this feature are:
+- the Site name 
+- the Pod name
+
+### How & where
+#### Via Gamefabric UI
+
+The Gamefabric panel offers a direct interface for managing game servers. Navigate to the "Armadas" section. In the list of game server deployments, locate the desired instance. Click on the three vertical dots positioned just after the "Details" button for that specific game server. From the dropdown menu, select the "Terminate game server" option. Enter the SiteName and Game Server Name of the game server to terminate.
+
+#### Via Gamefabric API
+This endpoint allows for the termination of a specific game server instance within a given site. The `{ns}` placeholder represents the site name, and `{name}` represents the unique identifier of the game server to be terminated. Successful execution removes the specified game server from active deployment.
+
+`DELETE /api/core/v1/sites/{ns}/gameservers/{name}`
+
+### Identifying the Site and Pod name
+
+Determining the specific Pod name for termination requires checking pods that are actively running. Unlike the static site name, Pod names are generated dynamically and can change. Here is the primary method for identifying the correct pod name:
+
+#### 1. Via Grafana
+This method uses the Gamefabric monitoring system. The monitoring service (Grafana) is accessible via the Gamefabric installation, located at the /monitoring path. Within the "GameServer Analysis" section, under "Current Gameservers," users can find detailed information about active game server instances. This interface displays the Pod name along with other relevant operational data. The name of the site is a concatenation of cluster and namespace.
+
+Example:
+- cluster name: ni-dev-defra-gcp02
+- namespace: testing
+- site name: ni-dev-defra-gcp02-testing
+
+The namespace is not visible by default, it has to be enabled manually, as shown below.
+
+First, edit the panel by clicking on the title and selecting "Edit".
+
+![Current Gameservers in Grafana](./images/monitoring/monitoring_edit_gameserver_columns.png)
+
+Then, in the "Transform" tab, add a new "Organize fields" transformation. 
+
+Finally, enable the "namespace" field to be displayed. 
+
+![Enable Namespace in Grafana](./images/monitoring/monitoring_enable_namespace.png)
+
