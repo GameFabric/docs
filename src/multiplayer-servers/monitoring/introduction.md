@@ -10,15 +10,17 @@ To access it simply click on "Monitoring".
 ![Screenshot of the Monitoring sidebar in the GameFabric interface](images/sidebar.png)
 
 ## Permissions
+
 To access monitoring, a user must belong to a `group` with a `role` that has at least `GET` permission for the `monitoring` resource.
 
 
 Users with `POST` permission can create custom dashboards and alerts.
 
 ## Metrics
+
 There are metrics for every feature of the product.
 There are a lot of predefined dashboards under "Dashboards".
 
 ## Logs
-Everything that the game server prints to either `stdout` or `stderr` will be collected automatically.
 
+Everything that the game server prints to either `stdout` or `stderr` is collected automatically.
