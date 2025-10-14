@@ -2,7 +2,8 @@
 
 ## Overview
 
-GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Identity Provider, allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
+GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Identity Provider,
+allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
 
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions) for information about permissions management.
 
@@ -15,19 +16,24 @@ Before setting up a Third-Party OIDC Provider, ensure the following conditions a
 
 ### Configuring Permissions for modifying OIDC Providers
 
-To be able to setup a new OIDC Provider, associated role of the active user must have "GET" and "POST" permissions for the "Providers" resource. This can be configured on RBAC page of the GameFabric UI.
+To be able to setup a new OIDC Provider, associated role of the active user must have "GET" and "POST" permissions for the "Providers" resource.
+This can be configured on RBAC page of the GameFabric UI.
 
-You may check which group(s) a user belongs to from "Users/Groups" page (under "Access Management"). You may also add/remove user(s) from/to group(s) on the "Users/Groups" page.
+You may check which group(s) a user belongs to from "Users/Groups" page (under "Access Management").
+You may also add/remove user(s) from/to group(s) on the "Users/Groups" page.
 
-Navigate to "Access Management" from the Sidebar Menu, and then into the "Roles" page. In the list of roles, find the one you want to modify and click 'Edit'.
+Navigate to "Access Management" from the Sidebar Menu, and then into the "Roles" page.
+In the list of roles, find the one you want to modify and click "Edit".
 
-UI will show you a matrix of "Role - Resource" configurations. Scroll down to the "Providers" resource, and make sure that "GET" and "POST" permissions are ticked.
+The user interface shows you a matrix of "Role - Resource" configurations.
+Scroll down to the "Providers" resource, and make sure that "GET" and "POST" permissions are ticked.
 
 ![Role Resource Matrix Screenshot](images/authentication/create-oidc-provider-role-resource-matrix.png)
 
 ## Setting up a new OIDC Provider
 
-Navigate to the "Access Management" section from the Sidebar Menu, and then into the "OIDC Providers" page. You may add a new OIDC Provider via the **Add Provider** button.
+Navigate to the "Access Management" section from the Sidebar Menu, and then into the "OIDC Providers" page.
+You may add a new OIDC Provider via the **Add Provider** button.
 
 ![Add Provider Screenshot](images/authentication/create-oidc-provider-main-screenshot.png)
 
@@ -37,11 +43,13 @@ If you are using a non-standardized OIDC Provider, or would like to further cust
 
 ### Preliminary configurations
 
-On the "General" step, enter a desired **ID** and **Display Name** for your provider. The OIDC Provider you are about to add will be saved under this **ID** and **Display Name** on GameFabric.
+On the "General" step, enter a desired **ID** and **Display Name** for your provider.
+The OIDC Provider you are about to add will be saved under this **ID** and **Display Name** on GameFabric.
 
 ![Provider Details Screenshot](images/authentication/create-oidc-provider-firststep-screenshot.png)
 
-On the "Provider" step, you need to specify the **Issuer URL** of your OIDC provider. This URL points to the OIDC Discovery Document of that particular provider, and GameFabric uses this Discovery Document for integrating with that provider.
+On the "Provider" step, you need to specify the **Issuer URL** of your OIDC provider.
+This URL points to the OIDC Discovery Document of that particular provider, and GameFabric uses this Discovery Document for integrating with that provider.
 
 **Issuer URL** must only point to the exact discovery endpoint, similar to the examples below; and must NOT include any trailing path (such as "/.well-known/openid-configuration" etc.)
 
@@ -77,9 +85,10 @@ For example, you may want to use a different email field as the users display em
 
 This is accomplished via requesting **Scopes** ([OpenID Scopes](https://auth0.com/docs/get-started/apis/scopes/openid-connect-scopes)) from the OIDC Provider.
 
-As a result, OIDC Provider will return **Claims** that contains information about the authenticated user.
+As a result, OIDC Provider returns **Claims** that contains information about the authenticated user.
 
-**Scopes** text input can be used for requesting these claims during the authentication process. GameFabric will request these **Scopes** from the OIDC Provider.
+**Scopes** text input can be used for requesting these claims during the authentication process.
+GameFabric requests these **Scopes** from the OIDC Provider.
 
 ![Scopes Screenshot](images/authentication/create-oidc-provider-thirdstep-screenshot.png)
 
@@ -94,15 +103,18 @@ As a result, OIDC Provider will return **Claims** that contains information abou
 | offline_access | Requests refresh tokens that GameFabric uses to obtain new access tokens when the user’s session with the provider expires. |
 | custom scopes  | Applications or APIs can define their own scopes for specific permissions                                                   |
 
-By default the claim `sub` is mapped to **UserID** and `name` is mapped to **UserName**. It is, however, possible to use different **Claims** to be configured onto **UserID** and **UserName**.
+By default, the claim `sub` is mapped to **UserID** and `name` is mapped to **UserName**. It is, however, possible to use different **Claims** to be configured onto **UserID** and **UserName**.
 
 **UserID Key** text input allows an incoming **Claim** to be mapped onto **UserID** field and **UserName Key** text input allows an incoming **Claim** to be mapped onto **UserName** field.
 
-Scope **offline_access** enables GameFabric to obtain **refresh tokens** from the OIDC Provider. This makes automatic renewal of access tokens possible, extending user session beyond the default expiration period. Without this scope, user session will end once the access token of the user expires, requiring them to log in again.
+Scope **offline_access** enables GameFabric to obtain **refresh tokens** from the OIDC Provider.
+This makes automatic renewal of access tokens possible, extending user session beyond the default expiration period.
+Without this scope, user session will end once the access token of the user expires, requiring them to log in again.
 
 #### Prompt
 
-OIDC Providers execute authentication via displaying a prompt to the user. This behavior of the provider may be configured via forwarding the **Prompt** parameter with the authentication request. The default value will be `consent` if not configured.
+OIDC Providers execute authentication via displaying a prompt to the user.
+This behavior of the provider may be configured via forwarding the **Prompt** parameter with the authentication request. The default value will be `consent` if not configured.
 
 Possible **Prompt** values are:
 
@@ -117,7 +129,8 @@ Possible **Prompt** values are:
 
 #### Claim Mapping
 
-Some OIDC providers return non-standard claims. **Claim Mapping** section allows mapping these claims into standardized claims in GameFabric.
+Some OIDC providers return non-standard claims.
+**Claim Mapping** section allows mapping these claims into standardized claims in GameFabric.
 
 Some of the non-standard claims, and how would they map to GameFabric claims:
 
@@ -128,10 +141,10 @@ Some of the non-standard claims, and how would they map to GameFabric claims:
 | normalized_username | preferred_username             | Lowercased username                                                            |
 | secondary_email     | email                          | Secondary email, that might be wished to map to the principal "email"          |
 
-
 #### Provider Discovery Override
 
-GameFabric performs a preparatory request to the OIDC Provider to fetch required configuration details. If this query returns incorrect information, you can override these values:
+GameFabric performs a preparatory request to the OIDC Provider to fetch required configuration details.
+If this query returns incorrect information, you can override these values:
 
 - **Token URL**
 - **Auth URL**
@@ -147,7 +160,8 @@ This customization ensures compatibility with providers returning non-standard d
 
 Before configuring ENTRA as a new OIDC Provider on GameFabric, it's required to ensure that GameFabric is configured as an application on ENTRA.
 
-About further information on how to accomplish this, please refer to: https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens ("Enable ID Tokens" Section)
+About further information on how to accomplish this, please refer to the "Enable ID Tokens" section of the
+[official Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens).
 
 #### Add ENTRA as a provider
 
@@ -158,14 +172,12 @@ On "Create OIDC Provider" page, fill in ID and Name for ENTRA:
 On the next step:
 
 - Fill in the "Issuer URL" of ENTRA
-
-  For ENTRA this is "https://login.microsoftonline.com/{tenant-id}/v2.0"
+  For ENTRA this is `https://login.microsoftonline.com/{tenant-id}/v2.0`
 
 - Fill in the ClientID & Secret you have obtained from ENTRA for GameFabric
-
   Client ID & Secret should be presented to you by ENTRA when GameFabric is configured as an Application on ENTRA following the steps mentioned in prerequisites
 
 ![Microsoft ENTRA Details Screenshot](images/authentication/microsoft-entra-secondstep-screenshot.png)
 
-No additional details are required as ENTRA returns all necessary claims and information. You can now start using ENTRA to authenticate users with GameFabric.
-
+No additional details are required as ENTRA returns all necessary claims and information.
+You can now start using ENTRA to authenticate users with GameFabric.

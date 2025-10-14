@@ -12,7 +12,8 @@ Click the "Create Service Account" button at the top right of the "Service Accou
 
 ![RBAC_Service_Accounts_Name.png](images/authentication/RBAC_Service_Accounts_Name.png)
 
-The first step will prompt you to define the username for that service account, and once this is confirmed the account is created and a password is generated for it. Make sure to copy this password, as it will not be shown again.
+The first step will prompt you to define the username for that service account, and once this is confirmed the account is created and a password is generated for it.
+Make sure to copy this password, as it will not be shown again.
 
 ![RBAC_Service_Accounts_Password.png](images/authentication/RBAC_Service_Accounts_Password.png)
 
@@ -45,7 +46,7 @@ curl --silent -L -X POST "https://${GAMEFABRIC_URL}/auth/token" \
       --data-urlencode 'password=${PASSWORD}'
 ```
 
-Now simply use the generated access token in the `Authorization` header of your API requests:
+You may now use the generated access token in the `Authorization` header of your API requests:
 
 ```bash
 curl -X 'GET' \
@@ -53,3 +54,10 @@ curl -X 'GET' \
      -H 'accept: application/json' \
      -H "Authorization: Bearer ${TOKEN}"
 ```
+
+::: tip API Documentation
+For detailed API specifications and available endpoints, see:
+- [GameFabric API Guide](/multiplayer-servers/api/guide)
+- [API Server Documentation](/api/multiplayer-servers/apiserver)
+- [Web API Documentation](/api/multiplayer-servers/webapi)
+:::

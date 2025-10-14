@@ -1,9 +1,9 @@
 # Game Server Wrapper
 
-The game server wrapper, also known as the wrapper, gswrapper or gsw, can be used to launch your game server executable
+The game server wrapper, also known as the "wrapper", "gswrapper" or "gsw", can be used to launch your game server executable
 inside the container image that runs your GameFabric Armadas or Vessels.
 
-By starting the executable as a wrapper it can enable various convenience features.
+The wrapper provides various convenience features over simply launching your game server standalone.
 
 The following features are available:
 
@@ -22,12 +22,13 @@ Additional topics are:
 
 Before using the wrapper, make sure that:
 
-- Your game server is integrated against the Agones SDK (see [using Agones SDK](../getting-started/using-the-agones-sdk.md)),
+- Your game server is integrated against the Agones SDK (see [Using Agones SDK](../getting-started/using-the-agones-sdk.md)),
 - You have a container image that contains your game server binary
-  (see [Building](/multiplayer-servers/getting-started/building-a-container-image) and
+  (see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) and
   [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)),
 - You have either an Armada or Vessel configured to run the container image
-  (see [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server)).
+  (see [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server) and
+  [Hosting Models](/multiplayer-servers/hosting-models/identifying-your-hosting-model)).
 
 If your game server cannot run in GameFabric because it is missing vital information such as IP address or port numbers,
 the wrapper can already help with its templating features.
@@ -43,17 +44,17 @@ For development, you can [run the Agones SDK server locally](https://agones.dev/
 
 Here are the steps for the integration:
 
-- [Add the wrapper to your container image](#add-the-gsw-to-your-container-image)
-    - Download the binary file
-    - Make it executable
-    - Build and push the new image
+- [Add the wrapper to your container image](#add-the-wrapper-to-your-container-image)
+  - Download the binary file
+  - Make it executable
+  - Build and push the new image
 - [Configure GameFabric](#configure-gamefabric)
-    - Use the new image
-    - Configure the wrapper
+  - Use the new image
+  - Configure the wrapper
 
 ### Add the Wrapper to your Container Image
 
-Releases of the wrapper are publicly available at: https://github.com/gamefabric/gswrapper/releases.
+See the publicly available [gswrapper releases](https://github.com/gamefabric/gswrapper/releases).
 
 Depending on how you create your container image, the integration for it can be as simple as:
 
@@ -76,8 +77,8 @@ Finally, push your new image to the GameFabric image registry, and ensure that t
 
 ### Configure GameFabric
 
-Whether you're using an Armada or a Vessel, configuring them to use the wrapper is the same.
-Go to Settings > Containers and update the command and arguments for your game server container image.
+Whether you are using an Armada or a Vessel, configuring them to use the wrapper is the same.
+Go to "Settings" > "Containers" and update the command and arguments for your game server container image.
 
 Before:
 
@@ -258,17 +259,17 @@ Use it for local development only.
 
 The game server wrapper exits with code `0` (success), if:
 
-- the game server exited with code `0`, and
-- there either is
-    - no post-stop hook set, or
-    - no post-stop hook condition applies, or
-    - post-stop hook exited with code `0`.
+- The game server exited with code `0`, and
+- There either is
+  - No post-stop hook set, or
+  - No post-stop hook condition applies, or
+  - Post-stop hook exited with code `0`.
 
 For any other situation, the exit code is `1` (error).
 
 Examples:
 
-```
+```text
 lvl=info msg="Starting game server" svc=gswrapper
 lvl=info msg="Game server stopped" svc=gswrapper runtimeSeconds=10.007 exitCode=0 exitSignal=-1
 
@@ -276,7 +277,7 @@ lvl=info msg="Starting post-stop hook" svc=gswrapper
 lvl=info msg="Post-stop hook stopped" svc=gswrapper runtimeSeconds=10.042 exitCode=0 exitSignal=-1
 ```
 
-```
+```text
 lvl=info msg="Starting game server" svc=gswrapper
 lvl=eror msg="Game server stopped with error" svc=gswrapper runtimeSeconds=10.015 exitCode=1 exitSignal=-1 error="gsemu exited: exit status 1"
 
@@ -298,7 +299,7 @@ Available log options:
 
 Produced log output:
 
-| Component          | Output              | Format     | Prefix / Identifier   | 
+| Component          | Output              | Format     | Prefix / Identifier   |
 |--------------------|---------------------|------------|-----------------------|
 | Game server        | `stdout` (`stderr`) | Unknown    | -                     |
 | GSW                | `stderr`            | Structured | `svc=gswrapper`       |
@@ -311,5 +312,4 @@ The wrapper provides a number of convenience features to facilitate the integrat
 The offered features could all be implemented in the game server itself, however.
 Especially using the Agones SDK to implement signaling of state and to obtain runtime information about your running game server instances is recommended.
 
-A more technical but up-to-date documentation about the features can be found here, along with the latest version:
-https://github.com/GameFabric/gswrapper.
+A more technical but up-to-date documentation about the features can be found [in the GitHub repository](https://github.com/GameFabric/gswrapper), along with the latest version.

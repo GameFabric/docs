@@ -1,19 +1,23 @@
 # Configuring your Cloud Provider
 
-This document describes the steps required to set up your Cloud provider for use with GameFabric. Currently supported
-Cloud providers are Google Cloud (GCP), Azure, and Amazon Web Services (AWS).
+This document describes the steps required to set up your Cloud provider for use with GameFabric.
+Currently supported Cloud providers are Google Cloud (GCP), Azure, and Amazon Web Services (AWS).
 
-Public documentation is currently limited to Google Cloud and AWS. For setup instructions for other Cloud providers, please
-contact your Customer Success Manager at Nitrado.
+Public documentation is currently limited to Google Cloud and AWS.
+For setup instructions for other Cloud providers, please contact your Customer Success Manager at Nitrado.
+
+::: tip Pre-requisites
+Make sure you understand the [hosting models](/multiplayer-servers/hosting-models/identifying-your-hosting-model) and have your [environment set up](/multiplayer-servers/getting-started/setup-your-environment) before configuring cloud capacity.
+:::
 
 ## Google Cloud
 
-### Prerequisites
+### GCP Prerequisites
 
 * You **must** already have an existing Google Cloud organization
 * You **must** possess the necessary permissions to manage principals and billing accounts in your organization
 
-If any of those pre-requisites are not met, like if you don't yet have an organization, you must contact Nitrado as the steps will be different from what is described below.
+If any of those pre-requisites are not met, like if you don't yet have an organization, you must contact Nitrado as the steps are different from what is described below.
 
 ### Creating a Principal
 
@@ -50,13 +54,13 @@ In order to link your billing account to the projects managed by Nitrado, and to
     * `Billing Account User`
     * `Billing Account Viewer`
 
-### Confirming the setup
+### Confirming the GCP setup
 
 After you have completed the steps above, please contact Nitrado to confirm that the setup is complete.
 
 ## Amazon Web Services
 
-### Prerequisites
+### AWS Prerequisites
 
 * You **must** already have an existing AWS account
 * You **must** possess the necessary permissions to create IAM resources in your account
@@ -68,7 +72,7 @@ For AWS, to access another organization, you have to setup a chain of _roles_. R
 By chaining those roles together (i.e., allowing a role to assume another role), Gamefabric operators can access your organization/account,
 as long as the chain of _Trust Relationship_ is not broken.
 
-<img style="padding: 2rem; box-sizing: border-box" src="./images/cloud/aws-iam-setup.png"/>
+<img alt="IAM setup" style="padding: 2rem; box-sizing: border-box" src="./images/cloud/aws-iam-setup.png"/>
 
 For setting this up, we recommend using a tool like Terraform, as it allows you to simply declare the desired resources. Particularly for configuring various policy documents, this will be helpful. We'll use Terraform in the following. You can adapt this guide and do the following steps manually.
 
@@ -141,7 +145,7 @@ The two ARNs link to the role and the respective SAML provider on _our end_ (see
 
 ### Creating Policies for Resource Management
 
-Create several IAM policy documents that grant access
+Create several IAM policy documents that grant access:
 
 ```terraform
 data "aws_iam_policy_document" "deployer_eks" {
@@ -369,6 +373,6 @@ Adding all the permissions into one policy exceeds the limit for a single policy
 they are grouped broadly by the resource types they grant access to.
 :::
 
-### Confirming the setup
+### Confirming the AWS setup
 
 After you have completed the steps above, please contact Nitrado to confirm that the setup is complete, and provide us with the ARN of the role you created previously, as we need it on our end to access your account.

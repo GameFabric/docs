@@ -6,11 +6,16 @@ Token Service*.
 There are 2 Token Provider implementations which are supplied with the *SteelShield Plugin*, but the plugin integrator
 is able to develop their own Token Provider that works with their backend should they have a custom backend solution.
 
-> [!CAUTION]
-> It is advised that as much of the authentication and JWT generation as 
-> possible is done on the game backend server so that attackers are not 
-> able to reverse engineer and extract certificates on the client side 
-> in order to generate valid tokens that can be used in an attack. 
+::: tip Implementation Guide
+For details on how to use token providers in your game, see [Using the Plugin](/steelshield/unreal-engine-plugin/using-the-plugin).
+:::
+
+::: warning Caution
+It is advised that as much of the authentication and JWT generation as
+possible is done on the game backend server so that attackers are not
+able to reverse engineer and extract certificates on the client side
+in order to generate valid tokens that can be used in an attack.
+:::
 
 ## EOS Token Provider
 
@@ -23,7 +28,7 @@ extensively tested with this implementation.
 ## Default Token Provider
 
 The Default Token Provider can be used in testing environments, but due to its insecure nature of including the
-*Certificate* in with the *Game Client*, it is not reccommended for production use.
+*Certificate* in with the *Game Client*, it is not recommended for production use.
 
 This token provider uses the *Certificate* and information provided in the SteelShield Plugin Settings to generate and
 sign a JWT locally without needing to communicate with a remote backend server

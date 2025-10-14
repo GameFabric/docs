@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This documentation serves as an integration guide for you, as a AWS GameLift customers, seeking to transition from a current
+This documentation serves as an integration guide for you, as an AWS GameLift customer, seeking to transition from a current
 AWS-managed hosting solution to a hosting solution supported by Nitrado, leveraging the Nitrado Allocator.
 This transition maintains compatibility with the AWS FlexMatch matchmaker.
 
@@ -13,6 +13,13 @@ attaching the connection information to a newly emitted event.
 It is designed for minimal impact on game client and backend services (referred to here as "game service").
 This is achieved by acting as if there were no changes at AWS at all, except for name changes,
 which should result in configuration or variable adjustments, rather than code and logic changes.
+
+::: tip Related Documentation
+- For general allocation guidance, see [Allocating from Armadas](../allocating-from-armadas)
+- For the Allocator API specification, see [Allocator API](/api/multiplayer-servers/allocation-allocator)
+- For GameLift integration without FlexMatch, see [GameLift Integration](gamelift)
+- For understanding hosting models, see [Hosting Models](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+:::
 
 Table of contents:
 [[toc]]
@@ -66,7 +73,7 @@ The registry service of the Nitrado Allocator accepts game server registrations 
 (while idling) and de-registrations (on shutdown or when unhealthy).
 On registration, a game server must provide its region, attributes, required attribute keys (optional) and priority (has a default).
 
-Priority allows preferring one game server over another with similar configurations. 
+Priority allows preferring one game server over another with similar configurations.
 This can be useful to prefer baremetal over cloud.
 
 #### Allocation service
@@ -76,10 +83,10 @@ This can be AWS FlexMatch, Googles Open Match or any custom matchmaker, while th
 
 The allocation request requires a region and attributes so that the allocation service is able to select a game server.
 
-The first hard requirement is to match the requested region against the registered regions. 
+The first hard requirement is to match the requested region against the registered regions.
 If registered servers have specified required keys (e.g. `canary`) the presence of these keys in the requested attributes is
 enforced.
-Additionally all requested attributes must be a sub-set of the registered attributes, taking keys and values into account.
+Additionally, all requested attributes must be a subset of the registered attributes, taking keys and values into account.
 
 This means letting aside regions, a request with no attributes matches all game servers, except those that require certain
 attribute keys.
@@ -90,8 +97,8 @@ the matchmaker.
 
 ### Fleet management
 
-With the Nitrado Allocator in place, there must be a component that manages game server fleets. 
-Otherwise the Nitrado Allocator would not be able to provide ready-to-play game servers.
+With the Nitrado Allocator in place, there must be a component that manages game server fleets.
+Otherwise, the Nitrado Allocator would not be able to provide ready-to-play game servers.
 This is usually done by the GameFabric. The GameFabric manages fleets with scale up and scale down depending on the demand.
 
 ### Nitrado Ping Discovery (optional)
@@ -105,10 +112,10 @@ we recommend adding the latency between the client and the various Nitrado regio
 
 The Nitrado Ping Discovery offers ping targets for that matter, as well as various different protocols.
 
-Without adding latency to matchmaking requests, the Nitrado Allocator will be called with a default region, which
+Without adding latency to matchmaking requests, the Nitrado Allocator is called with a default region, which
 then serves a game server that may not be the fastest one available for the participants of a match.
 
-The process of selecting a region is integrated into the AWS Lambda function, as detailed in the subsequent explanation. 
+The process of selecting a region is integrated into the AWS Lambda function, as detailed in the subsequent explanation.
 It determines the region based on the highest frequency of occurrences and the lowest average.
 
 ::: warning
@@ -121,7 +128,7 @@ Please contact us for alternatives.
 
 ## Integration
 
-Transitioning from AWS managed hosting involves duplicating all matchmaking configurations and configuring them for 
+Transitioning from AWS managed hosting involves duplicating all matchmaking configurations and configuring them for
 _standalone_ operation instead of _managed_ mode.
 To avoid disruptions to existing matchmaking, it is recommended to recreate resources rather than modifying them.
 The change eliminates connection information to a new game server from matchmaking events.
@@ -133,7 +140,7 @@ The following steps must be repeated on each AWS region and for each matchmaking
 
 #### AWS FlexMatch matchmaking configuration
 
-The matchmaking configuration defines the player pool, rules and and hosting mode.
+The matchmaking configuration defines the player pool, rules and hosting mode.
 It copies an existing configuration, but uses standalone mode and a separate event topic.
 This disables Amazon's game server allocation mechanism, and allows you to use ours instead.
 
@@ -189,9 +196,10 @@ These are the necessary steps:
 
        ::: info
        If the custom event data is already used, the approach is to merge the new data, but ensure:
+
        - there is no field name collision,
        - all consumers are able to ignore unknown fields, and
-       - (if the data format is not JSON) to replace the decoder in the soon to be added AWS Lambda function.
+       - (if the data format is not JSON) to replace the decoder in the soon-to-be-added AWS Lambda function.
        :::
 
        ::: info Matchmaking per Nitrado region
@@ -206,7 +214,7 @@ These are the necessary steps:
 
   Here is an example. The expectation is that all tickets have their status `COMPLETED`.
 
-    ```
+    ```bash
     $ aws gamelift start-matchmaking \
        --configuration-name=myconfig-standalone \
        --players='[{"PlayerId":"Player1","LatencyInMs":{"custom-defra":50,"custom-uklon":100}}]' \
@@ -232,7 +240,6 @@ This ensures minimal impact on connected game services, as the only change is to
 These are the necessary steps:
 
 - **Create a new AWS Lambda function** with the following setup:
-
   - Author from scratch
   - Runtime Go 1.x with x86_64
 
@@ -257,12 +264,12 @@ These are the necessary steps:
       ]
     }  
     ```
-    
+
     This ensures that the AWS Lambda function only receives `MatchmakingSucceeded` events,
     which is the event that determines that FlexMatch found a new match.
 
 - Specify these environment variables:
-    
+
     | Environment variable | Description                                           |
     |----------------------|-------------------------------------------------------|
     | NI_EVENT_NAME        | Name of the new event.                                |
@@ -726,7 +733,7 @@ These are the necessary steps:
     ```
 
   One key functionality of the AWS Lambda function is its ability to determine the optimal region for the players involved in a match.
-  This is why it is recommended to add the field `LatencyInMs` when starting matchmaking. 
+  This is why it is recommended to add the field `LatencyInMs` when starting matchmaking.
   Ideally with measurements for all regions that are served by the Nitrado Allocator in that specific region.
 
   For details how to do obtain latency for Nitrado locations, see the Nitrado Ping Discovery documentation.

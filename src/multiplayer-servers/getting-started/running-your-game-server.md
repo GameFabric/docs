@@ -1,6 +1,10 @@
 # Running your Game Server
 
-In this section you will learn how to run your first game server.
+In this section, you will learn how to run your first game server.
+
+::: tip Understanding Hosting Models
+Before proceeding, consider reviewing the [hosting models guide](/multiplayer-servers/hosting-models/identifying-your-hosting-model) to understand the difference between Vessels (long-running servers) and Armadas (session-based servers), and choose the right approach for your needs.
+:::
 
 ## Prerequisites
 
@@ -8,6 +12,7 @@ In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
 * A container image that has been [pushed to a branch in the registry](pushing-container-images)
+* Basic understanding of [Agones SDK integration](/multiplayer-servers/getting-started/using-the-agones-sdk) for proper game server lifecycle
 
 Log into the GameFabric UI before proceeding.
 
@@ -22,30 +27,29 @@ press "Next", verify that the configuration file is correct, and click "Create C
 
 ## Create a Vessel
 
-Visit the Formations section of the UI, and click on the blue `Add` button, on the top right of the interface.
+Visit the Formations section of the UI, and click on the blue "Add" button, on the top right of the interface.
 
 ### Kind
 
-You are now given the choice between creating a Formation and an individual Vessel. Pick "Vessel" for now
+You are now given the choice between creating a Formation and an individual Vessel. Pick "Vessel".
 
-Vessels allow you to spin up individual game servers and to define a unique configuration for each of them, which is
-ideal for a first interation. Later, you will use concepts like Formations, Armadas and ArmadaSets to efficiently manage
-large numbers of game servers at once.
+Vessels allow you to spin up individual game servers and to define a unique configuration for each of them, which is ideal for a first integration.
+Later, you will use concepts like Formations, Armadas and ArmadaSets to efficiently manage large numbers of game servers at once.
 
 ![GUI_Create_Vessel_Kind.png](images/formation/GUI_Create_Vessel_Kind.png)
 
 ### General
 
-In this step, specify a unique name for your Vessel. You can also assign a description as a reminder what this Vessel
-is used for.
+In this step, specify a unique name for your Vessel.
+You can also assign a description as a reminder what this Vessel is used for.
 
 ![GUI_Create_Vessel_General.png](images/formation/GUI_Create_Vessel_General.png)
 
 ### Region
 
-Select the Region that this Vessel should be run in. Please note that you do not need to specify the type of
-capacity within the Region (i.e. Bare Metal vs. Cloud). This scheduling decision is performed automatically and will
-be adjusted dynamically when capacity changes.
+Select the Region that this Vessel should run in.
+Please note that you do not need to specify the type of capacity within the Region (i.e. Bare Metal vs. Cloud).
+This scheduling decision is performed automatically and adjusts dynamically when capacity changes.
 
 ![GUI_Create_Vessel_Region.png](images/formation/GUI_Create_Vessel_General.png)
 
@@ -59,23 +63,21 @@ The Containers section contains the majority of your game server configuration.
 
 #### Image
 
-The first thing to do is select the image you previously pushed to your branch. This will set it as the image used for
-the game server container.
+The first thing to do is select the image you previously pushed to your branch.
+This makes the game server container use that image.
 
 ![GUI_Create_Vessel_Containers_Image.png](images/formation/GUI_Create_Vessel_Containers_Image.png)
 
 :::warning
-If you select `latest (auto update)`, pushing a new version of your game server image will immediately trigger an
-automatic rollout. This can be very convenient for development purposes, as it avoids you having to edit the Vessel
-whenever you push a new version.
+If you select `latest (auto update)`, pushing a new version of your game server image immediately triggers an automatic rollout.
+This can be very convenient for development purposes, as it avoids you having to edit the Vessel whenever you push a new version.
 :::
 
 #### Environment Variables
 
-Environment variables are a convenient way of exposing configuration options to the game server without defining a
-full configuration file. You can define them as static key/value pairs, or, by selecting the "Pod Field" type, expose
-metadata about the deployed game server, such as the name of the region the game server is deployed to or the version
-of the image in use.
+Environment variables are a convenient way of exposing configuration options to the game server without defining a full configuration file.
+You can define them as static key/value pairs, or, by selecting the "Pod Field" type, expose metadata about the deployed game server,
+such as the name of the region the game server is deployed to or the version of the image in use.
 
 ![GUI_Create_Vessel_Containers_Environment_Variables.png](images/formation/GUI_Create_Vessel_Containers_Environment_Variables.png)
 
@@ -94,22 +96,21 @@ Supported pod fields are:
 | `metadata.imageName`       | Name of the used game server image.                                | GameFabric (any)            |
 | `metadata.imageTag`        | Tag name of the used game server image.                            | GameFabric (any)            |
 
-For a full list of supported Kubernetes fields, see https://kubernetes.io/docs/concepts/workloads/pods/downward-api/#downwardapi-fieldRef.
+For more information, see the [full list of supported Kubernetes fields](https://kubernetes.io/docs/concepts/workloads/pods/downward-api/#downwardapi-fieldRef).
 
 #### Ports
 
-Ports determine how your game server can be reached from the outside world. Game servers live behind Network Address
-Translation (NAT), that means the public IP and ports differ from the IP and ports that the game server binds to
-locally.
+Ports determine how your game server can be reached from the outside world.
+Game servers live behind Network Address Translation (NAT), that means the public IP and ports differ from the IP and ports that the game server binds to locally.
 
 There are two types of ports you can configure:
 
-* **Dynamic** is the preferred default. The game server locally binds to a predetermined port (such as 7777) and
+* **Dynamic** is the preferred default. The game server locally binds to a predetermined port (such as `7777`) and
   at runtime, a random public port is chosen that game clients can then use to reach the game server. If the game server
   needs to communicate its public IP and ports to an outside system, such as a server list, the game server needs to
   query this data from the Agones SDK.
 * **Passthrough** may be required if a game server requires public and local port to be the same (Steam's A2S query
-  being a notable example). The public port will be randomly chosen at runtime, and the game server then has to locally
+  being a notable example). The public port is randomly chosen at runtime, and the game server then has to locally
   bind to that specific port after retrieving it from the Agones SDK. Passthrough should only be used when required.
 
 ![GUI_Create_Vessel_Containers_Ports.png](images/formation/GUI_Create_Vessel_Containers_Ports.png)
@@ -127,15 +128,15 @@ Below are some port name conventions and what they are typically used for:
 
 You can also override the command run by the container, as well as CLI arguments your game server starts with.
 
-If left empty, the game server will be started with the defaults defined in the container's Dockerfile for the
+If left empty, the game server starts with the default arguments defined in the container's Dockerfile for the
 properties CMD and ARGS, respectively.
 
 ![GUI_Create_Vessel_Containers_Command.png](images/formation/GUI_Create_Vessel_Containers_Command.png)
 
 #### Volumes
 
-Here you can point previously specified volumes to specific paths in your container. Since you likely have not
-set up a volume for this first game server, skip this for now
+In this section, you can point previously specified volumes to specific paths in your container.
+Since you likely have not set up a volume for this first game server, skip this for now.
 
 #### ConfigFiles
 
@@ -157,6 +158,10 @@ Resources are the CPU and memory required by your game server. This definition c
   It is generally recommended to set the memory limit to a threshold that would indicate a memory leak that warrants
   termination, and to not apply CPU limits, unless negative effects have been observed.
 
+::: tip Resource Configuration
+For detailed guidance on setting CPU and memory resources, see the [Resource Management guide](/multiplayer-servers/multiplayer-services/resource-management), which provides best practices for optimizing performance and costs.
+:::
+
 ![GUI_Create_Vessel_Containers_Resources.png](images/formation/GUI_Create_Vessel_Containers_Resources.png)
 
 #### Sidecars
@@ -174,16 +179,15 @@ grace periods for game server termination.
 
 #### Profiling
 
-GameFabric Mutliplayer Servers has built-in support for eBPF-based CPU performances profiling using
-[Grafana Pryroscope](https://grafana.com/oss/pyroscope/). This feature has an expected CPU performance impact of
-just 2-3%, so in most cases it is safe to be enabled.
+GameFabric Mutliplayer Servers has built-in support for eBPF-based CPU performances profiling using [Grafana Pryroscope](https://grafana.com/oss/pyroscope/).
+This feature has an expected CPU performance impact of just 2-3%, so in most cases it is safe to be enabled.
 
 ![GUI_Create_Vessel_Advanced_Profiling.png](images/formation/GUI_Create_Vessel_Advanced_Profiling.png)
 
 #### Health Checks
 
-If a game server fails to call agones.Health(), it will be considered unhealthy and terminated. The thresholds for
-that process can be configured here. The default values are usually okay to use.
+If a game server fails to call `agones.Health()`, it will be considered unhealthy and terminated.
+The thresholds for that process can be configured here. The default values are usually okay to use.
 
 ![GUI_Create_Vessel_Advanced_Health_Checks.png](images/formation/GUI_Create_Vessel_Advanced_Health_Checks.png)
 
@@ -195,8 +199,10 @@ unresponsive state cannot be automatically detected and cleaned up.
 
 #### Termination Grace Periods
 
-Game servers may receive *Shutdown Hints*, observable via the Agones SDK. These hints are used when game servers need
-to shut down within a specific time frame due to an external reason. These are:
+Game servers may receive [*Shutdown Hints*](vessel-shutdown-behavior.md), observable via the Agones SDK.
+These hints are used when game servers need to shut down within a specific time frame due to an external reason.
+
+The reasons for a server to be told it should shut down are:
 
 * **Maintenance**: The Site the game server is running on is being put into maintenance and needs to be emptied.
 * **Spec Change**: The game server configuration was updated (such as a new version being available), and the game
@@ -205,15 +211,14 @@ to shut down within a specific time frame due to an external reason. These are:
 
 ![GUI_Create_Vessel_Advanced_Grace_Periods.png](images/formation/GUI_Create_Vessel_Advanced_Grace_Periods.png)
 
-The configured grace period is the time that the game server can use to gracefully shut down, for example, by informing
-the players to disconnect and shutting down when all players have left. When the game server has not shut down before
-the grace period has passed, it will be forcefully terminated.
+The configured grace period is the time that the game server can use to gracefully shut down, for example,
+by informing the players to disconnect and shutting down when all players have left.
+When the game server has not shut down before the grace period has passed, it is forcefully terminated.
 
 ## Visualize and Configure
 
-Now that the Vessel has been successfully created, you should be able to view it in the "Vessels" section.
-If the game server starts up as expected and completes its agones.Ready() call, the state of the Vessel will switch
-to "RUNNING".
+Now that the Vessel has been successfully created, it should become visible in the "Vessels" section.
+If the game server starts up as expected and completes its `agones.Ready()` call, the state of the Vessel should switch to "RUNNING".
 
 ![GUI_Vessel_List.png](images/formation/GUI_Vessel_List.png)
 
@@ -221,8 +226,8 @@ You may click on the "Details" button to see more information.
 
 ![GUI_Vessel_Details.png](images/formation/GUI_Vessel_Details.png)
 
-In this view, you see the most important information about your game server, such as its public IP and ports. You
-can now use this information to perform a test connection to your game server.
+In this view, you see the most important information about your game server, such as its public IP and ports.
+You can now use this information to perform a test connection to your game server.
 
 On the same page, you can also inspect the logs of your game server, to troubleshoot any issues that occur.
 
