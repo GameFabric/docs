@@ -37,11 +37,11 @@ Non-allocated Vessels are shut down immediately, in accordance with the `Termina
 If the game server is not integrated properly it can lead to a state, where a manual shutdown is required. This part of the document describes the process.
 
 ### Requirements
-The two requirements to use this feature are:
-- the Site name 
-- the Pod name
+
+To manually shut down a game server, you must know its Site name, and Pod name.
 
 ### How & where
+
 #### Via Gamefabric UI
 
 The Gamefabric panel offers a direct interface for managing game servers. Navigate to the "Armadas" section. In the list of game server deployments, locate the desired instance. Click on the three vertical dots positioned just after the "Details" button for that specific game server. From the dropdown menu, select the "Terminate game server" option. Enter the SiteName and Game Server Name of the game server to terminate.
