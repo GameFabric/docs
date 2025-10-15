@@ -133,7 +133,7 @@ You could also run your own sidecars for monitoring or other purposes.
 
 ## Shutdown Hints
 
-See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/vessel-shutdown-behavior).
+See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessel-shutdown-behavior).
 
 ## Site
 

@@ -199,7 +199,7 @@ unresponsive state cannot be automatically detected and cleaned up.
 
 #### Termination Grace Periods
 
-Game servers may receive [*Shutdown Hints*](vessel-shutdown-behavior.md), observable via the Agones SDK.
+Game servers may receive [*Shutdown Hints*](terminating-game-servers.md), observable via the Agones SDK.
 These hints are used when game servers need to shut down within a specific time frame due to an external reason.
 
 The reasons for a server to be told it should shut down are:
