@@ -4,7 +4,7 @@
 
 ### Summary
 
-If the game server is not integrated properly, it can lead to a state where a manual shutdown is required. This part of the document describes the process.
+If the game server is not integrated properly or if bugs or other issues occur, it may lead to a situation where a manual shutdown is required. This part of the document describes the process.
 
 ### Requirements
 
