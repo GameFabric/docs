@@ -56,9 +56,10 @@ This endpoint allows for the termination of a specific game server instance with
 
 Determining the specific Pod name for termination requires checking pods that are actively running. Unlike the static site name, Pod names are generated dynamically and can change.
 
-There are a few ways to determine the Pod's name, the most straightforward is described in the following sections.
+There are multiple ways to determine the Pod's name, but the following sections describe the simplest one.
 
-#### 1. Via Grafana
+#### Using Grafana
+
 This method uses the GameFabric monitoring system.
 
 The monitoring service (Grafana) is accessible via the GameFabric installation, located at the `/monitoring` path.
