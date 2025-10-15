@@ -1,4 +1,4 @@
-# Terminating game servers
+# Terminating Game Servers
 
 ## Armadas
 
@@ -36,7 +36,7 @@ The monitoring service (Grafana) is accessible via the GameFabric installation, 
 Within the "GameServer Analysis" section, under "Current Gameservers," users can find detailed information about active game server instances.
 This interface displays the Pod name along with other relevant operational data.
 The name of the site is a concatenation of cluster and namespace.
-
+ipqwer=
 Example:
 
 - cluster name: ni-dev-defra-gcp02
