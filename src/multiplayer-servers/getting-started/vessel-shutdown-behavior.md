@@ -80,7 +80,7 @@ First, edit the panel by clicking on the title and selecting "Edit".
 
 ![Current Gameservers in Grafana](./images/monitoring/monitoring_edit_gameserver_columns.png)
 
-Then, in the "Transform" tab, add a new "Organize fields" transformation. 
+Then, in the "Transform" tab, add a new "Organize fields" transformation.
 
 Finally, enable the "namespace" field to be displayed. 
 
