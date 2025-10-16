@@ -1,4 +1,4 @@
-# Terminating game servers
+# Terminating Game Servers
 
 ## Armadas
 
