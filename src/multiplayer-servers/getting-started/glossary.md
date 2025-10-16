@@ -158,7 +158,7 @@ See also [SteelShield docs](/steelshield/gamefabric/introduction).
 
 Status of the [SteelShield](#steelshieldtm) protection status for each [Site](#site) on the Sites overview in the GameFabric UI.
 
-See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-status)
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-status).
 
 ## Protection Protocol
 
