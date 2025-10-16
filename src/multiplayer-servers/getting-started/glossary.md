@@ -67,6 +67,10 @@ Vessels inherit all properties from their respective Formation, but environment 
 
 See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
+## Gateway Policies
+
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).
+
 ## Group
 
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group).
@@ -77,6 +81,10 @@ A Location is a group of [Sites](#site) that share a geographical area and other
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 See also [Region](#region) for how to use it.
+
+## Mitigation
+
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#mitigations).
 
 ## User
 
@@ -144,7 +152,17 @@ This specific resource is not configurable through the GameFabric UI. It is conf
 
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
 
-See also [SteelShield docs](/steelshield/unreal-engine-plugin/introduction).
+See also [SteelShield docs](/steelshield/gamefabric/introduction).
+
+## Protection Status
+
+Status of the [SteelShield](#steelshieldtm) protection status for each [Site](#site) on the Sites overview in the GameFabric UI.
+
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-status).
+
+## Protection Protocol
+
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#managing-protocols).
 
 ## Vessel
 
