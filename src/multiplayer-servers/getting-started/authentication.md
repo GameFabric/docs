@@ -48,6 +48,8 @@ curl --silent -L -X POST "https://${GAMEFABRIC_URL}/auth/token" \
 
 You may now use the generated access token in the `Authorization` header of your API requests:
 
+> **Note:** The access token is only **valid for 24 hours**. After it expires, you will need to generate a new token using your service account credentials.
+
 ```bash
 curl -X 'GET' \
      "https://${GAMEFABRIC_URL}/api/armada/v1/armadagameserverstates" \
