@@ -1,0 +1,11 @@
+{
+  "text": "Production workloads",
+  "collapsed": false,
+  "order": 3,
+  "items": [
+    {
+      "text": "Requirements",
+      "link": "/production-workloads/requirements"
+    }
+  ]
+}
