@@ -42,17 +42,10 @@ Burst amounts allow for temporarily exceeding rate limits, for example if the lo
 - **Limit**: 100 lines per second per game server (with a burst size of 500 lines)
 - **Description**: If a game server exceeds this logging rate, additional log lines may be dropped.
 
-::: info
-If you require higher limits, these can be increased: please contact Customer Success Management.
-:::
-
 ### Global Log Throughput
 
 - **Limit**: 10 megabytes per second globally (with a burst size of 50 megabytes)
 - **Description**: If your aggregated log stream exceeds this rate, additional log lines may be dropped.
-::: info
-If you require higher limits, these can be increased: please contact Customer Success Management.
-:::
 
 ## Additional Information
 
