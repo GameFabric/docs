@@ -32,6 +32,21 @@ This page lists all known system limitations that developers should be aware of 
 When building your container images, make sure to configure the user as shown in the [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) guide.
 :::
 
+## Logging Limitations
+
+Limits for game server logging apply both *per game server* and *globally*. Exceeding the limits will cause log lines to be dropped.
+Burst amounts allow for temporarily exceeding rate limits, for example if the logging frequency is higher during start up.
+
+### Log Throughput per Game Server
+
+- **Limit**: 100 lines per second per game server (with a burst size of 500 lines)
+- **Description**: If a game server exceeds this logging rate, additional log lines may be dropped.
+
+### Global Log Throughput
+
+- **Limit**: 10 megabytes per second globally (with a burst size of 50 megabytes)
+- **Description**: If your aggregated log stream exceeds this rate, additional log lines may be dropped.
+
 ## Additional Information
 
 For questions about increasing these limits or if you encounter other limitations not documented here, please contact GameFabric support.
