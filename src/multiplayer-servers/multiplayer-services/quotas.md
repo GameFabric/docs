@@ -34,10 +34,13 @@ When building your container images, make sure to configure the user as shown in
 
 ## Logging Limitations
 
+Limits for game server logging apply both *per game server* and *globally*. Exceeding the limits will cause log lines to be dropped.
+Burst amounts allow for temporarily exceeding rate limits, for example if the logging frequency is higher during start up.
+
 ### Log Throughput per Game Server
 
-- **Limit**: 1000 lines per second per game server (with a burst size of 5000 lines)
-- **Description**: Logging is limited to *1000 lines per second per game server with a 5000 lines burst size*.
+- **Limit**: 100 lines per second per game server (with a burst size of 500 lines)
+- **Description**: Logging is limited to *1000 lines per second per game server with a 500 lines burst size*.
 ::: info
 If you require higher limits, these can be increased: please contact Customer Success Management.
 :::
