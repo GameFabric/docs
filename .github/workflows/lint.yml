@@ -1,0 +1,30 @@
+name: PR Lint
+on:
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint PR Title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          # Validate PR title against the Conventional Commit scheme.
+          # Regex breakdown:
+          # - (build|chore|ci|docs|feat|fix|perf|refactor|breaking|revert|style|test): Allowed types of changes.
+          # - (\([-a-zA-Z0-9]+\))?: Optional scope enclosed in parentheses, e.g., (scope).
+          # - (!)?: Optional breaking change indicator (!).
+          # - (: [ \/\\_\.a-zA-Z0-9-]+): Required description starting with ": " and allowing specific characters.
+          # - (Merge [ \/\\_\.a-zA-Z0-9-]+): Special case for merge commits.
+          if [[ "$PR_TITLE" =~ ^((build|chore|ci|docs|feat|fix|perf|refactor|breaking|revert|style|test)(\([-a-zA-Z0-9]+\))?(!)?(: [ \/\\_\.a-zA-Z0-9-]+))|(Merge [ \/\\_\.a-zA-Z0-9-]+)$ ]]; then
+            echo "Pull request title complies with the Conventional Commit scheme. You're good to go!"
+            exit 0
+          else
+            echo "Invalid commit message: $PR_TITLE"
+            echo "Please follow the Conventional Commit scheme: https://www.conventionalcommits.org/en/v1.0.0/"
+            exit 1
+          fi
