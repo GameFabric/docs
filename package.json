@@ -10,17 +10,17 @@
     "docs:serve": "vitepress serve"
   },
   "devDependencies": {
-    "vue": "3.5.21"
+    "vue": "3.5.22"
   },
   "dependencies": {
-    "core-js": "^3.45.1",
+    "core-js": "^3.46.0",
     "medium-zoom": "^1.1.0",
-    "mobx": "^6.13.7",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "redoc": "^2.5.0",
+    "mobx": "^6.15.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "redoc": "^2.5.2",
     "styled-components": "^6.1.19",
-    "vitepress": "^1.6.3"
+    "vitepress": "^1.6.4"
   },
   "packageManager": "yarn@4.1.1"
 }
