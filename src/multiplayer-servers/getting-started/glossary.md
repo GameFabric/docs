@@ -46,6 +46,10 @@ A cluster refers to a group of bare metal or cloud servers located in the same l
 In the context of GameFabric, clusters are implemented as [sites](/multiplayer-servers/getting-started/glossary#site).
 While a "Cluster" refers to the physical or virtual grouping of servers, a "Site" represents the GameFabric-specific abstraction used to manage and interact with these clusters.
 
+## Cordoned
+
+The status of a [site](#site) or service that is **temporarily disabled** or **not able to be used**.
+
 ## Environment
 
 Environments are a mechanism for isolating groups of resources. Resource names must be unique within each environment, but not across environments.
@@ -147,6 +151,8 @@ See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-
 
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a [Location](#location).
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
+
+Sites can be in different states, including [cordoned](#cordoned) status when they are temporarily disabled or unavailable for use.
 
 ## SteelShield™
 
