@@ -48,7 +48,7 @@ While a "Cluster" refers to the physical or virtual grouping of servers, a "Site
 
 ## Cordoned
 
-A status indicating that a [site](#site) or service is **temporarily disabled** and **unavailable for use**.
+A status indicating that a [Site](#site) is **temporarily disabled** and **unavailable for use**.
 
 ## Environment
 
