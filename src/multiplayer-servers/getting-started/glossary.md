@@ -48,7 +48,7 @@ While a "Cluster" refers to the physical or virtual grouping of servers, a "Site
 
 ## Cordoned
 
-A status indicating that a [Site](#site) is **temporarily disabled** and **unavailable for use**.
+When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated game servers will continue to run until they shut down, but no new game servers will be scheduled on that site.
 
 ## Environment
 
