@@ -33,7 +33,13 @@ type(optional-scope): description
 - `feat: add new multiplayer server configuration`
 - `fix(api): correct endpoint response format`
 
-PR titles are automatically validated by the lint workflow on every pull request.
+PR titles are automatically validated by the lint workflow on every pull request. You can validate your PR title locally before creating the pull request:
+
+```bash
+./.dev/validate-pr-title.sh "your pr title here"
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contributing guidelines.
 
 ### Local development
 

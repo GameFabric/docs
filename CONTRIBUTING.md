@@ -69,6 +69,23 @@ The description should:
 - Use imperative mood ("add" not "added" or "adds")
 - Not end with a period
 
+### Validating PR Titles Locally
+
+You can validate your PR title before creating the pull request using the provided script:
+
+```bash
+./.dev/validate-pr-title.sh "your pr title here"
+```
+
+**Example:**
+
+```bash
+$ ./.dev/validate-pr-title.sh "docs(glossary): add new terms"
+✅ PR title is valid!
+```
+
+This helps catch formatting issues before the automated lint check runs on GitHub.
+
 ## Local Development
 
 For development, either use the containerized variant using `make dev`, or use `yarn install` followed by `yarn docs:dev` and navigate to `http://localhost:5173`.
