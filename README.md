@@ -5,6 +5,36 @@
 The static files that are shipped to end users are generated using Vitepress.
 See the [full documentation on how to use Vitepress](https://vitepress.dev/guide/getting-started).
 
+### Pull Request Guidelines
+
+All pull requests must follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification for their titles. The PR title format should be:
+
+```
+type(optional-scope): description
+```
+
+**Allowed types:**
+- `build`: Changes to build system or dependencies
+- `chore`: Routine tasks, maintenance
+- `ci`: CI/CD configuration changes
+- `docs`: Documentation changes
+- `feat`: New features
+- `fix`: Bug fixes
+- `perf`: Performance improvements
+- `refactor`: Code refactoring
+- `breaking`: Breaking changes
+- `revert`: Revert previous changes
+- `style`: Code style/formatting changes
+- `test`: Test additions or modifications
+
+**Examples:**
+- `docs: add API authentication guide`
+- `docs(glossary): link Cordoned term to Site entry`
+- `feat: add new multiplayer server configuration`
+- `fix(api): correct endpoint response format`
+
+PR titles are automatically validated by the lint workflow on every pull request.
+
 ### Local development
 
 For development, either use the containerized variant using `make dev`, or use `yarn install` followed by `yarn docs:dev` and navigate to `http://localhost:5173`.
