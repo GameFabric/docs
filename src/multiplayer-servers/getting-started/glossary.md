@@ -152,9 +152,9 @@ See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a [Location](#location).
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
-A [Site](#site) can be marked as cordoned, making it unschedulable. Allocated game servers will continue to run until they shut down, but no new game servers will be scheduled on that site.
+A [Site](#site) can be marked as cordoned, making it unschedulable. Allocated game servers will continue to run until they shut down, but no new game servers will be scheduled on that Site.
 
-This can be, for example, the case when a site has just been provisioned to prevent premature allocations or when a site is being prepared for deprovisioning.
+This can be, for example, the case when a Site has just been provisioned to prevent premature allocations or when a Site is being prepared for deprovisioning.
 
 ## SteelShield™
 
