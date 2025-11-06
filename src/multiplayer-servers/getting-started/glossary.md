@@ -154,7 +154,7 @@ This specific resource is not configurable through the GameFabric UI. It is conf
 
 A [Site](#site) can be marked as cordoned, making it unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
 
-This can be, for example, the case when a Site has just been provisioned to prevent premature allocations or when a Site is being prepared for deprovisioning.
+This can be the case, for example, when a Site has just been provisioned to prevent premature allocations, or when a Site is being prepared for deprovisioning.
 
 ## SteelShield™
 
