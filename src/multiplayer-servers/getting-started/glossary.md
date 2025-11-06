@@ -121,6 +121,10 @@ They are numbered consecutively starting from 1.
 Revisions are kept to allow you to roll back to a previous configuration, as well as manage multiple revisions running in parallel (for example during a rollout upgrade).
 
 ::: info
+The rollback button in the UI is only available for [Armadas](#armada).
+:::
+
+::: info
 The revision of an Armada in an ArmadaSet is independent from the revision of its controlling ArmadaSet.
 
 E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Armadas
