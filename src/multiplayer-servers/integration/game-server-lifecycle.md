@@ -74,7 +74,7 @@ an empty server might be shut down while the player is picking the server from t
 
 ## `Shutdown()`
 
-When a match has ended or no players are connected to the server anymore, the game serve process
+When a match has ended or no players are connected to the server anymore, the game server process
 needs to be shutdown.
 
 While it is possible to simply exit the game server process, it is recommended to call `Shutdown()` instead.
