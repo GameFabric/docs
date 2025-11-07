@@ -1,0 +1,5 @@
+graph LR
+    Start[Start] --> Ready[Ready]
+    Ready -->|First Player Joins| Allocated[Allocated]
+    Allocated -->|Last Player Leaves| Shutdown[Shutdown]
+    Allocated -->|Last Player Leaves| Ready
