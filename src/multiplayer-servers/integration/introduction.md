@@ -16,3 +16,7 @@ This may include the map to load for the session or the list of expected players
 
 The SDK also offers a way to `Watch()` for any changes on that data, which may be used to
 wait for an allocation to happen.
+
+::: info
+The IP and Port information may not immediately be available. It may be required to poll the endpoint or start a watch.
+:::
