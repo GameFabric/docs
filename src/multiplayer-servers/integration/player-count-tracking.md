@@ -13,7 +13,7 @@ When incrementing a counter beyond its capacity, Agones returns an error.
 
 The Agones Counters and Lists API is currently in Beta state.
 
-Example request to set the player count and capacity using the standard linux command line tool `curl`:
+Example request to set the player count and capacity using the standard Linux command line tool `curl`:
 
 ```bash
 curl -d '{"count": "17", "capacity": "64"}' -H "Content-Type: application/json" -X PATCH http://localhost:${AGONES_SDK_HTTP_PORT}/v1beta1/counters/players
