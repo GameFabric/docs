@@ -15,7 +15,7 @@
 
 ## `Health()`
 
-The `Health()` call should be called continuously as part of a regular loop in the game server software.
+The `Health()` function should be called continuously as part of a regular loop in the game server software.
 It functions as a heartbeat signaling if the game server is still running properly.
 Failing to call `Health()` leads to the game server being forcefully shutdown after a time that is configurable in the advanced options of Armadas.
 
