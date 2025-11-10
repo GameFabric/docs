@@ -13,7 +13,6 @@
 > Servers should not be moved directly from `Starting` to `Allocated`.
 > Only enter the `Allocated` state when the server is actively serving a game session with players.
 
-
 ## `Health()`
 
 The `Health()` call should be called continuously as part of a regular loop in the game server software.
