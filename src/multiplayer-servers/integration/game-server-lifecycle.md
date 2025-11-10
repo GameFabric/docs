@@ -50,10 +50,13 @@ or if you use an existing game hosting SDK such as Amazon GameLift. If you recei
 or event from these outside systems on your game server that a game session is about to start,
 you must call `Allocate()` to prevent the game session from being interrupted.
 
-Note: Calling `Allocate()` does not guarantee the server to move into the allocated state.
+::: note Wait for state change after calling `Allocate()`
+
+Calling `Allocate()` does not guarantee that the server moves into the allocated state.
 A shutdown process might already be in progress and happen in parallel.
-Therefore, it is considered good practice to watch the game server state until the state switches to Allocated,
+Therefore, the game server state should be watched until it switches to Allocated,
 before returning the callback or signaling the event that the game session has started.
+:::
 
 ### 2) There is no matchmaking mechanism
 
