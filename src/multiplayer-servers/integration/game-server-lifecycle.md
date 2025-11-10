@@ -24,7 +24,7 @@ The SDKs for [Unreal Engine](https://agones.dev/site/docs/guides/client-sdks/unr
 ## `Ready()`
 
 Once the game server has fully started up and would be ready to accept players, the game server
-has to signal the `Ready()` call to the SDK once.
+must call the `Ready()` function once.
 
 By default, the Unreal Engine SDK automatically calls `Connect()` upon initializing.
 `Connect()` polls the game server endpoint until a successful response is received and then calls `Ready()`.
