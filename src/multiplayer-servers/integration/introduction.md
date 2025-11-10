@@ -6,7 +6,7 @@ While the SDKs offer an array of advanced functionality, based on our experience
 
 ## `GameServer()`
 
-This call returns metadata about the game server, including public IP and ports.
+This function returns metadata about the game server, including public IP and ports.
 It also includes the current state of the game server (such as "Ready" or "Allocated").
 
 This information can be useful to register the game server to an external server list.
