@@ -33,7 +33,7 @@ performing this call explicitly (either `Connect()` or `Ready()`), as the game s
 
 ## `Reserve()`
 
-We currently do not recommend using Reserve.
+We currently do not recommend using the `Reserve()` function.
 
 ## `Allocate()`
 
