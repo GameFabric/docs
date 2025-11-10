@@ -18,5 +18,5 @@ The SDK also offers a way to `Watch()` for any changes on that data, which may b
 wait for an allocation to happen.
 
 ::: info
-The IP and Port information may not immediately be available. It may be required to poll the endpoint or start a watch.
+The IP and Port information may not immediately be available. In that case, poll the endpoint until it is returned.
 :::
