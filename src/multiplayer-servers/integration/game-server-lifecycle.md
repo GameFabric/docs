@@ -68,5 +68,4 @@ When a match has ended or no players are connected to the server anymore, the ga
 needs to be shutdown.
 
 While it is possible to simply exit the game server process, it is recommended to call `Shutdown()` instead.
-This causes the hosting environment to properly clean up the game server and send a termination signal to the process,
-which is then used to shut it down.
+This allows the hosting environment to clean up the game server and send a termination signal to the process, which is then used to gracefully shut it down.
