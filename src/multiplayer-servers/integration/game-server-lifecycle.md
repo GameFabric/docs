@@ -7,7 +7,6 @@
 
 **Diagram of Game Server State Transitions:**
 
-
 ![life-cycle-flow.png](/multiplayer-servers/integration/life-cycle-flow.png "Flow")
 
 > **Note:**
