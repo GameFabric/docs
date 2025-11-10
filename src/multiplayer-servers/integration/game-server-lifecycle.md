@@ -46,8 +46,8 @@ You generally only need to call `Allocate()` yourself in one of two cases:
 
 This is required if you manually register against
 [Nitrado's server allocation registry](/multiplayer-servers/multiplayer-services/server-allocation/manually-registering-game-servers.md)
-or if you use an existing game hosting SDK such as Amazon GameLift. If you receive a callback
-or event from these outside systems on your game server that a game session is about to start,
+or if you use an existing game hosting SDK such as Amazon GameLift.
+If you receive a callback or event from these outside systems on your game server that a game session is about to start,
 you must call `Allocate()` to prevent the game session from being interrupted.
 
 ::: note Wait for state change after calling `Allocate()`
