@@ -16,7 +16,7 @@
 ## `Health()`
 
 The `Health()` function should be called continuously as part of a regular loop in the game server software.
-It functions as a heartbeat signaling if the game server is still running properly.
+It functions as a heartbeat signaling that the game server is still running properly.
 Failing to call `Health()` leads to the game server being forcefully shutdown after a time that is configurable in the advanced options of Armadas.
 
 The SDKs for [Unreal Engine](https://agones.dev/site/docs/guides/client-sdks/unreal/) and [Unity](https://agones.dev/site/docs/guides/client-sdks/unity/) automatically call the `Health()` endpoint in the background.
