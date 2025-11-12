@@ -1,0 +1,10 @@
+flowchart TB
+    ShutdownHint["Shutdown Hint"] --> Start["Running game server"]
+    Start --> Ready["Allocated"] & n2["Unallocated"]
+    Allocated["Wait for the specified timeout"] -- Termination Grace Period --> Shutdown["Shutdown"]
+    n2 -- "Termination Grace Period" --> n3["Shutdown"]
+    n4["Shutdown Hint annotations"] -- "8c.io/shutdown-reason" --> Allocated
+    Ready --> n4
+    n4 -- "g8c.io/shutdown-timestamp" --> Allocated
+
+    n4@{ shape: rect}

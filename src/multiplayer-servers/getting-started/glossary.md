@@ -46,6 +46,10 @@ A cluster refers to a group of bare metal or cloud servers located in the same l
 In the context of GameFabric, clusters are implemented as [sites](/multiplayer-servers/getting-started/glossary#site).
 While a "Cluster" refers to the physical or virtual grouping of servers, a "Site" represents the GameFabric-specific abstraction used to manage and interact with these clusters.
 
+## Cordoned
+
+When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
+
 ## Environment
 
 Environments are a mechanism for isolating groups of resources. Resource names must be unique within each environment, but not across environments.
@@ -67,6 +71,10 @@ Vessels inherit all properties from their respective Formation, but environment 
 
 See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
+## Gateway Policies
+
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).
+
 ## Group
 
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group).
@@ -77,6 +85,10 @@ A Location is a group of [Sites](#site) that share a geographical area and other
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
 See also [Region](#region) for how to use it.
+
+## Mitigation
+
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#mitigations).
 
 ## User
 
@@ -113,6 +125,10 @@ They are numbered consecutively starting from 1.
 Revisions are kept to allow you to roll back to a previous configuration, as well as manage multiple revisions running in parallel (for example during a rollout upgrade).
 
 ::: info
+The rollback button in the UI is only available for [Armadas](#armada).
+:::
+
+::: info
 The revision of an Armada in an ArmadaSet is independent from the revision of its controlling ArmadaSet.
 
 E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Armadas
@@ -133,18 +149,32 @@ You could also run your own sidecars for monitoring or other purposes.
 
 ## Shutdown Hints
 
-See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/vessel-shutdown-behavior).
+See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessel-shutdown-behavior).
 
 ## Site
 
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a [Location](#location).
 This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
+A [Site](#site) can be marked as cordoned, making it unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
+
+This can be the case, for example, when a Site has just been provisioned to prevent premature allocations, or when a Site is being prepared for deprovisioning.
+
 ## SteelShield™
 
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
 
-See also [SteelShield docs](/steelshield/unreal-engine-plugin/introduction).
+See also [SteelShield docs](/steelshield/gamefabric/introduction).
+
+## Protection Status
+
+Status of the [SteelShield](#steelshieldtm) protection status for each [Site](#site) on the Sites overview in the GameFabric UI.
+
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-status).
+
+## Protection Protocol
+
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#managing-protocols).
 
 ## Vessel
 

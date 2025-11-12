@@ -34,3 +34,9 @@ There are a lot of predefined dashboards under "Dashboards".
 ## Logs
 
 Everything that the game server prints to either `stdout` or `stderr` is automatically collected.
+
+::: info Logging Quotas
+Logging is limited to *100 lines per second per game server with a 500 lines burst size* and
+globally to *10 megabytes per second with a 50 megabyte burst size*.
+If you require different limits, contact GameFabric support.
+:::
