@@ -51,7 +51,7 @@ First, edit the panel by clicking on the title and selecting "Edit".
 
 Then, in the "Transform" tab, add a new "Organize fields" transformation.
 
-Finally, enable the "namespace" field to be displayed. 
+Finally, enable the "namespace" field to be displayed.
 
 ![Enable Namespace in Grafana](./images/monitoring/monitoring_enable_namespace.png)
 
@@ -88,3 +88,7 @@ It can however be shutdown early by the game server itself responding to the ann
 ### Non-allocated Vessels
 
 Non-allocated Vessels are shut down immediately, in accordance with the `Termination Grace Period` (under `Settings`->`Advanced`).
+
+### Diagram
+
+![Vessel Shutdown Diagram](./images/vessel-shutdown-flow.png)
