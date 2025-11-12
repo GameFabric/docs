@@ -4,9 +4,9 @@ Game servers created by GameFabric have a counter for players by default which y
 
 ## How to update
 
-Please see the [official Agones SDK documentation](https://agones.dev/site/docs/guides/client-sdks/).
+For detailed instructions on how to update player counts, please refer to the [official Agones SDK documentation](https://agones.dev/site/docs/guides/client-sdks/).
 
-Name of the counter: `players`
+The name of the counter used for tracking players is `players`.
 
 Note that a Counter Capacity of `0` means no limits.
 When incrementing a counter beyond its capacity, Agones returns an error.
