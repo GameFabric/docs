@@ -112,7 +112,7 @@ function getSidebar() {
         sidebar[`/${dir}/`] = getEntries(`${srcDir}/${dir}`, subDirs);
     })
 
-   return sidebar;
+    return sidebar;
 }
 
 function getEntries(srcPath, dirs) {
