@@ -69,9 +69,12 @@ export default defineConfig({
                     {
                         "text": "Allocation: Allocator",
                         "link": "/api/multiplayer-servers/allocation-allocator"
+                    },
+                    {
+                        "text": "Terraform Provider",
+                        "link": "https://registry.terraform.io/providers/GameFabric/gamefabric/latest"
                     }
                 ]
-
             },
             {
                 text: 'GameFabric Status',
@@ -106,10 +109,10 @@ function getSidebar() {
             .map(dirent => dirent.name)
             .sort();
 
-       sidebar[`/${dir}/`] = getEntries(`${srcDir}/${dir}`, subDirs);
-   })
+        sidebar[`/${dir}/`] = getEntries(`${srcDir}/${dir}`, subDirs);
+    })
 
-return sidebar;
+   return sidebar;
 }
 
 function getEntries(srcPath, dirs) {
