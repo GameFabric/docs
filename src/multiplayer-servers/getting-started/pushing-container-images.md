@@ -92,8 +92,8 @@ Once you are logged in, tag your image against the registry, and push it.
 Do not forget to include the branch name after the registry URL.
 
 ```bash
-docker tag my-game:v1.2.3 ${URL}/${BRANCH}/my-game:v1.2.3
-docker push ${URL}/${BRANCH}/my-game:v1.2.3
+docker tag gameserver:v1.0.0       ${URL}/${BRANCH}/gameserver:v1.0.0
+docker push --platform linux/amd64 ${URL}/${BRANCH}/gameserver:v1.0.0
 ```
 
 You should now see the game image listed in the branch detail view.
