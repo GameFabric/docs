@@ -1,4 +1,4 @@
-# Accessing  GameFabric programmatically
+# Accessing GameFabric programmatically
 
 Beside the UI we offer additional more programmatically ways to work with GameFabric.
 
