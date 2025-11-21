@@ -165,6 +165,10 @@ A [Site](#site) can be marked as cordoned, making it unschedulable. Allocated ga
 
 This can be the case, for example, when a Site has just been provisioned to prevent premature allocations, or when a Site is being prepared for deprovisioning.
 
+## Service Account
+
+Account used for accessing GameFabric programmatically, please refer to the documentation under [Authentication](/multiplayer-servers/getting-started/authentication#managing-service-accounts).
+
 ## SteelShield™
 
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
