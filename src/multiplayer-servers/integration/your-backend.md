@@ -1,26 +1,24 @@
-# Accessing GameFabric programmatically
+# Programmatic Access to GameFabric
 
-Beside the UI we offer additional, more programmatic ways to work with GameFabric.
+In addition to our web-based user interface, GameFabric provides several programmatic methods for interacting with its features.
+> **Note:** All programmatic access requires at least one [Service Account](/multiplayer-servers/getting-started/authentication#managing-service-accounts).
 
-All access requires at least one [Service Account](/multiplayer-servers/getting-started/authentication#managing-service-accounts).
+## Docker Integration
 
-## Docker
+Game server images can be uploaded using `docker` to any [Branch](/multiplayer-servers/getting-started/glossary#branch) of your choice.
+If you have selected `latest (auto update)` in your configuration, pushing a new version of your game server image will immediately trigger an automatic rollout.
 
-Game server images are uploaded via `docker` to a [Branch](/multiplayer-servers/getting-started/glossary#branch) of choice.
+For more details, see the [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server#image) documentation.
 
-If you selected `latest (auto update)` in your configuration, pushing a new version of your game server image immediately triggers an automatic rollout.
+## API Access
 
-Please refer to [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server#image) documentation.
+GameFabric exposes a comprehensive API for all its features.
+Find detailed instructions in our [GameFabric API Guide](/multiplayer-servers/api/guide).
 
-## API
+## Terraform Provider Support
 
-GameFabric offers API access to every feature. Please see our dedicated [GameFabric API Guide](/multiplayer-servers/api/guide) for more information.
-
-## Terraform Provider
-
-GameFabric supports Infrastructure as Code (IaC) through the use of Terraform.
-The official Terraform Provider plugin is available via Terraform & OpenTofu registries.
+GameFabric supports Infrastructure as Code (IaC) through official Terraform and OpenTofu provider plugins:
 
 * [Terraform provider](https://registry.terraform.io/providers/GameFabric/gamefabric/latest)
 * [OpenTofu provider](https://search.opentofu.org/provider/gamefabric/gamefabric/latest)
-* [GitHub](https://github.com/GameFabric/terraform-provider-gamefabric/)
+* [GitHub repository](https://github.com/GameFabric/terraform-provider-gamefabric/)

@@ -177,7 +177,7 @@ See also [SteelShield docs](/steelshield/gamefabric/introduction).
 
 ## Terraform provider
 
-GameFabric offers its own Terraform provider to interact with the platform. Please see the dedicated documentation under [Terraform provider](/multiplayer-servers/integration/your-backend#terraform-provider).
+GameFabric offers its own Terraform provider to interact with the platform. Please see the dedicated documentation under [Terraform provider](/multiplayer-servers/integration/your-backend#terraform-provider-support).
 
 ## Protection Status
 
