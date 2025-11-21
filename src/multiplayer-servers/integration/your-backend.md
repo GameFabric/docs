@@ -9,7 +9,8 @@ GameFabric offers API access to every feature. Please see our dedicated [GameFab
 
 ## Terraform Provider
 
-As we truely belive in Infrastructure as Code (IaC) we offer an 100% open source Terraform and OpenTofu Prodvider.
+GameFabric supports Infrastructure as Code (IaC) through the use of Terraform.
+The official Terraform Provider plugin is available via Terraform & OpenTofu registries.
 
 * [Terraform provider](https://registry.terraform.io/providers/GameFabric/gamefabric/latest)
 * [OpenTofu provider](https://search.opentofu.org/provider/gamefabric/gamefabric/latest)
