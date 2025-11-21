@@ -1,6 +1,6 @@
 # Accessing GameFabric programmatically
 
-Beside the UI we offer additional more programmatically ways to work with GameFabric.
+Beside the UI we offer additional, more programmatic ways to work with GameFabric.
 
 All access requires at least one [Service Account](/multiplayer-servers/getting-started/authentication#managing-service-accounts).
 
