@@ -8,6 +8,10 @@
       "link": "/integration/introduction"
     },
     {
+      "text": "Your Infrastructure",
+      "link": "/integration/your-backend"
+    },
+    {
       "text": "Game Server Life Cycle",
       "link": "/integration/game-server-lifecycle"
     },
