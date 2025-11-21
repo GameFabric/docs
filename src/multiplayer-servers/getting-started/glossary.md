@@ -167,7 +167,7 @@ This can be the case, for example, when a Site has just been provisioned to prev
 
 ## Service Account
 
-Account used for accessing GameFabric programmatically, please refer to the documentation under [Authentication](/multiplayer-servers/getting-started/authentication#managing-service-accounts).
+An account used for accessing GameFabric programmatically, please refer to the documentation under [Authentication](/multiplayer-servers/getting-started/authentication#managing-service-accounts).
 
 ## SteelShield™
 
