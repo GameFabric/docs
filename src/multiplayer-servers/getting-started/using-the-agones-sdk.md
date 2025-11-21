@@ -1,1 +1,1 @@
-../integration/introduction.md
+../integration/your-game-server.md
