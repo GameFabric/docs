@@ -353,7 +353,7 @@ data "aws_iam_policy_document" "deployer_aux" {
     actions = [
       "ssm:GetParameter",
     ]
-    resources = ["*"]
+    resources = ["arn:aws:ssm:*:*:parameter/aws/service/eks/optimized-ami/*"]
   }
 }
 
