@@ -4,8 +4,12 @@
   "order": 1,
   "items": [
     {
-      "text": "Introduction",
-      "link": "/integration/introduction"
+      "text": "Your Game Server",
+      "link": "/integration/your-game-server"
+    },
+    {
+      "text": "Your Infrastructure",
+      "link": "/integration/your-backend"
     },
     {
       "text": "Game Server Life Cycle",
