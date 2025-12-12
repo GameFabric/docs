@@ -1549,7 +1549,7 @@ __metadata:
     medium-zoom: "npm:^1.1.0"
     mobx: "npm:^6.15.0"
     react: "npm:^19.2.0"
-    react-dom: "npm:^19.2.0"
+    react-dom: "npm:^19.2.3"
     redoc: "npm:^2.5.2"
     styled-components: "npm:^6.1.19"
     vitepress: "npm:^1.6.4"
@@ -2764,14 +2764,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.2.0":
-  version: 19.2.0
-  resolution: "react-dom@npm:19.2.0"
+"react-dom@npm:^19.2.3":
+  version: 19.2.3
+  resolution: "react-dom@npm:19.2.3"
   dependencies:
     scheduler: "npm:^0.27.0"
   peerDependencies:
-    react: ^19.2.0
-  checksum: 10c0/fa2cae05248d01288e91523b590ce4e7635b1e13f1344e225f850d722a8da037bf0782f63b1c1d46353334e0c696909b82e582f8cad607948fde6f7646cc18d9
+    react: ^19.2.3
+  checksum: 10c0/dc43f7ede06f46f3acc16ee83107c925530de9b91d1d0b3824583814746ff4c498ea64fd65cd83aba363205268adff52e2827c582634ae7b15069deaeabc4892
   languageName: node
   linkType: hard
 
