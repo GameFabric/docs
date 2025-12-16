@@ -15,10 +15,12 @@ To create a Secret, click on the “Add Secret” button.
 
 ![Secrets_Add_Button.png](images/secrets/Secrets_Add_Button.png)
 
-In the Create view, it is possible to define the name of the secret, provide a description (optional) for future reference, and insert the K/V pair(s). A secret can contain one or more K/V pairs.
+In the “Create” view, define the name of the secret, optionally add a description for later reference, and define one or more key/value pairs.
 
-**IMPORTANT**
-The `Value` part of the Data can only be seen during the creation process. Once saved, the value will never be displayed again! Remember to securely save it elsewhere if needed for other purposes.
+::: warning Opaque values
+The `Value` part of the Data can only be seen during the creation process.
+Once saved, the value is never displayed again! Note it down securely before saving if you may need to reference it later.
+:::
 
 ![Secrets_Create_View.png](images/secrets/Secrets_Create_View.png)
 
