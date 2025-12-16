@@ -38,11 +38,17 @@ When a secret contains multiple K/V pairs, each key needs to be provided as its 
 
 ![Secrets_Environment_Variable_Setup_Step2.png](images/secrets/Secrets_Environment_Variable_Setup_Step2.png)
 
-## Direct Mount
-To mount a secret to a game server, open the Armada(Set) or Formation/Vessel dashboard, and navigate to `Settings > Containers > Secrets`.
+## Mount as files
 
-Specify the `Secret` to be mounted and the absolute path to which it is to be mounted.
+To mount a secret into a game server’s filesystem, open the Armada(Set) or Formation/Vessel dashboard and go to `Settings > Containers > Secrets`.
+
+1. Select the `Secret`.
+2. Enter the **absolute path** where it should be mounted.
 
 ![Secrets_Mount_Setup.png](images/secrets/Secrets_Mount_Setup.png)
 
-The `Secret` is mounted as a folder in which each K/V pair is presented as an individual file. The file name matches the Key and the Value is contained in the file.
+The secret is mounted as a directory.
+Each key/value pair is written as a separate file:
+
+* the file name is the key
+* the file contents are the value
