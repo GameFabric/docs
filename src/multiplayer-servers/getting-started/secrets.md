@@ -41,7 +41,7 @@ When a secret contains multiple K/V pairs, each key needs to be provided as its 
 ## Direct Mount
 To mount a secret to a game server, open the Armada(Set) or Formation/Vessel dashboard, and navigate to `Settings > Containers > Secrets`.
 
-Specify the Secret to be mounted and the absolute path  `Secret` to which it is to be mounted.
+Specify the `Secret` to be mounted and the absolute path to which it is to be mounted.
 
 ![Secrets_Mount_Setup.png](images/secrets/Secrets_Mount_Setup.png)
 
