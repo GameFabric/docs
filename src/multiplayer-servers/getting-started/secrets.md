@@ -4,8 +4,7 @@ A `Secret` is a secure placeholder for sensitive data (e.g. passwords, API keys,
 
 # Management & Configuration
 
-Secrets are specific to a given environment and can be managed in the associated “Secrets” view therein.  
-
+Secrets are specific to a given environment and can be managed in the associated “Secrets” view for that environment.
 
 ![Secrets_Menu_Item.png](images/secrets/Secrets_Menu_Item.png)
 
