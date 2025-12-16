@@ -33,10 +33,11 @@ Create a new environment variable of type `Secret`, and select which `Secret` & 
 
 ![Secrets_Environment_Variable_Setup_Step1.png](images/secrets/Secrets_Environment_Variable_Setup_Step1.png)
 
-### Note 
-When a secret contains multiple K/V pairs, each key needs to be provided as its own environment variable.  
+::: note Multiple key/value pairs
+If a secret contains more than one key/value pair, each key is exposed as an individual environment variable.
 
 ![Secrets_Environment_Variable_Setup_Step2.png](images/secrets/Secrets_Environment_Variable_Setup_Step2.png)
+:::
 
 ## Mount as files
 
