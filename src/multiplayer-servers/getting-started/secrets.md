@@ -32,10 +32,11 @@ Secrets can be referenced by ArmadaSets, Armadas, Formations, and Vessels.
 They can be exposed either as environment variables or as files mounted at a specified path.
 
 ## As an Environment Variable
+## As an Environment Variable
 
 To setup a secret as an environment variable for a game server, open the Armada(Set) or Formation/Vessel dashboard, and navigate to `Settings > Containers > Environment Variables`.
 
-Create a new environment variable of type `Secret`, and select which `Secret` & `Key` should be associated with the variable.
+Create a new environment variable of type `Secret`, and select which `Secret` and `Key` should be associated with the variable.
 
 ![Secrets_Environment_Variable_Setup_Step1.png](images/secrets/Secrets_Environment_Variable_Setup_Step1.png)
 
