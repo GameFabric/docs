@@ -26,9 +26,10 @@ Once saved, the value is never displayed again! Note it down securely before sav
 ![Secrets_Create_View.png](images/secrets/Secrets_Create_View.png)
 
 # Use a Secret
+# Use a Secret
 
-Secrets can be used for ArmadaSets, Armadas, Formations, and Vessels.
-They can be either provided as an environment variable or mounted to a specific path.
+Secrets can be referenced by ArmadaSets, Armadas, Formations, and Vessels.
+They can be exposed either as environment variables or as files mounted at a specified path.
 
 ## As an Environment Variable
 
