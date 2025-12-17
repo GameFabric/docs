@@ -1,7 +1,8 @@
 # Secrets
+# Secrets
 
-A `Secret` is a secure placeholder for sensitive data (e.g. passwords, API keys, or tokens). It prevents sensitive values from being exposed by holding a reference to the data which the system uses to only inject the real secret value when & where it is needed.
-
+A `Secret` is a secure placeholder for small amounts of sensitive data such as passwords, API keys, or tokens.
+Using a Secret lets you keep confidential values out of application code, container images, and most configuration files, and instead reference the Secret from the workloads that need it.
 
 # Management & Configuration
 
