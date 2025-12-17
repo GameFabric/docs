@@ -146,6 +146,10 @@ E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Arm
 
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#role).
 
+## Secret
+
+See [Secrets](/multiplayer-servers/getting-started/secrets).
+
 ## Sidecar
 
 A sidecar is a container that runs alongside your game server container, providing additional functionality.

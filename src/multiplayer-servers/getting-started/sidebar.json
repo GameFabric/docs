@@ -60,6 +60,10 @@
       "link": "/getting-started/terminating-game-servers"
     },
     {
+      "text": "Managing your Secrets",
+      "link": "/getting-started/secrets"
+    },
+    {
       "text": "Glossary",
       "link": "/getting-started/glossary"
     }
