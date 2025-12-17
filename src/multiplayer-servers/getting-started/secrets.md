@@ -1,10 +1,9 @@
 # Secrets
-# Secrets
 
 A `Secret` is a secure placeholder for small amounts of sensitive data such as passwords, API keys, or tokens.
 Using a Secret lets you keep confidential values out of application code, container images, and most configuration files, and instead reference the Secret from the workloads that need it.
 
-# Management & Configuration
+## Management & Configuration
 
 Secrets are specific to a given environment and can be managed in the associated “Secrets” view for that environment.
 
@@ -25,13 +24,11 @@ Once saved, the value is never displayed again! Note it down securely before sav
 
 ![Secrets_Create_View.png](images/secrets/Secrets_Create_View.png)
 
-# Use a Secret
-# Use a Secret
+## Use a Secret
 
 Secrets can be referenced by ArmadaSets, Armadas, Formations, and Vessels.
 They can be exposed either as environment variables or as files mounted at a specified path.
 
-## As an Environment Variable
 ## As an Environment Variable
 
 To setup a secret as an environment variable for a game server, open the Armada(Set) or Formation/Vessel dashboard, and navigate to `Settings > Containers > Environment Variables`.
