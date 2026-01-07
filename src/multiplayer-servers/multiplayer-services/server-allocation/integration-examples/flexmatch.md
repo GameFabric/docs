@@ -219,12 +219,12 @@ These are the necessary steps:
        --configuration-name=myconfig-standalone \
        --players='[{"PlayerId":"Player1","LatencyInMs":{"custom-defra":50,"custom-uklon":100}}]' \
        --region eu-central-1
-    
+
     $ aws gamelift start-matchmaking \
        --configuration-name=myconfig-standalone \
        --players='[{"PlayerId":"Player2","LatencyInMs":{"custom-defra":40,"custom-uklon":70}}]' \
        --region eu-central-1
-    
+
     $ aws gamelift describe-matchmaking --ticket-ids <TICKET_ID_1, TICKET_ID_2> \
        | jq .TicketList[].Status
     "COMPLETED"
@@ -262,7 +262,7 @@ These are the necessary steps:
       "detail.type": [
         "MatchmakingSucceeded"
       ]
-    }  
+    }
     ```
 
     This ensures that the AWS Lambda function only receives `MatchmakingSucceeded` events,
@@ -303,7 +303,7 @@ These are the necessary steps:
     //     | NI_LOG_LEVEL    | Log level for the stdout logger.                      | optional | info                        |
     //     +-----------------+-------------------------------------------------------+----------+-----------------------------|
     package main
-    
+
     import (
         "bytes"
         "context"
@@ -313,7 +313,7 @@ These are the necessary steps:
         "os"
         "strings"
         "time"
-    
+
         "github.com/aws/aws-lambda-go/events"
         "github.com/aws/aws-lambda-go/lambda"
         "github.com/aws/aws-sdk-go/aws"
@@ -326,7 +326,7 @@ These are the necessary steps:
         lctx "github.com/hamba/logger/v2/ctx"
         json "github.com/json-iterator/go"
     )
-    
+
     const (
         // matchmakingEventType is the event type of the event we are looking for.
         // Is is required to apply a filter policy to the SNS subscription to reduce processing costs.
@@ -341,7 +341,7 @@ These are the necessary steps:
         // ```
         // Please note it's "detail-type" with a dash.
         matchmakingEventType = "GameLift Matchmaking Event"
-    
+
         // matchmakingEvent is the event detail type of the event we are looking for.
         // Is is required to apply a filter policy to the SNS subscription to reduce processing costs.
         //
@@ -354,7 +354,7 @@ These are the necessary steps:
         // Please note it's "detail.type" with a dot.
         matchmakingEvent = "MatchmakingSucceeded"
     )
-    
+
     var (
         // newMatchmakingEvent is the new event detail type of the event we want to emit.
         // It is a clone of the filtered event, with the connection information from the Nitrado Allocator attached,
@@ -363,10 +363,10 @@ These are the necessary steps:
             os.Getenv("NI_EVENT_NAME"),
             "NitradoMatchmakingSucceeded",
         )
-    
+
         // allocURL contains the Nitrado Allocator URL, e.g. https://allocator.[...].nitrado.systems/allocate
         allocURL = os.Getenv("NI_ALLOC_URL")
-    
+
         // allocRegion contains the default Nitrado Allocator region.
         //
         // Region preferences (high to low preference):
@@ -374,31 +374,31 @@ These are the necessary steps:
         // 2. Custom event data (json key "region") from the matchmaking configuration,
         // 3. Lambda environment var NI_ALLOC_REGION.
         allocRegion = os.Getenv("NI_ALLOC_REGION")
-    
+
         // allocToken contains the Nitrado Allocator authentication token.
         allocToken = os.Getenv("NI_ALLOC_TOKEN")
-    
+
         // logLevel contains the log level.
         // Suggested options: debug, info, error.
         logLevel = must(logger.LevelFromString(firstNonEmpty(
             os.Getenv("NI_LOG_LEVEL"),
             logger.Info.String(),
         )))
-    
+
         // Log contains the stdout logger.
         log = logger.New(os.Stdout, logger.JSONFormat(), logLevel)
-    
+
         // Sess contains the implicit AWS session.
         sess = must(session.NewSession())
     )
-    
+
     // event contains the relevant parts of the AWS GameLift event we are looking for.
     type event struct {
         ID         string      `json:"id"`
         DetailType string      `json:"detail-type"`
         Detail     eventDetail `json:"detail"`
     }
-    
+
     // eventDetail contains the relevant sub-elements of the AWS GameLift event we are looking for.
     type eventDetail struct {
         Type            string        `json:"type"`
@@ -406,21 +406,21 @@ These are the necessary steps:
         MatchID         string        `json:"matchId"`
         Tickets         []eventTicket `json:"tickets"`
     }
-    
+
     type eventTicket struct {
         TicketID string `json:"ticketId"`
     }
-    
+
     // allocation contains connection information to an allocated game server.
     type allocation struct {
         IP   string
         Port int
     }
-    
+
     func main() {
         lambda.Start(processMessages)
     }
-    
+
     // processMessages processes incoming SNS events.
     //
     // It is required to add a trigger for an AWS SNS topic to this AWS Lambda function in order to make this work.
@@ -431,14 +431,14 @@ These are the necessary steps:
             }
         }
     }
-    
+
     // processMessage processes a single SNS event record.
     func processMessage(ctx context.Context, record events.SNSEventRecord) error {
         var e event
         if err := json.Unmarshal([]byte(record.SNS.Message), &e); err != nil {
             return fmt.Errorf("decoding SNS message: %w: %s", err, record.SNS.Message)
         }
-    
+
         if e.DetailType != matchmakingEventType {
             return fmt.Errorf(
                 "unexpected [event].detail-type %q; please use a subscription filter policy for %q",
@@ -454,10 +454,10 @@ These are the necessary steps:
             )
         }
         log.Debug("Event matched", lctx.Str("type", e.DetailType), lctx.Str("name", e.Detail.Type))
-    
+
         // Events may carry custom data, specified in the AWS matchmaking configuration.
         // It is expected to be empty, or a JSON map.
-    
+
         customStruct := struct {
             Region     string            `json:"region"`
             Attributes map[string]string `json:"attributes"`
@@ -466,7 +466,7 @@ These are the necessary steps:
             return fmt.Errorf("decoding custom event data: %w", err)
         }
         log.Debug("Decoded custom data", lctx.Interface("data", customStruct))
-    
+
         ticketIds := make([]string, 0, len(e.Detail.Tickets))
         for _, ticketRef := range e.Detail.Tickets {
             ticketIds = append(ticketIds, ticketRef.TicketID)
@@ -475,7 +475,7 @@ These are the necessary steps:
         if err != nil {
             return fmt.Errorf("selecting region: %w", err)
         }
-    
+
         // Select the region from our three sources:
         // 1. Player latencies (player field "latencyInMs") from the matchmaking tickets,
         // 2. Custom event data (json key "region") from the matchmaking configuration,
@@ -483,10 +483,10 @@ These are the necessary steps:
         regions := []string{region, customStruct.Region, allocRegion}
         region = firstNonEmpty(regions...)
         log.Debug("Region selected", lctx.Str("selected", region), lctx.Strs("regions", regions))
-    
+
         // With `Queue` mode, we got the allocated game server attached to the event automatically.
         // With `Standalone` mode, we have no game server for the match, so we need to call the Nitrado Allocator to get one.
-    
+
         log.Debug(
             "Allocating server",
             lctx.Str("url", allocURL),
@@ -499,15 +499,15 @@ These are the necessary steps:
             return fmt.Errorf("allocating server: %w", err)
         }
         log.Debug("Server allocated", lctx.Interface("alloc", alloc))
-    
+
         // We extend the existing event and re-emit it under a different name.
-    
+
         msg, err := patchMessage(record.SNS.Message, alloc)
         if err != nil {
             return fmt.Errorf("patching message: %w", err)
         }
         log.Debug("Message patched", lctx.Str("msg", msg))
-    
+
         if err = publishMessage(ctx, record.SNS.TopicArn, msg); err != nil {
             return fmt.Errorf("publishing message: %w", err)
         }
@@ -517,10 +517,10 @@ These are the necessary steps:
             lctx.Str("event", e.ID),
             lctx.Str("match", e.Detail.MatchID),
         )
-    
+
         return nil
     }
-    
+
     // selectRegionFromTickets selects a region by collecting information from tickets.
     func selectRegionFromTickets(ctx context.Context, ticketIds []string) (string, error) {
         mm, err := gamelift.New(sess).DescribeMatchmakingWithContext(ctx, &gamelift.DescribeMatchmakingInput{
@@ -529,7 +529,7 @@ These are the necessary steps:
         if err != nil {
             return "", fmt.Errorf("describing matchmaking: %w", err)
         }
-    
+
         lats := make(map[string][]int)
         for _, ticket := range mm.TicketList {
             for _, player := range ticket.Players {
@@ -542,10 +542,10 @@ These are the necessary steps:
                 }
             }
         }
-    
+
         return selectRegionFromPlayerLatencies(lats), nil
     }
-    
+
     // selectRegionFromPlayerLatencies selects a region by using player latencies.
     //
     // The region with the lowest average across the most occurring regions is selected.
@@ -560,35 +560,35 @@ These are the necessary steps:
             for _, ping := range pings {
                 sum += ping
             }
-    
+
             num := len(pings)
             avg := float64(sum) / float64(num)
-    
+
             if num > selNum || (num == selNum && avg < selAvg) {
                 selReg = reg
                 selNum = num
                 selAvg = avg
             }
         }
-    
+
         return selReg
     }
-    
+
     type allocRequest struct {
         Region     string            `json:"region"`
         Attributes map[string]string `json:"attributes,omitempty"`
     }
-    
+
     type allocResponse struct {
         Address string             `json:"address"`
         IP      string             `json:"ip"`
         Ports   allocPortsResponse `json:"ports"`
     }
-    
+
     type allocPortsResponse struct {
         Game int `json:"game"`
     }
-    
+
     // allocateServer returns a game server from the Nitrado Allocator.
     //
     // The Nitrado Allocator consists of
@@ -599,7 +599,7 @@ These are the necessary steps:
         body := &bytes.Buffer{}
         allocReq := allocRequest{
             Region: region,
-    
+
             // Attributes are used to match game servers within the Nitrado Allocator.
             //
             // Example:
@@ -623,11 +623,11 @@ These are the necessary steps:
             // => No game server is returned.
             Attributes: attrs,
         }
-    
+
         if err := json.NewEncoder(body).Encode(allocReq); err != nil {
             return allocation{}, fmt.Errorf("encoding request: %w", err)
         }
-    
+
         req, err := http.NewRequestWithContext(ctx, http.MethodPost, allocURL, body)
         if err != nil {
             return allocation{}, fmt.Errorf("preparing request: %w", err)
@@ -635,7 +635,7 @@ These are the necessary steps:
         if allocToken != "" {
             req.Header.Set("Authorization", "Bearer "+allocToken)
         }
-    
+
         resp, err := http.DefaultClient.Do(req)
         if err != nil {
             return allocation{}, fmt.Errorf("sending request: %w", err)
@@ -644,7 +644,7 @@ These are the necessary steps:
             _, _ = io.Copy(io.Discard, resp.Body)
             _ = resp.Body.Close()
         }()
-    
+
         if resp.StatusCode/100 != 2 {
             var respBody struct {
                 Error string `json:"error"`
@@ -656,18 +656,18 @@ These are the necessary steps:
                 firstNonEmpty(respBody.Error, http.StatusText(resp.StatusCode)),
             )
         }
-    
+
         res := allocResponse{}
         if err = json.NewDecoder(resp.Body).Decode(&res); err != nil {
             return allocation{}, fmt.Errorf("decoding response: %w", err)
         }
-    
+
         return allocation{
             IP:   res.IP,
             Port: res.Ports.Game,
         }, nil
     }
-    
+
     // patchMessage patches the given event message with the allocated game server.
     func patchMessage(msg string, alloc allocation) (string, error) {
         // By using JSONPatch we make it more obvious what we change and how.
@@ -688,15 +688,15 @@ These are the necessary steps:
         if err != nil {
             return "", fmt.Errorf("preparing patch: %w", err)
         }
-    
+
         res, err := patch.Apply([]byte(msg))
         if err != nil {
             return "", fmt.Errorf("applying patch: %w", err)
         }
-    
+
         return string(res), err
     }
-    
+
     // publishMessage publishes the new event.
     //
     // It is intended to use the same SNS topic as from where we have received the original event.
@@ -710,7 +710,7 @@ These are the necessary steps:
         }
         return nil
     }
-    
+
     // firstNonEmpty returns the first string that is not empty.
     //
     // If all strings are empty, an empty string is returned.
@@ -722,7 +722,7 @@ These are the necessary steps:
         }
         return ""
     }
-    
+
     // must returns the first argument, but only if the second argument is nil; otherwise, it panics.
     func must[T any](res T, err error) T {
         if err != nil {
