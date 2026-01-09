@@ -121,7 +121,7 @@ VitePress config executes in Node at build time.
   - omit `.md`
 
 ### Technical writing (Markdown, comments, notes)
-Follow `technical-writing.md` (internal style guide; based on Google’s).
+Follow .github/copilot-instructions.md (internal style guide; based on Google’s).
 - Use American spelling; use clear, precise language; define acronyms on first use.
 - Do not hard-wrap paragraphs; keep content scannable with short paragraphs, headings, and lists.
 - Prefer active voice and present tense; avoid unnecessary "will"/"would".
@@ -151,4 +151,4 @@ For OpenAPI pages, follow the existing pattern (see `README.md`):
 
 ## Cursor/Copilot rules
 - Cursor: no rules found (`.cursor/rules/` or `.cursorrules`).
-- Copilot: follow `.github/copilot-instructions.md` (mirrors `technical-writing.md`).
+- Copilot: follow `.github/copilot-instructions.md` (primary technical writing guide for this repo).
