@@ -34,7 +34,7 @@ These act as hard caps that prevent your server from using more than the specifi
 We recommend using millicores (`m`) for clarity:
 
 - `1000m` = 1 full CPU core
-- `500m` = half a CPU core  
+- `500m` = half a CPU core
 - `250m` = quarter of a CPU core
 
 #### How Fractional CPU Cores Work
@@ -69,7 +69,7 @@ If there's unused CPU capacity available, your game server can temporarily use m
 **Example**: Your server has a 500m request and 1000m limit
 
 - Normal operation: Uses 400m CPU ✓
-- Sudden activity spike: Can burst to 900m CPU if available ✓  
+- Sudden activity spike: Can burst to 900m CPU if available ✓
 - Heavy load: Gets throttled if trying to exceed 1000m CPU ⚠️
 
 #### Why We Recommend Avoiding CPU Limits
@@ -196,7 +196,7 @@ Unless you have specific requirements, **do not set CPU limits**. CPU limits can
 #### Production Launch
 
 - Use conservative values initially to ensure stability
-- Memory limits: 20-30% above observed peak usage  
+- Memory limits: 20-30% above observed peak usage
 - Plan to optimize downward after collecting real-world data
 - Monitor closely for any performance issues
 

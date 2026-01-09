@@ -1,8 +1,8 @@
 # Introduction
 
-::: details Keywords  
+::: details Keywords
 
-There are few specific keywords used in this document, which have specific meanings, here is quick list of them for easier understanding:  
+There are few specific keywords used in this document, which have specific meanings, here is quick list of them for easier understanding:
 
 1. **SteelShield Subsystem** - Unreal Engine Subsystem for SteelShield, used for starting and stopping the DDoS protection layer
 2. **SteelShield Token Service** - SteelShield backend hosted by Nitrado used for getting SteelShield tokens
@@ -11,8 +11,8 @@ There are few specific keywords used in this document, which have specific meani
 5. **JWT** - Json Web Token, signed by `Certificate` and submitted to `SteelShield Token Service`
 6. **Game Client** - The game which is run on the end users computer
 7. **Game Server** - The dedicated game server which is run in Nitrado infrastructure
-8. **Game Backend** - The backend system implement by the game developer used to authenticate and track players
-9. **Roll Over** -  The process of receicing a new `SteelShield Token` before the current one expires
+8. **Game Backend** - The backend system implemented by the game developer used to authenticate and track players
+9. **Roll Over** -  The process of receiving a new `SteelShield Token` before the current one expires
 10. **SteelShield Plugin** - This Unreal Engine Plugin that implements the required code to prefix network packets with
     the `SteelShield Token`
 :::

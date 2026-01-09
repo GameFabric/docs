@@ -96,7 +96,7 @@ _ = agones.WatchGameServer(func (gs *sdk.GameServer) {
     if gs.State != "Allocated" {
         return
     }
-    
+
     // ..
 })
 ```
@@ -127,16 +127,16 @@ _ = agones.WatchGameServer(func (gs *sdk.GameServer) {
     if gs.State != "Allocated" {
         return
     }
-    
-    if gs.Annotations == nil { 
-        return 
+
+    if gs.Annotations == nil {
+        return
     }
-    
+
     myKey, found := gs.Annotations[agonesPrefix+customPrefix+"key"]
-    if !found { 
-        return 
+    if !found {
+        return
     }
-    
+
     // ..
 })
 ```
@@ -248,7 +248,7 @@ which is technically not an atomic operation — has completed.
 Writes the payload into the given file.
 By setting a non-empty value, stores the payload in the given file.
 The parent directory is expected to be a shared volume mount, between the game server container and the Allocation Sidecar.
-The payload is written as JSON into the file, unless a different format is specified in `ALLOC_PAYLOAD_FILE_TEMPLATE`.  
+The payload is written as JSON into the file, unless a different format is specified in `ALLOC_PAYLOAD_FILE_TEMPLATE`.
 Mutual exclusive to `ALLOC_ANNOTATION`.
 
 ### `ALLOC_PAYLOAD_FILE_MODE` (`string=0660`)
