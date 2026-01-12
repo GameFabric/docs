@@ -3,6 +3,8 @@
 Apply these guidelines when generating or editing documentation, comments, release notes, and other prose in this repo.
 Primary target is Markdown under `src/` (VitePress content), but the rules also apply to docstrings and PR text.
 
+Markdown content should follow [markdownlint](https://github.com/DavidAnson/markdownlint) rules where applicable.
+
 ## Writing goals
 
 - Optimize for clarity, scannability, and global readability.
@@ -10,6 +12,7 @@ Primary target is Markdown under `src/` (VitePress content), but the rules also 
 - Keep content consistent across pages (same term, same capitalization).
 
 ## Language and tone
+
 - Use American spelling.
 - Use clear, direct language.
 - Prefer short sentences.
@@ -19,31 +22,36 @@ Primary target is Markdown under `src/` (VitePress content), but the rules also 
 - Avoid ambiguity (especially for things readers must type).
 
 ## Voice, tense, and structure
+
 - Prefer active voice.
 - Use present tense; avoid unnecessary "will" and "would".
 - Describe conditions/goals before instructions.
-- Avoid directional language such as “above/below” (it becomes brittle over time).
+- Avoid directional language such as "above/below" (it becomes brittle over time).
 
 ## Headings
+
 - Use a heading hierarchy; do not skip levels.
 - Do not use empty headings.
 - Use sentence case for titles and headings.
 - Use a single level-1 heading as the page title.
 
 ## Lists
+
 - Introduce lists with a short sentence.
 - Use numbered lists for ordered steps.
 - Keep list items parallel in structure and consistent in punctuation/capitalization.
 - For long lists that may change, use lazy numbering (`1.` for each item).
 
 ## Links
-- Use meaningful link text (no “click here”, no bare URLs).
+
+- Use meaningful link text (no "click here", no bare URLs).
 - Do not force links to open in a new tab/window.
 - Avoid adjacent links; separate them with text.
 - If a link downloads a file, indicate the action and file type in link text.
 - If a URL is very long, use reference-style links at the bottom of the paragraph.
 
 ## Code blocks and examples
+
 - Precede code samples with an introductory sentence.
 - Specify a code block language for syntax highlighting.
 - Use spaces (not tabs).
@@ -51,12 +59,14 @@ Primary target is Markdown under `src/` (VitePress content), but the rules also 
 - For commands, include expected output when helpful.
 
 ## Images
+
 - Prefer SVG when possible.
 - Provide alt text that summarizes the intent.
 - Do not put new information only in images; include equivalent text.
 - Avoid repeated images and images of text.
 
 ## Tables
+
 - Introduce tables in the preceding text.
 - Keep tables small.
 - Prefer lists and subheadings over large/complex tables.
@@ -64,6 +74,7 @@ Primary target is Markdown under `src/` (VitePress content), but the rules also 
 - Sort rows logically (or alphabetically if no logical order exists).
 
 ## Markdown hygiene
+
 - Prefer Markdown over HTML.
 - Do not hard-wrap paragraphs (no forced line breaks inside sentences).
 - Remove trailing whitespace.
@@ -71,5 +82,6 @@ Primary target is Markdown under `src/` (VitePress content), but the rules also 
 - Ensure files end with a single newline.
 
 ## Repo-specific notes
+
 - Internal doc links should start with `/` and omit `.md` (VitePress routing).
 - Images should live under the nearest section `images/` directory with descriptive filenames.

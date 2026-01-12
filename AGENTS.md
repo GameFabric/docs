@@ -82,16 +82,14 @@ Keep changes minimal and consistent with existing files; avoid introducing heavy
   - `.vitepress/config.js` currently uses wider indentation (often 4 spaces).
 - Quotes:
   - Most JS uses single quotes, but some config uses double quotes; preserve local convention.
-- Semicolons: mixed; preserve the existing file’s style.
+- Semicolons: mixed; preserve the existing file's style.
 - Avoid drive-by reformatting; keep diffs focused.
 
 ### Imports
+
 - Use ESM (`"type": "module"` in `package.json`).
 - Prefer Node built-ins with `node:` prefix (e.g., `node:fs`, `node:path`).
-- Keep import ordering consistent:
-  1) framework/runtime (`vitepress`, `vue`)
-  2) third-party libraries (`medium-zoom`, etc.)
-  3) local files/components/styles (`./Layout.vue`, `./custom.css`)
+- Keep import ordering consistent: framework/runtime first (`vitepress`, `vue`), then third-party libraries (`medium-zoom`, etc.), then local files/components/styles (`./Layout.vue`, `./custom.css`).
 
 ### TypeScript
 - TS is used selectively (e.g., `.vitepress/theme/Layout.vue` uses `<script setup lang="ts">`).
@@ -121,16 +119,8 @@ VitePress config executes in Node at build time.
   - omit `.md`
 
 ### Technical writing (Markdown, comments, notes)
-Follow .github/copilot-instructions.md (internal style guide; based on Google’s).
-- Use American spelling; use clear, precise language; define acronyms on first use.
-- Do not hard-wrap paragraphs; keep content scannable with short paragraphs, headings, and lists.
-- Prefer active voice and present tense; avoid unnecessary "will"/"would".
-- Use sentence case headings; maintain heading hierarchy; do not use empty headings.
-- Use meaningful link text (no bare URLs); do not force new tabs; avoid adjacent links.
-- Introduce lists; use numbered lists for steps; keep list items parallel.
-- Use fenced code blocks with a language; spaces (not tabs); keep lines ~80 chars when practical.
-- Images/tables: prefer SVG, include alt text, don’t put new info only in images; keep tables small and introduced.
-- Markdown hygiene: prefer Markdown over HTML; no trailing whitespace; no multiple blank lines; end files with newline.
+
+Follow `.github/copilot-instructions.md` for technical writing guidelines.
 
 ### Vue components in Markdown
 For OpenAPI pages, follow the existing pattern (see `README.md`):
@@ -145,10 +135,10 @@ For OpenAPI pages, follow the existing pattern (see `README.md`):
 - Use `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ## Safety notes for agents
-- Don’t add new dependencies unless necessary for docs rendering.
+- Don't add new dependencies unless necessary for docs rendering.
 - Avoid touching large image assets unless requested (big diffs).
 - After code changes, run at least `yarn docs:build`.
 
-## Cursor/Copilot rules
-- Cursor: no rules found (`.cursor/rules/` or `.cursorrules`).
-- Copilot: follow `.github/copilot-instructions.md` (primary technical writing guide for this repo).
+## Copilot rules
+
+Follow `.github/copilot-instructions.md` (primary technical writing guide for this repo; see also the [external technical writing guidelines](https://legendary-adventure-6kmwkge.pages.github.io/guidelines/technical-writing/)).
