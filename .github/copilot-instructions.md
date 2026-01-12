@@ -4,6 +4,7 @@ Apply these guidelines when generating or editing documentation, comments, relea
 Primary target is Markdown under `src/` (VitePress content), but the rules also apply to docstrings and PR text.
 
 ## Writing goals
+
 - Optimize for clarity, scannability, and global readability.
 - Prefer small, reviewable edits that match surrounding tone and terminology.
 - Keep content consistent across pages (same term, same capitalization).
