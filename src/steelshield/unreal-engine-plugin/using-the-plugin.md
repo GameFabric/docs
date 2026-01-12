@@ -48,7 +48,7 @@ auto *SteelShield = GetGameInstance()->
                     GetEngine()->
                     GetEngineSubsystem<USteelShieldSubsystem>();
 
-const auto TokenProvider = 
+const auto TokenProvider =
     SteelShield->
     SetTokenProvider<UEOSTokenProvider>(UEOSTokenProvider::StaticClass());
 
@@ -95,7 +95,7 @@ const auto SteelShield = GetGameInstance()->
                          GetEngine()->
                          GetEngineSubsystem<USteelShieldSubsystem>();
 
-OnInitializedHandle = 
+OnInitializedHandle =
     SteelShield->
     OnInitialized.AddUObject(this, &ThisClass::OnSteelShieldInitialized);
 

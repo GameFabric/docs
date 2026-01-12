@@ -13,6 +13,11 @@ The Allocator is an extra product feature that lets you register your game serve
 
 See also [docs for using the Allocation Sidecar](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers).
 
+## API
+
+API stands for Application Programming Interface. GameFabric offers API access to every feature.
+Please see our dedicated [GameFabric API Guide](/multiplayer-servers/api/guide) for more information.
+
 ## Armada
 
 An Armada is a collection of Fleets, distributed across multiple [Sites](#site) within one [Region](#region).
@@ -141,6 +146,10 @@ E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Arm
 
 See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#role).
 
+## Secret
+
+See [Secrets](/multiplayer-servers/getting-started/secrets).
+
 ## Sidecar
 
 A sidecar is a container that runs alongside your game server container, providing additional functionality.
@@ -160,11 +169,19 @@ A [Site](#site) can be marked as cordoned, making it unschedulable. Allocated ga
 
 This can be the case, for example, when a Site has just been provisioned to prevent premature allocations, or when a Site is being prepared for deprovisioning.
 
+## Service Account
+
+An account used for accessing GameFabric programmatically, please refer to the documentation under [Authentication](/multiplayer-servers/getting-started/authentication#managing-service-accounts).
+
 ## SteelShield™
 
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
 
 See also [SteelShield docs](/steelshield/gamefabric/introduction).
+
+## Terraform provider
+
+GameFabric offers its own Terraform provider to interact with the platform. Please see the dedicated documentation under [Terraform provider](/multiplayer-servers/integration/your-backend#terraform-provider-support).
 
 ## Protection Status
 

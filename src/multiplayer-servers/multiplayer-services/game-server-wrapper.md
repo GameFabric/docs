@@ -84,7 +84,7 @@ Before:
 
 ```shell
 # Command
-/app/gameserver 
+/app/gameserver
 
 # Arguments
 <ARG> [--option]
@@ -94,7 +94,7 @@ After (with the wrapper):
 
 ```shell
 # Command
-/app/gsw 
+/app/gsw
 
 # Arguments
 [--gsw-option] -- /app/gameserver <ARG> [--option]

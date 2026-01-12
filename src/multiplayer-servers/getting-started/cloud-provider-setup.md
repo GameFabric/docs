@@ -348,6 +348,13 @@ data "aws_iam_policy_document" "deployer_aux" {
     ]
     resources = ["*"]
   }
+  statement {
+    effect = "Allow"
+    actions = [
+      "ssm:GetParameter",
+    ]
+    resources = ["arn:aws:ssm:*:*:parameter/aws/service/eks/optimized-ami/*"]
+  }
 }
 
 # Merge all policy docs together
