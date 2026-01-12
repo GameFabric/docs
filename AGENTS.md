@@ -76,7 +76,7 @@ This repo has a small amount of runtime/config code (VitePress config + theme + 
 Keep changes minimal and consistent with existing files; avoid introducing heavy tooling.
 
 ### Formatting
-- No automated formatter configured; match the file’s local style.
+- No automated formatter configured; match the file's local style.
 - Indentation:
   - Vue SFCs and JSON are typically 2 spaces.
   - `.vitepress/config.js` currently uses wider indentation (often 4 spaces).
