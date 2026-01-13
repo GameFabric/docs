@@ -18,9 +18,18 @@ Use this dashboard to quickly identify whether game server issues are caused by 
 - **Prolonged failures** to a single target (for example, a cloud provider your game doesn't use, or a backup DNS server) may have no impact on your game servers.
 - If probe failures to **multiple targets persist**, GameFabric automatically sets the status to degraded on [status.gamefabric.com](https://status.gamefabric.com).
 
+:::warning Probe results are not causally consistent with network issues
+Failing probes do not necessarily indicate network issues, and network issues may occur even when all probes succeed. Probes only test specific routes from nodes to predefined targets.
+
+The dashboard provides a limited view:
+
+- Only one public, global endpoint is probed per cloud provider. Regional routes may behave differently.
+- Probes target specific cloud services (for example, AWS S3), not the entire cloud platform. Other services on the same provider may be unaffected.
+:::
+
 ### Best Practices
 
-Nodes can occasionally experience network issues—100% reliability is not guaranteed. Game developers should implement their servers to be tolerant of network issues by:
+Full network reliability is not guaranteed. Nodes can occasionally experience network issues. To handle these issues, implement the following in your game servers:
 
-- Retrying failed connections
-- Gracefully terminating the game server after multiple connection attempts fail
+- Retry failed connections.
+- Gracefully terminate the game server after multiple connection attempts fail.
