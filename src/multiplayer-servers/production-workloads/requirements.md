@@ -24,8 +24,9 @@ After a session ends (for example, when the last player leaves), the game server
 
 #### Formations
 
-* **Shutdown hints**: (Required for Formations) see [running your game server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods).
-* See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessels).
+For Formations, you must provide shutdown hints (required for Formations) as described in [running your game server](https://github.com/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods)
+
+Refer to [Vessel Shutdown Behavior](https://github.com/multiplayer-servers/getting-started/terminating-game-servers#vessels) for additional details.
 
 ## Best Practices
 
