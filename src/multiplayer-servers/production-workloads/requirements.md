@@ -30,8 +30,6 @@ Refer to [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/termina
 
 ## Best Practices
 
-Following these best practices will help ensure your game servers run smoothly and efficiently on GameFabric.
-
 * **Keep your game server image as small as possible**: A small game server image makes everything faster and will also save money in the long run.
 
 * **Log to stdout**: Whenever possible, configure your game server to write logs directly to the standard output (`stdout`) and standard error (`stderr`) streams. This allows for seamless integration with GameFabric's log aggregation and monitoring systems. If your server can only write to a file, use the [Game Server Wrapper](/multiplayer-servers/multiplayer-services/game-server-wrapper) to tail your log files and forward them to stdout/stderr.
