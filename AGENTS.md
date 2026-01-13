@@ -140,7 +140,7 @@ For OpenAPI pages, follow the existing pattern (see `README.md`):
 - After code changes, verify the build passes:
   - Preferred: `yarn docs:build` (if Yarn/Corepack is available locally)
   - Fallback: `docker run --rm gamefabric-docs-dev yarn docs:build` (requires `make image` first)
-  - If neither Yarn nor Docker is available, note in PR that build was not verified locally.
+  - No tooling: note in PR that build was not verified locally
 
 ## Copilot rules
 
