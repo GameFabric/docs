@@ -24,24 +24,14 @@ After a session ends (for example, when the last player leaves), the game server
 
 #### Formations
 
-For Formations, you must provide shutdown hints (required for Formations) as described in [running your game server](https://github.com/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods)
+For Formations, you must provide shutdown hints (required for Formations) as described in [running your game server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods).
 
-Refer to [Vessel Shutdown Behavior](https://github.com/multiplayer-servers/getting-started/terminating-game-servers#vessels) for additional details.
+Refer to [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessels) for additional details.
 
 ## Best Practices
 
 Following these best practices will help ensure your game servers run smoothly and efficiently on GameFabric.
 
-* **Log to stdout**: Whenever possible, configure your game server to write logs directly to the standard output (`stdout`) and standard error (`stderr`) streams. This allows for seamless integration with GameFabric's log aggregation and monitoring systems. If your server can only write to a file, use the `gswrapper` tool to tail your log files and forward them to stdout/stderr. See the section below for more details.
+* **Keep your game server image as small as possible**: A small game server image makes everything faster and will also save money in the long run.
 
-## Game Server Wrapper (gswrapper)
-
-The `gswrapper` is a valuable tool for launching your game server executable within the GameFabric environment. It is production-safe and offers several features to simplify integration and improve reliability.
-
-### Key Features
-
-* **Parameter and Configuration Templating**: Dynamically configure your game server's command-line arguments and configuration files with runtime information from Agones, such as IP addresses and ports.
-* **Log Tailing**: The wrapper can tail your game server's log files, which is useful if your server writes logs to a file instead of `stdout`.
-* **Post-Stop Hooks (Advanced Crash Handling)**: You can configure executables to run after your game server stops. This is useful for tasks like analyzing core dumps for crash reporting or uploading logs for further investigation.
-
-For more information, please refer to the [Game Server Wrapper documentation](/multiplayer-servers/multiplayer-services/game-server-wrapper) and the [gswrapper GitHub repository](https://github.com/GameFabric/gswrapper).
+* **Log to stdout**: Whenever possible, configure your game server to write logs directly to the standard output (`stdout`) and standard error (`stderr`) streams. This allows for seamless integration with GameFabric's log aggregation and monitoring systems. If your server can only write to a file, use the [Game Server Wrapper](/multiplayer-servers/multiplayer-services/game-server-wrapper) to tail your log files and forward them to stdout/stderr.
