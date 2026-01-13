@@ -137,7 +137,10 @@ For OpenAPI pages, follow the existing pattern (see `README.md`):
 ## Safety notes for agents
 - Don't add new dependencies unless necessary for docs rendering.
 - Avoid touching large image assets unless requested (big diffs).
-- After code changes, run at least `yarn docs:build`.
+- After code changes, verify the build passes:
+  - Preferred: `yarn docs:build` (if Yarn/Corepack is available locally)
+  - Fallback: `docker run --rm gamefabric-docs-dev yarn docs:build` (requires `make image` first)
+  - If neither Yarn nor Docker is available, note in PR that build was not verified locally.
 
 ## Copilot rules
 
