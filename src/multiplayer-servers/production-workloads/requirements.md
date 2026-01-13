@@ -20,10 +20,7 @@ See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones
 
 #### Armadas
 
-* After a session ends (e.g. last player leaves), either:
-    * Return to `Agones Ready` if the server should be reused for new sessions, or
-    * Shutdown if the server is no longer needed
-* limit the max game server lifetime to 24h
+After a session ends (for example, when the last player leaves), the game server should either return to an `Agones Ready` state if it’s meant to be reused for new sessions, or shut down if it’s no longer needed; in addition, the maximum lifetime of any game server should be limited to 24 hours.
 
 #### Formations
 
