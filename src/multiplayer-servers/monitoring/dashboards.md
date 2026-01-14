@@ -26,10 +26,3 @@ The dashboard provides a limited view:
 - Only one public, global endpoint is probed per cloud provider. Regional routes may behave differently.
 - Probes target specific cloud services (for example, AWS S3), not the entire cloud platform. Other services on the same provider may be unaffected.
 :::
-
-### Best Practices
-
-Full network reliability is not guaranteed. Nodes can occasionally experience network issues. To handle these issues, implement the following in your game servers:
-
-- Retry failed connections.
-- Gracefully terminate the game server after multiple connection attempts fail.
