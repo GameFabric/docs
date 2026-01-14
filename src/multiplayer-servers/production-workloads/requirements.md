@@ -1,4 +1,4 @@
-# Requirements and Best Practices
+# Requirements and best practices
 
 To ensure your players have the best possible experience with GameFabric, we recommend adhering to the following requirements and best practices.
 
@@ -22,15 +22,15 @@ See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones
 
 #### Armadas
 
-After a session ends (for example, when the last player leaves), the game server should either return to an `Agones Ready` state if it's meant to be reused for new sessions, or shut down if it's no longer needed; in addition, the maximum lifetime of any game server should be limited to 24 hours.
+After a session ends (for example, when the last player leaves), the game server should either return to an `Agones Ready` state if it's meant to be reused for new sessions, or shut down if it's no longer needed. Additionally, the maximum lifetime of any game server should be limited to 24 hours.
 
 #### Formations
 
-For Formations, you must provide shutdown hints (required for Formations) as described in [running your game server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods).
+For Formations, you must provide shutdown hints as described in [running your game server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods).
 
 Refer to [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessels) for additional details.
 
-## Best Practices
+## Best practices
 
 * **Keep your game server image as small as possible**: A small game server image makes everything faster and also saves money in the long run.
 
