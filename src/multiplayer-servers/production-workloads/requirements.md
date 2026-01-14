@@ -6,7 +6,9 @@ To ensure your players have the best possible experience with GameFabric, we rec
 
 The following are essential for deploying your game server on GameFabric.
 
-* **Linux Build (Required)**: Your game server must be built for a Linux environment to be compatible with GameFabric's containerized infrastructure.
+### Server Requirements
+
+* **Linux Build**: Your game server must be built for a Linux environment (`amd64`) to be compatible with GameFabric's containerized infrastructure.
 For more details on creating a compatible container, see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image).
 
 * **Agones SDK Integration**: Integrating the Agones SDK is crucial for your game server to communicate its state with the GameFabric platform. This includes:
