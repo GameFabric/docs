@@ -22,7 +22,7 @@ including inactive Cloud Locations.
 
 Regions are logical groupings of (physical data center) Locations and are assigned to Armadas or Vessels.
 
-When you provision cloud capacity at a specific location, your overall capacity in the corresponding region increases, 
+When you provision cloud capacity at a specific location, your overall capacity in the corresponding region increases,
 and your game servers can automatically start scaling into the newly provisioned location.
 
 ## Provision Cloud Location
