@@ -51,7 +51,7 @@ To avoid unnecessary costs, remember to deprovision any Cloud Locations you no l
 
 ## Deprovision Cloud Location
 
-To deprovision a Cloud Location, navigate to the Locations dashboard. You find it under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
+To deprovision a Cloud Location, navigate to the Locations dashboard. It is located under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
 
 1. Find the Cloud Location you want to deprovision.
 2. Click the Remove Cloud Location button in the respective row.
