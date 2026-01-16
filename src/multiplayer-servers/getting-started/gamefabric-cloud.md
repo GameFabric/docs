@@ -72,9 +72,7 @@ You can show only managed Cloud Locations in the Locations dashboard by selectin
 Your provisioned Cloud Location must be part of a Region for your Armadas and Vessels to use it.
 Otherwise, your provisioned cloud capacity will not be used.
 
-It is generally advised to distribute most of the available Locations to your Regions setup so that,
-in the event that a Location is provisioned, it is automatically used.
-
+It is generally advised to distribute most of the available Locations to your Regions setup so that in the event that a Location is provisioned, it is automatically used.
 ### Configure Region Types and Priority (recommended)
 
 Region Types divide a Region into logical subsets, such as bare metal and cloud.
