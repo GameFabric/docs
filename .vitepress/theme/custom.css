@@ -46,3 +46,7 @@
 .row > .col-6:nth-child(1) {
     margin-right: 1em;
 }
+
+.nbsp {
+    white-space: nowrap;
+}
