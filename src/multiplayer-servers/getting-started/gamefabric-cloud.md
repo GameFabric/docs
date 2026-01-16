@@ -1,6 +1,6 @@
 # GameFabric Cloud
 
-GameFabric Cloud lets you provision (and deprovision) cloud locations straight from GameFabric, boosting your server capacity.
+GameFabric Cloud lets you provision (and deprovision) Cloud Locations straight from GameFabric, boosting your server capacity.
 
 ## Key Features
 
