@@ -61,6 +61,10 @@ To deprovision a Cloud Location, navigate to the Locations dashboard. You find i
 4. Read the provided disclaimer about the estimated deprovisioning time and other possible consequences.
 5. Confirm the dialog.
 
+## Find Managed Cloud Locations
+
+You can show only managed Cloud Locations in the Locations dashboard by selecting *managed* in the *Filter by Types* dropdown.
+
 ## Important Configuration
 
 ### Configure Regions (required)
