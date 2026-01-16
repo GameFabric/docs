@@ -57,7 +57,7 @@ To deprovision a Cloud Location, navigate to the Locations dashboard. It is loca
 2. Click the "Remove Cloud Location" button in the respective row.
 3. Select the deprovisioning type:
    - **Graceful**: Deprovision the Location by cordoning its Sites. This option waits until no more game servers are running before removal. (Recommended)
-   - **Immediate**: Immediately deprovision the Location. Any running game servers will be forcefully terminated.
+   - **Forceful**: Immediately deprovision the Location. Any running game servers will be forcefully terminated.
 4. Read the provided disclaimer about the estimated deprovisioning time and other possible consequences.
 5. Confirm the dialog.
 
