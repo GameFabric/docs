@@ -12,12 +12,12 @@ GameFabric Cloud lets you provision (and deprovision) cloud locations straight f
 
 - **Supported providers**: Currently, GameFabric Cloud only supports [Google Cloud Platform](https://cloud.google.com/) (GCP).
 - **Resource types**: Only certain types of cloud capacity can be provisioned through <span class="nbsp">GameFabric Cloud</span>.
-- **BYOC restrictions**: You cannot add cloud capacity at locations that you have added using <span class="nbsp">Bring Your Own Cloud</span> (BYOC).
+- **BYOC restrictions**: You cannot add cloud capacity at Locations that you have added using <span class="nbsp">Bring Your Own Cloud</span> (BYOC).
 
 ## Introduction
 
 GameFabric Cloud lets you provision server capacity at specific, predefined Cloud Locations.
-As described in [Setup Your Environments (and Regions),](./setup-your-environment#create-a-region) you should have defined Regions that cover multiple Locations,
+As described in [Setup your Environment](./setup-your-environment#create-a-region), you should have defined Regions that cover multiple Locations,
 including inactive Cloud Locations.
 
 Regions are logical groupings of (physical data center) Locations and are assigned to Armadas or Vessels.
@@ -39,7 +39,7 @@ To provision a Cloud Location, navigate to the Locations dashboard. It is locate
 If the Request Cloud Location button is disabled, you lack the necessary permissions. Contact our Customer Success Management team for assistance.
 :::
 
-Once the cloud location has been provisioned, you can see the assigned number of sites (usually one) in the Locations dashboard.
+Once the Cloud Location has been provisioned, you can see the assigned number of sites (usually one) in the Locations dashboard.
 Make sure your Regions have been updated to include the Cloud Location so you can seamlessly make use of the new capacity once it has been provisioned.
 
 ::: tip
@@ -56,7 +56,7 @@ To deprovision a Cloud Location, navigate to the Locations dashboard. You find i
 1. Find the Cloud Location you want to deprovision.
 2. Click the Remove Cloud Location button in the respective row.
 3. Select the deprovisioning type:
-   - **Graceful**: Deprovision the Location by cordoning its sites. This option waits until no more game servers are running before removal. (Recommended)
+   - **Graceful**: Deprovision the Location by cordoning its Sites. This option waits until no more game servers are running before removal. (Recommended)
    - **Immediate**: Immediately deprovision the Location. Any running game servers will be forcefully terminated.
 4. Read the provided disclaimer about the estimated deprovisioning time and other possible consequences.
 5. Confirm the dialog.
