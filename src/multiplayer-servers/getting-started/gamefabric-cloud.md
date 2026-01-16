@@ -29,14 +29,14 @@ and your game servers can automatically start scaling into the newly provisioned
 
 To provision a Cloud Location, navigate to the Locations dashboard. It is located under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
 
-1. Click the Request Cloud Location button.
+1. Click the "Request Cloud Location" button.
 2. Select a GCP Location.
 3. Select a Machine Configuration.
 4. Read the provided disclaimer about implied costs and estimated provisioning time.
 5. Confirm the dialog.
 
 ::: tip
-If the Request Cloud Location button is disabled, you lack the necessary permissions. Contact our Customer Success Management team for assistance.
+If the "Request Cloud Location" button is disabled, you lack the necessary permissions. Contact our Customer Success Management team for assistance.
 :::
 
 Once the Cloud Location has been provisioned, you can see the assigned number of sites (usually one) in the Locations dashboard.
@@ -54,7 +54,7 @@ To avoid unnecessary costs, remember to deprovision any Cloud Locations you no l
 To deprovision a Cloud Location, navigate to the Locations dashboard. It is located under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
 
 1. Find the Cloud Location you want to deprovision.
-2. Click the Remove Cloud Location button in the respective row.
+2. Click the "Remove Cloud Location" button in the respective row.
 3. Select the deprovisioning type:
    - **Graceful**: Deprovision the Location by cordoning its Sites. This option waits until no more game servers are running before removal. (Recommended)
    - **Immediate**: Immediately deprovision the Location. Any running game servers will be forcefully terminated.
