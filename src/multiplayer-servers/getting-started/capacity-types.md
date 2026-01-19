@@ -17,7 +17,8 @@ Bare metal Locations are not configurable through the GameFabric UI. Contact Nit
 
 ## BYOC
 
-BYOC (Bring Your Own Cloud) allows GameFabric to manage resources within a customer's own cloud provider account. The customer maintains their own cloud subscription and billing relationship with the cloud provider.
+BYOC (Bring Your Own Cloud) allows GameFabric to manage resources within a customer's own cloud provider account.
+The customer maintains their own cloud subscription and billing relationship with the cloud provider.
 
 Key characteristics:
 
