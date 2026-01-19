@@ -1,12 +1,12 @@
 # GameFabric Cloud
 
-GameFabric Cloud enables provisioning and deprovisioning of Cloud [Locations](glossary#location)
+GameFabric Cloud enables provisioning and deprovisioning of cloud [Locations](glossary#location)
 directly from GameFabric, increasing available server capacity.
 
 ## Key Features
 
 - **Integrated management**: Manage cloud capacity directly in GameFabric.
-- **Automated scaling**: Automatically scale game servers into the newly provisioned <span class="nbsp">Cloud Locations</span>.
+- **Automated scaling**: Automatically scale game servers into the newly provisioned cloud Locations.
 - **Simplified billing**: There is no need to manage a separate subscription with a cloud provider. All costs are transparently displayed and delivered through the GameFabric billing system.
 
 ## Limitations
@@ -17,45 +17,44 @@ directly from GameFabric, increasing available server capacity.
 
 ## Introduction
 
-GameFabric Cloud enables provisioning of server capacity at specific, predefined Cloud Locations.
+GameFabric Cloud enables provisioning of server capacity at specific, predefined cloud Locations.
 
 As described in [Setup your Environment](./setup-your-environment#create-a-region), [Regions](glossary#region)
-should be defined to cover multiple Locations, including inactive Cloud Locations.
+should be defined to cover multiple Locations, including inactive cloud Locations.
 
 Provisioning cloud capacity at a specific Location increases the overall capacity in the corresponding Region, allowing game servers to automatically scale into the newly provisioned Location.
 
 ## Provision Cloud Location
 
-To provision a Cloud Location, navigate to the Locations dashboard. It is located under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
+To provision a cloud Location, navigate to the Locations dashboard. It is located under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
 
 1. Click the "Request Cloud Location" button:
    
    !["Request Cloud Location" button](images/cloud/request-cloud-location-button.png)
    
-2. Select a GCP Location and Machine Configuration:
+   ::: tip
+   If the "Request Cloud Location" button is disabled, you lack the necessary permissions. Contact our Customer Success Management team for assistance.
+   :::
+2. Select a "GCP Location" and "Machine Configuration":
    
    !["Request Cloud Location" dialog](images/cloud/request-cloud-location-dialog.png)
 3. Read the provided disclaimer about implied costs and estimated provisioning time.
    The details may differ from those shown in the screenshot.
 4. Confirm the dialog.
 
-::: tip
-If the "Request Cloud Location" button is disabled, you lack the necessary permissions. Contact our Customer Success Management team for assistance.
-:::
-
-Once the Cloud Location has been provisioned, the assigned number of [Sites](glossary#site) (usually one) is shown in the Locations dashboard.
+Once the cloud Location has been provisioned, the assigned number of [Sites](glossary#site) (usually one) is shown in the Locations dashboard.
 Ensure that Regions are updated to include the cloud Location so the newly provisioned capacity can be used seamlessly.
 
 ::: tip
-The API exposes the status of Cloud Locations. The `provisioning/v1beta1` API returns the current status of the requested Location.
+The API exposes the status of cloud Locations. The `provisioning/v1beta1` API returns the current status of the requested Location.
 The `core/v1` API shows the assigned Sites once the Location has been successfully provisioned.
 :::
 
-To avoid unnecessary costs, remember to deprovision unused Cloud Locations.
+To avoid unnecessary costs, remember to deprovision unused cloud Locations.
 
 ## Deprovision Cloud Location
 
-To deprovision a Cloud Location, navigate to the Locations dashboard. It is located under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
+To deprovision a cloud Location, navigate to the Locations dashboard. It is located under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
 
 1. [Find the Cloud Location you want to deprovision.](#find-managed-cloud-locations)
 2. Click the "Remove Cloud Location" button in the respective row.
@@ -72,14 +71,14 @@ To deprovision a Cloud Location, navigate to the Locations dashboard. It is loca
 
 ## Find Managed Cloud Locations
 
-The Locations dashboard shows all locations, including bare metal and cloud, and regardless of whether they have Sites,
+The Locations dashboard shows all Locations, including bare metal and cloud, and regardless of whether they have Sites,
 but by default, the overview is filtered to show only Locations with Sites.
 
-To find Managed Cloud Locations, choose "managed" from the "Filter by Types" dropdown, and eventually de-select other filters:
+To find managed cloud Locations, choose "managed" from the "Filter by Types" dropdown, and eventually de-select other filters:
 
 ![Find Managed Cloud Locations](images/cloud/find-managed-cloud-locations.png)
 
-To find only used Managed Cloud Locations, additionally choose "used" from the "Filter by Sites" dropdown:
+To find only used managed cloud Locations, additionally choose "used" from the "Filter by Sites" dropdown:
 
 ![Find My Managed Cloud Locations](images/cloud/find-my-managed-cloud-locations.png)
 
@@ -87,7 +86,7 @@ To find only used Managed Cloud Locations, additionally choose "used" from the "
 
 ### Configure Regions (required)
 
-The provisioned Cloud Location must be part of a Region for the Armadas and Vessels to use it.
+The provisioned cloud Location must be part of a Region for the Armadas and Vessels to use it.
 
 It is generally advised to distribute most available Locations across the Regions setup so that newly provisioned Locations are automatically used.
 
