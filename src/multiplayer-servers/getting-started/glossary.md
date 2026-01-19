@@ -39,6 +39,12 @@ GameFabric runs its own internal Container registry proxy, which is where you sh
 Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch.
 The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
+## BYOC
+
+BYOC (Bring Your Own Cloud) is a capacity type where GameFabric manages resources within a customer's own cloud provider account (GCP, AWS, or Azure). The customer grants Nitrado access to create and manage Locations in their cloud infrastructure, while maintaining their own cloud subscription and billing relationship.
+
+See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup) and [Capacity Types](/multiplayer-servers/getting-started/capacity-types).
+
 ## CCU
 
 CCU stands for Concurrent Users. It is a key metric that represents the total number of players who are actively playing on a game server at the same time.
@@ -93,9 +99,10 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 ## Location
 
 A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
-This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
-See also [Region](#region) for how to use it.
+For bare metal and BYOC capacity, Locations are configured by Nitrado. For GameFabric Cloud, Locations can be provisioned and deprovisioned through the GameFabric UI.
+
+See also [Capacity Types](/multiplayer-servers/getting-started/capacity-types) and [Region](#region).
 
 ## Mitigation
 
@@ -169,7 +176,8 @@ See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-
 ## Site
 
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a [Location](#location).
-This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
+
+Sites are managed by Nitrado. For GameFabric Cloud Locations, Sites are automatically created when provisioning capacity through the UI.
 
 A [Site](#site) can be marked as cordoned, making it unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
 
