@@ -11,8 +11,8 @@ directly from GameFabric, increasing available server capacity.
 
 ## Limitations
 
-- **Supported providers**: Currently, GameFabric Cloud only supports [Google Cloud Platform](https://cloud.google.com/) (GCP).
-- **Resource types**: Only certain types of cloud capacity, specifically [N2 instances](https://docs.cloud.google.com/compute/docs/machine-resource), can be provisioned through <span class="nbsp">GameFabric Cloud</span>.
+- **Supported providers**: GameFabric Cloud only supports [Google Cloud Platform](https://cloud.google.com/) (GCP).
+- **Resource types**: Only certain machine types can be provisioned, specifically [N2 instances](https://docs.cloud.google.com/compute/docs/machine-resource).
 - **BYOC restrictions**: Cloud capacity cannot be added at Locations that were added using <span class="nbsp">Bring Your Own Cloud</span> (BYOC).
 
 ## Introduction
@@ -38,6 +38,8 @@ To provision a cloud Location, navigate to the Locations dashboard. It is locate
 2. Select a "GCP Location" and "Machine Configuration":
    
    !["Request Cloud Location" dialog](images/cloud/request-cloud-location-dialog.png)
+   
+   The machine configuration lets you choose from predefined machine types with different CPU and memory configurations.
 3. Read the provided disclaimer about implied costs and estimated provisioning time.
    The details may differ from those shown in the screenshot.
 4. Confirm the dialog.
