@@ -82,6 +82,12 @@ Vessels inherit all properties from their respective Formation, but environment 
 
 See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
+## GameFabric Cloud
+
+GameFabric Cloud enables provisioning and deprovisioning of cloud [Locations](#location) directly from GameFabric, increasing available server capacity without requiring a separate cloud provider subscription.
+
+See also [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
+
 ## Gateway Policies
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).
@@ -94,7 +100,7 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 
 A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
 
-For bare metal and [BYOC](#byoc) capacity, Locations are configured by Nitrado. For GameFabric Cloud, Locations can be provisioned and deprovisioned through the GameFabric UI.
+For bare metal and [BYOC](#byoc) capacity, Locations are configured by Nitrado. For [GameFabric Cloud](#gamefabric-cloud), Locations can be provisioned and deprovisioned through the GameFabric UI.
 
 See also [Capacity Types](/multiplayer-servers/getting-started/capacity-types) and [Region](#region).
 
@@ -171,7 +177,7 @@ See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-
 
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a [Location](#location).
 
-Sites are managed by Nitrado. For GameFabric Cloud Locations, Sites are automatically created when provisioning capacity through the UI.
+Sites are managed by Nitrado. For [GameFabric Cloud](#gamefabric-cloud) Locations, Sites are automatically created when provisioning capacity through the UI.
 
 A Site can be marked as cordoned, making it unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
 
