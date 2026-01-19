@@ -17,10 +17,8 @@ GameFabric Cloud lets you provision (and deprovision) Cloud [Locations](glossary
 ## Introduction
 
 GameFabric Cloud lets you provision server capacity at specific, predefined Cloud Locations.
-As described in [Setup your Environment](./setup-your-environment#create-a-region), you should have defined Regions that cover multiple Locations,
+As described in [Setup your Environment](./setup-your-environment#create-a-region), you should have defined [Regions](glossary#region) that cover multiple Locations,
 including inactive Cloud Locations.
-
-Regions are logical groupings of (physical data center) Locations and are assigned to Armadas or Vessels.
 
 When you provision cloud capacity at a specific location, the overall capacity in the corresponding region increases,
 and game servers can automatically start scaling into the newly provisioned location.
