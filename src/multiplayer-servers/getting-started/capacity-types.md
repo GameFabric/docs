@@ -51,14 +51,14 @@ GameFabric Cloud capacity cannot be added at Locations that were added using BYO
 
 The following table summarizes the key differences between capacity types:
 
-| Aspect | Bare metal | BYOC | GameFabric Cloud |
-|--------|------------|------|------------------|
-| Infrastructure owner | Nitrado | Customer | Nitrado |
-| Cloud providers | N/A | GCP, AWS, Azure | GCP |
-| Location configuration | Nitrado | Nitrado | Self-service via UI |
-| Billing | GameFabric | Cloud provider | GameFabric |
-| Game servers per node | 150 | 100 | 100 |
-| Setup required | Contact Nitrado | IAM configuration | None |
+| Aspect                 | Bare metal      | BYOC              | GameFabric Cloud    |
+|------------------------|-----------------|-------------------|---------------------|
+| Infrastructure owner   | Nitrado         | Customer          | Nitrado             |
+| Cloud providers        | N/A             | GCP, AWS, Azure   | GCP                 |
+| Location configuration | Nitrado         | Nitrado           | Self-service via UI |
+| Billing                | GameFabric      | Cloud provider    | GameFabric          |
+| Game servers per node  | 150             | 100               | 100                 |
+| Setup required         | Contact Nitrado | IAM configuration | None                |
 
 ## Prioritizing capacity types
 
