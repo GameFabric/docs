@@ -76,6 +76,12 @@ Vessels inherit all properties from their respective Formation, but environment 
 
 See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
+## GameFabric Cloud
+
+GameFabric Cloud enables provisioning and deprovisioning of cloud [Locations](#location) directly from GameFabric, increasing available server capacity without requiring a separate cloud provider subscription.
+
+See also [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
+
 ## Gateway Policies
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).

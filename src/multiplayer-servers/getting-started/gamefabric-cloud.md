@@ -92,7 +92,8 @@ It is generally advised to distribute most available Locations across the Region
 
 ### Configure Region Types and Priority (recommended)
 
-Region Types divide a Region into logical subsets, such as bare metal and cloud. 
+Region Types divide a Region into logical subsets, such as bare metal and cloud.
 This enables priority configuration, with bare metal often preferred over cloud for cost optimization.
 
 Lower priority numbers indicate a higher priority (`0` is used first, `1` is used second, and so on).
+
