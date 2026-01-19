@@ -50,7 +50,7 @@ GameFabric Cloud capacity cannot be added at Locations that were added using BYO
 
 The following table summarizes the key differences between capacity types:
 
-| Aspect | Bare Metal | BYOC | GameFabric Cloud |
+| Aspect | Bare metal | BYOC | GameFabric Cloud |
 |--------|------------|------|------------------|
 | Infrastructure owner | Nitrado | Customer | Nitrado |
 | Cloud providers | N/A | GCP, AWS, Azure | GCP |
