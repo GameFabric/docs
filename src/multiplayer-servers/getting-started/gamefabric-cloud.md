@@ -6,7 +6,7 @@ GameFabric Cloud lets you provision (and deprovision) Cloud [Locations](glossary
 
 - **Integrated management**: Manage your cloud capacity directly in GameFabric.
 - **Automated scaling**: Automatically scale your game servers into the newly provisioned <span class="nbsp">Cloud Locations</span>.
-- **Simplified billing**: There's no need to manage a separate cloud provider subscription because we handle it all for you in the GameFabric billing system.
+- **Simplified billing**: There's no need to manage a separate cloud provider subscription because is it handled for you by the GameFabric billing system.
 
 ## Limitations
 
@@ -22,8 +22,8 @@ including inactive Cloud Locations.
 
 Regions are logical groupings of (physical data center) Locations and are assigned to Armadas or Vessels.
 
-When you provision cloud capacity at a specific location, your overall capacity in the corresponding region increases,
-and your game servers can automatically start scaling into the newly provisioned location.
+When you provision cloud capacity at a specific location, the overall capacity in the corresponding region increases,
+and game servers can automatically start scaling into the newly provisioned location.
 
 ## Provision Cloud Location
 
@@ -48,11 +48,11 @@ Once the Cloud Location has been provisioned, you can see the assigned number of
 Make sure your Regions have been updated to include the Cloud Location so you can seamlessly make use of the new capacity once it has been provisioned.
 
 ::: tip
-You can follow the status of your Cloud Location via API. The `provisioning/v1beta1` API returns the current status of the requested Location.
+The API exposes the status of Cloud Locations. The `provisioning/v1beta1` API returns the current status of the requested Location.
 The `core/v1` API shows the assigned Sites once the Location has been successfully provisioned.
 :::
 
-To avoid unnecessary costs, remember to deprovision any Cloud Locations you no longer need.
+To avoid unnecessary costs, remember to deprovision unused Cloud Locations.
 
 ## Deprovision Cloud Location
 
@@ -64,7 +64,7 @@ To deprovision a Cloud Location, navigate to the Locations dashboard. It is loca
    !["Remove Cloud Location" button](images/cloud/remove-cloud-location-button.png)
 3. Select the deprovisioning type:
    - **Graceful**: Deprovision the Location by cordoning its Sites. This option waits until no more game servers are running before removal. (Recommended)
-   - **Forceful**: Immediately deprovision the Location. Any running game servers will be forcefully terminated.
+   - **Forceful**: Immediately deprovision the Location. Any running game servers are forcefully terminated.
    
    !["Remove Cloud Location" dialog](images/cloud/remove-cloud-location-dialog.png)
 4. Read the provided disclaimer about the estimated deprovisioning time and other possible consequences.
@@ -80,7 +80,7 @@ To find Managed Cloud Locations, choose "managed" from the "Filter by Types" dro
 
 ![Find Managed Cloud Locations](images/cloud/find-managed-cloud-locations.png)
 
-To find only your Managed Cloud Locations, additionally chhose "used" from the "Filter by Sites" dropdown:
+To find only your Managed Cloud Locations, additionally choose "used" from the "Filter by Sites" dropdown:
 
 ![Find My Managed Cloud Locations](images/cloud/find-my-managed-cloud-locations.png)
 
@@ -89,9 +89,9 @@ To find only your Managed Cloud Locations, additionally chhose "used" from the "
 ### Configure Regions (required)
 
 Your provisioned Cloud Location must be part of a Region for your Armadas and Vessels to use it.
-Otherwise, your provisioned cloud capacity will not be used.
 
 It is generally advised to distribute most of the available Locations to your Regions setup so that in the event that a Location is provisioned, it is automatically used.
+
 ### Configure Region Types and Priority (recommended)
 
 Region Types divide a Region into logical subsets, such as bare metal and cloud.
