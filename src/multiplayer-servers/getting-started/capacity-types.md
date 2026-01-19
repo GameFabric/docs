@@ -62,4 +62,5 @@ The following table summarizes the key differences between capacity types:
 
 ## Prioritizing capacity types
 
-Use [Region Types](/multiplayer-servers/getting-started/setup-your-environment#create-a-region) to prioritize how game servers are distributed across different capacity types. For example, configure bare metal with a higher priority (lower number) than cloud to optimize costs while still allowing burst capacity to cloud when needed.
+Use [Region Types](/multiplayer-servers/getting-started/setup-your-environment#create-a-region) to prioritize how game servers are distributed across different capacity types.
+For example, configure bare metal with a higher priority (lower number) than cloud to optimize costs while still allowing burst capacity to cloud when needed.
