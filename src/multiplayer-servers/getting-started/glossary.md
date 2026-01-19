@@ -76,6 +76,12 @@ Vessels inherit all properties from their respective Formation, but environment 
 
 See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
 
+## GameFabric Cloud
+
+GameFabric Cloud enables provisioning and deprovisioning of cloud [Locations](#location) directly from GameFabric, increasing available server capacity without requiring a separate cloud provider subscription.
+
+See also [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
+
 ## Gateway Policies
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).
@@ -87,9 +93,10 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 ## Location
 
 A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
-This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
-See also [Region](#region) for how to use it.
+For bare metal and BYOC capacity, Locations are configured by Nitrado. For [GameFabric Cloud](#gamefabric-cloud), Locations can be provisioned and deprovisioned through the GameFabric UI.
+
+See also [Region](#region).
 
 ## Mitigation
 
@@ -163,9 +170,10 @@ See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-
 ## Site
 
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a [Location](#location).
-This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
-A [Site](#site) can be marked as cordoned, making it unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
+Sites are managed by Nitrado. For [GameFabric Cloud](#gamefabric-cloud) Locations, Sites are automatically created when provisioning capacity through the UI.
+
+A Site can be marked as cordoned, making it unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
 
 This can be the case, for example, when a Site has just been provisioned to prevent premature allocations, or when a Site is being prepared for deprovisioning.
 
