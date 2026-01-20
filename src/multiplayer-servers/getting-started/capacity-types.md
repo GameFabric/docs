@@ -15,21 +15,6 @@ Key characteristics:
 
 Bare metal Locations are not configurable through the GameFabric UI. Contact Nitrado to request additional bare metal capacity.
 
-## BYOC
-
-BYOC (Bring Your Own Cloud) allows GameFabric to manage resources within a customer's own cloud provider account.
-The customer maintains their own cloud subscription and billing relationship with the cloud provider.
-
-Key characteristics:
-
-- **Customer-owned infrastructure**: Resources run in the customer's cloud account (GCP, AWS, or Azure).
-- **Customer grants access**: The customer configures IAM permissions to allow Nitrado to manage resources.
-- **Nitrado manages Locations**: After access is granted, Nitrado creates and manages Locations and Sites.
-- **Flexible provider choice**: Supports Google Cloud Platform, Amazon Web Services, and Microsoft Azure.
-- **Separate billing**: Cloud costs are billed directly by the cloud provider to the customer.
-
-To set up BYOC, see [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup).
-
 ## GameFabric Cloud
 
 GameFabric Cloud enables provisioning and deprovisioning of cloud Locations directly from the GameFabric UI, without requiring a separate cloud provider subscription.
@@ -47,18 +32,33 @@ To provision GameFabric Cloud capacity, see [GameFabric Cloud](/multiplayer-serv
 GameFabric Cloud capacity cannot be added at Locations that were added using BYOC.
 :::
 
+## BYOC
+
+BYOC (Bring Your Own Cloud) allows GameFabric to manage resources within a customer's own cloud provider account.
+The customer maintains their own cloud subscription and billing relationship with the cloud provider.
+
+Key characteristics:
+
+- **Customer-owned infrastructure**: Resources run in the customer's cloud account (GCP, AWS, or Azure).
+- **Customer grants access**: The customer configures IAM permissions to allow Nitrado to manage resources.
+- **Nitrado manages Locations**: After access is granted, Nitrado creates and manages Locations and Sites.
+- **Flexible provider choice**: Supports Google Cloud Platform, Amazon Web Services, and Microsoft Azure.
+- **Separate billing**: Cloud costs are billed directly by the cloud provider to the customer.
+
+To set up BYOC, see [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup).
+
 ## Comparison
 
 The following table summarizes the key differences between capacity types:
 
-| Aspect                 | Bare metal      | BYOC              | GameFabric Cloud    |
-|------------------------|-----------------|-------------------|---------------------|
-| Infrastructure owner   | Nitrado         | Customer          | Nitrado             |
-| Cloud providers        | N/A             | GCP, AWS, Azure   | GCP                 |
-| Location configuration | Nitrado         | Nitrado           | Self-service via UI |
-| Billing                | GameFabric      | Cloud provider    | GameFabric          |
-| Game servers per node  | 150             | 100               | 100                 |
-| Setup required         | Contact Nitrado | IAM configuration | None                |
+| Aspect                 | Bare metal      | GameFabric Cloud    | BYOC              |
+|------------------------|-----------------|---------------------|-------------------|
+| Infrastructure owner   | Nitrado         | Nitrado             | Customer          |
+| Cloud providers        | N/A             | GCP                 | GCP, AWS, Azure   |
+| Location configuration | Nitrado         | Self-service via UI | Nitrado           |
+| Billing                | GameFabric      | GameFabric          | Cloud provider    |
+| Game servers per node  | 150             | 100                 | 100               |
+| Setup required         | Contact Nitrado | None                | IAM configuration |
 
 ## Prioritizing capacity types
 
