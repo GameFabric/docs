@@ -1,7 +1,7 @@
 # Configuring your Cloud Provider
 
-This document describes the steps required to set up your cloud provider for use with GameFabric.
-This setup is also known as <span class="nbsp">Bring Your Own Cloud</span> (BYOC), where GameFabric manages resources within your cloud provider account.
+This document describes the steps required to set up your Cloud provider for use with GameFabric.
+This setup is also known as <span class="nbsp">Bring Your Own Cloud</span> (BYOC), where GameFabric manages resources within your Cloud provider account.
 
 Currently supported Cloud providers are Google Cloud (GCP), Azure, and Amazon Web Services (AWS).
 
