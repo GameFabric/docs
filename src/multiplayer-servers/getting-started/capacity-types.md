@@ -11,7 +11,8 @@ Key characteristics:
 - **Managed by Nitrado**: Locations and Sites are configured by Nitrado.
 - **High performance**: Dedicated physical hardware with no virtualization overhead.
 - **Cost-effective**: Often preferred over cloud for cost optimization when capacity is predictable.
-- **Higher density**: Supports up to 150 game servers per node.
+- **Integrated billing**: All costs are billed through GameFabric.
+- **Density**: Supports up to 150 game servers per node.
 
 Bare metal Locations are not configurable through the GameFabric UI. Contact Nitrado to request additional bare metal capacity.
 
@@ -22,9 +23,9 @@ GameFabric Cloud enables provisioning and deprovisioning of cloud Locations dire
 Key characteristics:
 
 - **Self-service provisioning**: Provision and deprovision cloud Locations through the GameFabric UI.
-- **Simplified billing**: All costs are transparently displayed and delivered through the GameFabric billing system.
-- **GCP only**: Currently supports Google Cloud Platform with N2 instances.
-- **Lower density**: Supports up to 100 game servers per node.
+- **GCP only**: Supports Google Cloud Platform with a curated selection of machine types.
+- **Integrated billing**: All costs are billed through GameFabric.
+- **Density**: Supports up to 100 game servers per node.
 
 To provision GameFabric Cloud capacity, see [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
 
@@ -39,11 +40,11 @@ The customer maintains their own cloud subscription and billing relationship wit
 
 Key characteristics:
 
-- **Customer-owned infrastructure**: Resources run in the customer's cloud account (GCP, AWS, or Azure).
-- **Customer grants access**: The customer configures IAM permissions to allow Nitrado to manage resources.
-- **Nitrado manages Locations**: After access is granted, Nitrado creates and manages Locations and Sites.
-- **Flexible provider choice**: Supports Google Cloud Platform, Amazon Web Services, and Microsoft Azure.
-- **Separate billing**: Cloud costs are billed directly by the cloud provider to the customer.
+- **Customer-owned infrastructure**: Resources run in your cloud account.
+- **Setup via Nitrado**: After granting IAM access, Nitrado creates and manages Locations and Sites.
+- **Multi-cloud support**: Supports Google Cloud Platform, Amazon Web Services, and Microsoft Azure with full machine type flexibility.
+- **Separate billing**: Cloud costs are billed directly by your cloud provider, preserving any negotiated rates or committed-use discounts.
+- **Density**: Supports up to 100 game servers per node.
 
 To set up BYOC, see [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup).
 
