@@ -1,4 +1,4 @@
-# Capacity types
+# Capacity Types
 
 GameFabric supports three types of hosting capacity for running game servers. Each type offers different tradeoffs in terms of control, cost, and management overhead.
 
