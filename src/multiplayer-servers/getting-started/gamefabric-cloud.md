@@ -12,7 +12,7 @@ directly from GameFabric, increasing available server capacity.
 ## Limitations
 
 - **Supported providers**: GameFabric Cloud only supports [Google Cloud Platform](https://cloud.google.com/) (GCP).
-- **Resource types**: Only certain machine types can be provisioned, specifically [N2 instances](https://docs.cloud.google.com/compute/docs/machine-resource).
+- **Resource types**: A curated selection of machine types can be provisioned.
 - **BYOC restrictions**: Cloud capacity cannot be added at Locations that were added using <span class="nbsp">Bring Your Own Cloud</span> (BYOC).
 
 ## Introduction
