@@ -90,7 +90,7 @@ To find only used managed cloud Locations, additionally choose "used" from the "
 
 The provisioned cloud Location must be part of a Region for the Armadas and Vessels to use it.
 
-It is generally advised to distribute most available Locations across the Regions setup so that newly provisioned Locations are automatically used.
+It is generally advised to distribute the available Locations across the Regions setup so that newly provisioned Locations are automatically used.
 
 ### Configure Region Types and Priority (recommended)
 
