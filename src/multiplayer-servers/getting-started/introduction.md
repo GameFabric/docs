@@ -5,8 +5,15 @@ It provides a web interface to manage game server deployments across multiple re
 
 This documentation is meant to guide you through the setup and usage of GameFabric, from the initial setup of your Cloud capacity to the deployment of your game servers.
 
-::: tip Key Concepts
-To better understand GameFabric, we recommend reviewing the [Glossary](/multiplayer-servers/getting-started/glossary) for definitions of key terms like Armadas, Formations, Vessels, and Fleets.
+## Getting started
 
-You should also familiarize yourself with the [hosting models](/multiplayer-servers/hosting-models/identifying-your-hosting-model) (Armadas vs Formations) to choose the right approach for your game.
+Choose the path that fits your needs:
+
+- [Quickstart](/multiplayer-servers/getting-started/quickstart) - Get your first game server running in minutes. Ideal for trials and quick evaluations.
+- [Full Setup Guide](/multiplayer-servers/getting-started/full-setup-guide) - Comprehensive production setup checklist covering authentication, capacity, deployment, and monitoring.
+
+::: tip Key Concepts
+Familiarize yourself with the [hosting models](/multiplayer-servers/running-game-servers/identifying-your-hosting-model) ([Armadas](/multiplayer-servers/getting-started/glossary#armada) vs [Formations](/multiplayer-servers/getting-started/glossary#formation)) to choose the right approach for your game.
+
+For definitions of key terms, see the [Glossary](/multiplayer-servers/getting-started/glossary).
 :::

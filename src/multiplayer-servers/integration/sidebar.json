@@ -1,7 +1,7 @@
 {
   "text": "Integration",
   "collapsed": false,
-  "order": 1,
+  "order": 4,
   "items": [
     {
       "text": "Your Game Server",
@@ -18,6 +18,22 @@
     {
       "text": "Player Count Tracking",
       "link": "/integration/player-count-tracking"
+    },
+    {
+      "text": "Building a Container Image",
+      "link": "/integration/building-a-container-image"
+    },
+    {
+      "text": "Using the Agones SDK",
+      "link": "/integration/using-the-agones-sdk"
+    },
+    {
+      "text": "Pushing Container Images",
+      "link": "/integration/pushing-container-images"
+    },
+    {
+      "text": "Deleting Container Images",
+      "link": "/integration/deleting-container-images"
     }
   ]
 }

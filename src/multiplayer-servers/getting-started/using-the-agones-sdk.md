@@ -1,1 +1,1 @@
-../integration/your-game-server.md
+../integration/using-the-agones-sdk.md

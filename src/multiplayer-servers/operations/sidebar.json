@@ -1,0 +1,31 @@
+{
+  "text": "Operations",
+  "collapsed": false,
+  "order": 5,
+  "items": [
+    {
+      "text": "Setup your Environment",
+      "link": "/operations/setup-your-environment"
+    },
+    {
+      "text": "Edit a Branch",
+      "link": "/operations/edit-a-branch"
+    },
+    {
+      "text": "Running your Game Server",
+      "link": "/operations/running-your-game-server"
+    },
+    {
+      "text": "Terminating ArmadaSets",
+      "link": "/operations/terminating-armadasets"
+    },
+    {
+      "text": "Terminating Game Servers",
+      "link": "/operations/terminating-game-servers"
+    },
+    {
+      "text": "Managing Secrets",
+      "link": "/operations/secrets"
+    }
+  ]
+}
