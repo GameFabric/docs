@@ -106,7 +106,7 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 
 A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
 
-For all capacity types, Locations are configured by Nitrado. For bare metal and [BYOC](#byoc), request capacity via the [GameFabric Help Center](#gamefabric-help-center). For [GameFabric Cloud](#gamefabric-cloud), capacity can be requested through the GameFabric UI.
+Locations are managed by Nitrado for all capacity types. To request bare metal or [BYOC](#byoc) capacity, submit a request via the [GameFabric Help Center](#gamefabric-help-center). For [GameFabric Cloud](#gamefabric-cloud), you request capacity directly through the GameFabric UI.
 
 See also [Capacity Types](/multiplayer-servers/getting-started/capacity-types) and [Region](#region).
 
