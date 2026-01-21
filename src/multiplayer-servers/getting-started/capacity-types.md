@@ -30,7 +30,7 @@ Key characteristics:
 To provision GameFabric Cloud capacity, see [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
 
 ::: info
-GameFabric Cloud capacity cannot be added at Locations that were added using BYOC.
+GameFabric Cloud capacity cannot be added at Locations that are currently in-use through BYOC .
 :::
 
 ## BYOC
