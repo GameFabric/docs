@@ -88,6 +88,10 @@ GameFabric Cloud enables provisioning and deprovisioning of cloud [Locations](#l
 
 See also [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
 
+## GameFabric Help Center
+
+The GameFabric Help Center is the central place for all self-service feature requests, orders, and cancellations. It is accessible from within the GameFabric UI via the "?" menu in the top navigation bar.
+
 ## Gateway Policies
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).
@@ -100,7 +104,7 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 
 A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
 
-For bare metal and [BYOC](#byoc) capacity, Locations are configured by Nitrado. For [GameFabric Cloud](#gamefabric-cloud), Locations can be provisioned and deprovisioned through the GameFabric UI.
+For all capacity types, Locations are configured by Nitrado. For bare metal and [BYOC](#byoc), request capacity via the [GameFabric Help Center](#gamefabric-help-center). For [GameFabric Cloud](#gamefabric-cloud), capacity can be requested through the GameFabric UI.
 
 See also [Capacity Types](/multiplayer-servers/getting-started/capacity-types) and [Region](#region).
 
