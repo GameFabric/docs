@@ -59,7 +59,7 @@ See the publicly available [gswrapper releases](https://github.com/gamefabric/gs
 Depending on how you create your container image, the integration for it can be as simple as:
 
 ```Dockerfile
-ARG version=v2.5.0
+ARG version=v2.6.0
 
 ADD https://github.com/GameFabric/gswrapper/releases/download/${version}/gsw_linux_x86_64 \
     /app/gsw
