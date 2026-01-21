@@ -12,6 +12,14 @@
       "link": "/getting-started/authentication"
     },
     {
+      "text": "Capacity Types",
+      "link": "/getting-started/capacity-types"
+    },
+    {
+      "text": "GameFabric Cloud",
+      "link": "/getting-started/gamefabric-cloud"
+    },
+    {
       "text": "Configuring your Cloud Provider",
       "link": "/getting-started/cloud-provider-setup"
     },
@@ -62,10 +70,6 @@
     {
       "text": "Managing your Secrets",
       "link": "/getting-started/secrets"
-    },
-    {
-      "text": "GameFabric Cloud",
-      "link": "/getting-started/gamefabric-cloud"
     },
     {
       "text": "Glossary",

@@ -39,6 +39,12 @@ GameFabric runs its own internal Container registry proxy, which is where you sh
 Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch.
 The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
+## BYOC
+
+BYOC (Bring Your Own Cloud) is a capacity type where GameFabric manages resources within a customer's own cloud provider account (GCP, AWS, or Azure). The customer grants Nitrado access to create and manage Locations in their cloud infrastructure, while maintaining their own cloud subscription and billing relationship.
+
+See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup) and [Capacity Types](/multiplayer-servers/getting-started/capacity-types).
+
 ## CCU
 
 CCU stands for Concurrent Users. It is a key metric that represents the total number of players who are actively playing on a game server at the same time.
@@ -82,6 +88,12 @@ GameFabric Cloud enables provisioning and deprovisioning of cloud [Locations](#l
 
 See also [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
 
+## GameFabric Help Center
+
+The GameFabric Help Center is the central place for all self-service feature requests, orders, and cancellations. It is accessible from within the GameFabric UI via the "?" menu in the top navigation bar.
+
+![Help Center menu location](images/glossary/help-center-menu.png)
+
 ## Gateway Policies
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).
@@ -94,9 +106,9 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 
 A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
 
-For bare metal and BYOC capacity, Locations are configured by Nitrado. For [GameFabric Cloud](#gamefabric-cloud), Locations can be provisioned and deprovisioned through the GameFabric UI.
+Locations are managed by Nitrado for all capacity types. To request bare metal or [BYOC](#byoc) capacity, submit a request via the [GameFabric Help Center](#gamefabric-help-center). For [GameFabric Cloud](#gamefabric-cloud), you request capacity directly through the GameFabric UI.
 
-See also [Region](#region).
+See also [Capacity Types](/multiplayer-servers/getting-started/capacity-types) and [Region](#region).
 
 ## Mitigation
 

@@ -12,8 +12,8 @@ directly from GameFabric, increasing available server capacity.
 ## Limitations
 
 - **Supported providers**: GameFabric Cloud only supports [Google Cloud Platform](https://cloud.google.com/) (GCP).
-- **Resource types**: Only certain machine types can be provisioned, specifically [N2 instances](https://docs.cloud.google.com/compute/docs/machine-resource).
-- **BYOC restrictions**: Cloud capacity cannot be added at Locations that were added using <span class="nbsp">Bring Your Own Cloud</span> (BYOC).
+- **Resource types**: A curated selection of machine types can be provisioned. Available types are shown in the Locations section of the GameFabric UI.
+- **BYOC restrictions**: GameFabric Cloud capacity cannot be added at Locations that are already provisioned through <span class="nbsp">Bring Your Own Cloud</span> (BYOC).
 
 ## Introduction
 
@@ -90,7 +90,7 @@ To find only used managed cloud Locations, additionally choose "used" from the "
 
 The provisioned cloud Location must be part of a Region for the Armadas and Vessels to use it.
 
-It is generally advised to distribute most available Locations across the Regions setup so that newly provisioned Locations are automatically used.
+It is generally advised to distribute the available Locations across the Regions setup so that newly provisioned Locations are automatically used.
 
 ### Configure Region Types and Priority (recommended)
 
