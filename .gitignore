@@ -10,3 +10,6 @@ dist
 !.yarn/versions
 
 /.vitepress/cache
+
+# OpenCode local tooling
+.opencode/
