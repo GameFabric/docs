@@ -92,6 +92,8 @@ See also [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-clou
 
 The GameFabric Help Center is the central place for all self-service feature requests, orders, and cancellations. It is accessible from within the GameFabric UI via the "?" menu in the top navigation bar.
 
+![Help Center menu location](images/glossary/help-center-menu.png)
+
 ## Gateway Policies
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).
