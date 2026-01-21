@@ -1,0 +1,19 @@
+{
+  "text": "Authentication",
+  "collapsed": false,
+  "order": 2,
+  "items": [
+    {
+      "text": "Authentication",
+      "link": "/authentication/authentication"
+    },
+    {
+      "text": "Third-Party OAuth",
+      "link": "/authentication/setup-third-party-oauth"
+    },
+    {
+      "text": "Editing Permissions",
+      "link": "/authentication/editing-permissions"
+    }
+  ]
+}

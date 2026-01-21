@@ -1,0 +1,23 @@
+{
+  "text": "Running Game Servers",
+  "collapsed": false,
+  "order": 3,
+  "items": [
+    {
+      "text": "Hosting Models",
+      "link": "/running-game-servers/identifying-your-hosting-model"
+    },
+    {
+      "text": "Capacity Types",
+      "link": "/running-game-servers/capacity-types"
+    },
+    {
+      "text": "GameFabric Cloud",
+      "link": "/running-game-servers/gamefabric-cloud"
+    },
+    {
+      "text": "Cloud Provider Setup",
+      "link": "/running-game-servers/cloud-provider-setup"
+    }
+  ]
+}

@@ -8,68 +8,12 @@
       "link": "/getting-started/introduction"
     },
     {
-      "text": "Authentication",
-      "link": "/getting-started/authentication"
+      "text": "Quickstart",
+      "link": "/getting-started/quickstart"
     },
     {
-      "text": "Capacity Types",
-      "link": "/getting-started/capacity-types"
-    },
-    {
-      "text": "GameFabric Cloud",
-      "link": "/getting-started/gamefabric-cloud"
-    },
-    {
-      "text": "Configuring your Cloud Provider",
-      "link": "/getting-started/cloud-provider-setup"
-    },
-    {
-      "text": "Building a Container Image",
-      "link": "/getting-started/building-a-container-image"
-    },
-    {
-      "text": "Using the Agones SDK",
-      "link": "/getting-started/using-the-agones-sdk"
-    },
-    {
-      "text": "Pushing Container Images",
-      "link": "/getting-started/pushing-container-images"
-    },
-    {
-      "text": "Deleting Container Images",
-      "link": "/getting-started/deleting-container-images"
-    },
-    {
-      "text": "Edit a Branch",
-      "link": "/getting-started/edit-a-branch"
-    },
-    {
-      "text": "Setup your Environment",
-      "link": "/getting-started/setup-your-environment"
-    },
-    {
-      "text": "Setup Third-Party OAuth Integration",
-      "link": "/getting-started/setup-third-party-oauth"
-    },
-    {
-      "text": "Editing Permissions",
-      "link": "/getting-started/editing-permissions"
-    },
-    {
-      "text": "Running your Game Server",
-      "link": "/getting-started/running-your-game-server"
-    },
-    {
-      "text": "Terminating ArmadaSets",
-      "link": "/getting-started/terminating-armadasets"
-    },
-    {
-      "text": "Terminating Game Servers",
-      "link": "/getting-started/terminating-game-servers"
-    },
-    {
-      "text": "Managing your Secrets",
-      "link": "/getting-started/secrets"
+      "text": "Full Setup Guide",
+      "link": "/getting-started/full-setup-guide"
     },
     {
       "text": "Glossary",
