@@ -28,7 +28,14 @@ Package your game server into a Docker container. A minimal Dockerfile might loo
 
 ```Dockerfile
 FROM ubuntu:22.04
+
+# Create a non-root user with uid 1000 as required by GameFabric
+RUN groupadd -g 1000 game && useradd -u 1000 -g 1000 -m game
+
 COPY gameserver /app/gameserver
+RUN chown 1000:1000 /app/gameserver
+
+USER 1000
 CMD ["/app/gameserver"]
 ```
 
