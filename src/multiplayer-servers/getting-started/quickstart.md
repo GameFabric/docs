@@ -8,7 +8,9 @@ This quickstart guide is intended for trials and quick evaluations. For producti
 
 ## Prerequisites
 
-- Access to your GameFabric installation via the URL provided during onboarding
+Make sure you have the following before you start:
+
+- Access to GameFabric (your organization's URL is provided during onboarding)
 - A game server binary ready for containerization (see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image))
 - [Docker](https://docs.docker.com/engine/install/) installed to build and push container images
 
@@ -20,7 +22,7 @@ A [Branch](/multiplayer-servers/getting-started/glossary#branch) stores your con
 
 Create a Branch in the GameFabric UI under **Container Images > Branches**.
 
-[Detailed guide: Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)
+[Detailed guide: Create a Branch](/multiplayer-servers/getting-started/pushing-container-images#create-a-branch)
 
 ### 2. Build your container image
 
