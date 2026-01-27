@@ -108,7 +108,7 @@ There are two types of ports you can configure:
 * **Dynamic** is the preferred default. The game server locally binds to a predetermined port (such as `7777`) and
   at runtime, a random public port is chosen that game clients can then use to reach the game server. If the game server
   needs to communicate its public IP and ports to an outside system, such as a server list, the game server needs to
-  query this data from the Agones SDK. See [Discovering Your Public Address](/multiplayer-servers/getting-started/using-the-agones-sdk#discovering-your-public-address) for details.
+  query this data from the Agones SDK. See [Discovering Your Public Address](/multiplayer-servers/integration/your-game-server#discovering-your-public-address) for details.
 * **Passthrough** may be required if a game server requires public and local port to be the same (Steam's A2S query
   being a notable example). The public port is randomly chosen at runtime, and the game server then has to locally
   bind to that specific port after retrieving it from the Agones SDK. Passthrough should only be used when required.
