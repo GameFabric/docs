@@ -93,7 +93,7 @@ When configuring the Vessel:
 The Vessel starts automatically after creation. In the **Vessels** list, click **Details** on your Vessel to view connection details and monitor startup progress under **Container Logs**. Once the logs show your server is ready, you can connect.
 
 ::: warning External port
-The external port will be different from your configured game server port. If your server needs to advertise its address to external services (like Steam or a server browser), see [Discovering Your Public Address](/multiplayer-servers/getting-started/using-the-agones-sdk#discovering-your-public-address).
+The external port will be different from your configured game server port. If your server needs to advertise its address to external services (like Steam or a server browser), see [Discovering Your Public Address](/multiplayer-servers/integration/your-game-server#discovering-your-public-address).
 :::
 
 [Detailed guide: Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server)
