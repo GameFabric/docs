@@ -80,12 +80,26 @@ Create a Region within your Environment in the GameFabric UI.
 
 ### 6. Create a Vessel
 
-Deploy your game server as a Vessel. For quick testing without Agones SDK integration, disable health checks.
+In the GameFabric UI, navigate to the Environment you created in Step 4, then go to **Formations > Create Vessel**.
+
+When configuring the Vessel:
+
+1. **General**: Enter a name for your Vessel
+2. **Region**: Select the Region you created in Step 5
+3. **Volumes**: Skip this section
+4. **Container**: Select the Branch, image, and tag you pushed in Step 3, and specify the port your game server listens on
+5. **Advanced**: Set health check to "Disabled" for testing without Agones SDK
+
+The Vessel starts automatically after creation. In the **Vessels** list, click **Details** on your Vessel to view connection details and monitor startup progress under **Container Logs**. Once the logs show your server is ready, you can connect.
+
+::: warning External port
+The external port will be different from your configured game server port.
+:::
 
 [Detailed guide: Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server)
 
 ::: tip Testing without Agones SDK
-When testing without Agones SDK integration, set the health check to "Disabled" in the Advanced section. This allows the game server to run without calling SDK health check methods.
+Disabling health checks allows the game server to run without calling Agones SDK health check methods. Otherwise, GameFabric restarts the Vessel repeatedly for failing health checks.
 :::
 
 ## What's next?
