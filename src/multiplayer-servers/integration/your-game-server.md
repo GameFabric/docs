@@ -67,7 +67,7 @@ The JSON response includes the public address and ports in the `status` object:
         "ports": [
             {
                 "name": "game",
-                "port":  12225
+                "port": 12225
             }
         ]
     }
