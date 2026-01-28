@@ -72,7 +72,6 @@ The JSON response includes the public address and ports in the `status` object:
         ]
     }
 }
-
 ```
 
 ### Game Server Wrapper
