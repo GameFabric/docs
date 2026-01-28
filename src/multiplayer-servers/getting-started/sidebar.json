@@ -8,6 +8,10 @@
       "link": "/getting-started/introduction"
     },
     {
+      "text": "Quickstart",
+      "link": "/getting-started/quickstart"
+    },
+    {
       "text": "Authentication",
       "link": "/getting-started/authentication"
     },
