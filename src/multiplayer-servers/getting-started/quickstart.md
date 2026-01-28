@@ -51,14 +51,12 @@ docker build -t gameserver:v1.0.0 .
 
 ### 3. Push your container image
 
-Tag and push the container image to your Branch:
+Tag and push the container image to your Branch. Replace `${URL}` with your GameFabric registry URL and `${BRANCH}` with your Branch name:
 
 ```bash
 docker tag gameserver:v1.0.0 ${URL}/${BRANCH}/gameserver:v1.0.0
 docker push ${URL}/${BRANCH}/gameserver:v1.0.0
 ```
-
-Replace `${URL}` with your GameFabric registry URL and `${BRANCH}` with your Branch name.
 
 [Detailed guide: Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)
 
