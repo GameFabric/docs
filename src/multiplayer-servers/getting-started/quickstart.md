@@ -51,14 +51,12 @@ docker build -t gameserver:v1.0.0 .
 
 ### 3. Push your container image
 
-Tag and push the container image to your Branch:
+Tag and push the container image to your Branch. Replace `${URL}` with your GameFabric registry URL and `${BRANCH}` with your Branch name:
 
 ```bash
 docker tag gameserver:v1.0.0 ${URL}/${BRANCH}/gameserver:v1.0.0
 docker push ${URL}/${BRANCH}/gameserver:v1.0.0
 ```
-
-Replace `${URL}` with your GameFabric registry URL and `${BRANCH}` with your Branch name.
 
 [Detailed guide: Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)
 
@@ -93,7 +91,7 @@ When configuring the Vessel:
 The Vessel starts automatically after creation. In the **Vessels** list, click **Details** on your Vessel to view connection details and monitor startup progress under **Container Logs**. Once the logs show your server is ready, you can connect.
 
 ::: warning External port
-The external port will be different from your configured game server port.
+The external port will be different from your configured game server port. If your server needs to advertise its address to external services (like Steam or a server browser), see [Discovering Your Public Address](/multiplayer-servers/integration/your-game-server#discovering-your-public-address).
 :::
 
 [Detailed guide: Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server)
