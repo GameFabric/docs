@@ -32,7 +32,6 @@ If your game server needs to advertise its connection information to external se
 Use the `GameServer()` function to retrieve the public address and ports:
 
 ```go
-// Go
 gs, err := sdk.GameServer()
 if err != nil {
     // handle error
