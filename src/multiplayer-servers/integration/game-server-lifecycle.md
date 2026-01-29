@@ -51,7 +51,7 @@ or if you use an existing game hosting SDK such as Amazon GameLift.
 If you receive a callback or event from these outside systems on your game server that a game session is about to start,
 you must call `Allocate()` to prevent the game session from being interrupted.
 
-::: note Wait for state change after calling `Allocate()`
+::: info Wait for state change after calling `Allocate()`
 
 Calling `Allocate()` does not guarantee that the server moves into the allocated state.
 A shutdown process might already be in progress and happen in parallel.
