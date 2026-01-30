@@ -71,7 +71,7 @@ Once there is some history to look at, the Buffer Size should be adjusted.
    More players increase the number of game servers that are `Allocated` at any given time, increasing the need for a larger Buffer Size.
 
 Every game has different characteristics, so there is no one-size-fits-all recommendation.
-Lets approach the problem to find the right value with an example.
+Let's approach the problem to find the right value with an example.
 
 <details>
 <summary>Buffer Size Example</summary>
@@ -88,10 +88,10 @@ The following assumptions are made for a Region Type:
 Intermediate conclusion:
 
 - `250` game servers are `Allocated` (`1500/6`).
-- Around 5% (`30s/10m`) or ~`12.5` game servers must be `Ready` at any given time just to accomodate the current player base.
+- Around 5% (`30s/10m`) or ~`12.5` game servers must be `Ready` at any given time just to accommodate the current player base.
 
-It is safe to assume doubling the calculated Buffer Size to 25 game servers is a good starting point to accomodate decent spikes in player count.
-If there is the expectation of steeper spikes, like in the evening or at the weekened, the Buffer Size can be increased further.
+It is safe to assume doubling the calculated Buffer Size to 25 game servers is a good starting point to accommodate decent spikes in player count.
+If there is the expectation of steeper spikes, like in the evening or at the weekend, the Buffer Size can be increased further.
 
 For this example, without further information, the recommended Buffer Size could be `25`.
 
@@ -135,7 +135,7 @@ The fact that the resource consumption of game servers varies depending on their
 
    The CPU and Memory consumption of game servers in different states define how many game servers can be run on the available resources.
 
-Lets approach the problem to find the right value with an example.
+Let’s approach the problem to find the right value with an example.
 
 <details>
 <summary>Maximum Replicas Example</summary>
