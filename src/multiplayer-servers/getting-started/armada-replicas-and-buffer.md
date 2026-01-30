@@ -19,7 +19,7 @@ Replicas are the number of game servers running in any given state, from `Starti
 No matter the state of the game servers, the **Minimum Replicas** setting makes sure there are at least that many game servers running at any given time.
 If that is not the case, GameFabric spins up new game servers.
 
-The **Maximum Replicas** setting makes sure no more game server are started when the total number of game servers reaches that number.
+The **Maximum Replicas** setting makes sure no more game servers are started when the total number of game servers reaches that number.
 
 ## Buffer Size
 
@@ -118,7 +118,7 @@ Choosing a value for the Minimum Replicas is mostly driven by the Buffer Size, a
 The **recommended default** is to set the Minimum Replicas to the value of the Buffer Size.
 
 In case of an upcoming Release or Launch, with the expectation of an instant high player count, the Minimum Replicas can be set to a higher value to ensure enough game servers are running initially to accommodate the expected load.
-It is vital to review the decision and adjust the value after the initial peak has subsided, to avoid unnecessary costs.
+It is vital to review and adjust the value after the initial peak has subsided, to avoid unnecessary costs.
 
 ### Maximum Replicas
 
