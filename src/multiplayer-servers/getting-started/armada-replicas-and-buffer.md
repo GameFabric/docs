@@ -145,20 +145,14 @@ Let’s approach the problem to find the right value with an example.
 - Two Locations (`2`) are associated to the Region Type
 - Each Location has `64` CPU cores and `128Gi` of RAM available for game servers.
 - Each `Allocated` game server requires `4` CPU cores and `6Gi` of RAM.
-- Each `Ready` game server requires `2` CPU cores and `4Gi` of RAM.
 
 Intermediate conclusion:
-- CPU-wise `32` game servers for (`2*64/4`) `Allocated` fit into these Locations,
-- Memory-wise `42` game servers (`2*128/6`) for `Allocated`,
-- CPU-wise `64` game servers (`2*64/2`) for `Ready`,
-- Memory-wise `64` game servers (`2*128/4`) for `Ready`.
+- CPU-wise `32` game servers (`2*64/4`) fit into these Locations,
+- Memory-wise `42` game servers (`2*128/6`) fit into these Locations.
 
-The Maximum Replicas is somewhere between 32 and 64, depending on the current or expected ratio between `Allocated` and `Ready` game servers.
-This is quite a wide range, so a more conservative approach is recommended.
+The Maximum Replicas is somewhere between 32 and 42, assuming the goal is to get all game servers `Allocated`.
 
-To be on the safe side, assume a 50/50 split between `Allocated` and `Ready` game servers.
-
-For this example, without further information, the recommended Maximum Replicas could be `48`.
+For this example, without further information, the recommended Maximum Replicas could be `32`.
 
 :::
 
