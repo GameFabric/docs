@@ -42,7 +42,7 @@ export default defineConfig({
             alt: 'GameFabric Logo'
         },
         footer: {
-            copyright: 'Copyright © 2025 marbis GmbH. All rights reserved.'
+            copyright: 'Copyright © 2026 marbis GmbH. All rights reserved.'
         },
         nav: [
             {
