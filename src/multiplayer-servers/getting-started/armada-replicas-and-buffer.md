@@ -168,7 +168,7 @@ The Compute Resource Request setting for the Armada always applies, so the game 
 If that is not the case, game server performance can degrade with reduced CPU availability, or OOMKills may occur when memory is overcommitted.
 
 ::: warning
-The Maximum Replica is not only a consideration of physical resources, but also financial protection.
+The Maximum Replicas is not only a consideration of physical resources, but also financial protection.
 Whether through player peaks, due to bugs or DDoS attacks, always choose a limit that is within your budget, especially on cloud.
 :::
 
