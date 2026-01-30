@@ -10,7 +10,7 @@ The number of game servers running in each Region Type is determined by the Repl
 When configured too generously, it can lead to unnecessary costs, as game servers are running idle without players using them.
 When configured too conservatively, such as if not enough `Ready` game servers are provided in time, it can lead to a poor player experience.
 
-![Distribution](images/armada/replicas-and-buffer-size.png)
+![Armada Configuration for Minimum Replicas, Maximum Replicas and Buffer Size](images/armada/replicas-and-buffer-size.png)
 
 ## Minimum/Maximum Replicas
 
