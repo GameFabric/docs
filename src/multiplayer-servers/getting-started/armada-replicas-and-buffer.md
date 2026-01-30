@@ -122,14 +122,14 @@ It is vital to review and adjust the value after the initial peak has subsided, 
 
 ### Maximum Replicas
 
-When looking from a resource perspective, the Maximum Replicas can be estimated by the available resources on the Sites associated to the Region Type, divided by the average resource consumption of the game server.
+When looking from a resource perspective, the Maximum Replicas can be estimated by the available resources on the Location associated to the Region Type, divided by the average resource consumption of the game server.
 The fact that the resource consumption of game servers varies depending on their state (`Ready` vs `Allocated`) makes it hard to find the optimal value.
 
 **Important factors to determine the Maximum Replicas:**
 
-1. **Available resources on Sites:**
+1. **Available resources:**
    
-   The total CPU and Memory available on the Sites associated to the Region Type define the technical limit for the Maximum Replicas.
+   The total CPU and Memory available on the Locations associated to the Region Type define the technical limit for the Maximum Replicas.
 
 2. **Game server resource consumption:**
 
@@ -142,13 +142,13 @@ Let’s approach the problem to find the right value with an example.
 
 ::: info
 
-- Two (`2`) Sites are associated to the Region Type
-- Each Site has `64` CPU cores and `128Gi` of RAM available for game servers.
+- Two Locations (`2`) are associated to the Region Type
+- Each Location has `64` CPU cores and `128Gi` of RAM available for game servers.
 - Each `Allocated` game server requires `4` CPU cores and `6Gi` of RAM.
 - Each `Ready` game server requires `2` CPU cores and `4Gi` of RAM.
 
 Intermediate conclusion:
-- CPU-wise `32` game servers for (`2*64/4`) `Allocated` fit into these Sites,
+- CPU-wise `32` game servers for (`2*64/4`) `Allocated` fit into these Locations,
 - Memory-wise `42` game servers (`2*128/6`) for `Allocated`,
 - CPU-wise `64` game servers (`2*64/2`) for `Ready`,
 - Memory-wise `64` game servers (`2*128/4`) for `Ready`.
@@ -166,11 +166,11 @@ For this example, without further information, the recommended Maximum Replicas 
 
 **What happens if the Maximum Replicas is set too low?**
 
-Resources are wasted. Nodes in the Sites may have available resources, but no new game servers are started because the Maximum Replicas limit has been reached.
+Resources are wasted. Nodes in these Locations may have available resources, but no new game servers are started because the Maximum Replicas limit has been reached.
 
 **What happens if the Maximum Replicas is set too high?**
 
-The Compute Resource Request setting for the Armada always applies, so the game server has guaranteed resources, or is not scheduled on a Site at all, but more resources can only be obtained when the Site has available resources.
+The Compute Resource Request setting for the Armada always applies, so the game server has guaranteed resources, or is not scheduled to the Location at all, but more resources can only be obtained when the Location has available resources.
 If that is not the case, game server performance can degrade with reduced CPU availability, or OOMKills may occur when memory is overcommitted.
 
 ::: warning
