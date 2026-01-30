@@ -83,18 +83,19 @@ such as the name of the region the game server is deployed to or the version of 
 
 Supported pod fields are:
 
-| Pod field                  | Description                                                        | Resolved by                 |
-|----------------------------|--------------------------------------------------------------------|-----------------------------|
-| `metadata.name`            | Name of the game server, usually referring to the unique pod name. | Kubernetes                  |
-| `metadata.labels['<KEY>']` | Accessor to the game server labels.                                | Kubernetes                  |
-| `metadata.armadaName`      | Name of the associated Armada.                                     | GameFabric (Armada only)    |
-| `metadata.vesselName`      | Name of the associated Vessel.                                     | GameFabric (Formation only) |
-| `metadata.regionName`      | Name of the region.                                                | GameFabric (any)            |
-| `metadata.regionTypeName`  | Name of the region type.                                           | GameFabric (any)            |
-| `metadata.siteName`        | Name of the site.                                                  | GameFabric (any)            |
-| `metadata.imageBranch`     | Name of the image branch of the used game server image.            | GameFabric (any)            |
-| `metadata.imageName`       | Name of the used game server image.                                | GameFabric (any)            |
-| `metadata.imageTag`        | Tag name of the used game server image.                            | GameFabric (any)            |
+| Pod field                     | Description                                                        | Resolved by                 |
+|-------------------------------|--------------------------------------------------------------------|-----------------------------|
+| `metadata.name`               | Name of the game server, usually referring to the unique pod name. | Kubernetes                  |
+| `metadata.labels['<KEY>']`    | Accessor to the game server labels.                                | Kubernetes                  |
+| `metadata.armadaName`         | Name of the associated Armada.                                     | GameFabric (Armada only)    |
+| `metadata.vesselName`         | Name of the associated Vessel.                                     | GameFabric (Formation only) |
+| `metadata.regionName`         | Name of the region.                                                | GameFabric (any)            |
+| `metadata.regionTypeName`     | Name of the region type.                                           | GameFabric (any)            |
+| `metadata.regionTypePriority` | Priority of the region type.                                       | GameFabric (any)            |
+| `metadata.siteName`           | Name of the site.                                                  | GameFabric (any)            |
+| `metadata.imageBranch`        | Name of the image branch of the used game server image.            | GameFabric (any)            |
+| `metadata.imageName`          | Name of the used game server image.                                | GameFabric (any)            |
+| `metadata.imageTag`           | Tag name of the used game server image.                            | GameFabric (any)            |
 
 For more information, see the [full list of supported Kubernetes fields](https://kubernetes.io/docs/concepts/workloads/pods/downward-api/#downwardapi-fieldRef).
 
