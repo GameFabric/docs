@@ -48,7 +48,7 @@ This explains why the Minimum cannot be lower than the Buffer Size; otherwise, i
 
 Finding the right values for Minimum Replicas, Maximum Replicas, and Buffer Size is non-trivial and relies on historical data, prior experience, and expectations of future demand.
 
-![img.png](images/armada/armada-game-server-states.png)
+![Game Server States during a Buffer Size Test](images/armada/armada-game-server-states.png)
 
 ### Buffer Size
 
