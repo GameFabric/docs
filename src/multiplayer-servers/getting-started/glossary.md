@@ -100,7 +100,7 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies)
 
 ## Group
 
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group).
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#group).
 
 ## Location
 
@@ -116,11 +116,11 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#mitigations).
 
 ## User
 
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#user).
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#user).
 
 ## Permission
 
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
 
 ## RBAC
 
@@ -163,7 +163,7 @@ E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Arm
 
 ## Role
 
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#role).
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#role).
 
 ## Secret
 
@@ -191,7 +191,7 @@ This can be the case, for example, when a Site has just been provisioned to prev
 
 ## Service Account
 
-An account used for accessing GameFabric programmatically, please refer to the documentation under [Authentication](/multiplayer-servers/getting-started/authentication#managing-service-accounts).
+An account used for accessing GameFabric programmatically, please refer to the documentation under [Authentication](/multiplayer-servers/authentication/authentication#managing-service-accounts).
 
 ## SteelShield™
 

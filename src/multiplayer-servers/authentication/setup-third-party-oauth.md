@@ -5,7 +5,7 @@
 GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Identity Provider,
 allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
 
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions) for information about permissions management.
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions) for information about permissions management.
 
 ## Prerequisites
 

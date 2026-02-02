@@ -8,7 +8,7 @@ For a comprehensive overview of the API structure and available endpoints, see t
 
 ## Pre-requisites
 
-* Follow the steps described in the [API Authentication](../getting-started/authentication.md) section to create a Service Account and fetch a token that gives you access to the REST API.
+* Follow the steps described in the [API Authentication](../authentication/authentication.md) section to create a Service Account and fetch a token that gives you access to the REST API.
 * Follow [the guide to push an image](../getting-started/pushing-container-images.md) of your game server into the registry.
 * Understand the [hosting models](/multiplayer-servers/architecture/identifying-your-hosting-model) to know whether to use Vessels or Armadas.
 

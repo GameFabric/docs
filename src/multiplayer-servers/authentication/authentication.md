@@ -28,7 +28,7 @@ If you lost the password for a service account, you can reset it by clicking the
 
 ## Pushing Docker Images to the Registry
 
-Make note of the username and password for your service account, and use them to log in as described in the [Pushing Container Images](pushing-container-images) guide.
+Make note of the username and password for your service account, and use them to log in as described in the [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images) guide.
 
 ## Making API requests
 
