@@ -25,13 +25,13 @@ It can have multiple [revisions](/multiplayer-servers/getting-started/glossary#r
 
 Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade)
 
-See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
+See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## ArmadaSet
 
 An ArmadaSet is the configuration for a set of Armadas that share the same Fleet template and automatic scaling strategy.
 
-See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
+See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## Branch
 
@@ -80,7 +80,7 @@ This resource is always managed by an Armada, and can't be configured through th
 A Formation acts as a template for individual game servers (Vessels) spawned within it.
 Vessels inherit all properties from their respective Formation, but environment variables and command line arguments can be overridden on a per-vessel basis.
 
-See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
+See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## GameFabric Cloud
 
@@ -218,7 +218,7 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#managing-protocol
 A Vessel is a single **named** game server instance. It can, but doesn't have to be part of a [Formation](#formation).
 Each Vessel can be configured completely independently.
 
-See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
+See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## Wrapper
 

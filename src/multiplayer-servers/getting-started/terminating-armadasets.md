@@ -5,7 +5,7 @@
 GameFabric allows you to gracefully or forcefully terminate ArmadaSets.
 
 ::: tip Understanding ArmadaSets
-For more information about ArmadaSets and how they work, see the [Glossary](/multiplayer-servers/getting-started/glossary#armadaset) and [Hosting Models](/multiplayer-servers/hosting-models/identifying-your-hosting-model#armadas).
+For more information about ArmadaSets and how they work, see the [Glossary](/multiplayer-servers/getting-started/glossary#armadaset) and [Hosting Models](/multiplayer-servers/architecture/identifying-your-hosting-model#armadas).
 :::
 
 The GameFabric UI offers two options:

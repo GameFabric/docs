@@ -18,7 +18,7 @@ which should result in configuration or variable adjustments, rather than code a
 - For general allocation guidance, see [Allocating from Armadas](../allocating-from-armadas)
 - For the Allocator API specification, see [Allocator API](/api/multiplayer-servers/allocation-allocator)
 - For GameLift integration without FlexMatch, see [GameLift Integration](gamelift)
-- For understanding hosting models, see [Hosting Models](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+- For understanding hosting models, see [Hosting Models](/multiplayer-servers/architecture/identifying-your-hosting-model)
 :::
 
 Table of contents:

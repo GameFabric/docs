@@ -3,7 +3,7 @@
 In this section, you will learn how to run your first game server.
 
 ::: tip Understanding Hosting Models
-Before proceeding, consider reviewing the [hosting models guide](/multiplayer-servers/hosting-models/identifying-your-hosting-model) to understand the difference between Vessels (long-running servers) and Armadas (session-based servers), and choose the right approach for your needs.
+Before proceeding, consider reviewing the [hosting models guide](/multiplayer-servers/architecture/identifying-your-hosting-model) to understand the difference between Vessels (long-running servers) and Armadas (session-based servers), and choose the right approach for your needs.
 :::
 
 ## Prerequisites

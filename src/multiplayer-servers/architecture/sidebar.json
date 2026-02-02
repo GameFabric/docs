@@ -1,0 +1,15 @@
+{
+  "text": "Architecture",
+  "collapsed": false,
+  "order": 3,
+  "items": [
+    {
+      "text": "Capacity Types",
+      "link": "/architecture/capacity-types"
+    },
+    {
+      "text": "Identifying your Hosting Model",
+      "link": "/architecture/identifying-your-hosting-model"
+    }
+  ]
+}
