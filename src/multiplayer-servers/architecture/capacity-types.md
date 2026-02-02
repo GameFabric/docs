@@ -14,7 +14,7 @@ Key characteristics:
 - **Integrated billing**: All costs are billed through GameFabric.
 - **Density**: Supports up to 150 game servers per node.
 
-Bare metal Locations are not configurable through the GameFabric UI. To request additional bare metal capacity, submit a request via the [GameFabric Help Center](glossary#gamefabric-help-center).
+Bare metal Locations are not configurable through the GameFabric UI. To request additional bare metal capacity, submit a request via the [GameFabric Help Center](/multiplayer-servers/getting-started/glossary#gamefabric-help-center).
 
 ## GameFabric Cloud
 
