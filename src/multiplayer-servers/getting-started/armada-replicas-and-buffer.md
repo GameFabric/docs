@@ -30,9 +30,10 @@ Without Buffer Size, GameFabric would not replace newly `Allocated` game servers
 
 ## Input Validation
 
-When configuring an Armada, the following validation rule applies:
+When configuring an Armada, the following validation rules apply:
 
-<span class="nbsp">`BufferSize <= MinimumReplicas <= MaximumReplicas`</span> 
+- Minimum Replicas must be at least as big as the Buffer Size
+- Minimum Replicas must be smaller or equal to Maximum Replicas
 
 whereas <span class="nbsp">`0, 0, 0`</span> is considered <span class="nbsp">[Scaling Down](#scaling-down).</span>
 
