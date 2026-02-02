@@ -26,8 +26,6 @@ The **Maximum Replicas** setting makes sure no more game servers are started whe
 The Buffer Size is the [approximate](#buffer-size-1) number of game servers that are kept in the `Ready` state, waiting to get `Allocated`.
 This is important so players can find a game server quickly, without having to wait for a new game server to start up.
 
-Without Buffer Size, GameFabric would not replace newly `Allocated` game servers with `Ready` game servers.
-
 ## Input Validation
 
 When configuring an Armada, the following validation rules apply:
