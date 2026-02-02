@@ -28,7 +28,7 @@ Before using the wrapper, make sure that:
   [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)),
 - You have either an Armada or Vessel configured to run the container image
   (see [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server) and
-  [Hosting Models](/multiplayer-servers/hosting-models/identifying-your-hosting-model)).
+  [Hosting Models](/multiplayer-servers/architecture/identifying-your-hosting-model)).
 
 If your game server cannot run in GameFabric because it is missing vital information such as IP address or port numbers,
 the wrapper can already help with its templating features.

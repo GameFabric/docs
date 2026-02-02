@@ -10,5 +10,5 @@ This documentation is meant to guide you through the setup and usage of GameFabr
 ::: tip Key Concepts
 To better understand GameFabric, we recommend reviewing the [Glossary](/multiplayer-servers/getting-started/glossary) for definitions of key terms like Armadas, Formations, Vessels, and Fleets.
 
-You should also familiarize yourself with the [hosting models](/multiplayer-servers/hosting-models/identifying-your-hosting-model) (Armadas vs Formations) to choose the right approach for your game.
+You should also familiarize yourself with the [hosting models](/multiplayer-servers/architecture/identifying-your-hosting-model) (Armadas vs Formations) to choose the right approach for your game.
 :::

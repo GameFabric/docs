@@ -13,7 +13,7 @@ In order to protect your game server's traffic, your GameFabric installation req
 
 - Protection support enabled, usually indicated by the presence of the Protection/SteelShield navigation item.
 - Sites that support SteelShield.
-- Game servers deployed via [Armadas](/multiplayer-servers/hosting-models/identifying-your-hosting-model#armadas) or [Formations](/multiplayer-servers/hosting-models/identifying-your-hosting-model#formations)
+- Game servers deployed via [Armadas](/multiplayer-servers/architecture/identifying-your-hosting-model#armadas) or [Formations](/multiplayer-servers/architecture/identifying-your-hosting-model#formations)
 
 ## Mitigations
 
