@@ -61,6 +61,7 @@ Once there is some history to look at, the Buffer Size should be adjusted.
 1. **Game server startup time:**
    
    Quicker startup times reduce the need for a large Buffer Size.
+
 2. **Game session duration:**
 
    Shorter game sessions increase the churn of players leaving and joining new game sessions, increasing the need for a larger Buffer Size.
