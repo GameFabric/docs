@@ -77,7 +77,6 @@ Let's approach the problem to find the right value with an example.
 <summary>Buffer Size Example</summary>
 
 ::: info Example
-
 The following assumptions are made for a Region Type:
 
 - Average game server startup time is `30s`,
@@ -94,9 +93,7 @@ It is safe to assume doubling the calculated Buffer Size to 25 game servers is a
 If there is the expectation of steeper spikes, like in the evening or at the weekend, the Buffer Size can be increased further.
 
 For this example, without further information, the recommended Buffer Size could be `25`.
-
 :::
-
 </details>
 
 **What happens if the Buffer Size is set too low?**
@@ -141,7 +138,6 @@ Let’s approach the problem to find the right value with an example.
 <summary>Maximum Replicas Example</summary>
 
 ::: info
-
 - Two Locations (`2`) are associated to the Region Type
 - Each Location has `64` CPU cores and `128Gi` of RAM available for game servers.
 - Each `Allocated` game server requires `4` CPU cores and `6Gi` of RAM.
@@ -153,9 +149,7 @@ Intermediate conclusion:
 The Maximum Replicas is somewhere between 32 and 42, assuming the goal is to get all game servers `Allocated`.
 
 For this example, without further information, the recommended Maximum Replicas could be `32`.
-
 :::
-
 </details>
 
 **What happens if the Maximum Replicas is set too low?**
