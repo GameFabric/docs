@@ -111,8 +111,8 @@ It is vital to review and adjust the value after the initial peak has subsided, 
 
 ### Maximum Replicas
 
-When looking from a resource perspective, the Maximum Replicas can be estimated by the available resources on the Location associated to the Region Type, divided by the [Resource Requests](../multiplayer-services/resource-management#resource-requests-vs-limits) of the game server.
-A location can hold multiple different Armadas or Vessels, each with different Resource Request settings.
+When looking from a resource perspective, the Maximum Replicas can be estimated by the available resources on the Location associated to the Region Type, divided by the [Resource Requests](../multiplayer-services/resource-management#resource-requests) of the game server.
+A location can hold multiple different Armadas, each with different Resource Request settings.
 
 **Important factors to determine the Maximum Replicas:**
 
@@ -126,14 +126,14 @@ A location can hold multiple different Armadas or Vessels, each with different R
 
 3. **Distribution of game server demand:**
 
-   Different Armadas or Vessels may have different demand patterns.
+   Different Armadas may have different demand patterns.
    An open world game mode requires more resources than a town server that only handles social interactions, but both may end up on the same Locations.
 
 4. **Overcommitment strategy:**
    
    Not all game servers are `Allocated` at the same time, some stay `Ready` for a while.
    Intentional overcommitment is generally recommended to improve overall utilization.
-   The challenge is managing allocations when multiple Armadas or Vessels share the same underlying resources.
+   The challenge is managing allocations when multiple Armadas share the same underlying resources.
 
 Let's approach the problem to find the right value with an example.
 
@@ -157,7 +157,7 @@ Intermediate conclusion:
 - Memory-wise `32` game servers `B` (`2*128/8`).
 
 If expected demand is `20%` for `A` and `80%` for `B`, overcommitment can be applied by allocating `25%` of the shared resources to `A` and `85%` to `B`.
-While neither is expected to consistently reach its configured maximum, this approach provides enough flexibility for each Armada or Vessel to take advantage of unused capacity and better match real, observed demand.
+While neither is expected to consistently reach its configured maximum, this approach provides enough flexibility for each Armada to take advantage of unused capacity and better match real, observed demand.
 As we choose the lower number of game servers that fit for CPU or Memory, the math then is `32 * 0.25 = 8` for `A` and `16 * 0.85 = ~13.6` for `B`.
 
 For this example, without further information, the recommended Maximum Replicas could be `22`.
@@ -170,8 +170,8 @@ Resources are wasted. Nodes in these Locations may have available resources, but
 
 **What happens if the Maximum Replicas is set too high?**
 
-The Compute Resource Request setting for the Armada always applies, so the game server has guaranteed resources, or is not scheduled to the Location at all, but more resources can only be obtained when the Location has available resources.
-If that is not the case, game server performance can degrade with reduced CPU availability, or OOMKills may occur when memory is overcommitted.
+The Compute Resource Request setting for the Armada always applies, so the game server has guaranteed resources, or is not scheduled to the Location at all.
+To avoid degraded performance with reduced CPU availability, or OOMKills when memory is overcommitted, see [Resource Limits](../multiplayer-services/resource-management#resource-limits).
 
 ::: warning
 The Maximum Replicas is not only a consideration of physical resources, but also financial protection.
