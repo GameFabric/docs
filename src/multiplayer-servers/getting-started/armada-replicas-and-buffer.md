@@ -35,14 +35,6 @@ When configuring an Armada, the following validation rules apply:
 
 whereas <span class="nbsp">`0, 0, 0`</span> is considered <span class="nbsp">[Scaling Down](#scaling-down).</span>
 
-::: info Technical Background
-Armadas are Fleets in Agones terminology and have a single Replicas setting.
-
-The Replicas setting is determined by `Allocated` game servers plus Buffer Size, refreshed by default every `30s`, with the Minimum and Maximum Replicas acting as boundaries.
-
-This explains why the Minimum cannot be lower than the Buffer Size; otherwise, it would never be effective.
-:::
-
 ## Finding the Right Values
 
 Finding the right values for Minimum Replicas, Maximum Replicas, and Buffer Size is non-trivial and relies on historical data, prior experience, and expectations of future demand.
