@@ -143,6 +143,7 @@ Let's approach the problem to find the right value with an example.
 - Each `Allocated` game server requires `4` CPU cores and `6Gi` of RAM.
 
 Intermediate conclusion:
+
 - CPU-wise `32` game servers (`2*64/4`) fit into these Locations,
 - Memory-wise `42` game servers (`2*128/6`) fit into these Locations.
 
