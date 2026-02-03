@@ -61,6 +61,12 @@ While a "Cluster" refers to the physical or virtual grouping of servers, a "Site
 
 When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
 
+## Degraded
+
+An [Armada](#armada) is marked as Degraded when GameFabric cannot fulfill the requested game server capacity. This typically occurs when the Armada is configured to use a [Region](#region) that has no available [Sites](#site).
+
+See also [Armada States](/multiplayer-servers/getting-started/armada-states).
+
 ## Environment
 
 Environments are a mechanism for isolating groups of resources. Resource names must be unique within each environment, but not across environments.

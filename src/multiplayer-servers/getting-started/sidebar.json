@@ -60,6 +60,10 @@
       "link": "/getting-started/running-your-game-server"
     },
     {
+      "text": "Armada States",
+      "link": "/getting-started/armada-states"
+    },
+    {
       "text": "Terminating ArmadaSets",
       "link": "/getting-started/terminating-armadasets"
     },
