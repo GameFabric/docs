@@ -132,7 +132,7 @@ The fact that the resource consumption of game servers varies depending on their
 
    The CPU and Memory consumption of game servers in different states define how many game servers can be run on the available resources.
 
-Let’s approach the problem to find the right value with an example.
+Let's approach the problem to find the right value with an example.
 
 <details>
 <summary>Maximum Replicas Example</summary>
