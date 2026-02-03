@@ -111,37 +111,56 @@ It is vital to review and adjust the value after the initial peak has subsided, 
 
 ### Maximum Replicas
 
-When looking from a resource perspective, the Maximum Replicas can be estimated by the available resources on the Location associated to the Region Type, divided by the average resource consumption of the game server.
-The fact that the resource consumption of game servers varies depending on their state (`Ready` vs `Allocated`) makes it hard to find the optimal value.
+When looking from a resource perspective, the Maximum Replicas can be estimated by the available resources on the Location associated to the Region Type, divided by the [Resource Requests](../multiplayer-services/resource-management#resource-requests-vs-limits) of the game server.
+A location can hold multiple different Armadas or Vessels, each with different Resource Request settings.
 
 **Important factors to determine the Maximum Replicas:**
 
 1. **Available resources:**
    
-   The total CPU and Memory available on the Locations associated to the Region Type define the technical limit for the Maximum Replicas.
+   The total CPU and Memory available on the Locations associated with the Region Type define the technical limit for the Maximum Replicas.
 
-2. **Game server resource consumption:**
+2. **Game server Resource Requests:**
 
-   The CPU and Memory consumption of game servers in different states define how many game servers can be run on the available resources.
+   The requested CPU and Memory consumption of (eventually many different) game servers define how many game servers can be run on the available resources.
+
+3. **Distribution of game server demand:**
+
+   Different Armadas or Vessels may have different demand patterns.
+   An open world game mode requires more resources than a town server that only handles social interactions, but both may end up on the same Locations.
+
+4. **Overcommitment strategy:**
+   
+   Not all game servers are `Allocated` at the same time, some stay `Ready` for a while.
+   Intentional overcommitment is generally recommended to improve overall utilization.
+   The challenge is managing allocations when multiple Armadas or Vessels share the same underlying resources.
 
 Let's approach the problem to find the right value with an example.
+
 
 <details>
 <summary>Maximum Replicas Example</summary>
 
 ::: info
+The following assumptions are made:
+
 - Two Locations (`2`) are associated to the Region Type
 - Each Location has `64` CPU cores and `128Gi` of RAM available for game servers.
-- Each `Allocated` game server requires `4` CPU cores and `6Gi` of RAM.
+- Each game server `A` requests `4` CPU cores and `6Gi` of RAM.
+- Each game server `B` requests `8` CPU cores and `8Gi` of RAM.
 
 Intermediate conclusion:
 
-- CPU-wise `32` game servers (`2*64/4`) fit into these Locations,
-- Memory-wise `42` game servers (`2*128/6`) fit into these Locations.
+- CPU-wise `32` game servers `A` (`2*64/4`) fit into these Locations,
+- Memory-wise `42` game servers `A` (`2*128/6`),
+- CPU-wise `16` game servers `B` (`2*64/8`),
+- Memory-wise `32` game servers `B` (`2*128/8`).
 
-The Maximum Replicas is somewhere between 32 and 42, assuming the goal is to get all game servers `Allocated`.
+If expected demand is `20%` for `A` and `80%` for `B`, overcommitment can be applied by allocating `25%` of the shared resources to `A` and `85%` to `B`.
+While neither is expected to consistently reach its configured maximum, this approach provides enough flexibility for each Armada or Vessel to take advantage of unused capacity and better match real, observed demand.
+As we choose the lower number of game servers that fit for CPU or Memory, the math then is `32 * 0.25 = 8` for `A` and `16 * 0.85 = ~13.6` for `B`.
 
-For this example, without further information, the recommended Maximum Replicas could be `32`.
+For this example, without further information, the recommended Maximum Replicas could be `22`.
 :::
 </details>
 
