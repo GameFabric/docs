@@ -170,4 +170,4 @@ Whether through player peaks, due to bugs or DDoS attacks, always choose a limit
 ## Scaling Down
 
 To gracefully scale down a Region Type, the Minimum Replicas, the Maximum Replicas, and the Buffer Size can be set to zero.
-Game servers that are `Allocated` will continue to run until they are `Shutdown`, but no new game servers will be started.
+Game servers that are `Allocated` continue to run until they are `Shutdown`, but new game servers are no longer being scheduled.
