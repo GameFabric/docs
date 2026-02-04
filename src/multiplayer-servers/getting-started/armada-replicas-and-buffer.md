@@ -144,7 +144,7 @@ Let's approach the problem to find the right value with an example.
 ::: info
 The following assumptions are made:
 
-- Two Locations (`2`) are associated to the Region Type
+- Two Locations (`2`) are associated with the Region Type
 - Each Location has `64` CPU cores and `128Gi` of RAM available for game servers.
 - Each game server `A` requests `4` CPU cores and `6Gi` of RAM.
 - Each game server `B` requests `8` CPU cores and `8Gi` of RAM.
