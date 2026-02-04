@@ -137,7 +137,6 @@ A Location can hold multiple different Armadas, each with different Resource Req
 
 Let's approach the problem to find the right value with an example.
 
-
 <details>
 <summary>Maximum Replicas Example</summary>
 
