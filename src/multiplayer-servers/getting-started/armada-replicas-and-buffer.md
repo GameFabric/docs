@@ -159,7 +159,7 @@ If expected demand is `20%` for `A` and `80%` for `B`, overcommitment can be app
 While neither is expected to consistently reach its configured maximum, this approach provides enough flexibility for each Armada to take advantage of unused capacity and better match real, observed demand.
 As we choose the lower number of game servers that fit for CPU or Memory, the math then is `32 * 0.25 = 8` for `A` and `16 * 0.85 = ~13.6` for `B`.
 
-For this example, without further information, the recommended Maximum Replicas could be `22`.
+For this example, without further information, the recommended Maximum Replicas for `A` could be `8`, and for `B` could be `14`.
 :::
 </details>
 
