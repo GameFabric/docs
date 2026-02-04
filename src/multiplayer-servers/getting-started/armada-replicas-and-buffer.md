@@ -23,7 +23,7 @@ The **Maximum Replicas** setting makes sure no more game servers are started whe
 
 ## Buffer Size
 
-The Buffer Size is the [approximate](#buffer-size-1) number of game servers that are kept in the `Ready` state, waiting to get `Allocated`.
+The Buffer Size is the [approximate](#buffer-size-value) number of game servers that are kept in the `Ready` state, waiting to get `Allocated`.
 This is important so players can find a game server quickly, without having to wait for a new game server to start up.
 
 ## Input Validation
@@ -41,7 +41,7 @@ Finding the right values for Minimum Replicas, Maximum Replicas, and Buffer Size
 
 ![Game Server States during a Buffer Size Test](images/armada/armada-game-server-states.png)
 
-### Buffer Size
+### Buffer Size Value
 
 The Buffer Size is the number of `Ready` game servers. Even when no players are playing, these game servers are running and waiting for players to join.
 
@@ -106,7 +106,7 @@ Choosing a value for the Minimum Replicas is mostly driven by the Buffer Size, a
 
 The **recommended default** is to set the Minimum Replicas to the value of the Buffer Size.
 
-In case of an upcoming Release or Launch, with the expectation of an instant high player count, the Minimum Replicas can be set to a higher value to ensure enough game servers are running initially to accommodate the expected load.
+In case of an upcoming release or launch, with the expectation of an instant high player count, the Minimum Replicas can be set to a higher value to ensure enough game servers are running initially to accommodate the expected load.
 It is vital to review and adjust the value after the initial peak has subsided, to avoid unnecessary costs.
 
 ### Maximum Replicas
