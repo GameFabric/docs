@@ -72,6 +72,10 @@
       "link": "/getting-started/secrets"
     },
     {
+      "text": "Armada Replicas and Buffer Size",
+      "link": "/getting-started/armada-replicas-and-buffer"
+    },
+    {
       "text": "Glossary",
       "link": "/getting-started/glossary"
     }
