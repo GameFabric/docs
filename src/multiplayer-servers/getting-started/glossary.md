@@ -63,9 +63,11 @@ When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated 
 
 ## Degraded
 
-An [Armada](#armada) is marked as Degraded when GameFabric cannot fulfill the requested game server capacity. This typically occurs when the Armada is configured to use a [Region](#region) that has no available [Sites](#site).
+A synchronization state indicating that configuration could not be deployed to one or more [Sites](#site). This can occur when Sites are unavailable, experiencing connectivity issues, or when all capacity in a Location has been deprovisioned.
 
-See also [Armada States](/multiplayer-servers/getting-started/armada-states).
+Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), Secret, ConfigFile, Protocol, Gateway Policy.
+
+See also [Troubleshooting](/multiplayer-servers/getting-started/troubleshooting).
 
 ## Environment
 
