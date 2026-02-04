@@ -45,8 +45,7 @@ Finding the right values for Minimum Replicas, Maximum Replicas, and Buffer Size
 
 The Buffer Size is the number of `Ready` game servers. Even when no players are playing, these game servers are running and waiting for players to join.
 
-The **recommended default** when there is no experience or history to look at is to set the Buffer Size to 10% of the Maximum Replicas.
-Once there is some history to look at, the Buffer Size should be adjusted.
+There is **no recommended default**, as it depends on multiple factors specific to each game.
 
 **Important factors to determine the Buffer Size:**
 
@@ -62,7 +61,8 @@ Once there is some history to look at, the Buffer Size should be adjusted.
 
    More players increase the number of game servers that are `Allocated` at any given time, increasing the need for a larger Buffer Size.
 
-Every game has different characteristics, so there is no one-size-fits-all recommendation.
+The Buffer Size should be derived from the experience made with Proof of Concpets, Load Tests or Development environments,
+where the game server startup time, average game session duration, and average CCU are known or can be estimated accurately.
 Let's approach the problem to find the right value with an example.
 
 <details>
