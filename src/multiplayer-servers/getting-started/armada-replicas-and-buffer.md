@@ -61,7 +61,7 @@ There is **no recommended default**, as it depends on multiple factors specific 
 
    More players increase the number of game servers that are `Allocated` at any given time, increasing the need for a larger Buffer Size.
 
-The Buffer Size should be derived from the experience made with Proof of Concpets, Load Tests or Development environments,
+The Buffer Size should be derived from the experience made with Proof of Concepts, Load Tests or Development environments,
 where the game server startup time, average game session duration, and average CCU are known or can be estimated accurately.
 Let's approach the problem to find the right value with an example.
 
