@@ -111,7 +111,7 @@ It is vital to review and adjust the value after the initial peak has subsided, 
 
 ### Maximum Replicas
 
-When looking from a resource perspective, the Maximum Replicas can be estimated by the available resources on the Location associated with the Region Type, divided by the [Resource Requests](../multiplayer-services/resource-management#resource-requests) of the game server.
+When looking from a resource perspective, the Maximum Replicas can be estimated by the available resources on the Location associated with the Region Type, divided by the [Resource Requests](./resource-management#resource-requests) of the game server.
 A Location can hold multiple different Armadas, each with different Resource Request settings.
 
 **Important factors to determine the Maximum Replicas:**
@@ -170,7 +170,7 @@ Resources are wasted. Nodes in these Locations may have available resources, but
 **What happens if the Maximum Replicas is set too high?**
 
 The Compute Resource Request setting for the Armada always applies, so the game server has guaranteed resources, or is not scheduled to the Location at all.
-To avoid degraded performance with reduced CPU availability, or OOMKills when memory is overcommitted, see [Resource Limits](../multiplayer-services/resource-management#resource-limits).
+To avoid degraded performance with reduced CPU availability, or OOMKills when memory is overcommitted, see [Resource Limits](./resource-management#resource-limits).
 
 ::: warning
 The Maximum Replicas is not only a consideration of physical resources, but also financial protection.

@@ -42,6 +42,10 @@
       "link": "/multiplayer-services/resource-management"
     },
     {
+      "text": "Armada Replicas and Buffer Size",
+      "link": "/multiplayer-services/armada-replicas-and-buffer"
+    },
+    {
       "text": "Server Protection",
       "items": [
         {
