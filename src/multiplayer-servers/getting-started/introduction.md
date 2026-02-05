@@ -1,11 +1,11 @@
 # Introduction
 
-GameFabric is an orchestration platform for [Agones](https://agones.dev/site/docs/)-based game servers across Bare Metal and Cloud.
-It provides a web interface to manage game server deployments across multiple regions, along with many practical features to allow you to have complete control over your game servers.
+GameFabric is an orchestration platform for [Agones](https://agones.dev/site/docs/)-based game servers across Bare Metal and Cloud. It provides a web interface to manage game server deployments across multiple regions, along with many practical features to allow you to have complete control over your game servers.
 
-GameFabric also comes with a [REST API](https://docs.gamefabric.dev/api) as well as a [Terraform provider](https://registry.terraform.io/providers/GameFabric/gamefabric) and an [OpenTofu provider](https://search.opentofu.org/provider/gamefabric/gamefabric/latest).
+GameFabric can also be managed programmatically through:
 
-This documentation is meant to guide you through the setup and usage of GameFabric, from the initial setup of your Cloud capacity to the deployment of your game servers.
+- [REST API](/multiplayer-servers/api/guide) — for custom integrations
+- [Terraform provider](/multiplayer-servers/integration/terraform) — for Infrastructure as Code
 
 ::: tip Key Concepts
 To better understand GameFabric, we recommend reviewing the [Glossary](/multiplayer-servers/getting-started/glossary) for definitions of key terms like Armadas, Formations, Vessels, and Fleets.

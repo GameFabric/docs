@@ -1,6 +1,10 @@
 # GameFabric API Guide
 
-This document describes the various APIs that are compose the GameFabric API.
+This document describes the various APIs that compose the GameFabric API.
+
+::: tip Infrastructure as Code
+Prefer declarative configuration? Use the [Terraform provider](/multiplayer-servers/integration/terraform) instead of the REST API.
+:::
 
 ## Object Structure
 
