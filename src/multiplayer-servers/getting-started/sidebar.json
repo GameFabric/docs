@@ -12,10 +12,6 @@
       "link": "/getting-started/quickstart"
     },
     {
-      "text": "Authentication",
-      "link": "/getting-started/authentication"
-    },
-    {
       "text": "GameFabric Cloud",
       "link": "/getting-started/gamefabric-cloud"
     },
@@ -46,14 +42,6 @@
     {
       "text": "Setup your Environment",
       "link": "/getting-started/setup-your-environment"
-    },
-    {
-      "text": "Setup Third-Party OAuth Integration",
-      "link": "/getting-started/setup-third-party-oauth"
-    },
-    {
-      "text": "Editing Permissions",
-      "link": "/getting-started/editing-permissions"
     },
     {
       "text": "Running your Game Server",

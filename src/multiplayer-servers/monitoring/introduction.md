@@ -27,7 +27,7 @@ To access monitoring, a user must belong to a `group` with a `role` that has at 
 Users with `POST` permission can create custom dashboards and alerts.
 
 ::: tip Access Control
-For more information on managing permissions, see [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
+For more information on managing permissions, see [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
 :::
 
 ## Metrics

@@ -15,7 +15,7 @@ Log into the GameFabric UI before proceeding.
 ::: tip Next steps
 After setting up your environment and region, you'll need to:
 
-1. [Authenticate and create a service account](/multiplayer-servers/getting-started/authentication)
+1. [Authenticate and create a service account](/multiplayer-servers/authentication/authentication)
 2. [Build and push your container image](/multiplayer-servers/getting-started/building-a-container-image)
 3. [Deploy your game servers](/multiplayer-servers/getting-started/running-your-game-server)
 :::
