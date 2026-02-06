@@ -61,6 +61,14 @@ While a "Cluster" refers to the physical or virtual grouping of servers, a "Site
 
 When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
 
+## Degraded
+
+A synchronization state indicating that configuration could not be deployed to one or more [Sites](#site). This can occur when Sites are unavailable, experiencing connectivity issues, or when all capacity in a Location has been deprovisioned.
+
+Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), Secret, ConfigFile, Protocol, Gateway Policy.
+
+See also [Troubleshooting](/multiplayer-servers/getting-started/troubleshooting).
+
 ## Environment
 
 Environments are a mechanism for isolating groups of resources. Resource names must be unique within each environment, but not across environments.
