@@ -88,3 +88,11 @@ For example, passing the public port to your server:
 ```
 
 See [Command-line Arguments](/multiplayer-servers/multiplayer-services/game-server-wrapper#command-line-arguments) for available template variables.
+
+## Local Development
+
+To test your Agones SDK integration locally without deploying to GameFabric, you can run the Agones SDK server in local mode. This provides a mock endpoint that responds to SDK calls and logs the interactions.
+
+See the [Agones local development guide](https://agones.dev/site/docs/guides/client-sdks/local/) for instructions on downloading and running the SDK server.
+
+If you use the [Game Server Wrapper](/multiplayer-servers/multiplayer-services/game-server-wrapper), it also supports a `--local` flag for local testing.
