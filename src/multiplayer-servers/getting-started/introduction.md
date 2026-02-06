@@ -2,7 +2,7 @@
 
 GameFabric is an orchestration platform for [Agones](https://agones.dev/site/docs/)-based game servers across Bare Metal and Cloud. It provides a web interface to manage game server deployments across multiple regions, along with many practical features to allow you to have complete control over your game servers.
 
-GameFabric can also be managed programmatically through:
+You can also manage your resources programmatically through:
 
 - [REST API](/multiplayer-servers/api/guide) — for custom integrations
 - [Terraform provider](/multiplayer-servers/integration/terraform) — for Infrastructure as Code

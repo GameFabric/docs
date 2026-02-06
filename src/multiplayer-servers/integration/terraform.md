@@ -17,21 +17,22 @@ terraform {
 }
 
 provider "gamefabric" {
-  # Configuration options
+  customer_id     = "example"
+  service_account = "terraform@example.gamefabric.dev"
 }
 ```
 
+The `customer_id` is the first segment of your GameFabric installation URL. For example, if your URL is `example.gamefabric.dev`, your customer ID is `example`.
+
 ## Authentication
 
-The provider authenticates using environment variables. Set the following to get started:
+The provider requires a [service account](/multiplayer-servers/authentication/authentication#managing-service-accounts) for authentication. Set the password via environment variable:
 
 ```bash
-export GAMEFABRIC_HOST="example.gamefabric.dev"
-export GAMEFABRIC_SERVICE_ACCOUNT="terraform@example.gamefabric.dev"
 export GAMEFABRIC_PASSWORD='<your-password>'
 ```
 
-Replace `example` with your installation name and create a [service account](/multiplayer-servers/authentication/authentication#managing-service-accounts) with appropriate permissions.
+Replace `example` with your installation name.
 
 ## Resources
 

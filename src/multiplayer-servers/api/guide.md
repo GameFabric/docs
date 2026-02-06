@@ -3,7 +3,7 @@
 This document describes the various APIs that compose the GameFabric API.
 
 ::: tip Infrastructure as Code
-Prefer declarative configuration? Use the [Terraform provider](/multiplayer-servers/integration/terraform) instead of the REST API.
+If you prefer declarative configuration, use the [Terraform provider](/multiplayer-servers/integration/terraform) instead of the REST API.
 :::
 
 ## Object Structure
