@@ -32,7 +32,7 @@ The provider requires a [service account](/multiplayer-servers/authentication/au
 export GAMEFABRIC_PASSWORD='<your-password>'
 ```
 
-Replace `example` with your installation name.
+In the configuration example, replace `example` with your actual `customer_id` (the first segment of your GameFabric installation URL).
 
 ## Resources
 
