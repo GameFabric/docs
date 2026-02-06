@@ -8,6 +8,10 @@
       "link": "/integration/your-game-server"
     },
     {
+      "text": "Terraform Provider",
+      "link": "/integration/terraform"
+    },
+    {
       "text": "Your Infrastructure",
       "link": "/integration/your-backend"
     },
