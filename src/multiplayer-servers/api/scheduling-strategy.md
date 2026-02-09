@@ -70,7 +70,7 @@ curl -X 'POST' \
 
 - On-premises or static clusters
 - High availability requirements
-- Even resource distribution across infrastructure
+- Even resource distribution requirements across infrastructure
 
 ## Reference
 
