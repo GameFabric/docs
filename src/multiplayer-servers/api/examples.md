@@ -170,4 +170,4 @@ curl -X 'POST' \
 }'
 ```
 
-The `scheduling` field accepts either `"Packed"` (default) or `"Distributed"`.
+The `scheduling` field accepts either `Packed` (default) or `Distributed` as its value.
