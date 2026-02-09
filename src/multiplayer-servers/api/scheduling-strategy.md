@@ -15,7 +15,7 @@ When creating or updating a Region, you can configure the `scheduling` field wit
 | Value         | Description                                           | Use Case                                                |
 |---------------|-------------------------------------------------------|---------------------------------------------------------|
 | `Packed`      | Bin-packs GameServers onto the fewest nodes possible  | Cloud/dynamic clusters - optimizes infrastructure costs |
-| `Distributed` | Spreads GameServers evenly across all available nodes | Static/on-prem clusters - maximizes fault tolerance     |
+| `Distributed` | Spreads GameServers evenly across all available nodes | Static/on-premises clusters - maximizes fault tolerance |
 
 **Default**: `Packed`
 
@@ -33,7 +33,7 @@ The following snippet shows the relevant structure:
     "types": [
       {
         "template": {
-          "scheduling": "…"
+          "scheduling": "<Packed|Distributed>"
         }
       }
     ]

@@ -132,7 +132,7 @@ This results in your Vessel switching to the Terminating status, and eventually 
 
 ## Creating a Region
 
-In this example, let's create a Region with a custom scheduling strategy using the REST API.
+In this example, let's create a Region with the `Distributed` scheduling strategy using the REST API.
 
 ::: tip Scheduling Strategy
 The `scheduling` field controls how GameServers are distributed across nodes.
@@ -162,7 +162,7 @@ curl -X 'POST' \
         "name": "default",
         "locations": ["<your-location>"],
         "template": {
-          "scheduling": "Packed"
+          "scheduling": "Distributed"
         }
       }
     ]
