@@ -21,7 +21,10 @@ When creating or updating a Region, you can configure the `scheduling` field wit
 
 ## API Usage
 
-The scheduling strategy is configured per Region Type at:
+The scheduling strategy is configured per Region Type.
+In the API payload, set `template.scheduling` on each entry in `spec.types`.
+
+Example:
 
 ```
 spec.types[].template.scheduling
