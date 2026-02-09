@@ -22,7 +22,12 @@ provider "gamefabric" {
 }
 ```
 
-The `customer_id` is the first segment of your GameFabric installation URL. For example, given the URL `example.gamefabric.dev`, the customer ID is `example`.
+The provider block accepts the following arguments:
+
+| Argument | Description |
+|----------|-------------|
+| `customer_id` | The first segment of your GameFabric installation URL. For example, given the URL `example.gamefabric.dev`, the customer ID is `example`. |
+| `service_account` | The email address of the [service account](/multiplayer-servers/authentication/authentication#managing-service-accounts) used for authentication. |
 
 ## Authentication
 
@@ -31,8 +36,6 @@ The provider requires a [service account](/multiplayer-servers/authentication/au
 ```bash
 export GAMEFABRIC_PASSWORD='<your-password>'
 ```
-
-In the configuration example, replace `example` with your actual `customer_id`.
 
 ## Resources
 
