@@ -71,7 +71,7 @@ curl -X 'POST' \
 }'
 ```
 
-## When to use each strategy
+## Use cases
 
 ### Packed (default)
 
