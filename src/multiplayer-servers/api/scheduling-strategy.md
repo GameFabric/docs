@@ -1,14 +1,14 @@
 # Scheduling Strategy
 
-The scheduling strategy controls how GameServers are distributed across Kubernetes nodes during allocation.
+The scheduling strategy controls how GameServers are distributed across nodes during allocation.
 
 ::: warning API Only
-This feature is currently only available via the API. UI support is planned for a future release.
+This feature is currently only available via the API.
 :::
 
 ## Overview
 
-When creating or updating a Region, you can configure the `scheduling` field within each Region Type's template to control GameServer placement behavior.
+When creating or updating a Region, you can configure the `scheduling` field within each Region Type's template to control GameServer placement behavior. This setting applies to both Armadas and Vessels deployed in the Region.
 
 ## Options
 
@@ -23,10 +23,11 @@ When creating or updating a Region, you can configure the `scheduling` field wit
 
 The scheduling strategy is configured per Region Type.
 In the API payload, set `template.scheduling` on each entry in `spec.types`.
+For the full API specification, see the [Region API reference](/api/multiplayer-servers/apiserver#tag/core.v1.Region/operation/createRegion).
 
-Example:
+The following snippet shows the relevant structure:
 
-```
+```json
 {
   "spec": {
     "types": [
@@ -40,7 +41,9 @@ Example:
 }
 ```
 
-### Example
+### Full example
+
+The following request creates a Region with the `Packed` scheduling strategy:
 
 ```bash
 curl -X 'POST' \
@@ -75,16 +78,21 @@ curl -X 'POST' \
 
 ### Packed (default)
 
-- Cloud environments where you pay per node
-- Dynamic clusters that scale based on demand
-- Environments where cost optimization is a priority
+This strategy is most relevant in the following scenarios:
+
+- For cloud environments where you pay per node
+- For dynamic clusters that scale based on demand
+- When cost optimization is a priority
 
 ### Distributed
 
-- On-premises or static clusters
-- High availability requirements
-- Even resource distribution requirements across infrastructure
+This strategy is most relevant in the following scenarios:
+
+- For on-premises or static clusters
+- When there are high availability requirements
+- For even resource distribution across infrastructure
 
 ## Reference
 
-For more details on how scheduling affects GameServer allocation, see the [Agones GameServerAllocation documentation](https://agones.dev/site/docs/reference/gameserverallocation/).
+- For the full Region API specification, see the [Region API reference](/api/multiplayer-servers/apiserver#tag/core.v1.Region/operation/createRegion).
+- For more details on how scheduling affects GameServer allocation, see the [Agones GameServerAllocation documentation](https://agones.dev/site/docs/reference/gameserverallocation/).
