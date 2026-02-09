@@ -27,7 +27,17 @@ In the API payload, set `template.scheduling` on each entry in `spec.types`.
 Example:
 
 ```
-spec.types[].template.scheduling
+{
+  "spec": {
+    "types": [
+      {
+        "template": {
+          "scheduling": "…"
+        }
+      }
+    ]
+  }
+}
 ```
 
 ### Example
