@@ -22,7 +22,7 @@ provider "gamefabric" {
 }
 ```
 
-The `customer_id` is the first segment of your GameFabric installation URL. For example, if your URL is `example.gamefabric.dev`, your customer ID is `example`.
+The `customer_id` is the first segment of your GameFabric installation URL. For example, given the URL `example.gamefabric.dev`, the customer ID is `example`.
 
 ## Authentication
 
