@@ -12,10 +12,10 @@ When creating or updating a Region, you can configure the `scheduling` field wit
 
 ## Options
 
-| Value | Description | Use Case |
-|-------|-------------|----------|
-| `Packed` | Bin-packs GameServers onto the fewest nodes possible | Cloud/dynamic clusters - optimizes infrastructure costs |
-| `Distributed` | Spreads GameServers evenly across all available nodes | Static/on-prem clusters - maximizes fault tolerance |
+| Value         | Description                                           | Use Case                                                |
+|---------------|-------------------------------------------------------|---------------------------------------------------------|
+| `Packed`      | Bin-packs GameServers onto the fewest nodes possible  | Cloud/dynamic clusters - optimizes infrastructure costs |
+| `Distributed` | Spreads GameServers evenly across all available nodes | Static/on-prem clusters - maximizes fault tolerance     |
 
 **Default**: `Packed`
 
