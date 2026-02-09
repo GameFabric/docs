@@ -31,7 +31,7 @@ The provider block accepts the following arguments:
 
 ## Authentication
 
-The provider requires a [service account](/multiplayer-servers/authentication/authentication#managing-service-accounts) for authentication. Set the password via environment variable:
+The provider requires a [service account](/multiplayer-servers/authentication/authentication#managing-service-accounts) for authentication. Set the `GAMEFABRIC_PASSWORD` environment variable:
 
 ```bash
 export GAMEFABRIC_PASSWORD='<your-password>'
