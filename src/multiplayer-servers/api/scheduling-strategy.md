@@ -64,7 +64,7 @@ curl -X 'POST' \
 
 - Cloud environments where you pay per node
 - Dynamic clusters that scale based on demand
-- Cost optimization is a priority
+- Environments where cost optimization is a priority
 
 ### Distributed
 
