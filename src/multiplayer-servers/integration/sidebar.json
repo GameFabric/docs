@@ -8,12 +8,12 @@
       "link": "/integration/your-game-server"
     },
     {
-      "text": "Terraform Provider",
-      "link": "/integration/terraform"
-    },
-    {
       "text": "Your Infrastructure",
       "link": "/integration/your-backend"
+    },
+    {
+      "text": "Terraform Provider",
+      "link": "/integration/terraform"
     },
     {
       "text": "Game Server Life Cycle",
