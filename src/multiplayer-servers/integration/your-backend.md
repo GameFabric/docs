@@ -17,8 +17,6 @@ Find detailed instructions in our [GameFabric API Guide](/multiplayer-servers/ap
 
 ## Terraform Provider Support
 
-GameFabric supports Infrastructure as Code (IaC) through official Terraform and OpenTofu provider plugins:
+GameFabric supports Infrastructure as Code (IaC) through official Terraform and OpenTofu provider plugins.
 
-* [Terraform provider](https://registry.terraform.io/providers/GameFabric/gamefabric/latest)
-* [OpenTofu provider](https://search.opentofu.org/provider/gamefabric/gamefabric/latest)
-* [GitHub repository](https://github.com/GameFabric/terraform-provider-gamefabric/)
+For installation and usage instructions, see the [Terraform provider](/multiplayer-servers/integration/terraform) documentation.
