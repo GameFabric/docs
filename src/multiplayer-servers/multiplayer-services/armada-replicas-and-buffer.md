@@ -1,4 +1,4 @@
-# Armada Replicas and Buffer
+# Armada replicas and buffer
 
 An Armada can spin up one game server, thousands of game servers, or anything in between, including no game servers as the special case of [Scaling Down](#scaling-down).
 The number of game servers running in each Region Type is determined by the Replicas and Buffer settings:
@@ -12,7 +12,7 @@ When configured too low, such as if not enough `Ready` game servers are availabl
 
 ![Armada Configuration for Minimum Replicas, Maximum Replicas and Buffer Size](images/armada/replicas-and-buffer-size.png)
 
-## Minimum/Maximum Replicas
+## Minimum/maximum replicas
 
 Replicas are the number of game servers running in any given state, from `Starting` to `Ready`, from `Allocated` to `Unhealthy`, `Shutdown` or `Error`.
 
@@ -21,12 +21,12 @@ If that is not the case, GameFabric spins up new game servers.
 
 The **Maximum Replicas** setting makes sure no more game servers are started when the total number of game servers reaches that number.
 
-## Buffer Size
+## Buffer size
 
 The Buffer Size is the [approximate](#buffer-size-value) number of game servers that are kept in the `Ready` state, waiting to get `Allocated`.
 This is important so players can find a game server quickly, without having to wait for a new game server to start up.
 
-## Input Validation
+## Input validation
 
 When configuring an Armada, the following validation rules apply:
 
@@ -35,13 +35,13 @@ When configuring an Armada, the following validation rules apply:
 
 whereas <span class="nbsp">`0, 0, 0`</span> is considered <span class="nbsp">[Scaling Down](#scaling-down).</span>
 
-## Finding the Right Values
+## Finding the right values
 
 Finding the right values for Minimum Replicas, Maximum Replicas, and Buffer Size is non-trivial and relies on historical data, prior experience, and expectations of future demand.
 
 ![Game Server States during a Buffer Size Test](images/armada/armada-game-server-states.png)
 
-### Buffer Size Value
+### Buffer size value
 
 The Buffer Size is the number of `Ready` game servers. Even when no players are playing, these game servers are running and waiting for players to join.
 
@@ -100,7 +100,7 @@ Game servers are running idle, leading to unnecessary costs.
 Frequently revisit and adjust the Minimum Replicas, Maximum Replicas, and Buffer Size settings to avoid unnecessary costs or poor player experience.
 :::
 
-### Minimum Replicas
+### Minimum replicas
 
 Choosing a value for the Minimum Replicas is mostly driven by the Buffer Size, as the Minimum Replicas must always be at least as high as the Buffer Size.
 
@@ -109,7 +109,7 @@ The **recommended default** is to set the Minimum Replicas to the value of the B
 In case of an upcoming release or launch, with the expectation of an instant high player count, the Minimum Replicas can be set to a higher value to ensure enough game servers are running initially to accommodate the expected load.
 It is vital to review and adjust the value after the initial peak has subsided, to avoid unnecessary costs.
 
-### Maximum Replicas
+### Maximum replicas
 
 When looking from a resource perspective, the Maximum Replicas can be estimated by the available resources on the Location associated with the Region Type, divided by the [Resource Requests](./resource-management#resource-requests) of the game server.
 A Location can hold multiple different Armadas, each with different Resource Request settings.
@@ -177,7 +177,7 @@ The Maximum Replicas is not only a consideration of physical resources, but also
 Whether through player peaks, due to bugs or DDoS attacks, always choose a limit that is within your budget, especially on cloud.
 :::
 
-## Scaling Down
+## Scaling down
 
 To gracefully scale down a Region Type, the Minimum Replicas, the Maximum Replicas, and the Buffer Size can be set to zero.
 Game servers that are `Allocated` continue to run until they are `Shutdown`, but new game servers are no longer being scheduled.

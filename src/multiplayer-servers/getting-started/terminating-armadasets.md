@@ -27,14 +27,14 @@ Please note that terminating an ArmadaSet does not delete it. It only terminates
 The Armada System then automatically restarts everything implicitly once it detects the discrepancy between the existing capacity and the expected capacity.
 :::
 
-## Terminate Unallocated
+## Terminate unallocated
 
 The **Terminate Unallocated** option performs a **graceful** termination of all game servers in the ArmadaSet that are not currently allocated.
 This means that any game servers actively being played on remain untouched, while those not in use are restarted.
 
 For more information about how allocation is tracked, see the [Using the Agones SDK](using-the-agones-sdk.md) section.
 
-## Terminate All
+## Terminate all
 
 The **Terminate All** option performs a **forceful** termination of all game servers in the ArmadaSet, regardless of whether they are allocated or not.
 This means that all running game servers are restarted, even if they are actively in use by players.

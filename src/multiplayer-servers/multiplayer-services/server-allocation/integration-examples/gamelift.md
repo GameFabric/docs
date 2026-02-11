@@ -1,4 +1,4 @@
-# Amazon GameLift Integration Documentation
+# Amazon GameLift integration documentation
 
 ## Introduction
 

@@ -2,7 +2,7 @@
 
 ServiceAccounts are required to push images and interact with the GameFabric REST API.
 
-## Managing Service Accounts
+## Managing service accounts
 
 To manage service accounts, navigate to the "Access Management" section of the WebUI, and into the "Users/Groups" page.
 
@@ -26,7 +26,7 @@ If you lost the password for a service account, you can reset it by clicking the
 
 ![RBAC_Service_Accounts_Regen_Password.png](images/authentication/RBAC_Service_Accounts_Regen_Password.png)
 
-## Pushing Docker Images to the Registry
+## Pushing Docker images to the registry
 
 Make note of the username and password for your service account, and use them to log in as described in the [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images) guide.
 

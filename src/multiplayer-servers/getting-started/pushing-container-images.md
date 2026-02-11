@@ -1,4 +1,4 @@
-# Pushing Container Images
+# Pushing container images
 
 In this section, you will learn how to make a container image available to GameFabric for subsequent deployment.
 
@@ -21,7 +21,7 @@ In order to follow this guide, make sure you have the following:
 
 Log into the GameFabric UI before proceeding.
 
-## Create a Branch
+## Create a branch
 
 If you do not already have a branch in which to push images, you need to create one.
 In case you haven't already done so, there are two options available to you:
@@ -43,7 +43,7 @@ For example, with **Keep Days** set to 14 and **Keep Count** set to 10, images o
 _Note: Either **Keep Days** or **Keep Count** (or both) must be >0. Setting **Keep Days** or **Keep Count** to _0_ means that specific rule will be ignored._
 :::
 
-### Add default Branches
+### Add default branches
 
 ::: info
 This option is only available if you have not created any branches yet.
@@ -57,7 +57,7 @@ This option is only available if you have not created any branches yet.
 4. The default branches are created. You can now see them in the branches overview.
 ![GUI_branches_created_default.png](images/branches/GUI_branches_created_default.png)
 
-### Create custom Branch
+### Create custom branch
 
 You can also create custom branches with a name and an Image Retention Policy of your choice.
 

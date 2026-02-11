@@ -1,4 +1,4 @@
-# Deleting Container Images
+# Deleting container images
 
 In this section, you will learn different methods for deleting container images.
 
@@ -23,7 +23,7 @@ Before following this guide, ensure that you have already [pushed container imag
 Images that are actively in use cannot be deleted!
 :::
 
-## Delete a Single Tag
+## Delete a single tag
 
 To delete a single tag:
 
@@ -34,7 +34,7 @@ To delete a single tag:
 4. Click **Delete** to confirm or **Cancel** to abort.
 ![GUI_delete_tag_modal.png](images/branches/GUI_delete_tag_modal.png)
 
-## Delete Multiple Images
+## Delete multiple images
 
 You can also delete multiple images or tags simultaneously:
 
@@ -43,7 +43,7 @@ You can also delete multiple images or tags simultaneously:
 2. Click **Delete Images** at the bottom of the screen. A confirmation pop-up will appear.
 3. Click **Delete** to confirm or **Cancel** to abort.
 
-## Delete All Tags of an Image
+## Delete all tags of an image
 
 If you want to delete all tags of an image at once:
 

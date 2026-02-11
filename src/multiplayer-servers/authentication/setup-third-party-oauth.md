@@ -30,7 +30,7 @@ Scroll down to the "Providers" resource, and make sure that "GET" and "POST" per
 
 ![Role Resource Matrix Screenshot](images/authentication/create-oidc-provider-role-resource-matrix.png)
 
-## Setting up a new OIDC Provider
+## Setting up a new OIDC provider
 
 Navigate to the "Access Management" section from the Sidebar Menu, and then into the "OIDC Providers" page.
 You may add a new OIDC Provider via the **Add Provider** button.
@@ -73,11 +73,11 @@ For OIDC Providers with standard behavior no further configuration is necessary 
 
 ![Basic Provider Create Screenshot](images/authentication/create-oidc-provider-basic-finish.png)
 
-### Advanced Configurations
+### Advanced configurations
 
 This section allows configuration of **Scopes & Claims**, **Prompt**, **Claim Mapping** and **Provider Discovery Override**.
 
-#### Scopes & Claims
+#### Scopes and claims
 
 GameFabric requests additional data about the authenticated user using **Scopes & Claims**.
 
@@ -127,7 +127,7 @@ Possible **Prompt** values are:
 
 ![Prompt Section Screenshot](images/authentication/create-oidc-provider-prompt-screenshot.png)
 
-#### Claim Mapping
+#### Claim mapping
 
 Some OIDC providers return non-standard claims.
 **Claim Mapping** section allows mapping these claims into standardized claims in GameFabric.
@@ -141,7 +141,7 @@ Some of the non-standard claims, and how would they map to GameFabric claims:
 | normalized_username | preferred_username             | Lowercased username                                                            |
 | secondary_email     | email                          | Secondary email, that might be wished to map to the principal "email"          |
 
-#### Provider Discovery Override
+#### Provider discovery override
 
 GameFabric performs a preparatory request to the OIDC Provider to fetch required configuration details.
 If this query returns incorrect information, you can override these values:

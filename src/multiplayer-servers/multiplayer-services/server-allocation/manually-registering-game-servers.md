@@ -1,4 +1,4 @@
-# Manually Registering Game Servers
+# Manually registering game servers
 
 This guide describes the steps to take to integrate GameFabric Allocator within your game.
 The steps described here are in contrast to the [Allocator Sidecar](automatically-registering-game-servers.md) feature that performs these actions automatically for simple use cases.
@@ -114,7 +114,7 @@ Once your server is registered, you should start some kind of routine that sends
 
 You should then stop sending those requests once you receive a request on the allocation callback endpoint.
 
-#### Error Cases
+#### Error cases
 
 ##### Keep-Alive: `404 Not Found`
 

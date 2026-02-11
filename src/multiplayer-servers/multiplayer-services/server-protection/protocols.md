@@ -1,4 +1,4 @@
-# Ports and Protocols
+# Ports and protocols
 
 Game server ports are often vulnerable to attacks.
 GameFabric offers Protocols to protect your game server traffic with powerful SteelShield mitigations.
@@ -39,7 +39,7 @@ Allowing both protocols while only one is supported by the Mitigation is not all
 Once the Protocol is created, you may use it in any ArmadaSet, Armada, Formation or Vessel.
 In order to do so, in their Container configuration page, you must select a Protection Protocol for each game server port.
 
-## Protect Game Server Ports
+## Protect game server ports
 
 Any ArmadaSet, Armada, Formation or Vessel requires at least one game server port.
 This port is usually meant for communication between your game server and game clients.
@@ -60,7 +60,7 @@ The assignment triggers an immediate rollout with the new port assignment.
 Allocated game servers as always are not affected, so they keep running under the old configuration.
 :::
 
-## Unsupported Sites
+## Unsupported sites
 
 Sites are game server clusters, and currently SteelShield is not supported on every Site.
 If you scale up and end up having game servers on multiple Sites, you may have game servers that are protected,

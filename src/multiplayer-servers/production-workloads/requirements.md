@@ -6,7 +6,7 @@ To ensure your players have the best possible experience with GameFabric, we rec
 
 The following are essential for deploying your game server on GameFabric.
 
-### Server Requirements
+### Server requirements
 
 * **Linux Build**: Your game server must be built for a Linux environment (`amd64`) to be compatible with GameFabric's containerized infrastructure.
 For more details on creating a compatible container, see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image).

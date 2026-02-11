@@ -1,4 +1,4 @@
-# Edit a Branch
+# Edit a branch
 
 In this section, you will learn how to edit a branch.
 You may want to edit a branch if you want to change its name or update its Image Retention Policies.

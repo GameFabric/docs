@@ -3,7 +3,7 @@
 In GameFabric, there are multiple objects you need to be aware of, that are referenced throughout the documentation.
 Their names and description are detailed in this section in alphabetical order.
 
-## Allocation Sidecar
+## Allocation sidecar
 
 The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by Nitrado for easy integration with the [Allocator](#allocator).
 
@@ -94,7 +94,7 @@ The GameFabric Help Center is the central place for all self-service feature req
 
 ![Help Center menu location](images/glossary/help-center-menu.png)
 
-## Gateway Policies
+## Gateway policies
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).
 
@@ -175,7 +175,7 @@ A sidecar is a container that runs alongside your game server container, providi
 For example, Nitrado provides an allocator sidecar which can handle the allocation process for you.
 You could also run your own sidecars for monitoring or other purposes.
 
-## Shutdown Hints
+## Shutdown hints
 
 See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessel-shutdown-behavior).
 
@@ -189,7 +189,7 @@ A Site can be marked as cordoned, making it unschedulable. Allocated game server
 
 This can be the case, for example, when a Site has just been provisioned to prevent premature allocations, or when a Site is being prepared for deprovisioning.
 
-## Service Account
+## Service account
 
 An account used for accessing GameFabric programmatically, please refer to the documentation under [Authentication](/multiplayer-servers/authentication/authentication#managing-service-accounts).
 
@@ -203,13 +203,13 @@ See also [SteelShield docs](/steelshield/gamefabric/introduction).
 
 GameFabric offers its own Terraform provider to interact with the platform. See the [Terraform provider](/multiplayer-servers/integration/terraform) documentation for installation and usage instructions.
 
-## Protection Status
+## Protection status
 
 Status of the [SteelShield](#steelshieldtm) protection status for each [Site](#site) on the Sites overview in the GameFabric UI.
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-status).
 
-## Protection Protocol
+## Protection protocol
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#managing-protocols).
 

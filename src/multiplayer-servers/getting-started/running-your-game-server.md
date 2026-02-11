@@ -1,4 +1,4 @@
-# Running your Game Server
+# Running your game server
 
 In this section, you will learn how to run your first game server.
 
@@ -16,7 +16,7 @@ In order to follow this guide, make sure you have the following:
 
 Log into the GameFabric UI before proceeding.
 
-## Create Configuration Files (optional)
+## Create configuration files (optional)
 
 If your game server requires configuration files, you should add those before creating your first game server.
 
@@ -73,7 +73,7 @@ If you select `autoUpdate`, pushing a new version of your game server image imme
 This can be very convenient for development purposes, as it avoids you having to edit the Vessel whenever you push a new version.
 :::
 
-#### Environment Variables
+#### Environment variables
 
 Environment variables are a convenient way of exposing configuration options to the game server without defining a full configuration file.
 You can define them as static key/value pairs, or, by selecting the "Pod Field" type, expose metadata about the deployed game server,
@@ -125,7 +125,7 @@ Below are some port name conventions and what they are typically used for:
 | rcon      | Any remote control endpoint that can be used to manage the game server at runtime. |
 | allocator | Callback endpoint for a server allocation mechanism.                               |
 
-#### Command and Arguments
+#### Command and arguments
 
 You can also override the command run by the container, as well as CLI arguments your game server starts with.
 
@@ -173,7 +173,7 @@ new arbitrary container from scratch.
 
 ![GUI_Create_Vessel_Containers_Sidecar.png](images/formation/GUI_Create_Vessel_Containers_Sidecar.png)
 
-### Advanced Options
+### Advanced options
 
 In this last section you can adjust advanced options like enabling profiling, configuring health checks, and defining
 grace periods for game server termination.
@@ -185,7 +185,7 @@ This feature has an expected CPU performance impact of just 2-3%, so in most cas
 
 ![GUI_Create_Vessel_Advanced_Profiling.png](images/formation/GUI_Create_Vessel_Advanced_Profiling.png)
 
-#### Health Checks
+#### Health checks
 
 If a game server fails to call `agones.Health()`, it will be considered unhealthy and terminated.
 The thresholds for that process can be configured here. The default values are usually okay to use.
@@ -198,7 +198,7 @@ SDK integration. For production usage health checks should always be enabled, ot
 unresponsive state cannot be automatically detected and cleaned up.
 :::
 
-#### Termination Grace Periods
+#### Termination grace periods
 
 Game servers may receive [*Shutdown Hints*](terminating-game-servers.md), observable via the Agones SDK.
 These hints are used when game servers need to shut down within a specific time frame due to an external reason.
@@ -216,7 +216,7 @@ The configured grace period is the time that the game server can use to graceful
 by informing the players to disconnect and shutting down when all players have left.
 When the game server has not shut down before the grace period has passed, it is forcefully terminated.
 
-## Visualize and Configure
+## Visualize and configure
 
 Now that the Vessel has been successfully created, it should become visible in the "Vessels" section.
 If the game server starts up as expected and completes its `agones.Ready()` call, the state of the Vessel should switch to "RUNNING".

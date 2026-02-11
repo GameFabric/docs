@@ -3,7 +3,7 @@
 GameFabric Cloud enables provisioning and deprovisioning of cloud [Locations](glossary#location)
 directly from GameFabric, increasing available server capacity.
 
-## Key Features
+## Key features
 
 - **Integrated management**: Manage cloud capacity directly in GameFabric.
 - **Automated scaling**: Automatically scale game servers into the newly provisioned cloud Locations.
@@ -24,7 +24,7 @@ should be defined to cover multiple Locations, including inactive cloud Location
 
 Provisioning cloud capacity at a specific Location increases the overall capacity in the corresponding Region, allowing game servers to automatically scale into the newly provisioned Location.
 
-## Provision Cloud Location
+## Provision cloud location
 
 To provision a cloud Location, navigate to the Locations dashboard. It is located under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
 
@@ -54,7 +54,7 @@ The `core/v1` API shows the assigned Sites once the Location has been successful
 
 To avoid unnecessary costs, remember to deprovision unused cloud Locations.
 
-## Deprovision Cloud Location
+## Deprovision cloud location
 
 To deprovision a cloud Location, navigate to the Locations dashboard. It is located under <span class="nbsp">Capacity » Locations</span> in the GameFabric sidebar.
 
@@ -71,7 +71,7 @@ To deprovision a cloud Location, navigate to the Locations dashboard. It is loca
    The details may differ from those shown in the screenshot.
 5. Confirm the dialog.
 
-## Find Managed Cloud Locations
+## Find managed cloud locations
 
 The Locations dashboard shows all Locations, including bare metal and cloud, and regardless of whether they have Sites,
 but by default, the overview is filtered to show only Locations with Sites.
@@ -84,15 +84,15 @@ To find only used managed cloud Locations, additionally choose "used" from the "
 
 ![Find My Managed Cloud Locations](images/cloud/find-my-managed-cloud-locations.png)
 
-## Important Configuration
+## Important configuration
 
-### Configure Regions (required)
+### Configure regions (required)
 
 The provisioned cloud Location must be part of a Region for the Armadas and Vessels to use it.
 
 It is generally advised to distribute the available Locations across the Regions setup so that newly provisioned Locations are automatically used.
 
-### Configure Region Types and Priority (recommended)
+### Configure region types and priority (recommended)
 
 Region Types divide a Region into logical subsets, such as bare metal and cloud.
 This enables priority configuration, with bare metal often preferred over cloud for cost optimization.

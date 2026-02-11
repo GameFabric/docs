@@ -1,4 +1,4 @@
-# Automatically Registering Game Servers
+# Automatically registering game servers
 
 This guide describes how to enable and configure the automatic game server registration and the associated
 allocation handling. The goal is to enable your matchmaker to select game servers using Nitrado Allocator.
@@ -21,7 +21,7 @@ Please check [Using the Agones SDK](../../getting-started/using-the-agones-sdk) 
 
 <br style="clear:right"/>
 
-## Automatic Registration
+## Automatic registration
 
 When a matchmaker requests a game server from the allocation service, the game server must not only be "Ready",
 it must also be registered with the allocation service.
@@ -84,7 +84,7 @@ Also do not use `UDP/TCP`, as this results in a different naming scheme.
 The Allocation Sidecar watches for the state change "Ready", registers the game server to the pre-configured
 allocation service, and when allocated, transitions the state to "Allocated".
 
-## Game Server Integration
+## Game server integration
 
 With the registration and allocation handling automated,
 your game server needs to be extended to support watching for the "Allocated" state change.
@@ -171,7 +171,7 @@ which can only be achieved with a shared volume, mounted into both containers.
 This has to be done manually.
 :::
 
-### Return a payload to the Allocator
+### Return a payload to the allocator
 
 In order to return information about the game server to the process calling `/allocate`
 [add the environment variable `ALLOC_CALLBACK_PAYLOAD_ANNOTATION`](#alloc_callback_payload_annotation-string) on the Allocation Sidecar container.
@@ -187,7 +187,7 @@ a partial payload may be sent.
 Static payload variables can also be sent by [adding the environment variable `ALLOC_CALLBACK_PAYLOAD_VARS`](#alloc_callback_payload_vars-string) on
 the Allocation Sidecar container.
 
-## Advanced Configuration
+## Advanced configuration
 
 All environment variables described in this guide must be added to the Allocation Sidecar container,
 not to your game server container.

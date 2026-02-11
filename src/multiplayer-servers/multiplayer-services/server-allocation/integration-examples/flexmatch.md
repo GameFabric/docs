@@ -1,4 +1,4 @@
-# Amazon GameLift FlexMatch Integration Documentation
+# Amazon GameLift FlexMatch integration documentation
 
 ## Introduction
 
