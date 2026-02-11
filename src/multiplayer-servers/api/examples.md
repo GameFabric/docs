@@ -6,7 +6,7 @@ This section provides examples of how to use the GameFabric REST API.
 For a comprehensive overview of the API structure and available endpoints, see the [API Guide](/multiplayer-servers/api/guide).
 :::
 
-## Pre-requisites
+## Prerequisites
 
 * Follow the steps described in the [API Authentication](../authentication/authentication.md) section to create a Service Account and fetch a token that gives you access to the REST API.
 * Follow [the guide to push an image](../getting-started/pushing-container-images.md) of your game server into the registry.

@@ -1,4 +1,4 @@
-# Game Server Lifecycle
+# Game server lifecycle
 
 1. **Start:** Game server process is launched.
 2. **Ready:** The server signals `Ready()` after initialization and when it is prepared to accept players.

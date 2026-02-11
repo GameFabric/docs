@@ -1,4 +1,4 @@
-# Gateway Policies
+# Gateway policies
 
 Gateway policies provide an additional layer of protection for your game infrastructure by
 redirecting specific outgoing game server traffic to destinations such as your game backend.
@@ -9,7 +9,7 @@ If SteelShield is active while unaware of your legitimate outgoing traffic, it m
 For port-level protection, see [Ports and Protocols](protocols). For an overview of SteelShield, see the [SteelShield Introduction](/steelshield/unreal-engine-plugin/introduction).
 :::
 
-## Attack Scenario
+## Attack scenario
 
 Without Gateway Policies, an attacker can spoof a game host's IP address and send malicious requests to your game backend.
 In response, you or your hosting provider might decide to block the IP address.
@@ -25,7 +25,7 @@ In order to protect your game server's traffic, your GameFabric installation req
 - Protection support enabled, usually indicated by the presence of the Protection/SteelShield navigation item.
 - Sites that support Gateway Policies.
 
-## Gateway Policy
+## Gateway policy
 
 A Gateway Policy specifies a set of destination CIDRs for which outgoing traffic should be redirected.
 
