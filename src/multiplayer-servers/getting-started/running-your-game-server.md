@@ -69,7 +69,7 @@ This makes the game server container use that image.
 ![GUI_Create_Vessel_Containers_Image.png](images/formation/GUI_Create_Vessel_Containers_Image.png)
 
 :::warning
-If you select `latest (auto update)`, pushing a new version of your game server image immediately triggers an automatic rollout.
+If you select `autoUpdate`, pushing a new version of your game server image immediately triggers an automatic rollout.
 This can be very convenient for development purposes, as it avoids you having to edit the Vessel whenever you push a new version.
 :::
 

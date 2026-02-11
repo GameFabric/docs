@@ -6,7 +6,7 @@ In addition to our web-based user interface, GameFabric provides several program
 ## Docker Integration
 
 Game server images can be uploaded using `docker` to any [Branch](/multiplayer-servers/getting-started/glossary#branch) of your choice.
-If you have selected `latest (auto update)` in your configuration, pushing a new version of your game server image will immediately trigger an automatic rollout.
+If you have selected `autoUpdate` in your configuration, pushing a new version of your game server image will immediately trigger an automatic rollout.
 
 For more details, see the [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server#image) documentation.
 
