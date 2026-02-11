@@ -2,6 +2,10 @@
 
 Each GameFabric installation has an own solution for audit logs.
 
+::: info Data availability
+Audit logs may be delayed by up to 2 minutes due to collection and processing pipelines.
+:::
+
 To access it, click on "Audit Logs".
 ![Screenshot of the Monitoring sidebar in the GameFabric interface](images/sidebar.png)
 
