@@ -1,4 +1,4 @@
-# Configuring your Cloud Provider
+# Configuring your cloud provider
 
 This document describes the steps required to set up your Cloud provider for use with GameFabric.
 This setup is also known as <span class="nbsp">Bring Your Own Cloud</span> (BYOC), where GameFabric manages resources within your Cloud provider account.
@@ -14,7 +14,7 @@ Make sure you understand the [hosting models](/multiplayer-servers/architecture/
 
 ## Google Cloud
 
-### GCP Prerequisites
+### GCP prerequisites
 
 * You **must** already have an existing Google Cloud organization
 * You **must** possess the necessary permissions to manage principals and billing accounts in your organization
@@ -62,7 +62,7 @@ After you have completed the steps above, please contact Nitrado to confirm that
 
 ## Amazon Web Services
 
-### AWS Prerequisites
+### AWS prerequisites
 
 * You **must** already have an existing AWS account
 * You **must** possess the necessary permissions to create IAM resources in your account
@@ -78,7 +78,7 @@ as long as the chain of _Trust Relationship_ is not broken.
 
 For setting this up, we recommend using a tool like Terraform, as it allows you to simply declare the desired resources. Particularly for configuring various policy documents, this will be helpful. We'll use Terraform in the following. You can adapt this guide and do the following steps manually.
 
-### Creating the Role and Assumption Policy
+### Creating the role and assumption policy
 
 Create an IAM Role and the appropriate role assumption policy using Terraform:
 
@@ -145,7 +145,7 @@ output "role_arn" {
 The defaults for the variables are linking to the Gamefabric AWS account, specifically, the account ID `339712714940` belongs to the Gamefabric organization.
 The two ARNs link to the role and the respective SAML provider on _our end_ (see the graphic above).
 
-### Creating Policies for Resource Management
+### Creating policies for resource management
 
 Create several IAM policy documents that grant access:
 

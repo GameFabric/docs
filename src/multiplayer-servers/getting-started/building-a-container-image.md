@@ -1,4 +1,4 @@
-# Building a Container Image
+# Building a container image
 
 The purpose of this guide is to explain how to package game server binaries as Docker images.
 This document will help you if you do not already have a Docker image for your game server,

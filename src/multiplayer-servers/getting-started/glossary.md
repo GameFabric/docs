@@ -175,7 +175,7 @@ A sidecar is a container that runs alongside your game server container, providi
 For example, Nitrado provides an allocator sidecar which can handle the allocation process for you.
 You could also run your own sidecars for monitoring or other purposes.
 
-## Shutdown Hints
+## Shutdown hints
 
 See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessel-shutdown-behavior).
 

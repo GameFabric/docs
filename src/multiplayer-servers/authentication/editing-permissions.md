@@ -13,20 +13,20 @@ Existing groups are listed on the **Users/Groups** page of the GameFabric UI, un
 From here, you can view all groups, create new ones, or edit existing groups.
 ![groups-overview.png](images/permissions/groups-overview.png)
 
-### Assign Roles To A Group
+### Assign roles to a group
 
 To add roles to a group, click the **Edit** button next to the desired group.
 This opens the group edit modal, where you can add or remove roles.
 Select the roles you want to assign, then click **Save**.
 ![add-role-to-group.png](images/permissions/add-role-to-group.png)
 
-### Assign User To A Group
+### Assign user to a group
 
 In the group edit modal, click the **Users** tab. Here, you can enter an email address that is used to sign in.
 Click **Add User**, select the desired user, and then click **Save** to apply your changes.
 ![add-user-to-group.png](images/permissions/add-user-to-group.png)
 
-#### Unassign User From A Group
+#### Unassign user from a group
 
 To remove a user, click the **X** icon next to their email address. Then click **Save** to confirm.
 ![remove-user-from-group.png](images/permissions/remove-user-from-group.png)

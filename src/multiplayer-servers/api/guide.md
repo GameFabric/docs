@@ -6,7 +6,7 @@ This document describes the various APIs that compose the GameFabric API.
 If you prefer declarative configuration, use the [Terraform provider](/multiplayer-servers/integration/terraform) instead of the REST API.
 :::
 
-## Object Structure
+## Object structure
 
 Almost all API objects follow the same structure:
 
@@ -55,7 +55,7 @@ The Core API group contains all resources related to the GameFabric itself, and 
 
 The RBAC API group is used to manage groups, roles and role bindings.
 
-## External Resources
+## External resources
 
 * [REST API Basics](https://www.redhat.com/en/topics/api/what-is-a-rest-api)
 * [HTTP Methods](https://restfulapi.net/http-methods/)

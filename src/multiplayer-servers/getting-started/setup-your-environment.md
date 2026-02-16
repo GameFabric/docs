@@ -1,6 +1,6 @@
-# Setup your Environment
+# Set up your environment
 
-In this section, you will learn how to setup an Environment and a Region in that Environment.
+In this section, you will learn how to set up an Environment and a Region in that Environment.
 
 ::: tip Key Concepts
 Before proceeding, review the [Glossary](/multiplayer-servers/getting-started/glossary) to understand key concepts like Environments, Regions, Locations, and Sites.
@@ -20,7 +20,7 @@ After setting up your environment and region, you'll need to:
 3. [Deploy your game servers](/multiplayer-servers/getting-started/running-your-game-server)
 :::
 
-## Create an Environment
+## Create an environment
 
 Environments are a mechanism for isolating groups of resources.
 They can therefore be used to separate production, staging, testing, and any other environments and ensure that they don't interfere with each other.
@@ -39,7 +39,7 @@ Click the "Create Environment" when the form is filled out.
 
 Once the Environment is created, it appears in the list, and in the menu.
 
-## Create a Region
+## Create a region
 
 Regions group Locations where resources are hosted, typically geographically.
 

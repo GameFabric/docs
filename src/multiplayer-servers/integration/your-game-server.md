@@ -25,7 +25,7 @@ wait for an allocation to happen.
 The IP and Port information may not immediately be available. In that case, poll the endpoint until it is returned.
 :::
 
-## Discovering Your Public Address
+## Discovering your public address
 
 The public IP and ports that clients use to connect to your game server differ from the IP and ports your server binds to locally.
 
@@ -89,7 +89,7 @@ For example, passing the public port to your server:
 
 See [Command-line Arguments](/multiplayer-servers/multiplayer-services/game-server-wrapper#command-line-arguments) for available template variables.
 
-## Local Development
+## Local development
 
 To test your Agones SDK integration locally without deploying to GameFabric, you can run the Agones SDK server in local mode. This provides a mock endpoint that responds to SDK calls and logs the interactions.
 

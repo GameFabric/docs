@@ -9,7 +9,7 @@ If SteelShield is active while unaware of your legitimate outgoing traffic, it m
 For port-level protection, see [Ports and Protocols](protocols). For an overview of SteelShield, see the [SteelShield Introduction](/steelshield/unreal-engine-plugin/introduction).
 :::
 
-## Attack Scenario
+## Attack scenario
 
 Without Gateway Policies, an attacker can spoof a game host's IP address and send malicious requests to your game backend.
 In response, you or your hosting provider might decide to block the IP address.
