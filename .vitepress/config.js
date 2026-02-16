@@ -22,6 +22,7 @@ export default defineConfig({
         ['meta', {property: 'og:url', content: 'https://docs.gamefabric.com/'}],
     ],
     themeConfig: {
+        outline: 'deep',
         search: {
           provider: 'local'
         },
