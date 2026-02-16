@@ -34,16 +34,6 @@ From the GameFabric UI, click **Monitoring** in the sidebar to open your Grafana
 
 For profiling data to be useful, your game server binary needs to expose debug symbols. If you see `[unknown]` in your flame graphs instead of meaningful function names, your binary may not have the necessary symbol information.
 
-### Engine-specific notes
-
-Symbol resolution support varies by engine:
-
-| Engine | Symbol Resolution |
-|--------|-------------------|
-| Unreal Engine | Typically works out of the box |
-| Unity | May require additional configuration |
-| Custom engines | Depends on build settings |
-
-### Resolving symbol issues
+Symbol resolution depends on your build configuration. Ensure your game server binary is not stripped and includes debug symbols.
 
 If symbols are not resolving correctly, see [Troubleshoot unknown symbols](https://grafana.com/docs/alloy/latest/reference/components/pyroscope/pyroscope.ebpf/#troubleshoot-unknown-symbols) in the Grafana Alloy documentation.
