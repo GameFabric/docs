@@ -152,7 +152,7 @@ curl -X 'POST' \
   "kind": "Region",
   "metadata": {
     "name": "eu-west",
-    "environment": "<your-environment>"
+    "environment": "${ENV}"
   },
   "spec": {
     "displayName": "EU West",
