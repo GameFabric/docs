@@ -180,8 +180,12 @@ grace periods for game server termination.
 
 #### Profiling
 
-GameFabric Mutliplayer Servers has built-in support for eBPF-based CPU performances profiling using [Grafana Pryroscope](https://grafana.com/oss/pyroscope/).
-This feature has an expected CPU performance impact of just 2-3%, so in most cases it is safe to be enabled.
+GameFabric Multiplayer Servers has built-in support for eBPF-based CPU performance profiling using [Grafana Pyroscope](https://grafana.com/oss/pyroscope/).
+This feature has an expected CPU performance impact of just 2-3%, so in most cases it is safe to enable.
+
+::: tip Learn More
+For details on troubleshooting profiling issues, including symbol resolution, see the [Profiling guide](/multiplayer-servers/monitoring/profiling).
+:::
 
 ![GUI_Create_Vessel_Advanced_Profiling.png](images/formation/GUI_Create_Vessel_Advanced_Profiling.png)
 

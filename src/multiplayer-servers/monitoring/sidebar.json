@@ -8,6 +8,10 @@
       "link": "/monitoring/introduction"
     },
     {
+      "text": "Profiling",
+      "link": "/monitoring/profiling"
+    },
+    {
       "text": "Audit Logs",
       "link": "/monitoring/auditlogs"
     }
