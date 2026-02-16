@@ -136,9 +136,7 @@ In this example, let's create a Region with the `Distributed` scheduling strateg
 
 ::: tip Scheduling Strategy
 The `scheduling` field controls how GameServers are distributed across nodes.
-See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for details.
-
-This feature is currently only available via the API.
+See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for details. This feature is currently only available via the API.
 :::
 
 ```bash
