@@ -59,7 +59,7 @@ The following table summarizes the key differences between capacity types:
 | Cloud providers        | N/A             | GCP                 | GCP, AWS, Azure   |
 | Capacity request       | Help Center     | Self-service via UI | Help Center       |
 | Billing                | GameFabric      | GameFabric          | Cloud provider    |
-| Game servers per node  | 150             | 100                 | 100               |
+| Game servers per node  | Up to 150       | Up to 100           | Up to 100         |
 | Customer action required | Request via Help Center | Request via UI | IAM configuration |
 
 ## Prioritizing capacity types
