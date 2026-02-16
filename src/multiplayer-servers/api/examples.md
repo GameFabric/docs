@@ -1,4 +1,4 @@
-# API Usage Examples
+# API usage examples
 
 This section provides examples of how to use the GameFabric REST API.
 

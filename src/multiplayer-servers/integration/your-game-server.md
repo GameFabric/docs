@@ -77,7 +77,7 @@ The JSON response includes the public address and ports in the `status` object:
 }
 ```
 
-### Game server wrapper
+### Game Server Wrapper
 
 If your game server accepts connection information via command-line arguments or configuration files, you can use the [Game Server Wrapper](/multiplayer-servers/multiplayer-services/game-server-wrapper) to template these values at startup without modifying your game server code.
 

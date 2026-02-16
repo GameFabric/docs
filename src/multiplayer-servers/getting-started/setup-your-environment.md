@@ -1,6 +1,6 @@
-# Setup your environment
+# Set up your environment
 
-In this section, you will learn how to setup an Environment and a Region in that Environment.
+In this section, you will learn how to set up an Environment and a Region in that Environment.
 
 ::: tip Key Concepts
 Before proceeding, review the [Glossary](/multiplayer-servers/getting-started/glossary) to understand key concepts like Environments, Regions, Locations, and Sites.

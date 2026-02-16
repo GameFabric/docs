@@ -71,6 +71,6 @@ To edit environment-based permissions, expand the resource by clicking the arrow
 To bulk edit these permissions, use the checkboxes beside the resource name.
 ![edit-role-env-based.png](images/permissions/edit-role-env-based.png)
 
-## Service account
+## Service Account
 
 For the management of Service Accounts, refer to the [Authentication](authentication.md) section.

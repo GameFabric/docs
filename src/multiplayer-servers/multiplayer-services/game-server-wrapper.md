@@ -1,4 +1,4 @@
-# Game server wrapper
+# Game Server Wrapper
 
 The game server wrapper, also known as the "wrapper", "gswrapper" or "gsw", can be used to launch your game server executable
 inside the container image that runs your GameFabric Armadas or Vessels.

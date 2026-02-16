@@ -171,7 +171,7 @@ which can only be achieved with a shared volume, mounted into both containers.
 This has to be done manually.
 :::
 
-### Return a payload to the allocator
+### Return a payload to the Allocator
 
 In order to return information about the game server to the process calling `/allocate`
 [add the environment variable `ALLOC_CALLBACK_PAYLOAD_ANNOTATION`](#alloc_callback_payload_annotation-string) on the Allocation Sidecar container.

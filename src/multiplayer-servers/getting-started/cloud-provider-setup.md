@@ -21,7 +21,7 @@ Make sure you understand the [hosting models](/multiplayer-servers/architecture/
 
 If any of those pre-requisites are not met, like if you don't yet have an organization, you must contact Nitrado as the steps are different from what is described below.
 
-### Creating a principal
+### Creating a Principal
 
 * Visit the [Cloud Resource Manager](https://console.cloud.google.com/cloud-resource-manager) page
   * Click the _Create Folder_ button and name it _Nitrado_

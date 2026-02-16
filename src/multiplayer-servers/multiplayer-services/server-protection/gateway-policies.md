@@ -1,4 +1,4 @@
-# Gateway policies
+# Gateway Policies
 
 Gateway policies provide an additional layer of protection for your game infrastructure by
 redirecting specific outgoing game server traffic to destinations such as your game backend.
@@ -25,7 +25,7 @@ In order to protect your game server's traffic, your GameFabric installation req
 - Protection support enabled, usually indicated by the presence of the Protection/SteelShield navigation item.
 - Sites that support Gateway Policies.
 
-## Gateway policy
+## Gateway Policy
 
 A Gateway Policy specifies a set of destination CIDRs for which outgoing traffic should be redirected.
 
