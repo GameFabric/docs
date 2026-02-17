@@ -112,7 +112,7 @@ This can be done using the REST API too.
 
 ```bash
 curl -X 'GET' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSSEL_NAME}/logs?follow=true" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSEL_NAME}/logs?follow=true" \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
      -H 'Connection: keep-alive'
 ```
@@ -124,7 +124,7 @@ You can do so by deleting the Vessel using the REST API.
 
 ```bash
 curl -X 'DELETE' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSSEL_NAME}" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSEL_NAME}" \
      -H "Authorization: Bearer ${GF_API_TOKEN}"
 ```
 
