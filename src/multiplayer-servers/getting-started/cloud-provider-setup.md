@@ -97,7 +97,7 @@ variable "source_role_arn" {
 
 resource "aws_iam_role" "gamefabric_operators" {
   name               = "gamefabric-operators"
-  assume_role_policy = data.aws_iam_role_policy.assume_role_policy.json
+  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 
   tags = {
     role = "gamefabric-operators"
@@ -132,7 +132,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
     ]
     principals {
       type = "AWS"
-      identifiers = [ var.source_role_arn ]
+      identifiers = [var.source_role_arn]
     }
   }
 }
@@ -377,7 +377,7 @@ resource "aws_iam_role_policy" "gamefabric_operators" {
 ```
 
 ::: info Policy Document Size Restrictions
-AWS encodes their policy documents in JSON, and restricts the size of these documents rather strictly to 4KB per document.
+AWS encodes their policy documents in JSON, and restricts the size of these documents to 4KB per document.
 Adding all the permissions into one policy exceeds the limit for a single policy. We split them up logically such that
 they are grouped broadly by the resource types they grant access to.
 :::
