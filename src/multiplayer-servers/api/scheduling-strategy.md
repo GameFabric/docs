@@ -1,6 +1,6 @@
 # Scheduling Strategy
 
-The scheduling strategy controls how GameServers are distributed across nodes during allocation.
+The scheduling strategy influences how game servers are placed on nodes. This setting applies to both Armadas and Vessels deployed in the Region.
 
 ::: warning API Only
 This feature is currently only available via the API.
@@ -8,14 +8,14 @@ This feature is currently only available via the API.
 
 ## Overview
 
-When creating or updating a Region, you can configure the `scheduling` field within each Region Type's template to control GameServer placement behavior. This setting applies to both Armadas and Vessels deployed in the Region.
+When creating or updating a Region, you can configure the `scheduling` field within each Region Type's template to influence game server placement.
 
 ## Options
 
-| Value         | Description                                           | Use Case                                                |
-|---------------|-------------------------------------------------------|---------------------------------------------------------|
-| `Packed`      | Bin-packs GameServers onto the fewest nodes possible  | Cloud/dynamic clusters - optimizes infrastructure costs |
-| `Distributed` | Spreads GameServers evenly across all available nodes | Static/on-premises clusters - maximizes fault tolerance |
+| Value         | Description                                                          | Use Case                                                 |
+|---------------|----------------------------------------------------------------------|----------------------------------------------------------|
+| `Packed`      | Game servers gravitate toward shared nodes using pod affinity        | Cloud/dynamic clusters - helps reduce infrastructure costs |
+| `Distributed` | Game servers spread across nodes based on available resources        | Static/on-premises clusters - improves fault tolerance   |
 
 **Default**: `Packed`
 
@@ -25,7 +25,7 @@ The scheduling strategy is configured per Region Type.
 In the API payload, set `template.scheduling` on each entry in `spec.types`.
 For the full API specification, see the [Region API reference](/api/multiplayer-servers/apiserver#tag/core.v1.Region/operation/createRegion).
 
-The following snippet shows the relevant structure:
+The following snippet shows the relevant structure. The field accepts `Packed` (default) or `Distributed`:
 
 ```json
 {
@@ -33,7 +33,7 @@ The following snippet shows the relevant structure:
     "types": [
       {
         "template": {
-          "scheduling": "<Packed|Distributed>"
+          "scheduling": "Packed"
         }
       }
     ]
@@ -43,7 +43,7 @@ The following snippet shows the relevant structure:
 
 ### Full example
 
-The following request creates a Region with the `Packed` scheduling strategy:
+The following request creates a Region with the `Distributed` scheduling strategy:
 
 ```bash
 curl -X 'POST' \
@@ -66,7 +66,7 @@ curl -X 'POST' \
         "name": "default",
         "locations": ["<your-location>"],
         "template": {
-          "scheduling": "Packed"
+          "scheduling": "Distributed"
         }
       }
     ]
@@ -95,4 +95,4 @@ This strategy is most relevant in the following scenarios:
 ## Reference
 
 - For the full Region API specification, see the [Region API reference](/api/multiplayer-servers/apiserver#tag/core.v1.Region/operation/createRegion).
-- For more details on how scheduling affects GameServer allocation, see the [Agones GameServerAllocation documentation](https://agones.dev/site/docs/reference/gameserverallocation/).
+- For more details on how scheduling affects game server allocation, see the [Agones GameServerAllocation documentation](https://agones.dev/site/docs/reference/gameserverallocation/).
