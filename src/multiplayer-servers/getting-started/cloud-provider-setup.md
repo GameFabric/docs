@@ -71,30 +71,54 @@ After you have completed the steps above, please contact Nitrado to confirm that
 
 For AWS, to access another organization, you have to setup a chain of _roles_. Roles are AWS objects that allow scoping permissions. Roles are assumable by _principals_. Principals are arbitrary entities operating AWS, and specifically, users or groups of users. This setup allows you to delegate game server cluster management to Gamefabric operators by creating a role that is fine-grained to provision resources _without having to grant broad access to their organization_.
 
-By chaining those roles together (i.e., allowing a role to assume another role), Gamefabric operators can access your organization/account,
-as long as the chain of _Trust Relationship_ is not broken.
+By chaining those roles together (i.e., allowing a role to assume another role), Gamefabric operators can access your organization/account.
 
 <img alt="IAM setup" style="padding: 2rem; box-sizing: border-box" src="./images/cloud/aws-iam-setup.png"/>
 
-For setting this up, we recommend using a tool like Terraform, as it allows you to simply declare the desired resources. Particularly for configuring various policy documents, this will be helpful. We'll use Terraform in the following. You can adapt this guide and do the following steps manually.
+For setting this up, we recommend using a tool like Terraform, as it allows you to simply declare the desired resources. Particularly for configuring various policy documents, this is be helpful.
 
-### Creating the role and assumption policy
+### Set up account federation
 
-Create an IAM Role and the appropriate role assumption policy using Terraform:
+First, create a new IAM Role called with a custom trust policy and take note of the ARN of the role.
+
+::: code-group
+
+```json [Trust policy]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowGamefabricSAML",
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::339712714940:saml-provider/AWSSSO_5495e4acbcad9a8a_DO_NOT_DELETE"
+      },
+      "Action": [
+        "sts:AssumeRoleWithSAML",
+        "sts:TagSession"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "SAML:aud": "https://signin.aws.amazon.com/saml"
+        }
+      }
+    },
+    {
+      "Sid": "AllowGamefabricOperatorsRole",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::339712714940:role/gamefabric-operators"
+      },
+      "Action": [
+        "sts:AssumeRole",
+        "sts:TagSession"
+      ]
+    }
+  ]
+}
+```
 
 ```terraform
-variable "source_saml_principal_arn" {
-  type        = string
-  description = "ARN of the principal backing the SAML authentication for SSO users from the source account"
-  default     = "arn:aws:iam::339712714940:saml-provider/AWSSSO_5495e4acbcad9a8a_DO_NOT_DELETE"
-}
-
-variable "source_role_arn" {
-  type        = string
-  description = "ARN of the role in the source account to trust"
-  default     = "arn:aws:iam::339712714940:role/gamefabric-operators"
-}
-
 resource "aws_iam_role" "gamefabric_operators" {
   name               = "gamefabric-operators"
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
@@ -116,7 +140,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
     ]
     principals {
       type        = "Federated"
-      identifiers = [var.source_saml_principal_arn]
+      identifiers = ["arn:aws:iam::339712714940:saml-provider/AWSSSO_5495e4acbcad9a8a_DO_NOT_DELETE"]
     }
     condition {
       test     = "StringEquals"
@@ -132,22 +156,257 @@ data "aws_iam_policy_document" "assume_role_policy" {
     ]
     principals {
       type = "AWS"
-      identifiers = [var.source_role_arn]
+      identifiers = ["arn:aws:iam::339712714940:role/gamefabric-operators"]
     }
   }
 }
+```
 
-output "role_arn" {
-  value = aws_iam_role.gamefabric_operators.arn
+:::
+
+The account ID `339712714940` belongs to the Gamefabric organization.
+
+Skip the permissions page, we add a custom policy in the second step. Name the role `gamefabric-operators`, and optionally add a description and tags for adding metadata, for example noting the purpose of the role and being linked to GameFabric.
+
+Next, create one or more policies for the required permissions. The below policies state the required permissions explicitly for all the AWS services. AWS restricts the size of these documents to 4KB per document. Adding all the permissions into one policy exceeds the limit for a single policy. We split them up logically such that they are grouped broadly by the resource types they grant access to.
+
+::: code-group
+
+```json [EKS]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EKS",
+      "Effect": "Allow",
+      "Resource": "*",
+      "Action": [
+        "eks:AccessKubernetesApi",
+        "eks:AssociateAccessPolicy",
+        "eks:CreateAccessEntry",
+        "eks:CreateAddon",
+        "eks:CreateCluster",
+        "eks:CreateNodegroup",
+        "eks:DeleteAccessEntry",
+        "eks:DeleteAddon",
+        "eks:DeleteCluster",
+        "eks:DeleteNodegroup",
+        "eks:DescribeAccessEntry",
+        "eks:DescribeAddon",
+        "eks:DescribeAddonConfiguration",
+        "eks:DescribeAddonVersions",
+        "eks:DescribeCluster",
+        "eks:DescribeClusterVersions",
+        "eks:DescribeNodegroup",
+        "eks:DescribePodIdentityAssociation",
+        "eks:DescribeUpdate",
+        "eks:DisassociateAccessPolicy",
+        "eks:ListAccessEntries",
+        "eks:ListAddons",
+        "eks:ListAssociatedAccessPolicies",
+        "eks:ListClusters",
+        "eks:ListNodegroups",
+        "eks:ListUpdates",
+        "eks:TagResource",
+        "eks:UntagResource",
+        "eks:UpdateAccessEntry",
+        "eks:UpdateAddon",
+        "eks:UpdateClusterVersion",
+        "eks:UpdateNodegroupConfig",
+        "eks:UpdateNodegroupVersion"
+      ]
+    }
+  ]
 }
 ```
 
-The defaults for the variables are linking to the Gamefabric AWS account, specifically, the account ID `339712714940` belongs to the Gamefabric organization.
-The two ARNs link to the role and the respective SAML provider on _our end_ (see the graphic above).
+```json [EC2]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EC2",
+      "Effect": "Allow",
+      "Resource": "*",
+      "Action": [
+        "ec2:AllocateAddress",
+        "ec2:AssociateRouteTable",
+        "ec2:AttachInternetGateway",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateInternetGateway",
+        "ec2:CreateLaunchTemplate",
+        "ec2:CreateLaunchTemplateVersion",
+        "ec2:CreateNatGateway",
+        "ec2:CreateNetworkAclEntry",
+        "ec2:CreateRoute",
+        "ec2:CreateRouteTable",
+        "ec2:CreateSecurityGroup",
+        "ec2:CreateSubnet",
+        "ec2:CreateTags",
+        "ec2:CreateVpc",
+        "ec2:DeleteInternetGateway",
+        "ec2:DeleteLaunchTemplate",
+        "ec2:DeleteNatGateway",
+        "ec2:DeleteNetworkAclEntry",
+        "ec2:DeleteRoute",
+        "ec2:DeleteRouteTable",
+        "ec2:DeleteSecurityGroup",
+        "ec2:DeleteSubnet",
+        "ec2:DeleteTags",
+        "ec2:DeleteVolume",
+        "ec2:DeleteVpc",
+        "ec2:DescribeAddresses",
+        "ec2:DescribeAddressesAttribute",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeImages",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeNetworkAcls",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribePlacementGroups",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeSecurityGroupRules",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeTags",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcs",
+        "ec2:DetachInternetGateway",
+        "ec2:DetachVolume",
+        "ec2:DisassociateAddress",
+        "ec2:DisassociateRouteTable",
+        "ec2:GetEbsDefaultKmsKeyId",
+        "ec2:GetEbsEncryptionByDefault",
+        "ec2:GetInstanceMetadataDefaults",
+        "ec2:GetInstanceTypesFromInstanceRequirements",
+        "ec2:GetSecurityGroupsForVpc",
+        "ec2:ModifyLaunchTemplate",
+        "ec2:ModifySubnetAttribute",
+        "ec2:ModifyVpcAttribute",
+        "ec2:ReleaseAddress",
+        "ec2:ReplaceRoute",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress",
+        "ec2:RunInstances",
+        "ec2:StopInstances",
+        "ec2:TerminateInstances"
+      ]
+    }
+  ]
+}
+```
 
-### Creating policies for resource management
+```json [Autoscaling]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Autoscaling",
+      "Effect": "Allow",
+      "Resource": "*",
+      "Action": [
+        "autoscaling:AttachRolePolicy",
+        "autoscaling:CreateOpenIDConnectProvider",
+        "autoscaling:CreatePolicy",
+        "autoscaling:CreateRole",
+        "autoscaling:DeleteOpenIDConnectProvider",
+        "autoscaling:DeletePolicy",
+        "autoscaling:DeleteRole",
+        "autoscaling:DeleteRolePolicy",
+        "autoscaling:DetachRolePolicy",
+        "autoscaling:GetOpenIDConnectProvider",
+        "autoscaling:PutRolePolicy"
+      ]
+    }
+  ]
+}
+```
 
-Create several IAM policy documents that grant access:
+```json [Auxilliary Permissions]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "KeyManagementService",
+      "Effect": "Allow",
+      "Resource": "*",
+      "Action": [
+        "kms:CreateAlias",
+        "kms:CreateGrant",
+        "kms:CreateKey",
+        "kms:DeleteAlias",
+        "kms:EnableKeyRotation",
+        "kms:ListAliases",
+        "kms:ScheduleKeyDeletion",
+        "kms:TagResource",
+      ]
+    },
+    {
+      "Sid": "IAM",
+      "Effect": "Allow",
+      "Resource": "*",
+      "Action": [
+        "iam:AttachRolePolicy",
+        "iam:CreateOpenIDConnectProvider",
+        "iam:CreatePolicy",
+        "iam:CreateRole",
+        "iam:CreateServiceLinkedRole",
+        "iam:DeleteOpenIDConnectProvider",
+        "iam:DeletePolicy",
+        "iam:DeleteRole",
+        "iam:DeleteRolePolicy",
+        "iam:DetachRolePolicy",
+        "iam:GetOpenIDConnectProvider",
+        "iam:GetPolicy",
+        "iam:GetPolicyVersion",
+        "iam:GetRole",
+        "iam:GetRolePolicy",
+        "iam:ListAttachedRolePolicies",
+        "iam:ListInstanceProfiles",
+        "iam:ListInstanceProfilesForRole",
+        "iam:ListOpenIDConnectProviders",
+        "iam:ListPolicies",
+        "iam:ListPolicyVersions",
+        "iam:ListRolePolicies",
+        "iam:ListRoles",
+        "iam:PassRole",
+        "iam:PutRolePolicy",
+        "iam:TagOpenIDConnectProvider",
+        "iam:TagPolicy",
+        "iam:TagRole"
+      ]
+    },
+    {
+      "Sid": "KeyManagementService",
+      "Effect": "Allow",
+      "Resource": "*",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:DeleteLogGroup",
+        "logs:DescribeLogGroups",
+        "logs:ListTagsForResource",
+        "logs:PutRetentionPolicy",
+        "logs:TagResource"
+      ]
+    },
+    {
+      "Sid": "SSM",
+      "Effect": "Allow",
+      "Resource": ["arn:aws:ssm:*:*:parameter/aws/service/eks/optimized-ami/*"],
+      "Action": [
+        "ssm:GetParameter"
+      ]
+    }
+  ]
+}
+```
 
 ```terraform
 data "aws_iam_policy_document" "deployer_eks" {
@@ -376,12 +635,18 @@ resource "aws_iam_role_policy" "gamefabric_operators" {
 }
 ```
 
-::: info Policy Document Size Restrictions
-AWS encodes their policy documents in JSON, and restricts the size of these documents to 4KB per document.
-Adding all the permissions into one policy exceeds the limit for a single policy. We split them up logically such that
-they are grouped broadly by the resource types they grant access to.
 :::
 
-### Confirming the AWS setup
+::: info Using wildcard permissions in policies
+It is possible to use wildcards in the statements instead of lists of explicit permissions, e.g. `eks:*` or `ec2:*`. Using a wildcard may grant additional permissions
+to the role that are not needed but can create highly-privileged principals. From a security perpective, we recommend granting the explicit permissions.
 
-After you have completed the steps above, please contact Nitrado to confirm that the setup is complete, and provide us with the ARN of the role you created previously, as we need it on our end to access your account.
+You may take steps to add constraints and permission boundaries, but note that this can impact our ability to provision, maintain, or deprovision your cloud clusters.
+:::
+
+After creating the policies, attach them to the created role.
+
+### Validating the AWS setup
+
+After you have completed the steps above, please contact Nitrado and provide us with the ARN of the role you created previously.
+We need it to access your account and validate that the setup is complete.
