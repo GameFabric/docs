@@ -19,6 +19,10 @@ When creating or updating a Region, you can configure the `scheduling` field wit
 
 **Default**: `Packed`
 
+::: info
+Scheduling changes only take effect when new game servers are started. Existing game servers retain their original scheduling until they are restarted.
+:::
+
 ## API Usage
 
 The scheduling strategy is configured per Region Type.
