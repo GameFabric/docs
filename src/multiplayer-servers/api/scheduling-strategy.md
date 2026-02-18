@@ -12,10 +12,10 @@ When creating or updating a Region, you can configure the `scheduling` field wit
 
 ## Options
 
-| Value         | Description                                                          | Use Case                                                 |
+| Value         | Description                                                          | Use case                                                 |
 |---------------|----------------------------------------------------------------------|----------------------------------------------------------|
-| `Packed`      | Game servers gravitate toward shared nodes using pod affinity        | Cloud/dynamic clusters - helps reduce infrastructure costs |
-| `Distributed` | Game servers spread across nodes based on available resources        | Static/on-premises clusters - improves fault tolerance   |
+| `Packed`      | Game servers gravitate toward shared nodes using pod affinity        | Cloud or dynamic clusters. Helps reduce infrastructure costs. |
+| `Distributed` | Game servers spread across nodes based on available resources        | Static or on-premises clusters. Improves fault tolerance.   |
 
 **Default**: `Packed`
 
