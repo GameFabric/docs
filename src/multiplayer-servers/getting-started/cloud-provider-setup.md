@@ -75,11 +75,11 @@ By chaining those roles together (i.e., allowing a role to assume another role),
 
 <img alt="IAM setup" style="padding: 2rem; box-sizing: border-box" src="./images/cloud/aws-iam-setup.png"/>
 
-For setting this up, we recommend using a tool like Terraform, as it allows you to simply declare the desired resources. Particularly for configuring various policy documents, this is be helpful.
+For setting this up, we recommend using a tool like Terraform, as it allows you to simply declare the desired resources. Particularly for configuring various policy documents, this is helpful.
 
 ### Set up account federation
 
-First, create a new IAM Role called with a custom trust policy and take note of the ARN of the role.
+In the AWS management console, navigate to `IAM > Roles`, and create a new IAM Role with a custom trust policy.
 
 ::: code-group
 
@@ -166,7 +166,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
 
 The account ID `339712714940` belongs to the Gamefabric organization.
 
-Skip the permissions page, we add a custom policy in the second step. Name the role `gamefabric-operators`, and optionally add a description and tags for adding metadata, for example noting the purpose of the role and being linked to GameFabric.
+In the role creation wizard, skip the permissions step during role creation. You attach custom policies in a later step. Name the role `gamefabric-operators`, and optionally add a description and tags for adding metadata, for example noting the purpose of the role and being linked to GameFabric.
 
 Next, create one or more policies for the required permissions. The below policies state the required permissions explicitly for all the AWS services. AWS restricts the size of these documents to 4KB per document. Adding all the permissions into one policy exceeds the limit for a single policy. We split them up logically such that they are grouped broadly by the resource types they grant access to.
 
@@ -312,24 +312,27 @@ Next, create one or more policies for the required permissions. The below polici
       "Effect": "Allow",
       "Resource": "*",
       "Action": [
-        "autoscaling:AttachRolePolicy",
-        "autoscaling:CreateOpenIDConnectProvider",
-        "autoscaling:CreatePolicy",
-        "autoscaling:CreateRole",
-        "autoscaling:DeleteOpenIDConnectProvider",
+        "autoscaling:UpdateAutoScalingGroup",
+        "autoscaling:DetachInstances",
+        "autoscaling:DescribeTags",
+        "autoscaling:DescribeScalingActivities",
+        "autoscaling:DescribePolicies",
+        "autoscaling:DescribeLaunchConfigurations",
+        "autoscaling:DescribeAutoScalingInstances",
+        "autoscaling:DescribeAutoScalingGroups",
         "autoscaling:DeletePolicy",
-        "autoscaling:DeleteRole",
-        "autoscaling:DeleteRolePolicy",
-        "autoscaling:DetachRolePolicy",
-        "autoscaling:GetOpenIDConnectProvider",
-        "autoscaling:PutRolePolicy"
+        "autoscaling:DeleteLaunchConfiguration",
+        "autoscaling:DeleteAutoScalingGroup",
+        "autoscaling:CreateLaunchConfiguration",
+        "autoscaling:CreateAutoScalingGroup",
+        "autoscaling:AttachInstances"
       ]
     }
   ]
 }
 ```
 
-```json [Auxilliary Permissions]
+```json [Auxiliary Permissions]
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -345,7 +348,7 @@ Next, create one or more policies for the required permissions. The below polici
         "kms:EnableKeyRotation",
         "kms:ListAliases",
         "kms:ScheduleKeyDeletion",
-        "kms:TagResource",
+        "kms:TagResource"
       ]
     },
     {
@@ -384,7 +387,7 @@ Next, create one or more policies for the required permissions. The below polici
       ]
     },
     {
-      "Sid": "KeyManagementService",
+      "Sid": "CloudWatchLogs",
       "Effect": "Allow",
       "Resource": "*",
       "Action": [
@@ -532,17 +535,20 @@ data "aws_iam_policy_document" "deployer_autoscaling" {
   statement {
     effect = "Allow"
     actions = [
-      "autoscaling:AttachRolePolicy",
-      "autoscaling:CreateOpenIDConnectProvider",
-      "autoscaling:CreatePolicy",
-      "autoscaling:CreateRole",
-      "autoscaling:DeleteOpenIDConnectProvider",
+      "autoscaling:UpdateAutoScalingGroup",
+      "autoscaling:DetachInstances",
+      "autoscaling:DescribeTags",
+      "autoscaling:DescribeScalingActivities",
+      "autoscaling:DescribePolicies",
+      "autoscaling:DescribeLaunchConfigurations",
+      "autoscaling:DescribeAutoScalingInstances",
+      "autoscaling:DescribeAutoScalingGroups",
       "autoscaling:DeletePolicy",
-      "autoscaling:DeleteRole",
-      "autoscaling:DeleteRolePolicy",
-      "autoscaling:DetachRolePolicy",
-      "autoscaling:GetOpenIDConnectProvider",
-      "autoscaling:PutRolePolicy"
+      "autoscaling:DeleteLaunchConfiguration",
+      "autoscaling:DeleteAutoScalingGroup",
+      "autoscaling:CreateLaunchConfiguration",
+      "autoscaling:CreateAutoScalingGroup",
+      "autoscaling:AttachInstances"
     ]
     resources = ["*"]
   }
@@ -638,15 +644,13 @@ resource "aws_iam_role_policy" "gamefabric_operators" {
 :::
 
 ::: info Using wildcard permissions in policies
-It is possible to use wildcards in the statements instead of lists of explicit permissions, e.g. `eks:*` or `ec2:*`. Using a wildcard may grant additional permissions
-to the role that are not needed but can create highly-privileged principals. From a security perpective, we recommend granting the explicit permissions.
+It is possible to use wildcards in the statements instead of lists of explicit permissions, e.g. `eks:*` or `ec2:*`. Using a wildcard may grant additional permissions to the role that are not needed but can create highly-privileged principals. From a security perspective, we recommend granting the explicit permissions.
 
 You may take steps to add constraints and permission boundaries, but note that this can impact our ability to provision, maintain, or deprovision your cloud clusters.
 :::
 
-After creating the policies, attach them to the created role.
+After creating the policies, attach them to the created role. Go to the Role you created, choose the `Permissions` tab and click on `Add permissions > Attach policies`. Select the Policies you just created, and confirm with `Add permissions`.
 
 ### Validating the AWS setup
 
-After you have completed the steps above, please contact Nitrado and provide us with the ARN of the role you created previously.
-We need it to access your account and validate that the setup is complete.
+After you have completed the steps above, please contact Nitrado and provide us with the ARN of the Role you created. We need it to access your account and validate that the setup is complete.
