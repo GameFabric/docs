@@ -44,7 +44,7 @@ CMD ["/app/gameserver"]
 Build the image:
 
 ```bash
-docker build -t gameserver:v1.0.0 .
+docker build --provenance=false -t gameserver:v1.0.0 .
 ```
 
 [Detailed guide: Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image)
