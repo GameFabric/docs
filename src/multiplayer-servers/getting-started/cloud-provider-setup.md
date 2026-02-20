@@ -69,13 +69,11 @@ After you have completed the steps above, please contact Nitrado to confirm that
 
 ### Background
 
-For AWS, to access another organization, you have to setup a chain of _roles_. Roles are AWS objects that allow scoping permissions. Roles are assumable by _principals_. Principals are arbitrary entities operating AWS, and specifically, users or groups of users. This setup allows you to delegate game server cluster management to Gamefabric operators by creating a role that is fine-grained to provision resources _without having to grant broad access to their organization_.
-
-By chaining those roles together (i.e., allowing a role to assume another role), Gamefabric operators can access your organization/account.
+To access another organization or account, set up a chain of _roles_. [Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) are AWS IAM identities that have specific permissions, defined by [Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html). Roles are intended to be *assumed* by other IAM entities like users, groups, or even other roles. By chaining those roles together (i.e., allowing a role to assume another role), GameFabric operators can access your organization/account. This setup allows delegating game server cluster management to GameFabric operators to provision and manage AWS resources _without having to grant broad access to their organization_.
 
 <img alt="IAM setup" style="padding: 2rem; box-sizing: border-box" src="./images/cloud/aws-iam-setup.png"/>
 
-For setting this up, we recommend using a tool like Terraform, as it allows you to simply declare the desired resources. Particularly for configuring various policy documents, this is helpful.
+In order to set this up, we recommend using a tool like [Terraform](https://developer.hashicorp.com/terraform) or [OpenTofu](https://opentofu.org/), as they allow to simply declare the desired resources. Particularly for configuring various policy documents, this is helpful.
 
 ### Set up account federation
 
@@ -164,11 +162,11 @@ data "aws_iam_policy_document" "assume_role_policy" {
 
 :::
 
-The account ID `339712714940` belongs to the Gamefabric organization.
+The account ID `339712714940` belongs to the GameFabric organization.
 
-In the role creation wizard, skip the permissions step during role creation. You attach custom policies in a later step. Name the role `gamefabric-operators`, and optionally add a description and tags for adding metadata, for example noting the purpose of the role and being linked to GameFabric.
+In the role creation wizard, skip the permissions step. Name the role `gamefabric-operators`, and optionally add a description and tags for adding metadata, for example noting the purpose of the role and being linked to GameFabric.
 
-Next, create one or more policies for the required permissions. The below policies state the required permissions explicitly for all the AWS services. AWS restricts the size of these documents to 4KB per document. Adding all the permissions into one policy exceeds the limit for a single policy. We split them up logically such that they are grouped broadly by the resource types they grant access to.
+Next, create one or more policies for the required permissions. The following policies explicitly list all permissions for the required AWS services. AWS restricts the size of these documents to 4KB per document. Adding all the permissions into one policy exceeds the limit for a single policy. We split them up logically such that they are grouped broadly by the resource types they grant access to.
 
 ::: code-group
 
@@ -649,8 +647,8 @@ It is possible to use wildcards in the statements instead of lists of explicit p
 You may take steps to add constraints and permission boundaries, but note that this can impact our ability to provision, maintain, or deprovision your cloud clusters.
 :::
 
-After creating the policies, attach them to the created role. Go to the Role you created, choose the `Permissions` tab and click on `Add permissions > Attach policies`. Select the Policies you just created, and confirm with `Add permissions`.
+After creating the policies, attach them to the created role. Navigate to the Role, select the `Permissions` tab, and click `Add permissions > Attach policies`. Select the newly created policies, and confirm with `Add permissions`.
 
-### Validating the AWS setup
+### Confirming the delegation setup
 
-After you have completed the steps above, please contact Nitrado and provide us with the ARN of the Role you created. We need it to access your account and validate that the setup is complete.
+After completing the steps above, contact Nitrado and provide us with the ARN of the role you created. We need it to validate the setup and access your account.
