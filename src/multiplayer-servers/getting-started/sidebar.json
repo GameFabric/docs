@@ -48,6 +48,10 @@
       "link": "/getting-started/running-your-game-server"
     },
     {
+      "text": "Troubleshooting",
+      "link": "/getting-started/troubleshooting"
+    },
+    {
       "text": "Terminating ArmadaSets",
       "link": "/getting-started/terminating-armadasets"
     },
