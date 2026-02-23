@@ -12,7 +12,7 @@ The Allocator is not included by default with GameFabric. It is an add-on servic
 
 When you use Armadas, GameFabric automatically maintains a pool of game servers that are running and ready to accept players. The Allocator acts as a broker between your matchmaker (or backend) and this pool of servers. When your matchmaker determines that a group of players should play together, it asks the Allocator for a server. The Allocator picks the best available server, notifies it that players are incoming, and returns the connection details to your matchmaker.
 
-**Why pre-warmed servers?** Starting a game server takes time - loading assets, initializing the game world, and completing startup checks can take seconds to minutes. If servers were created on-demand after matchmaking, players would wait during this startup time. By maintaining a pool of servers that are already running and ready, the Allocator assigns a server instantly after matchmaking completes, eliminating wait time and providing a seamless player experience.
+Starting a game server takes time. Loading assets, initializing the game world, and completing startup checks can take seconds to minutes. On-demand server creation forces players to wait after matchmaking. Pre-warmed servers eliminate this delay. The Allocator assigns a server instantly after matchmaking completes, providing a seamless player experience.
 
 This is different from traditional server hosting where players browse a server list and choose which server to join. For that use case, see [Formations](/multiplayer-servers/architecture/identifying-your-hosting-model#formations).
 
@@ -22,10 +22,10 @@ This is different from traditional server hosting where players browse a server 
 
 - **Your game uses matchmaking** — Players are grouped by a matchmaker (skill-based, casual, ranked) and then assigned to a server
 - **Sessions are short-lived** — Matches last minutes to hours, then the server becomes available for the next group
-- **Players don't choose their server** — The system decides which server players connect to
+- **Players don't choose their server** — Your matchmaker decides which server players connect to
 - **You need per-match configuration** — Each match requires specific settings (map, mode, player list) passed at allocation time
 
-**Examples:** Battle royales, competitive shooters, MOBAs, party games, quick-play modes
+**Examples:** Battle royales, competitive shooters, MOBAs, party games, quick-play modes.
 
 ### Skip the Allocator when:
 
@@ -33,7 +33,7 @@ This is different from traditional server hosting where players browse a server 
 - **Servers are persistent** — The same server runs for days/weeks with player progression tied to it
 - **You manage server lifecycle yourself** — Your backend creates and destroys servers directly via the GameFabric API
 
-**Examples:** Survival games with persistent worlds, MMO servers, community-hosted servers, dedicated clan servers
+**Examples:** Games with persistent worlds, MMO servers, community-hosted servers, dedicated clan servers.
 
 ### Decision Guide
 
@@ -90,7 +90,7 @@ GameFabric offers two ways to integrate with the Allocator:
 
 ### Option 1: Allocation Sidecar (Recommended)
 
-The **Allocation Sidecar** is a container provided by Nitrado that runs alongside your game server. It handles registration, keep-alive, and allocation callbacks automatically.
+The **Allocation Sidecar** is a container provided by GameFabric that runs alongside your game server. It handles registration, keep-alive, and allocation callbacks automatically.
 
 **Choose this when:**
 - You want the simplest integration path
