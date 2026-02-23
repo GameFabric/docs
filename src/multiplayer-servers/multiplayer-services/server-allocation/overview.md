@@ -140,5 +140,5 @@ You can use Armadas without the Allocator if your backend manages server selecti
 - [Allocating from Armadas](allocating-from-armadas) — API details for the allocation process
 - [Automatically Registering Game Servers](automatically-registering-game-servers) — Sidecar setup guide
 - [Manually Registering Game Servers](manually-registering-game-servers) — Code-level integration
-- [GameLift integration examples](integration-examples/gamelift) — GameLift integration patterns
-- [FlexMatch integration examples](integration-examples/flexmatch) — FlexMatch integration patterns
+- [GameLift integration examples](integration-examples/gamelift)
+- [FlexMatch integration examples](integration-examples/flexmatch)
