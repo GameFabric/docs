@@ -2,7 +2,7 @@
 
 This page explains what the GameFabric Allocator is, when you need it, and how to choose the right integration approach for your game.
 
-## What is Server Allocation?
+## What is server allocation?
 
 Server allocation is the process of assigning a ready-to-use game server to a group of players. In GameFabric, the **Allocator** is an optional service that manages this process for you.
 
@@ -16,7 +16,7 @@ Starting a game server takes time. Loading assets, initializing the game world, 
 
 This is different from traditional server hosting where players browse a server list and choose which server to join. For that use case, see [Formations](/multiplayer-servers/architecture/identifying-your-hosting-model#formations).
 
-## When Do You Need the Allocator?
+## When do you need the Allocator?
 
 ### Use the Allocator when:
 
@@ -35,7 +35,7 @@ This is different from traditional server hosting where players browse a server 
 
 **Examples:** Games with persistent worlds, MMO servers, community-hosted servers, dedicated clan servers.
 
-### Decision Guide
+### Decision guide
 
 | Your Game Has... | Recommended Approach |
 |------------------|---------------------|
@@ -44,7 +44,7 @@ This is different from traditional server hosting where players browse a server 
 | Both modes (e.g., ranked + community servers) | Armadas + Allocator for ranked, Formations for community |
 | Custom backend managing server lifecycle | Armadas or Formations without Allocator |
 
-## How It Works
+## How it works
 
 The allocation flow has five main steps:
 
@@ -84,11 +84,11 @@ The allocation flow has five main steps:
 
 After the match ends, the game server shuts down, and the Armada automatically starts a new server to replace it in the pool.
 
-## Choosing Your Integration Approach
+## Choosing your integration approach
 
 GameFabric offers two ways to integrate with the Allocator:
 
-### Option 1: Allocation Sidecar (Recommended)
+### Option 1: Allocation sidecar (recommended)
 
 The **Allocation Sidecar** is a container provided by GameFabric that runs alongside your game server. It handles registration, keep-alive, and allocation callbacks automatically.
 
@@ -104,7 +104,7 @@ The **Allocation Sidecar** is a container provided by GameFabric that runs along
 
 See [Automatically Registering Game Servers](automatically-registering-game-servers) for setup instructions.
 
-### Option 2: Manual Integration
+### Option 2: Manual integration
 
 With manual integration, your game server code directly communicates with the Allocator's REST API.
 
@@ -121,7 +121,7 @@ With manual integration, your game server code directly communicates with the Al
 
 See [Manually Registering Game Servers](manually-registering-game-servers) for implementation details.
 
-### Option 3: No Allocator
+### Option 3: No allocator
 
 You can use Armadas without the Allocator if your backend manages server selection directly.
 
