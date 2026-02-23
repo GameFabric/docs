@@ -46,7 +46,7 @@ This is different from traditional server hosting where players browse a server 
 
 ## How It Works
 
-The allocation flow has three main steps:
+The allocation flow has five main steps:
 
 ```text
 ┌─────────────┐     ┌───────────┐     ┌─────────────┐     ┌─────────┐
