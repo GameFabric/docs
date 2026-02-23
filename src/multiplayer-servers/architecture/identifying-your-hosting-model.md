@@ -12,6 +12,10 @@ GameFabric supports two major hosting models.
   service, then _allocates_ a game server for that play session and, once the session is over, the game server shuts
   down. The number of available game servers is dynamically adjusted based on demand.
 
+::: tip Server Allocation
+If you choose Armadas, see the [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) to understand when you need the Allocator service and how to integrate it with your matchmaker.
+:::
+
 An individual game does not necessarily have to strictly fall into one of these two categories. Some games require a
 different hosting model depending on game mode, or Formations might be chosen over Armadas specifically for development
 workflows.

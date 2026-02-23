@@ -11,4 +11,6 @@ You can also manage GameFabric resources programmatically through:
 To better understand GameFabric, we recommend reviewing the [Glossary](/multiplayer-servers/getting-started/glossary) for definitions of key terms like Armadas, Formations, Vessels, and Fleets.
 
 You should also familiarize yourself with the [hosting models](/multiplayer-servers/architecture/identifying-your-hosting-model) (Armadas vs Formations) to choose the right approach for your game.
+
+If your game uses matchmaking, see [Server Allocation](/multiplayer-servers/multiplayer-services/server-allocation/overview) to understand how players get assigned to servers.
 :::

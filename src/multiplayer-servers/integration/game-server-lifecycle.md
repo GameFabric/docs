@@ -43,6 +43,10 @@ This call signals to the hosting environment that the game server is in use and 
 
 You generally only need to call `Allocate()` yourself in one of two cases:
 
+::: tip
+For an overview of when you need server allocation and how to choose an integration approach, see [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview).
+:::
+
 ### 1) A notification from an external server allocation mechanism
 
 This is required if you manually register against
