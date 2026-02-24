@@ -4,7 +4,7 @@ This page explains what the GameFabric Allocator is, when it is needed, and how 
 
 ## What is server allocation?
 
-Server allocation is the process of assigning a ready-to-use game server to a group of players. In GameFabric, the **Allocator** is an optional service that manages this process automatically.
+Server allocation is the process of assigning a ready-to-use game server to a group of players. In GameFabric, the **Allocator** is an optional service that manages this process.
 
 ::: warning Allocator Availability
 The Allocator is not included by default with GameFabric. It is an service that must be ordered separately.
