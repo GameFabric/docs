@@ -96,6 +96,26 @@ docker tag gameserver:v1.0.0       ${URL}/${BRANCH}/gameserver:v1.0.0
 docker push --platform linux/amd64 ${URL}/${BRANCH}/gameserver:v1.0.0
 ```
 
+::: warning Immutable tags
+Once you push an image tag, you cannot overwrite it. Pushing the same `image:tag` combination again fails.
+
+Immutable tags ensure that a given tag always refers to the exact same image content:
+
+- **Reproducibility** — Deployments using a specific tag always use identical content.
+- **Security** — Prevents accidental or malicious overwrites of production images.
+- **Auditability** — Provides a clear history of what was deployed and when.
+
+Use unique tags for each build:
+
+- Semantic versioning: `gameserver:v1.0.0`, `gameserver:v1.0.1`
+- Build identifiers: `gameserver:build-1234`, `gameserver:abc123def`
+- Timestamps: `gameserver:dev-20260224-143052`
+
+The registry rejects the `:latest` tag.
+
+To deploy new image versions automatically, enable [autoUpdate](/multiplayer-servers/getting-started/running-your-game-server#image) in your Vessel or Armada configuration. The system watches for new tags matching a pattern and triggers rollouts when they appear.
+:::
+
 You should now see the game image listed in the branch detail view.
 
 ::: info
