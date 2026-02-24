@@ -8,12 +8,9 @@ You can also manage GameFabric resources programmatically through:
 - [Terraform provider](/multiplayer-servers/integration/terraform) — for Infrastructure as Code
 
 ::: tip Key Concepts
-To better understand GameFabric, reviewing the [Glossary](/multiplayer-servers/getting-started/glossary)
- provides definitions of key terms such as Armadas, Formations, Vessels, and Fleets.
+To better understand GameFabric, reviewing the [Glossary](/multiplayer-servers/getting-started/glossary) provides definitions of key terms such as Armadas, Formations, Vessels, and Fleets.
 
-Familiarity with the [hosting models](/multiplayer-servers/architecture/identifying-your-hosting-model)
- (Armadas vs. Formations) is also important when selecting the appropriate approach for a game.
+Familiarity with the [hosting models](/multiplayer-servers/architecture/identifying-your-hosting-model) (Armadas vs. Formations) is also important when selecting the appropriate approach for a game.
 
-For games that use matchmaking, consult [Server Allocation](/multiplayer-servers/multiplayer-services/server-allocation/overview)
- to understand how players are assigned to servers.
+For games that use matchmaking, consult [Server Allocation](/multiplayer-servers/multiplayer-services/server-allocation/overview) to understand how players are assigned to servers.
 :::
