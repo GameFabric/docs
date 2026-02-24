@@ -7,7 +7,7 @@ This page explains what the GameFabric Allocator is, when it is needed, and how 
 Server allocation is the process of assigning a ready-to-use game server to a group of players. In GameFabric, the **Allocator** is an optional service that manages this process automatically.
 
 ::: warning Allocator Availability
-The Allocator is not included by default with GameFabric. It is an add-on service that must be ordered separately.
+The Allocator is not included by default with GameFabric. It is an service that must be ordered separately.
 :::
 
 When using Armadas, GameFabric automatically maintains a pool of game servers that are running and ready to accept players. The Allocator acts as a broker between the matchmaker (or backend) and this pool of servers. When the matchmaker determines that a group of players should play together, it asks the Allocator for a server. The Allocator picks the best available server, notifies it that players are incoming, and returns the connection details to the matchmaker.
