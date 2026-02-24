@@ -123,7 +123,7 @@ With manual integration, the game server code directly communicates with the All
 
 See [Manually Registering Game Servers](manually-registering-game-servers) for implementation details.
 
-### Option 3: No allocator
+### Option 3: No Allocator
 
 Armadas can be used without the Allocator when the backend manages server selection directly.
 
