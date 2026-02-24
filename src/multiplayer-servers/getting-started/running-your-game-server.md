@@ -126,7 +126,7 @@ Below are some port name conventions and what they are typically used for:
 | allocator | Callback endpoint for a server allocation mechanism.                               |
 
 ::: info
-The `allocator` port is used by the [Allocator service](/multiplayer-servers/multiplayer-services/server-allocation/overview), which manages server assignment for matchmaking-based games. If your game uses a server browser instead of matchmaking, you don't need this port.
+The `allocator` port is used by the [Allocator service](/multiplayer-servers/multiplayer-services/server-allocation/overview), which manages server assignment for matchmaking-based games. Games that rely on a server browser instead of matchmaking do not require this port.
 :::
 
 #### Command and arguments
