@@ -13,7 +13,7 @@ GameFabric supports two major hosting models.
   down. The number of available game servers is dynamically adjusted based on demand.
 
 ::: tip Server Allocation
-If you choose Armadas, see the [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) to understand when you need the Allocator service and how to integrate it with your matchmaker.
+If Armadas is selected, refer to the [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) to understand when the Allocator service is required and how it integrates with the matchmaker.
 :::
 
 An individual game does not necessarily have to strictly fall into one of these two categories. Some games require a
