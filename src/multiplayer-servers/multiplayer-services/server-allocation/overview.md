@@ -88,7 +88,7 @@ After the match ends, the game server shuts down, and the Armada automatically s
 
 ## Choosing an integration approach
 
-GameFabric offers two ways to integrate with the Allocator:
+GameFabric offers two ways to integrate with the Allocator, plus an option when you do not use the Allocator:
 
 ### Option 1: Allocation sidecar (recommended)
 
