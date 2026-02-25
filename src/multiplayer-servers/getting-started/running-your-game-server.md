@@ -196,10 +196,9 @@ The thresholds for that process can be configured here. The default values are u
 
 ![GUI_Create_Vessel_Advanced_Health_Checks.png](images/formation/GUI_Create_Vessel_Advanced_Health_Checks.png)
 
-:::warning Disabling Health Checks
-Health checks should only be disabled in testing and troubleshooting scenarios, for example when testing your Agones
-SDK integration. For production usage health checks should always be enabled, otherwise game servers that are in an
-unresponsive state cannot be automatically detected and cleaned up.
+:::warning Health Checks: Default State & Best Practices
+Health Checks are disabled by default to simplify the initial testing and integration of your Game Server SDK.
+However, for production usage, it is recommended that they be enabled. If Health Checks remain disabled in a live environment, game servers that enter an unresponsive or "frozen" state cannot be automatically detected or cleaned up by the platform, leading to potential matchmaking failures. Additionally, we do not make any promises as to lifecycle handling of such game servers without health checks during maintenances; game servers without proper integration may be evicted at a moment's notice during maintenance.
 :::
 
 #### Termination grace periods
