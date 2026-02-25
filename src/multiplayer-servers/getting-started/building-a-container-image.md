@@ -108,7 +108,7 @@ and the various instructions that they support.
 
 Now that your Dockerfile is written, the next step is to build the image.
 
-Run `docker build --provenance=false -t gameserver:v1.0.0 .` in the folder that contains your Dockerfile to create a Docker image named `gameserver`
+Run `docker build -t gameserver:v1.0.0 .` in the folder that contains your Dockerfile to create a Docker image named `gameserver`
 and tagged `v1.0.0`.
 
 You may now run this image and your game server by running `docker run gameserver:v1.0.0` in your terminal.
