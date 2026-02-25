@@ -75,13 +75,9 @@ The allocation flow has five main steps:
 ```
 
 1. **Register:** When a game server starts and is ready to accept players, it registers with the Allocator and enters the pool of available servers.
-
 2. **Allocate:** The matchmaker calls the Allocator's `/allocate` endpoint, optionally specifying a region and custom payload (match settings, expected players, etc.).
-
 3. **Callback:** The Allocator selects a server and sends a callback notification to it, including any payload from the matchmaker.
-
 4. **Connection Info:** The Allocator returns the server's connection details (IP, port) to the matchmaker.
-
 5. **Connect:** The matchmaker sends the connection info to the players, who connect to the game server.
 
 After the match ends, the game server shuts down, and the Armada automatically starts a new server to replace it in the pool.
