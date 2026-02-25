@@ -95,6 +95,7 @@ GameFabric offers two ways to integrate with the Allocator, plus an option when 
 The **Allocation Sidecar** is a container provided by GameFabric that runs alongside the game server. It handles registration, keep-alive, and allocation callbacks automatically.
 
 **This option is ideal for:**
+
 - Simple integration requirements
 - Game servers using the Agones SDK for lifecycle management
 - Standard registration workflows without custom logic
