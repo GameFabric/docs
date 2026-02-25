@@ -18,7 +18,7 @@ Log into the GameFabric UI before proceeding.
 
 ## Create an ArmadaSet
 
-Choose an [environment](/multiplayer-servers/getting-started/setup-your-environment) for your ArmadaSet, then navigate to the "Armadas" section in the UI and click "Create ArmadaSet" to begin.
+Choose an [environment](/multiplayer-servers/getting-started/setup-your-environment) for your ArmadaSet, then navigate to Armadas > ArmadaSets in the UI and click "Create ArmadaSet" to begin.
 
 ### General
 
