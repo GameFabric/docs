@@ -39,12 +39,12 @@ This is different from traditional server hosting where players browse a server 
 
 The following table summarizes when to use each approach:
 
-| If the game has... | Recommended Approach |
-|------------------|---------------------|
-| Matchmaker assigns players to matches | Armadas + Allocator |
-| Server browser / server list | Formations (Vessels) |
+| If the game has...                            | Recommended Approach                                     |
+|-----------------------------------------------|----------------------------------------------------------|
+| Matchmaker assigns players to matches         | Armadas + Allocator                                      |
+| Server browser / server list                  | Formations (Vessels)                                     |
 | Both modes (e.g., ranked + community servers) | Armadas + Allocator for ranked, Formations for community |
-| Custom backend managing server lifecycle | Armadas or Formations without Allocator |
+| Custom backend managing server lifecycle      | Armadas or Formations without Allocator                  |
 
 ## How it works
 
