@@ -39,7 +39,7 @@ This is different from traditional server hosting where players browse a server 
 
 The following table summarizes when to use each approach:
 
-| Game type                                     | Recommended approach                                     |
+| Server selection model                        | Recommended approach                                     |
 |-----------------------------------------------|----------------------------------------------------------|
 | Matchmaker assigns players to matches         | Armadas + Allocator                                      |
 | Server browser / server list                  | Formations (Vessels)                                     |
