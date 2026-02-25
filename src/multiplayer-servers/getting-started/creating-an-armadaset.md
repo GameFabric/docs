@@ -50,7 +50,7 @@ Volumes allow you to share data between multiple containers within the same pod.
 
 ### Containers
 
-The Containers section defines your game server configuration. This includes the container image, environment variables, ports, commands, config files, resources, and sidecars.
+The Containers section defines your game server configuration. This includes the container image, environment variables, ports, commands, ConfigFiles, resources, and sidecars.
 
 The configuration options are identical to those for Vessels. For detailed explanations of each setting, see the [Containers section](/multiplayer-servers/getting-started/running-your-game-server#containers) in the Vessel guide.
 
