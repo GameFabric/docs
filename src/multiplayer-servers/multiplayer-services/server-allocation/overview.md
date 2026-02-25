@@ -12,7 +12,7 @@ The Allocator is not included by default with GameFabric. It is a service that m
 
 When using Armadas, GameFabric automatically maintains a pool of game servers that are running and ready to accept players. The Allocator acts as a broker between the matchmaker (or backend) and this pool of servers. When the matchmaker determines that a group of players should play together, it asks the Allocator for a server. The Allocator picks the best available server, notifies it that players are incoming, and returns the connection details to the matchmaker.
 
-Starting a game server takes time. Loading assets, initializing the game world, and completing startup checks can take seconds to minutes. On-demand server creation forces players to wait after matchmaking. Pre-warmed servers eliminate this delay. The Allocator assigns a server instantly after matchmaking completes, providing a seamless player experience.
+For most games, it takes time for servers to be fully started up and ready for players. On-demand server creation forces players to wait until a server is started after matchmaking. Pre-warmed servers eliminate this delay. The Allocator assigns a server instantly after matchmaking completes, providing a seamless player experience.
 
 This is different from traditional server hosting where players browse a server list and choose which server to join. For that use case, see [Formations](/multiplayer-servers/architecture/identifying-your-hosting-model#formations).
 
