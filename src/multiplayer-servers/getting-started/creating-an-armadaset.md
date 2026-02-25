@@ -86,7 +86,7 @@ Health checks are disabled by default for initial testing. For production, enabl
 
 ## Visualize and configure
 
-After creating the ArmadaSet, it will appear in the ArmadaSets section of the UI. The ArmadaSet automatically creates an Armada for each configured region.
+After creating the ArmadaSet, it appears in the Armadas section of the UI. The ArmadaSet automatically creates an Armada for each configured region.
 
 <!-- TODO: Add screenshot - GUI_ArmadaSet_List -->
 
