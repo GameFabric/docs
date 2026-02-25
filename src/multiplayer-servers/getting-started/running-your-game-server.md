@@ -125,6 +125,10 @@ Below are some port name conventions and what they are typically used for:
 | rcon      | Any remote control endpoint that can be used to manage the game server at runtime. |
 | allocator | Callback endpoint for a server allocation mechanism.                               |
 
+::: info
+The `allocator` port is used by the [Allocator service](/multiplayer-servers/multiplayer-services/server-allocation/overview), which manages server assignment for matchmaking-based games. Games that rely on a server browser instead of matchmaking do not require this port.
+:::
+
 #### Command and arguments
 
 You can also override the command run by the container, as well as CLI arguments your game server starts with.

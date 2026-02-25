@@ -1,8 +1,9 @@
 import { defineConfig } from "vitepress";
+import { withMermaid } from "vitepress-plugin-mermaid";
 import fs from 'node:fs';
 import path from 'node:path';
 
-export default defineConfig({
+export default withMermaid(defineConfig({
     srcDir: 'src',
     lang: 'en-US',
     description: "GameFabric Documentation | gamefabric.com",
@@ -85,7 +86,13 @@ export default defineConfig({
         ],
         sidebar: getSidebar()
     },
-});
+    mermaid: {
+        // Mermaid configuration options
+    },
+    mermaidPlugin: {
+        class: "mermaid"
+    },
+}));
 
 function getSidebar() {
     const sidebar = {}

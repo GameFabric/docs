@@ -7,6 +7,10 @@
       "text": "Server Allocation",
       "items": [
         {
+          "text": "Server Allocation Overview",
+          "link": "/multiplayer-services/server-allocation/overview"
+        },
+        {
           "text": "Allocating from Armadas",
           "link": "/multiplayer-services/server-allocation/allocating-from-armadas"
         },

@@ -5,13 +5,15 @@ Their names and description are detailed in this section in alphabetical order.
 
 ## Allocation Sidecar
 
-The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by Nitrado for easy integration with the [Allocator](#allocator).
+The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by GameFabric for easy integration with the [Allocator](#allocator).
 
 ## Allocator
 
-The Allocator is an extra product feature that lets you register your game servers against it so that your matchmaker can choose the best available server.
+The Allocator is an optional service that manages a pool of ready-to-use game servers for session-based games. It acts as a broker between your matchmaker and GameFabric's infrastructure. The Allocator is not included by default and must be ordered separately.
 
-See also [docs for using the Allocation Sidecar](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers).
+The Allocator is typically used with [Armadas](#armada) for games where players are assigned to servers by matchmaking rather than choosing from a server list. For persistent servers where players browse and select their own server, use [Formations](#formation) without the Allocator.
+
+See [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) for details on when to use the Allocator and integration options.
 
 ## API
 
