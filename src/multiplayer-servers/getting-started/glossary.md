@@ -5,7 +5,7 @@ Their names and description are detailed in this section in alphabetical order.
 
 ## Allocation Sidecar
 
-The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by Nitrado for easy integration with the [Allocator](#allocator).
+The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by GameFabric for easy integration with the [Allocator](#allocator).
 
 ## Allocator
 
