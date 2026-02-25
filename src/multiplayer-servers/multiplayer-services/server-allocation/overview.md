@@ -25,7 +25,7 @@ This is different from traditional server hosting where players browse a server 
 - **Players don't choose their server** — The matchmaker decides which server players connect to
 - **Per-match configuration is needed** — Each match requires specific settings (map, mode, player list) passed at allocation time
 
-**Examples:** Battle royales, competitive shooters, MOBAs, party games, quick-play modes.
+**Examples:** Battle royales, competitive shooters, multiplayer online battle arenas (MOBAs), party games, quick-play modes.
 
 ### Skip the Allocator when:
 
@@ -33,13 +33,13 @@ This is different from traditional server hosting where players browse a server 
 - **Servers are persistent** — The same server runs for days/weeks with player progression tied to it
 - **Server lifecycle is managed externally** — The backend creates and destroys servers directly via the GameFabric API
 
-**Examples:** Games with persistent worlds, MMO servers, community-hosted servers, dedicated clan servers.
+**Examples:** Games with persistent worlds, massively multiplayer online (MMO) servers, community-hosted servers, dedicated clan servers.
 
 ### Decision guide
 
 The following table summarizes when to use each approach:
 
-| If the game has...                            | Recommended Approach                                     |
+| Game type                                     | Recommended approach                                     |
 |-----------------------------------------------|----------------------------------------------------------|
 | Matchmaker assigns players to matches         | Armadas + Allocator                                      |
 | Server browser / server list                  | Formations (Vessels)                                     |
@@ -50,28 +50,18 @@ The following table summarizes when to use each approach:
 
 The allocation flow has five main steps:
 
-```text
-┌─────────────┐     ┌───────────┐     ┌─────────────┐     ┌─────────┐
-│ Game Server │────▶│ Allocator │◀────│ Matchmaker  │────▶│ Players │
-│  (Ready)    │     │  (Pool)   │     │  (Backend)  │     │         │
-└─────────────┘     └───────────┘     └─────────────┘     └─────────┘
-      │                   │                  │                  │
-      │  1. Register      │                  │                  │
-      │──────────────────▶│                  │                  │
-      │                   │                  │                  │
-      │                   │  2. Allocate     │                  │
-      │                   │◀─────────────────│                  │
-      │                   │                  │                  │
-      │  3. Callback      │                  │                  │
-      │◀──────────────────│                  │                  │
-      │                   │                  │                  │
-      │                   │  4. Connection   │                  │
-      │                   │     Info         │                  │
-      │                   │─────────────────▶│                  │
-      │                   │                  │                  │
-      │                   │                  │  5. Connect      │
-      │◀────────────────────────────────────────────────────────│
-      │                   │                  │                  │
+```mermaid
+sequenceDiagram
+    participant GS as Game Server (Ready)
+    participant A as Allocator (Pool)
+    participant MM as Matchmaker (Backend)
+    participant P as Players
+
+    GS->>A: 1. Register
+    MM->>A: 2. Allocate
+    A-->>GS: 3. Callback
+    A->>MM: 4. Connection Info
+    P->>GS: 5. Connect
 ```
 
 1. **Register:** When a game server starts and is ready to accept players, it registers with the Allocator and enters the pool of available servers.
@@ -86,7 +76,7 @@ After the match ends, the game server shuts down, and the Armada automatically s
 
 GameFabric offers two ways to integrate with the Allocator, plus an option when you do not use the Allocator:
 
-### Option 1: Allocation sidecar (recommended)
+### Allocation sidecar (recommended)
 
 The **Allocation Sidecar** is a container provided by GameFabric that runs alongside the game server. It handles registration, keep-alive, and allocation callbacks automatically.
 
@@ -104,16 +94,18 @@ The **Allocation Sidecar** is a container provided by GameFabric that runs along
 
 See [Automatically Registering Game Servers](automatically-registering-game-servers) for setup instructions.
 
-### Option 2: Manual integration
+### Manual integration
 
 With manual integration, the game server code directly communicates with the Allocator's REST API.
 
 **This option is ideal for:**
+
 - Full control over the registration process
 - Custom requirements that the sidecar doesn't support
 - Integration with an existing server framework
 
 **The game server needs to:**
+
 - Register with the Allocator via HTTP
 - Send keep-alive requests periodically
 - Handle allocation callbacks on an HTTP endpoint
@@ -121,16 +113,22 @@ With manual integration, the game server code directly communicates with the All
 
 See [Manually Registering Game Servers](manually-registering-game-servers) for implementation details.
 
-### Option 3: No Allocator
+::: info
+Manual integration requires careful handling of edge cases such as race conditions, retries, and error recovery. Consider using the sidecar approach unless specific requirements demand direct API integration.
+:::
+
+### No Allocator
 
 Armadas can be used without the Allocator when the backend manages server selection directly.
 
 **This approach applies when:**
+
 - An existing backend already queries server state
 - Custom server selection logic is required
 - Migration from another platform with existing allocation code is underway
 
 **The backend needs to:**
+
 - Query Armada state via the GameFabric API
 - Select servers based on custom criteria
 - Communicate directly with game servers
