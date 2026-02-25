@@ -30,7 +30,7 @@ Specify a unique name for your ArmadaSet. You can also add a description to help
 
 The Regions step is where you configure scaling for your ArmadaSet. Unlike Vessels, which run in a single region, ArmadaSets automatically create an Armada in each configured region.
 
-For each Region-Type, configure the following:
+For each Region Type, configure the following:
 
 | Setting | Description |
 |---------|-------------|
