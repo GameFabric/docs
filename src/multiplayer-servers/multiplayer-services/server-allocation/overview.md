@@ -101,6 +101,7 @@ The **Allocation Sidecar** is a container provided by GameFabric that runs along
 - Standard registration workflows without custom logic
 
 **The game server only needs to:**
+
 - Call `agones.Ready()` when ready to accept players
 - Watch for the "Allocated" state change
 - Read the payload from annotations or a file
