@@ -1,6 +1,6 @@
 # Creating an ArmadaSet
 
-In this section, you will learn how to create an ArmadaSet for session-based or match-based game servers.
+This section explains how to create an ArmadaSet for session-based or match-based game servers.
 
 ::: tip Understanding Hosting Models
 ArmadaSets are designed for session-based games where a matchmaker allocates game servers on demand. If your game uses persistent servers or server browsers, consider using [Formations and Vessels](/multiplayer-servers/getting-started/running-your-game-server) instead. See the [hosting models guide](/multiplayer-servers/architecture/identifying-your-hosting-model) for more details.
@@ -8,7 +8,7 @@ ArmadaSets are designed for session-based games where a matchmaker allocates gam
 
 ## Prerequisites
 
-Before proceeding, make sure you have the following:
+Before proceeding, ensure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
 * A container image that has been [pushed to a branch in the registry](/multiplayer-servers/getting-started/pushing-container-images)
@@ -46,7 +46,7 @@ For detailed guidance on configuring replicas and buffer size, including example
 
 ### Volumes
 
-Volumes allow you to share data between multiple containers within the same pod. This is an advanced feature that can be skipped for most initial setups.
+Volumes allow you to share data between multiple containers within the same pod. This is an advanced feature. Skip it for most initial setups.
 
 ### Containers
 
@@ -65,7 +65,7 @@ Key configuration areas:
 * **Sidecars**: Add additional containers (e.g., Allocator sidecar)
 
 ::: info Allocator Sidecar
-For session-based games using the Allocator service, you will typically add an Allocator sidecar container. See the [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) for details on when this is required.
+For session-based games using the Allocator service, you typically add an Allocator sidecar container. See the [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) for details on when this is required.
 :::
 
 ### Advanced
@@ -81,7 +81,7 @@ Key settings:
 * **Termination grace periods**: Set time limits for graceful shutdown during maintenance, spec changes, or user-initiated terminations
 
 ::: warning Health Checks
-Health checks are disabled by default for initial testing. For production, enable health checks to ensure unresponsive game servers are automatically detected and cleaned up.
+Health checks are disabled by default for initial testing. To ensure unresponsive game servers are automatically detected and cleaned up, enable health checks for production.
 :::
 
 ## Visualize and configure
