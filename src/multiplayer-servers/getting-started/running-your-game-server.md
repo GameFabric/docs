@@ -194,7 +194,7 @@ The thresholds for that process can be configured here. The default values are u
 
 :::warning Health Checks: Default State & Best Practices
 Health Checks are disabled by default to simplify the initial testing and integration of your Game Server SDK.
-However, for production usage, it is recommended that they be enabled. If Health Checks remain disabled in a live environment, game servers that enter an unresponsive or "frozen" state cannot be automatically detected or cleaned up by the platform, leading to potential matchmaking failures.
+However, for production usage, it is recommended that they be enabled. If Health Checks remain disabled in a live environment, game servers that enter an unresponsive or "frozen" state cannot be automatically detected or cleaned up by the platform, leading to potential matchmaking failures. Additionally, we do not make any promises as to lifecycle handling of such game servers without health checks during maintenances; game servers without proper integration may be evicted at a moment's notice during maintenance.
 :::
 
 #### Termination Grace Periods
