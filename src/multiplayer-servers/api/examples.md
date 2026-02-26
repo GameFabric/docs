@@ -129,3 +129,43 @@ curl -X 'DELETE' \
 ```
 
 This results in your Vessel switching to the Terminating status, and eventually disappearing once the termination process is complete.
+
+## Creating a Region
+
+In this example, let's create a Region with the `Distributed` scheduling strategy using the REST API.
+
+::: tip Scheduling Strategy
+The `scheduling` field controls how game servers are distributed across nodes.
+See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for details. This feature is currently only available via the API.
+:::
+
+```bash
+curl -X 'POST' \
+     "https://${GAMEFABRIC_URL}/api/core/v1/environments/${ENV}/regions" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '{
+  "apiVersion": "core/v1",
+  "kind": "Region",
+  "metadata": {
+    "name": "eu-west",
+    "environment": "${ENV}"
+  },
+  "spec": {
+    "displayName": "EU West",
+    "description": "European West region",
+    "types": [
+      {
+        "name": "default",
+        "locations": ["<your-location>"],
+        "template": {
+          "scheduling": "Distributed"
+        }
+      }
+    ]
+  }
+}'
+```
+
+The `scheduling` field accepts either `Packed` (default) or `Distributed` as its value.

@@ -167,6 +167,17 @@ E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Arm
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#role).
 
+## Scheduling Strategy
+
+The scheduling strategy controls how GameServers are distributed across nodes during allocation.
+
+Available options:
+
+- **Packed**: Bin-packs GameServers onto the fewest nodes possible (default)
+- **Distributed**: Spreads GameServers evenly across all available nodes
+
+See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for configuration details.
+
 ## Secret
 
 See [Secrets](/multiplayer-servers/getting-started/secrets).

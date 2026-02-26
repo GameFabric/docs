@@ -12,6 +12,10 @@
       "link": "/api/examples"
     },
     {
+      "text": "Scheduling Strategy",
+      "link": "/api/scheduling-strategy"
+    },
+    {
       "text":"GF: API Server ⤴",
       "link": "/api-specs/apiserver",
       "external": true
