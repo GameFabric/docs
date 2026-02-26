@@ -8,7 +8,7 @@ ArmadaSets are designed for session-based games where a matchmaker allocates gam
 
 ## Prerequisites
 
-Before proceeding, ensure you have the following:
+In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
 * A container image that has been [pushed to a branch in the registry](/multiplayer-servers/getting-started/pushing-container-images)
