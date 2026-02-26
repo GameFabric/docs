@@ -32,11 +32,11 @@ The Regions step is where you configure scaling for your ArmadaSet. Unlike Vesse
 
 For each Region Type, configure the following:
 
-| Setting | Description |
-|---------|-------------|
-| **Min Replicas** | The minimum number of game server replicas to maintain, even when there is no demand. |
-| **Max Replicas** | The maximum number of game server replicas that can be scaled up to meet demand. |
-| **Buffer** | The number of unallocated (ready) game servers to keep available for incoming allocation requests. |
+| Setting          | Description                                                                                        |
+|------------------|----------------------------------------------------------------------------------------------------|
+| **Min Replicas** | The minimum number of game server replicas to maintain, even when there is no demand.              |
+| **Max Replicas** | The maximum number of game server replicas that can be scaled up to meet demand.                   |
+| **Buffer**       | The number of unallocated (ready) game servers to keep available for incoming allocation requests. |
 
 <!-- TODO: Add screenshot - GUI_Create_ArmadaSet_Regions -->
 
