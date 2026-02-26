@@ -28,9 +28,9 @@ Specify a unique name for your ArmadaSet. You can also add a description to help
 
 ### Regions
 
-The Regions step is where you configure scaling for your ArmadaSet. Unlike Vessels, which run in a single region, ArmadaSets automatically create an Armada in each configured region.
+The Regions step is where you configure scaling for your ArmadaSet. Unlike Vessels, which deploy to a single region, ArmadaSets automatically create an Armada in each region you configure.
 
-For each Region Type, configure the following:
+Configure the following scaling settings for each Region and Region Type (e.g., Bare Metal or Cloud):
 
 | Setting          | Description                                                                                        |
 |------------------|----------------------------------------------------------------------------------------------------|
@@ -46,7 +46,7 @@ For detailed guidance on configuring replicas and buffer size, including example
 
 ### Volumes
 
-Volumes allow you to share data between multiple containers within the same pod. This is an advanced feature. Skip it for most initial setups.
+Volumes allow you to share data between multiple containers within the same pod. This is an advanced feature. Skip this step for now.
 
 ### Containers
 
