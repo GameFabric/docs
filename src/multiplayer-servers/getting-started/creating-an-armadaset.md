@@ -1,6 +1,6 @@
 # Creating an ArmadaSet
 
-This section explains how to create an ArmadaSet for session-based or match-based game servers.
+In this section, you will learn how to create an ArmadaSet for session-based or match-based game servers.
 
 ::: tip Understanding Hosting Models
 ArmadaSets are designed for session-based games where a matchmaker allocates game servers on demand. If your game uses persistent servers or server browsers, consider using [Formations and Vessels](/multiplayer-servers/getting-started/running-your-game-server) instead. See the [hosting models guide](/multiplayer-servers/architecture/identifying-your-hosting-model) for more details.
