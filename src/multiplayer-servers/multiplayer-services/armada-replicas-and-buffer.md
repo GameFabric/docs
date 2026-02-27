@@ -177,6 +177,112 @@ The Maximum Replicas is not only a consideration of physical resources, but also
 Whether through player peaks, due to bugs or DDoS attacks, always choose a limit that is within your budget, especially on cloud.
 :::
 
+## Dynamically configuring the buffer size (Alpha)
+
+The Buffer Size can be set to a fixed value as previously explained, or it can be dynamically adjusted based on the current player demand using
+the `Dynamic Buffer` option.
+
+When dynamic mode is enabled, GameFabric adjusts Buffer Size at two levels.  
+First, it updates the baseline Buffer Size for each region type based on overall demand trends.  
+Then, for each Site, it applies an additional local adjustment using site-specific signals such as `Ready` and `Allocated` game server counts, startup time, and player demand.
+This allows for a more responsive and cost-effective approach to managing the Buffer Size, as it can automatically scale up or down based on the current trends.
+
+::: info
+
+Dynamic Buffer needs at least 24 hours of allocation data to determine a suitable Buffer Size, and it can take up to 48 hours to stabilize on a good 
+Buffer Size after being enabled. During this time, it is recommended to closely monitor the behavior of the Buffer Size and its impact on player experience 
+and costs, and adjust the configuration as needed.
+
+It is expected that smaller player numbers (<50 CCU) cause more fluctuations in the Buffer Size, as there is less data to base the adjustments on,
+and each allocation has a bigger impact on the overall numbers.
+
+:::
+
+::: warning
+
+Dynamic Buffer is currently in Alpha and should be used with caution. Make sure to monitor the behavior of the Buffer Size and its impact on player
+experience and costs, and adjust the configuration as needed.
+
+:::
+
+### Enabling dynamic buffer
+
+To enable the Dynamic Buffer, toggle the `Dynamic Buffer` option on a `Region - Type`. You will be asked to confirm that you understand 
+the implications of enabling this feature.
+
+Once enabled GameFabric starts to control the Buffer Size, and any manual adjustments to the Buffer Size are be overridden by GameFabric's adjustments
+based on player demand. Minimum and Maximum Replicas settings will still apply, and can still be adjusted.
+
+![Enable Dynamic Buffer](images/armada/dynamic-buffers-enable-modal.png)
+
+### Configuring dynamic buffer
+
+Once the Dynamic Buffer has been enabled, it can be configured using the slider.
+
+![Configure Dynamic Buffer](images/armada/dynamic-buffers-configuration.png)
+
+The slider configures the cost-efficiency of the Buffer Size adjustments, with a more cost-efficient setting leading to fewer idle game servers in the
+`Ready` state, and a more availability-focused setting leading to more game servers in the `Ready` state.
+
+The slider configuration can generally be categorized as follows:
+
+- **Cost-Efficient (1-3)**: The number of `Ready` game servers is kept to a minimum and scaling up happens more slowly which can result in game servers not 
+  being available during allocation peaks.
+- **Balanced (4-11)**: A balance between cost and availability is maintained, with a moderate approach to scaling game servers.
+- **Availability-Focused (12-15)**: The number of `Ready` game servers is increased to ensure availability during allocation peaks, with faster scaling up of game servers.
+
+::: info 
+
+The Buffer Size calculated can be constrained by the Minimum Replicas. If this is observed, it is recommended to increase the Minimum Replicas to allow
+for a larger Buffer Size.
+
+:::
+
+It is suggested that a more availability-focused setting be used at first to ensure a good player experience. Once the behavior of the Dynamic Buffer is
+well understood, and the impact on player experience and costs has been monitored, the setting can be adjusted towards a more cost-efficient configuration
+if desired.
+
+To disable the Dynamic Buffer, simply toggle the `Dynamic Buffer` option off. This stops any further adjustments to the Buffer Size, but it does not
+reset the Buffer Size to a specific value to ensure continuity of player experience. If desired, a new Buffer Size can be set after disabling the Dynamic Buffer.
+
+::: warning Mass disconnects
+
+In the case of a mass disconnect scenario, for example due to a DDoS attack or hardware outage, GameFabric interprets this as a decrease in demand and
+scale down the Buffer Size, which can lead to a poor player experience for the remaining players trying to get into a game session.
+
+:::
+
+<details>
+<summary>Values behind the slider</summary>
+
+::: info Slider values
+
+When using the slider to configure the Dynamic Buffer, the following values are applied, starting at the most cost-efficient setting (1) to the most
+availability-focused setting (15):
+
+| Slider Value | Max Buffer Utilization | Dynamic Max Buffer Threshold | Dynamic Min Buffer Threshold |
+|--------------|------------------------|------------------------------|------------------------------|
+| 1            | 80%                    | 100%                         | 50%                          |
+| 2            | 75%                    | 107%                         | 47%                          |
+| 3            | 70%                    | 114%                         | 44%                          |
+| 4            | 65%                    | 121%                         | 41%                          |
+| 5            | 60%                    | 129%                         | 39%                          |
+| 6            | 55%                    | 136%                         | 36%                          |
+| 7            | 50%                    | 143%                         | 33%                          |
+| 8            | 45%                    | 200%                         | 30%                          |
+| 9            | 40%                    | 257%                         | 27%                          |
+| 10           | 35%                    | 264%                         | 24%                          |
+| 11           | 30%                    | 271%                         | 21%                          |
+| 12           | 25%                    | 279%                         | 19%                          |
+| 13           | 20%                    | 286%                         | 16%                          |
+| 14           | 15%                    | 293%                         | 13%                          |
+| 15           | 10%                    | 300%                         | 10%                          |
+
+These values can be used when configuring the Dynamic Buffer through the API or Terraform, or custom values can be selected to specifically tune its behavior.
+
+:::
+</details>
+
 ## Scaling down
 
 To gracefully scale down a Region Type, the Minimum Replicas, the Maximum Replicas, and the Buffer Size can be set to zero.

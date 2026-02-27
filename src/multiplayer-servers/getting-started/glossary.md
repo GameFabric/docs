@@ -47,6 +47,14 @@ BYOC (Bring Your Own Cloud) is a capacity type where GameFabric manages resource
 
 See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup) and [Capacity Types](/multiplayer-servers/getting-started/capacity-types).
 
+## Buffer Size
+
+The Buffer Size is the number of game servers kept in the `Ready` state, waiting to be allocated. Maintaining a buffer ensures players can be matched to a server quickly without waiting for a new server to start.
+
+The Buffer Size can be set to a fixed value or managed automatically using [Dynamic Buffer](#dynamic-buffer).
+
+See [Armada Replicas and Buffer](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#buffer-size) for configuration guidance.
+
 ## CCU
 
 CCU stands for Concurrent Users. It is a key metric that represents the total number of players who are actively playing on a game server at the same time.
@@ -62,6 +70,16 @@ While a "Cluster" refers to the physical or virtual grouping of servers, a "Site
 ## Cordoned
 
 When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
+
+## Dynamic Buffer
+
+Dynamic Buffer is a feature that automatically adjusts the [Buffer](#buffer) based on current game server demand. When enabled, GameFabric monitors the number of `Ready` and `Allocated` game servers, startup time, and demand on each [Site](#site), then scales the buffer accordingly.
+
+::: warning
+Dynamic Buffer is currently in Alpha.
+:::
+
+See [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha) for details.
 
 ## Environment
 
