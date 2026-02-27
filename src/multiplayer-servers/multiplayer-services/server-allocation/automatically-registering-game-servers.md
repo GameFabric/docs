@@ -7,6 +7,10 @@ allocation handling. The goal is to enable your matchmaker to select game server
 If you need more control over the registration process, see [Manually Registering Game Servers](manually-registering-game-servers) for a code-based approach.
 :::
 
+::: info What is a Sidecar?
+For background on sidecar containers and other available sidecars, see [Sidecar Containers](/multiplayer-servers/architecture/sidecars).
+:::
+
 ## Pre-requisites
 
 <img style="float:right;margin-left:1rem" src="./images/automatically-registering-game-servers/pre-requisites.png"/>

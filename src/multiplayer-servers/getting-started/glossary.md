@@ -5,7 +5,9 @@ Their names and description are detailed in this section in alphabetical order.
 
 ## Allocation Sidecar
 
-The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by GameFabric for easy integration with the [Allocator](#allocator).
+The Allocation Sidecar is a [Sidecar](#sidecar) provided by GameFabric for automatic integration with the [Allocator](#allocator). It handles game server registration, allocation callbacks, and cleanup.
+
+See [Automatically Registering Game Servers](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers) for configuration details.
 
 ## Allocator
 
@@ -173,9 +175,13 @@ See [Secrets](/multiplayer-servers/getting-started/secrets).
 
 ## Sidecar
 
-A sidecar is a container that runs alongside your game server container, providing additional functionality.
-For example, Nitrado provides an allocator sidecar which can handle the allocation process for you.
-You could also run your own sidecars for monitoring or other purposes.
+A sidecar is a container that runs alongside your game server container within the same pod, sharing network and storage. Sidecars provide additional functionality without modifying your game server code.
+
+GameFabric provides the [Allocation Sidecar](#allocation-sidecar) for automatic allocator integration. You can also add custom sidecars for monitoring, logging, debugging, or other purposes.
+
+Sidecars can be added to [Armadas](#armada), [ArmadaSets](#armadaset), [Formations](#formation), and [Vessels](#vessel).
+
+See [Sidecar Containers](/multiplayer-servers/architecture/sidecars) for a comprehensive guide.
 
 ## Shutdown hints
 
