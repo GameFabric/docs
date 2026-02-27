@@ -179,7 +179,7 @@ Whether through player peaks, due to bugs or DDoS attacks, always choose a limit
 
 ## Dynamically configuring the buffer size (Alpha)
 
-The Buffer Size can be set to a fixed value as previously explained, or it can be dynamically adjusted based on the current player demand using 
+The Buffer Size can be set to a fixed value as previously explained, or it can be dynamically adjusted based on the current player demand using
 the `Dynamic Buffer` option.
 
 When dynamic mode is enabled, GameFabric adjusts Buffer Size at two levels.  
