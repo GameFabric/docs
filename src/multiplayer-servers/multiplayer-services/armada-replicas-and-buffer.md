@@ -182,10 +182,10 @@ Whether through player peaks, due to bugs or DDoS attacks, always choose a limit
 The Buffer Size can be set to a fixed value as previously explained, or it can be dynamically adjusted based on the current player demand using 
 the `Dynamic Buffer` option.
 
-When set to be dynamic, GameFabric periodically adjusts the Buffer Size based on the current player demand. On each Site,
-GameFabric monitors the number of `Ready` and `Allocated` game servers, game server startup time, and the player demand, and adjusts the local Buffer Size 
-dynamically. This allows for a more responsive and cost-effective approach to managing the Buffer Size, as it can automatically scale up or down based on 
-the current trends.
+When dynamic mode is enabled, GameFabric adjusts Buffer Size at two levels.  
+First, it updates the baseline Buffer Size for each region type based on overall demand trends.  
+Then, for each Site, it applies an additional local adjustment using site-specific signals such as `Ready` and `Allocated` game server counts, startup time, and player demand.
+This allows for a more responsive and cost-effective approach to managing the Buffer Size, as it can automatically scale up or down based on the current trends.
 
 ::: info
 
@@ -193,7 +193,7 @@ Dynamic Buffer needs at least 24 hours of allocation data to determine a suitabl
 Buffer Size after being enabled. During this time, it is recommended to closely monitor the behavior of the Buffer Size and its impact on player experience 
 and costs, and adjust the configuration as needed.
 
-It is expected that smaller player numbers (<50 CCU) will see more fluctuations in the Buffer Size, as there is less data to base the adjustments on,
+It is expected that smaller player numbers (<50 CCU) cause more fluctuations in the Buffer Size, as there is less data to base the adjustments on,
 and each allocation has a bigger impact on the overall numbers.
 
 :::
@@ -210,7 +210,7 @@ experience and costs, and adjust the configuration as needed.
 To enable the Dynamic Buffer, toggle the `Dynamic Buffer` option on a `Region - Type`. You will be asked to confirm that you understand 
 the implications of enabling this feature.
 
-Once enabled GameFabric will start to control the Buffer Size, and any manual adjustments to the Buffer Size will be overridden by GameFabric's adjustments
+Once enabled GameFabric starts to control the Buffer Size, and any manual adjustments to the Buffer Size are be overridden by GameFabric's adjustments
 based on player demand. Minimum and Maximum Replicas settings will still apply, and can still be adjusted.
 
 ![Enable Dynamic Buffer](images/armada/dynamic-buffers-enable-modal.png)
@@ -247,7 +247,7 @@ reset the Buffer Size to a specific value to ensure continuity of player experie
 
 ::: warning Mass disconnects
 
-In the case of a mass disconnect scenario, for example due to a DDoS attack or hardware outage, GameFabric will interpret this as a decrease in demand and
+In the case of a mass disconnect scenario, for example due to a DDoS attack or hardware outage, GameFabric interprets this as a decrease in demand and
 scale down the Buffer Size, which can lead to a poor player experience for the remaining players trying to get into a game session.
 
 :::
