@@ -112,6 +112,12 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies)
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#group).
 
+## Kubernetes
+
+Kubernetes is the open-source container orchestration platform that powers GameFabric's infrastructure. It manages the deployment, scaling, and operation of your game servers across [Sites](#site). While GameFabric abstracts most Kubernetes complexity, some concepts like [pods](#pod) and [containers](#container) appear in the documentation and UI.
+
+For more information, see the [Kubernetes documentation](https://kubernetes.io/).
+
 ## Location
 
 A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
@@ -119,12 +125,6 @@ A Location is a group of [Sites](#site) that share a geographical area and other
 Locations are managed by Nitrado for all capacity types. To request bare metal or [BYOC](#byoc) capacity, submit a request via the [GameFabric Help Center](#gamefabric-help-center). For [GameFabric Cloud](#gamefabric-cloud), you request capacity directly through the GameFabric UI.
 
 See also [Capacity Types](/multiplayer-servers/getting-started/capacity-types) and [Region](#region).
-
-## Kubernetes
-
-Kubernetes is the open-source container orchestration platform that powers GameFabric's infrastructure. It manages the deployment, scaling, and operation of your game servers across [Sites](#site). While GameFabric abstracts most Kubernetes complexity, some concepts like [pods](#pod) and [containers](#container) appear in the documentation and UI.
-
-For more information, see the [Kubernetes documentation](https://kubernetes.io/).
 
 ## Mitigation
 

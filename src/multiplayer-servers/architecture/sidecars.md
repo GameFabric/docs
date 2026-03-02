@@ -15,7 +15,7 @@ This sidecar is an integral part of GameFabric and cannot be configured or remov
 You can view the logs from the Agones SDK Sidecar in:
 
 - **Vessel UI**: Navigate to the **Container Logs** tab and select `agones-gameserver-sidecar`
-- **Monitoring stack**: Access logs through Grafana
+- **Monitoring stack**: Access logs through [Grafana](/multiplayer-servers/monitoring/introduction)
 
 ### Allocation Sidecar
 
@@ -40,7 +40,7 @@ You can add custom sidecar containers for purposes such as:
 
 ### Adding a Custom Sidecar
 
-1. Navigate to your Formation, Vessel, ArmadaSet, or Armada configuration
+1. Navigate to your [Formation](/multiplayer-servers/getting-started/glossary#formation), [Vessel](/multiplayer-servers/getting-started/glossary#vessel), [ArmadaSet](/multiplayer-servers/getting-started/glossary#armadaset), or [Armada](/multiplayer-servers/getting-started/glossary#armada) configuration
 2. In the **Sidecars** section, select **Create from scratch**
 3. Configure the container image, ports, environment variables, and resource limits
 4. Save your changes
