@@ -28,7 +28,7 @@ Specify a unique name for your ArmadaSet. You can also add a description to help
 
 ### Regions
 
-The Regions step is where you configure scaling for your ArmadaSet. Unlike Vessels, which deploy to a single region, ArmadaSets automatically create an Armada in each region you configure.
+You configure scaling for your ArmadaSet in the Regions step. Unlike Vessels, which deploy to a single region, ArmadaSets automatically create an Armada in each region you configure.
 
 Configure the following scaling settings for each Region and Region Type (e.g., Bare Metal or Cloud):
 
