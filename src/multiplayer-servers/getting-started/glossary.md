@@ -148,7 +148,7 @@ See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissio
 
 ## Scheduling Strategy
 
-The scheduling strategy controls how GameServers are distributed across nodes during allocation.
+The scheduling strategy controls how game servers are placed across nodes when they are started.
 
 Available options:
 

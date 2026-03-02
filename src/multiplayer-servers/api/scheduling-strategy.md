@@ -54,7 +54,7 @@ curl -X 'POST' \
      "https://${GAMEFABRIC_URL}/api/core/v1/environments/${ENV}/regions" \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/json' \
-     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -H "Authorization: Bearer ${GAMEFABRIC_API_TOKEN}" \
      -d '{
   "apiVersion": "core/v1",
   "kind": "Region",
@@ -98,5 +98,5 @@ This strategy is most relevant in the following scenarios:
 
 ## Reference
 
-- For the full Region API specification, see the [Region API reference](/api/multiplayer-servers/apiserver#tag/core.v1.Region/operation/createRegion).
+- For details on updating Regions, see the [Region API reference](/api/multiplayer-servers/apiserver#tag/core.v1.Region/operation/updateRegion).
 - For more details on how scheduling affects game server allocation, see the [Agones GameServerAllocation documentation](https://agones.dev/site/docs/reference/gameserverallocation/).
