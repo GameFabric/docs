@@ -47,7 +47,7 @@ You can add custom sidecar containers for purposes such as:
 
 For UI guidance, see [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server).
 
-## Best Practices
+## Best practices
 
 - **Keep sidecars lightweight**: Sidecars share resources with your game server. Minimize CPU and memory usage.
 - **Use appropriate resource limits**: Set CPU and memory limits to prevent sidecars from starving your game server.
