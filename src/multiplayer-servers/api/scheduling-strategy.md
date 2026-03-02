@@ -8,7 +8,7 @@ This feature is currently only available via the API.
 
 ## Overview
 
-When creating or updating a Region, you can configure the `scheduling` field within each Region Type's template to influence game server placement.
+When creating or updating a Region, the `scheduling` field within each Region Type's template influences game server placement.
 
 ## Options
 
