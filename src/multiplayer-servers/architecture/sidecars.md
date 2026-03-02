@@ -23,7 +23,7 @@ The Allocation Sidecar is provided by GameFabric for automatic integration with 
 
 - **Automatic registration**: Watches for your game server to reach the "Ready" state and registers it with the allocation service
 - **Allocation callbacks**: Receives allocation notifications and transitions the game server to the "Allocated" state
-- **Cleanup**: Removes the registration when your game server shuts down
+- **Cleanup**: Deregisters your game server when it shuts down
 
 Use the Allocation Sidecar when running session-based games with Armadas where players are assigned to servers through matchmaking.
 
