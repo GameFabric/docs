@@ -1,6 +1,6 @@
 # Sidecar Containers
 
-A sidecar is a container that runs alongside your game server container within the same [pod](/multiplayer-servers/getting-started/glossary#pod). Sidecars share the pod's network namespace and can access shared storage, enabling them to provide additional functionality without modifying your game server code.
+A sidecar is a container that runs alongside your game server container within the same [pod](/multiplayer-servers/getting-started/glossary#pod). Sidecars share the pod's network namespace and can access data through shared volumes, enabling them to provide additional functionality without modifying your game server code.
 
 Sidecar containers can be added to [Armadas](/multiplayer-servers/getting-started/glossary#armada), [ArmadaSets](/multiplayer-servers/getting-started/glossary#armadaset), [Formations](/multiplayer-servers/getting-started/glossary#formation), and [Vessels](/multiplayer-servers/getting-started/glossary#vessel).
 
