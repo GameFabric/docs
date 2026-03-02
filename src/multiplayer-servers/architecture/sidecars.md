@@ -1,6 +1,6 @@
 # Sidecar Containers
 
-A sidecar is a container that runs alongside your game server container within the same pod. Sidecars share the pod's network namespace and can access shared storage, enabling them to provide additional functionality without modifying your game server code.
+A sidecar is a container that runs alongside your game server container within the same [pod](/multiplayer-servers/getting-started/glossary#pod). Sidecars share the pod's network namespace and can access shared storage, enabling them to provide additional functionality without modifying your game server code.
 
 Sidecar containers can be added to [Armadas](/multiplayer-servers/getting-started/glossary#armada), [ArmadaSets](/multiplayer-servers/getting-started/glossary#armadaset), [Formations](/multiplayer-servers/getting-started/glossary#formation), and [Vessels](/multiplayer-servers/getting-started/glossary#vessel).
 
@@ -21,7 +21,7 @@ You can view the logs from the Agones SDK Sidecar in:
 
 The Allocation Sidecar is provided by GameFabric for automatic integration with the [Allocator](/multiplayer-servers/getting-started/glossary#allocator). It handles:
 
-- **Automatic registration**: Watches for your game server to reach the "Ready" state and registers it with the allocation service
+- **Automatic registration**: Watches for your game server to reach the "Ready" state and registers it with the [Allocator](/multiplayer-servers/getting-started/glossary#allocator)
 - **Allocation callbacks**: Receives allocation notifications and transitions the game server to the "Allocated" state
 - **Cleanup**: Deregisters your game server when it shuts down
 
@@ -52,4 +52,4 @@ For UI guidance, see [Running your Game Server](/multiplayer-servers/getting-sta
 - **Keep sidecars lightweight**: Sidecars share resources with your game server. Minimize CPU and memory usage.
 - **Use appropriate resource limits**: Set CPU and memory limits to prevent sidecars from starving your game server.
 - **Handle graceful shutdown**: Ensure your sidecar responds appropriately to termination signals.
-- **Consider network ports**: Sidecars share the pod's network namespace. Avoid port conflicts with your game server.
+- **Consider network ports**: Sidecars share the [pod's](/multiplayer-servers/getting-started/glossary#pod) network namespace. Avoid port conflicts with your game server.

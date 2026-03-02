@@ -61,6 +61,12 @@ A cluster refers to a group of bare metal or cloud servers located in the same l
 In the context of GameFabric, clusters are implemented as [sites](/multiplayer-servers/getting-started/glossary#site).
 While a "Cluster" refers to the physical or virtual grouping of servers, a "Site" represents the GameFabric-specific abstraction used to manage and interact with these clusters.
 
+## Container
+
+A container is a lightweight, standalone executable package that includes everything needed to run your game server: code, runtime, system tools, and settings. Containers are a core [Kubernetes](#kubernetes) concept. In GameFabric, your game server runs as a container, optionally alongside [Sidecar](#sidecar) containers within the same [pod](#pod).
+
+For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/containers/).
+
 ## Cordoned
 
 When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
@@ -114,6 +120,12 @@ Locations are managed by Nitrado for all capacity types. To request bare metal o
 
 See also [Capacity Types](/multiplayer-servers/getting-started/capacity-types) and [Region](#region).
 
+## Kubernetes
+
+Kubernetes is the open-source container orchestration platform that powers GameFabric's infrastructure. It manages the deployment, scaling, and operation of your game servers across [Sites](#site). While GameFabric abstracts most Kubernetes complexity, some concepts like [pods](#pod) and [containers](#container) appear in the documentation and UI.
+
+For more information, see the [Kubernetes documentation](https://kubernetes.io/).
+
 ## Mitigation
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#mitigations).
@@ -125,6 +137,12 @@ See [Editing Permissions](/multiplayer-servers/authentication/editing-permission
 ## Permission
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
+
+## Pod
+
+A pod is a [Kubernetes](#kubernetes) unit that runs one or more [containers](#container) together with shared networking and storage. In GameFabric, each game server runs in its own pod alongside [Sidecar](#sidecar) containers.
+
+For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/pods/).
 
 ## RBAC
 
@@ -175,7 +193,7 @@ See [Secrets](/multiplayer-servers/getting-started/secrets).
 
 ## Sidecar
 
-A sidecar is a container that runs alongside your game server container within the same pod, sharing network and storage. Sidecars provide additional functionality without modifying your game server code.
+A sidecar is a container that runs alongside your game server container within the same [pod](#pod), sharing network and storage. Sidecars provide additional functionality without modifying your game server code.
 
 GameFabric provides the [Allocation Sidecar](#allocation-sidecar) for automatic allocator integration. You can also add custom sidecars for monitoring, logging, debugging, or other purposes.
 
