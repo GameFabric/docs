@@ -68,7 +68,7 @@ curl -X 'POST' \
     "types": [
       {
         "name": "default",
-        "locations": ["<your-location>"],
+        "locations": ["${LOCATION}"],
         "template": {
           "scheduling": "Distributed"
         }

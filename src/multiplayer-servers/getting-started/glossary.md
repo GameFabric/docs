@@ -152,8 +152,8 @@ The scheduling strategy controls how game servers are placed across nodes when t
 
 Available options:
 
-- **Packed**: Bin-packs GameServers onto the fewest nodes possible (default)
-- **Distributed**: Spreads GameServers evenly across all available nodes
+- **Packed**: Game servers gravitate toward shared nodes using pod affinity (default)
+- **Distributed**: Game servers spread across nodes based on available resources
 
 See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for configuration details.
 
