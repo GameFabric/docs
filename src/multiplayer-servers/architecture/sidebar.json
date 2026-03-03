@@ -10,6 +10,10 @@
     {
       "text": "Identifying your Hosting Model",
       "link": "/architecture/identifying-your-hosting-model"
+    },
+    {
+      "text": "Sidecar Containers",
+      "link": "/architecture/sidecars"
     }
   ]
 }
