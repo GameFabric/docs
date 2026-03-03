@@ -41,12 +41,12 @@ Configure the following scaling settings for each Region and Region Type (e.g., 
 <!-- TODO: Add screenshot - GUI_Create_ArmadaSet_Regions -->
 
 ::: tip Scaling Configuration
-For detailed guidance on configuring replicas and buffer size, including examples and best practices, see the [Armada Replicas and Buffer Size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer) guide.
+For detailed guidance on configuring replicas and buffer size, including examples and best practices, see the [Armada replicas and buffer](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer) guide.
 :::
 
 ### Volumes
 
-Volumes allow you to share data between multiple containers within the same pod. This is an advanced feature. Skip this step for now.
+Volumes allow you to share data between multiple containers within the same [pod](/multiplayer-servers/getting-started/glossary#pod). This is an advanced feature. Skip this step for now.
 
 ### Containers
 
@@ -65,7 +65,7 @@ Key configuration areas:
 * **Sidecars**: Add additional containers (e.g., Allocator sidecar)
 
 ::: info Allocator Sidecar
-For session-based games using the Allocator service, you typically add an Allocator sidecar container. See the [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) for details on when this is required.
+For session-based games using the Allocator service, you typically add an Allocator sidecar container. See [Sidecar Containers](/multiplayer-servers/architecture/sidecars#allocation-sidecar) for setup details and the [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) for when this is required.
 :::
 
 ### Advanced
@@ -76,7 +76,7 @@ For detailed explanations, see the [Advanced options section](/multiplayer-serve
 
 Key settings:
 
-* **Profiling**: Enable eBPF-based CPU performance profiling
+* **Profiling**: Enable [continuous profiling](/multiplayer-servers/monitoring/profiling) to analyze CPU usage patterns
 * **Health checks**: Configure thresholds for game server health monitoring
 * **Termination grace periods**: Set time limits for graceful shutdown during maintenance, spec changes, or user-initiated terminations
 
@@ -103,5 +103,5 @@ You can also view individual Armadas to see aggregated information about the gam
 Now that your ArmadaSet is running, you can:
 
 * **Set up server allocation**: Learn how to allocate game servers from your Armadas in the [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) and [Allocating from Armadas](/multiplayer-servers/multiplayer-services/server-allocation/allocating-from-armadas) guides
-* **Configure scaling**: Fine-tune your replicas and buffer settings using the [Armada Replicas and Buffer Size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer) guide
+* **Configure scaling**: Fine-tune your replicas and buffer settings using the [Armada replicas and buffer](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer) guide
 * **Manage lifecycle**: Learn how to terminate ArmadaSets in the [Terminating ArmadaSets](/multiplayer-servers/getting-started/terminating-armadasets) guide
