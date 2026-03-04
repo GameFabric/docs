@@ -12,7 +12,7 @@ This guide explains how to migrate from Hathora to GameFabric.
 
 [[toc]]
 
-## What GameFabric Offers
+## What GameFabric offers
 
 - Container-native workflow (e.g., Docker) with standard container registry
 - Session-based and persistent [hosting models](/multiplayer-servers/architecture/identifying-your-hosting-model)
@@ -21,7 +21,7 @@ This guide explains how to migrate from Hathora to GameFabric.
 - Full observability via [Grafana, Prometheus, Loki, and Pyroscope](/multiplayer-servers/monitoring/introduction)
 - [API](/multiplayer-servers/api/guide) and [Terraform](/multiplayer-servers/integration/terraform) for infrastructure as code
 
-## Feature Mapping
+## Feature mapping
 
 | Hathora Feature | GameFabric Equivalent | Value & Impact |
 |-----------------|----------------------|----------------|
@@ -29,14 +29,14 @@ This guide explains how to migrate from Hathora to GameFabric.
 | API Tokens | [Service Accounts](/multiplayer-servers/authentication/authentication#managing-service-accounts) | API access with fine-tuned permission control via roles. |
 | Fleet | [Environments](/multiplayer-servers/getting-started/glossary#environment) + [Regions](/multiplayer-servers/getting-started/glossary#region) | Model regions with individual settings while isolating workloads. |
 | Build | [Branches](/multiplayer-servers/getting-started/glossary#branch) + Images | Organize images via Branches; push directly as Docker images. |
-| Application | [Armadasets](/multiplayer-servers/getting-started/glossary#armadaset) | The primary scaling unit for session-based games. |
-| Deployment | Armadaset [Revision](/multiplayer-servers/getting-started/glossary#revision) | Runtime configuration versioning with rollback support. |
-| Process | [Replica](/multiplayer-servers/getting-started/glossary#replica) | Individual game server instance within an Armadaset. |
+| Application | [ArmadaSets](/multiplayer-servers/getting-started/glossary#armadaset) | The primary scaling unit for session-based games. |
+| Deployment | ArmadaSet [Revision](/multiplayer-servers/getting-started/glossary#revision) | Runtime configuration versioning with rollback support. |
+| Process | [Replica](/multiplayer-servers/getting-started/glossary#replica) | Individual game server instance within an ArmadaSet. |
 | Room | Game Server / Allocation | Game server instances requested via the [Allocator API](/multiplayer-servers/multiplayer-services/server-allocation/overview). |
 | CreateRoom API | [Allocator API](/multiplayer-servers/multiplayer-services/server-allocation/allocating-from-armadas) | Request game servers on demand with region and attribute matching. |
 | Telemetry | [Grafana Stack](/multiplayer-servers/monitoring/introduction) | Prometheus metrics, Loki logs, and Pyroscope profiling with long-term retention. |
 
-## Key Architectural Differences
+## Key architectural differences
 
 1. **Container Registry**: GameFabric uses a standard Docker registry. Push images directly using `docker push` instead of uploading tarballs with a Dockerfile. See [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image).
 
@@ -44,7 +44,7 @@ This guide explains how to migrate from Hathora to GameFabric.
 
 3. **Server Allocation**: GameFabric offers the [Allocator service](/multiplayer-servers/multiplayer-services/server-allocation/overview) for session-based matchmaking, or you can track game servers directly in your backend.
 
-## Migration Steps
+## Migration steps
 
 ### Prerequisites
 
@@ -55,7 +55,7 @@ Before starting the migration:
 - Familiarity with Docker and container registries
 - Understanding of the [Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) requirements
 
-### Step 1: Create Service Account
+### Step 1: Create service account
 
 Create a [Service Account](/multiplayer-servers/authentication/authentication#managing-service-accounts) for programmatic API access (replaces Hathora API Tokens):
 
@@ -66,7 +66,7 @@ Create a [Service Account](/multiplayer-servers/authentication/authentication#ma
 
 See [Authentication](/multiplayer-servers/authentication/authentication) for details.
 
-### Step 2: Push Container Images
+### Step 2: Push container images
 
 GameFabric uses a standard Docker registry workflow.
 
@@ -92,7 +92,7 @@ GameFabric expects pre-built Docker images rather than tarballs with embedded Do
 
 See [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) and [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images) for details.
 
-### Step 3: Configure Environment and Regions
+### Step 3: Configure environment and regions
 
 **Create an Environment** (replaces Hathora Application):
 
@@ -107,16 +107,16 @@ See [Building a Container Image](/multiplayer-servers/getting-started/building-a
 
 See [Setup your Environment](/multiplayer-servers/getting-started/setup-your-environment) for details.
 
-### Step 4: Deploy with Armadasets
+### Step 4: Deploy with ArmadaSets
 
-[Armadasets](/multiplayer-servers/getting-started/glossary#armadaset) are the GameFabric equivalent of Hathora's session-based deployment model.
+[ArmadaSets](/multiplayer-servers/getting-started/glossary#armadaset) are the GameFabric equivalent of Hathora's session-based deployment model.
 
-**Create an Armadaset**:
+**Create an ArmadaSet**:
 
 1. Navigate to your Environment
-2. Go to **Armadasets > Create Armadaset**
+2. Go to **ArmadaSets > Create ArmadaSet**
 3. Configure:
-   - **Name**: Identifier for the Armadaset
+   - **Name**: Identifier for the ArmadaSet
    - **Region**: Select the Region to deploy to
    - **Container Image**: Select Branch, image, and tag
    - **Ports**: Configure game server ports
@@ -149,7 +149,7 @@ Agones provides SDKs for C++, C# (Unity), Go, Rust, and a REST API for any langu
 
 See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) and the [Agones Client SDK documentation](https://agones.dev/site/docs/guides/client-sdks/) for details.
 
-### Step 6: Server Allocation
+### Step 6: Server allocation
 
 There are two approaches to request game servers in GameFabric:
 
@@ -195,12 +195,12 @@ In this case, game servers call `sdk.Allocate()` directly when a player connects
 
 GameFabric supports four methods to pass configuration to your game server.
 
-### Environment Variables
+### Environment variables
 
-Set at [Region](/multiplayer-servers/getting-started/glossary#region) level (shared across all game servers) or [Armadaset](/multiplayer-servers/getting-started/glossary#armadaset) level (specific to that Armadaset):
+Set at [Region](/multiplayer-servers/getting-started/glossary#region) level (shared across all game servers) or [ArmadaSet](/multiplayer-servers/getting-started/glossary#armadaset) level (specific to that ArmadaSet):
 
 - Region-level: Regional backend endpoints, region identifiers
-- Armadaset-level: Game mode, server type
+- ArmadaSet-level: Game mode, server type
 
 Values can reference direct values, [Secrets](/multiplayer-servers/getting-started/secrets), config files, or pod fields (game server metadata).
 
@@ -212,9 +212,9 @@ Create configuration files in GameFabric and mount them into your game server co
 
 Store sensitive data securely using [Secrets](/multiplayer-servers/getting-started/secrets). You cannot read secrets after creation. Reference them in environment variables or mounted files.
 
-### Command Line Arguments
+### Command line arguments
 
-Specify container command and arguments in the Armadaset configuration. If you already specify the command in your Dockerfile, GameFabric uses that unless you override it.
+Specify container command and arguments in the ArmadaSet configuration. If you already specify the command in your Dockerfile, GameFabric uses that unless you override it.
 
 If your game server needs runtime values like its public IP or port passed as arguments, use the [Game Server Wrapper](/multiplayer-servers/multiplayer-services/game-server-wrapper) to template these values from Agones.
 
@@ -237,7 +237,7 @@ The observability stack includes:
 
 Access observability tools through the GameFabric UI under **Monitoring**.
 
-## Contact and Support
+## Contact and support
 
 For migration assistance and onboarding support:
 
@@ -246,7 +246,7 @@ For migration assistance and onboarding support:
 - **Slack Integration**: Request a dedicated Slack channel for real-time collaboration
 - **Status Page**: [status.gamefabric.com](https://status.gamefabric.com)
 
-## Related Documentation
+## Related documentation
 
 - [Introduction to GameFabric](/multiplayer-servers/getting-started/introduction)
 - [Quickstart Guide](/multiplayer-servers/getting-started/quickstart)
