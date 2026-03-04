@@ -92,7 +92,7 @@ GameFabric expects pre-built Docker images rather than tarballs with embedded Do
 
 See [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) and [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images) for details.
 
-### Step 3: Configure environment and regions
+### Step 3: Configure Environment and Regions
 
 **Create an Environment** (replaces Hathora Application):
 
