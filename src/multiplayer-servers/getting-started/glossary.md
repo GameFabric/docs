@@ -187,6 +187,17 @@ E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Arm
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#role).
 
+## Scheduling Strategy
+
+The scheduling strategy controls how game servers are placed across nodes when they are started.
+
+Available options:
+
+- **Packed**: Game servers gravitate toward shared nodes using pod affinity (default)
+- **Distributed**: Game servers spread across nodes based on available resources
+
+See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for configuration details.
+
 ## Secret
 
 See [Secrets](/multiplayer-servers/getting-started/secrets).
