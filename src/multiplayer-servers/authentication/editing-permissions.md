@@ -44,11 +44,15 @@ In the user edit modal, select the groups to which the user should belong.
 Click **Save** to apply your changes.
 
 ::: warning User access requirements
+
+Keep the following requirements in mind when managing Users:
+
 - A User must be assigned to at least one Group to sign in to GameFabric.
 - Users not in any Group receive a **403 Forbidden** error when attempting to log in.
 - You cannot add Users directly — add them by assigning them to at least one Group.
 - Only Users assigned to a Group are shown in the Users list.
 - For proper offboarding, remove the User from all Groups.
+
 :::
 
 ![add-groups-to-user.png](images/permissions/add-groups-to-user.png)

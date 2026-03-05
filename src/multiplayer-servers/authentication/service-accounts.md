@@ -58,8 +58,11 @@ curl -X 'GET' \
 ```
 
 ::: tip API Documentation
+
 For detailed API specifications and available endpoints, see:
+
 - [GameFabric API Guide](/multiplayer-servers/api/guide)
 - [API Server Documentation](/api/multiplayer-servers/apiserver)
 - [Web API Documentation](/api/multiplayer-servers/webapi)
+
 :::
