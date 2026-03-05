@@ -6,7 +6,7 @@ GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Id
 allowing you to reuse your existing authentication flows, without giving GameFabric access to your sensitive authentication data.
 
 ::: info Default SSO
-GameFabric ships with Google SSO enabled by default. Any user with a Google account can sign in once an administrator adds them to a group. Use this guide to add additional identity providers or replace Google with your organization's SSO.
+GameFabric ships with Google SSO enabled by default. Any user with a Google account can sign in once an administrator adds them to a Group. Use this guide to add additional identity providers or replace Google with your organization's SSO.
 :::
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions) for information about permissions management.
