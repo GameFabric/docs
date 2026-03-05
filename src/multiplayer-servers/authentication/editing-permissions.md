@@ -7,7 +7,7 @@ This is achieved by defining a role — a set of **permissions** — and assigni
 To edit permissions, navigate to the **Access Management** section in the GameFabric UI and select either the **Users/Groups** or **Roles** page.
 
 ::: tip New users
-For information on how users sign in and how to add new team members, see [Getting Access](getting-access.md).
+For information on how users sign in and how to add new team members, see [Getting Access](/multiplayer-servers/authentication/getting-access).
 :::
 
 ## Group
