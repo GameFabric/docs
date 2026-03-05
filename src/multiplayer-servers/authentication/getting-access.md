@@ -35,7 +35,7 @@ The **Log in with Email** option is for Service Accounts only, which are used fo
 
 If your organization uses a different identity provider (Microsoft ENTRA, Okta, Auth0, etc.), your administrator may have configured a custom SSO option. The login page displays additional sign-in buttons for any configured providers.
 
-For information on configuring custom SSO providers, see [Setup Third-Party OAuth Integration](setup-third-party-oauth.md).
+For information on configuring custom SSO providers, see [Setup Third-Party OAuth Integration](/multiplayer-servers/authentication/setup-third-party-oauth).
 
 ## For administrators
 
@@ -59,11 +59,11 @@ Consider creating Groups based on Roles (e.g., "Developers", "QA", "Operations")
 
 The permissions a User has are determined by:
 
-1. The [**Groups**](editing-permissions.md#group) they belong to
-2. The [**Roles**](editing-permissions.md#role) assigned to those Groups
+1. The [**Groups**](/multiplayer-servers/authentication/editing-permissions#group) they belong to
+2. The [**Roles**](/multiplayer-servers/authentication/editing-permissions#role) assigned to those Groups
 3. The **permissions** defined in those Roles
 
-For detailed information on configuring permissions, see [Editing Permissions](editing-permissions.md).
+For detailed information on configuring permissions, see [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
 
 ### Removing User access
 

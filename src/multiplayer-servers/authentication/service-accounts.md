@@ -20,7 +20,7 @@ Make sure to copy this password, as it is not shown again.
 Service Accounts need permissions. To use a Service Account for pushing container images, edit the
 `default:image-providers` group and add the full identifier of the new Service Account to it:
 
-![RBAC_Service_Accounts_Password.png](images/authentication/RBAC_Groups_Image_Providers.png)
+![RBAC_Groups_Image_Providers.png](images/authentication/RBAC_Groups_Image_Providers.png)
 
 If you lose the password for a Service Account, reset it by clicking the **Regenerate Password** button next to your Service Account.
 
