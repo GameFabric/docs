@@ -5,7 +5,7 @@
 GameFabric uses SSO (Single Sign-On) for user authentication and RBAC (Role-Based Access Control) for permissions.
 
 - Google SSO is enabled by default
-- Users must be added to a Group by an admin before they can sign in
+- An administrator must add users to a Group before they can sign in
 - Access permissions are determined by Group membership
 
 ## For users
