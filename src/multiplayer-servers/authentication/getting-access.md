@@ -29,7 +29,7 @@ If you see a 403 Forbidden error after signing in, your account has not been add
 
 ### Email login
 
-The **Log in with Email** option is for Service Accounts only, which are used for programmatic API access. See [Service Accounts](service-accounts.md) for more information.
+The **Log in with Email** option is for Service Accounts only, which are used for programmatic API access. See [Service Accounts](/multiplayer-servers/authentication/service-accounts) for more information.
 
 ### Custom SSO providers
 
