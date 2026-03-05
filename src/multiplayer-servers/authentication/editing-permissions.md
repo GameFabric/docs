@@ -75,4 +75,4 @@ To bulk edit these permissions, use the checkboxes beside the resource name.
 
 ## Service Account
 
-For the management of Service Accounts, refer to the [Service Accounts](service-accounts.md) section.
+For the management of Service Accounts, refer to the [Service Accounts](/multiplayer-servers/authentication/service-accounts) section.
