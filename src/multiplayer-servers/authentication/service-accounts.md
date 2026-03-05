@@ -1,6 +1,6 @@
-# Authentication
+# Service Accounts
 
-ServiceAccounts are required to push images and interact with the GameFabric REST API.
+Service Accounts are required to push images and interact with the GameFabric REST API.
 
 ## Managing service accounts
 
