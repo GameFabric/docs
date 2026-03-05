@@ -6,6 +6,10 @@ GameFabric uses RBAC (Role-Based Access Control) to manage who can access specif
 This is achieved by defining a role — a set of **permissions** — and assigning it to groups of users.
 To edit permissions, navigate to the **Access Management** section in the GameFabric UI and select either the **Users/Groups** or **Roles** page.
 
+::: tip New users
+For information on how users sign in and how to add new team members, see [Getting Access](getting-access.md).
+:::
+
 ## Group
 
 A group is a collection of users that can be assigned to roles.
@@ -39,14 +43,12 @@ To edit a user, click the **Edit** button next to their name.
 In the user edit modal, select the groups to which the user should belong.
 Click **Save** to apply your changes.
 
-::: info
-- You can't add users directly.
-- You add them by assigning them to at least one group.
-:::
-
-::: warning
-- Only users that are assigned to a group are shown here.
-- For proper offboarding, a user must be removed from all groups.
+::: warning User access requirements
+- A User must be assigned to at least one Group to sign in to GameFabric.
+- Users not in any Group receive a **403 Forbidden** error when attempting to log in.
+- You cannot add Users directly — add them by assigning them to at least one Group.
+- Only Users assigned to a Group are shown in the Users list.
+- For proper offboarding, remove the User from all Groups.
 :::
 
 ![add-groups-to-user.png](images/permissions/add-groups-to-user.png)
@@ -66,11 +68,11 @@ Each role has a set of permissions that define the actions available to users or
 The resources listed in the table correspond to the REST API. To grant a role permission to a resource, check the box in the respective column.
 ![edit-role.png](images/permissions/edit-role.png)
 
-Resources can be environment-specific, meaning that a role will only have access in the specified environment.
+Resources can be environment-specific, meaning that a role only has access in the specified environment.
 To edit environment-based permissions, expand the resource by clicking the arrow next to it.
 To bulk edit these permissions, use the checkboxes beside the resource name.
 ![edit-role-env-based.png](images/permissions/edit-role-env-based.png)
 
 ## Service Account
 
-For the management of Service Accounts, refer to the [Authentication](authentication.md) section.
+For the management of Service Accounts, refer to the [Service Accounts](service-accounts.md) section.

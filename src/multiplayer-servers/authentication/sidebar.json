@@ -4,12 +4,16 @@
   "order": 2,
   "items": [
     {
-      "text": "Authentication",
-      "link": "/authentication/authentication"
+      "text": "Getting Access",
+      "link": "/authentication/getting-access"
     },
     {
       "text": "Editing Permissions",
       "link": "/authentication/editing-permissions"
+    },
+    {
+      "text": "Service Accounts",
+      "link": "/authentication/service-accounts"
     },
     {
       "text": "Setup Third-Party OAuth Integration",

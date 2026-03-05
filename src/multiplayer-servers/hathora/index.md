@@ -26,7 +26,7 @@ This guide explains how to migrate from Hathora to GameFabric.
 | Hathora Feature | GameFabric Equivalent | Value & Impact |
 |-----------------|----------------------|----------------|
 | Teams | Roles & Users | Granular control over permissions and access to all resources. |
-| API Tokens | [Service Accounts](/multiplayer-servers/authentication/authentication#managing-service-accounts) | API access with fine-tuned permission control via roles. |
+| API Tokens | [Service Accounts](/multiplayer-servers/authentication/service-accounts#managing-service-accounts) | API access with fine-tuned permission control via roles. |
 | Fleet | [Environments](/multiplayer-servers/getting-started/glossary#environment) + [Regions](/multiplayer-servers/getting-started/glossary#region) | Model regions with individual settings while isolating workloads. |
 | Build | [Branches](/multiplayer-servers/getting-started/glossary#branch) + Images | Organize images via Branches; push directly as Docker images. |
 | Application | [ArmadaSets](/multiplayer-servers/getting-started/glossary#armadaset) | The primary scaling unit for session-based games. |
@@ -57,14 +57,14 @@ Before starting the migration:
 
 ### Step 1: Create service account
 
-Create a [Service Account](/multiplayer-servers/authentication/authentication#managing-service-accounts) for programmatic API access (replaces Hathora API Tokens):
+Create a [Service Account](/multiplayer-servers/authentication/service-accounts#managing-service-accounts) for programmatic API access (replaces Hathora API Tokens):
 
 1. Navigate to **Settings > Service Accounts**
 2. Create a service account for API access
 3. Assign appropriate permissions
 4. Store the generated credentials securely
 
-See [Authentication](/multiplayer-servers/authentication/authentication) for details.
+See [Service Accounts](/multiplayer-servers/authentication/service-accounts) for details.
 
 ### Step 2: Push container images
 

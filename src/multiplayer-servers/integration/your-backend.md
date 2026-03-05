@@ -1,7 +1,7 @@
 # Programmatic Access to GameFabric
 
 In addition to our web-based user interface, GameFabric provides several programmatic methods for interacting with its features.
-> **Note:** All programmatic access requires at least one [Service Account](/multiplayer-servers/authentication/authentication#managing-service-accounts).
+> **Note:** All programmatic access requires at least one [Service Account](/multiplayer-servers/authentication/service-accounts#managing-service-accounts).
 
 ## Docker integration
 

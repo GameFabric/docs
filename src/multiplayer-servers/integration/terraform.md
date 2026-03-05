@@ -27,11 +27,11 @@ The provider block accepts the following arguments:
 | Argument          | Description                                                                                                                                       |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | `customer_id`     | The first segment of your GameFabric installation URL. For example, given the URL `example.gamefabric.dev`, the customer ID is `example`.         |
-| `service_account` | The email address of the [service account](/multiplayer-servers/authentication/authentication#managing-service-accounts) used for authentication. |
+| `service_account` | The email address of the [service account](/multiplayer-servers/authentication/service-accounts#managing-service-accounts) used for authentication. |
 
 ## Authentication
 
-The provider requires a [service account](/multiplayer-servers/authentication/authentication#managing-service-accounts) for authentication. Set the `GAMEFABRIC_PASSWORD` environment variable:
+The provider requires a [service account](/multiplayer-servers/authentication/service-accounts#managing-service-accounts) for authentication. Set the `GAMEFABRIC_PASSWORD` environment variable:
 
 ```bash
 export GAMEFABRIC_PASSWORD='<your-password>'
