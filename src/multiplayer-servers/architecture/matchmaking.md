@@ -42,4 +42,4 @@ The same approach applies to any matchmaker that can issue an HTTP request.
 
 - [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) — when the Allocator is needed and how it works
 - [Allocating from Armadas](/multiplayer-servers/multiplayer-services/server-allocation/allocating-from-armadas) — API details for the allocation request
-- [Allocator API reference](/api-specs/allocation-allocator) — full API specification
+- [Allocator API reference](/api/multiplayer-servers/allocation-allocator) — full API specification
