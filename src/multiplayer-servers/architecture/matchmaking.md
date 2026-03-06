@@ -4,7 +4,7 @@ GameFabric is a hosting specialist. It runs game servers reliably at scale and d
 
 ## Any matchmaker, one API call
 
-Integrating a matchmaker with GameFabric requires a single REST API call. When the matchmaker decides that a group of players should play together, it sends a `POST` request to the Allocator's `/allocate` endpoint. The Allocator selects a ready server from the pool, notifies it, and returns the connection details to the matchmaker.
+Integrating a matchmaker with GameFabric requires a single REST API call. When the matchmaker decides that a group of players should play together, it sends a `POST` request to the Allocator's `/allocate` endpoint. The Allocator selects a ready server from the pool, optionally notifies it, and returns the connection details to the matchmaker.
 
 ```mermaid
 sequenceDiagram
