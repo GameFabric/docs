@@ -12,7 +12,7 @@ In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
 * A container image that has been [pushed to a branch in the registry](pushing-container-images)
-* Basic understanding of [Agones SDK integration](/multiplayer-servers/getting-started/using-the-agones-sdk) for proper game server lifecycle
+* Basic understanding of [Agones SDK integration](/multiplayer-servers/integration/your-game-server) for proper game server lifecycle
 
 Log into the GameFabric UI before proceeding.
 
@@ -207,7 +207,7 @@ However, for production usage, it is recommended that they be enabled. If Health
 
 #### Termination grace periods
 
-Game servers may receive [*Shutdown Hints*](terminating-game-servers.md), observable via the Agones SDK.
+Game servers may receive [*Shutdown Hints*](terminating-game-servers), observable via the Agones SDK.
 These hints are used when game servers need to shut down within a specific time frame due to an external reason.
 
 The reasons for a server to be told it should shut down are:

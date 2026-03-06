@@ -5,7 +5,7 @@ You may want to edit a branch if you want to change its name or update its Image
 
 ## Prerequisites
 
-Before you can edit a branch, you need to have created one. If you haven't done so yet, please refer to the [Create a Branch](pushing-container-images.md#create-a-branch) section.
+Before you can edit a branch, you need to have created one. If you haven't done so yet, please refer to the [Create a Branch](pushing-container-images#create-a-branch) section.
 
 ## Editing
 

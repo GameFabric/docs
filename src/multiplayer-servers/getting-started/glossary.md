@@ -47,13 +47,13 @@ The development branch would contain dev images to be used by a development Arma
 
 BYOC (Bring Your Own Cloud) is a capacity type where GameFabric manages resources within a customer's own cloud provider account (GCP, AWS, or Azure). The customer grants Nitrado access to create and manage Locations in their cloud infrastructure, while maintaining their own cloud subscription and billing relationship.
 
-See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup) and [Capacity Types](/multiplayer-servers/getting-started/capacity-types).
+See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup) and [Capacity Types](/multiplayer-servers/architecture/capacity-types).
 
 ## CCU
 
 CCU stands for Concurrent Users. It is a key metric that represents the total number of players who are actively playing on a game server at the same time.
 
-See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk.md#player-count-and-capacity-tracking)
+See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)
 
 ## Cluster
 
@@ -124,7 +124,7 @@ A Location is a group of [Sites](#site) that share a geographical area and other
 
 Locations are managed by Nitrado for all capacity types. To request bare metal or [BYOC](#byoc) capacity, submit a request via the [GameFabric Help Center](#gamefabric-help-center). For [GameFabric Cloud](#gamefabric-cloud), you request capacity directly through the GameFabric UI.
 
-See also [Capacity Types](/multiplayer-servers/getting-started/capacity-types) and [Region](#region).
+See also [Capacity Types](/multiplayer-servers/architecture/capacity-types) and [Region](#region).
 
 ## Mitigation
 
@@ -148,7 +148,7 @@ For more information, see the [Kubernetes documentation](https://kubernetes.io/d
 
 Role-Based Access Control (RBAC) is the system used in the GameFabric to manage your team's access to the platform.
 
-See also [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
+See also [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
 
 ## Region
 

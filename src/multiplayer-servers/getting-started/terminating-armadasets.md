@@ -32,7 +32,7 @@ The Armada System then automatically restarts everything implicitly once it dete
 The **Terminate Unallocated** option performs a **graceful** termination of all game servers in the ArmadaSet that are not currently allocated.
 This means that any game servers actively being played on remain untouched, while those not in use are restarted.
 
-For more information about how allocation is tracked, see the [Using the Agones SDK](using-the-agones-sdk.md) section.
+For more information about how allocation is tracked, see the [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) section.
 
 ## Terminate all
 

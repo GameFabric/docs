@@ -12,7 +12,7 @@ Make sure you already:
 
 ## Prerequisites
 
-Before following this guide, ensure that you have already [pushed container images](pushing-container-images.md).
+Before following this guide, ensure that you have already [pushed container images](pushing-container-images).
 
 1. Navigate to the **Branches** section in the GameFabric UI.
 ![GUI_branches_overview.png](images/branches/GUI_branches_overview.png)

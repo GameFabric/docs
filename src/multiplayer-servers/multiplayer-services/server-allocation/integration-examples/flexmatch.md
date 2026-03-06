@@ -15,7 +15,7 @@ This is achieved by acting as if there were no changes at AWS at all, except for
 which should result in configuration or variable adjustments, rather than code and logic changes.
 
 ::: tip Related Documentation
-- For general allocation guidance, see [Allocating from Armadas](../allocating-from-armadas)
+- For general allocation guidance, see [Allocating from Armadas](/multiplayer-servers/multiplayer-services/server-allocation/allocating-from-armadas)
 - For the Allocator API specification, see [Allocator API](/api/multiplayer-servers/allocation-allocator)
 - For GameLift integration without FlexMatch, see [GameLift Integration](gamelift)
 - For understanding hosting models, see [Hosting Models](/multiplayer-servers/architecture/identifying-your-hosting-model)

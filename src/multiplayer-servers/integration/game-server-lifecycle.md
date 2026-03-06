@@ -50,7 +50,7 @@ For an overview of when server allocation is required and how to select an appro
 ### 1) A notification from an external server allocation mechanism
 
 This is required if you manually register against
-[Nitrado's server allocation registry](/multiplayer-servers/multiplayer-services/server-allocation/manually-registering-game-servers.md)
+[Nitrado's server allocation registry](/multiplayer-servers/multiplayer-services/server-allocation/manually-registering-game-servers)
 or if you use an existing game hosting SDK such as Amazon GameLift.
 If you receive a callback or event from these outside systems on your game server that a game session is about to start,
 you must call `Allocate()` to prevent the game session from being interrupted.
