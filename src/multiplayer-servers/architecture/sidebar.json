@@ -14,6 +14,10 @@
     {
       "text": "Sidecar Containers",
       "link": "/architecture/sidecars"
+    },
+    {
+      "text": "Matchmaking",
+      "link": "/architecture/matchmaking"
     }
   ]
 }
