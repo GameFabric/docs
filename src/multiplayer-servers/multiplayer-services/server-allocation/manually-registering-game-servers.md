@@ -1,7 +1,7 @@
 # Manually registering game servers
 
 This guide describes the steps to take to integrate GameFabric Allocator within your game.
-The steps described here are in contrast to the [Allocator Sidecar](automatically-registering-game-servers) feature that performs these actions automatically for simple use cases.
+The steps described here are in contrast to the [Allocation Sidecar](automatically-registering-game-servers) feature that performs these actions automatically for simple use cases.
 
 ::: tip Alternative Approach
 For simpler use cases, consider using the [Allocation Sidecar](automatically-registering-game-servers) which automates the registration and allocation process.

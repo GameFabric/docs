@@ -61,7 +61,7 @@ For example, this typically includes fetching dependencies required to run the b
 on certain folders or just copying and moving files.
 
 ::: warning Container User
-Container users are currently restricted to using `uid` 1000, as shown in the example below. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#container-user-id) for more details.
+Container users are currently restricted to using `uid` 1000, as shown in the example below. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#user-id) for more details.
 :::
 
 Here is an example, where this Dockerfile builds an image that runs the game server:

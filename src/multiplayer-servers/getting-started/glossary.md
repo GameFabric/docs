@@ -53,7 +53,7 @@ See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/
 
 CCU stands for Concurrent Users. It is a key metric that represents the total number of players who are actively playing on a game server at the same time.
 
-See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server#player-count-and-capacity-tracking)
+See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)
 
 ## Cluster
 

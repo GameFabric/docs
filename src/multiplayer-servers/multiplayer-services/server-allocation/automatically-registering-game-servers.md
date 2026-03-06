@@ -21,7 +21,7 @@ Your game server needs to support a minimal Agones SDK integration:
 - Transitions into state `Ready` when ready,
 - Transitions into state `Shutdown` when done.
 
-Please check [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)  for details.
+Please check [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) for details.
 
 <br style="clear:right"/>
 
