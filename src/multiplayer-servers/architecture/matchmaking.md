@@ -23,7 +23,7 @@ This model is matchmaker-agnostic by design. It works the same way regardless of
 
 The Allocator is the broker between the matchmaker and GameFabric's pool of ready game servers. Game servers register with the Allocator when they start up. When an allocation request arrives, the Allocator picks the best available server, forwards any match-specific payload (map, mode, player list), and returns the server's connection details to the caller.
 
-The entire handoff completes in under a second because servers are pre-warmed. Players connect immediately after matchmaking finishes, with no wait for a server to boot.
+The entire handoff is typically low latency because servers are pre-warmed. In most cases, players can connect shortly after matchmaking finishes, without waiting for a server to boot, though exact timing depends on client network conditions, region, and game configuration.
 
 ::: tip Full details
 For a complete walkthrough of the allocation flow, registration options, and API reference, see [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview).
