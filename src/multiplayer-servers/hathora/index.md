@@ -59,8 +59,8 @@ Before starting the migration:
 
 Create a [Service Account](/multiplayer-servers/authentication/service-accounts#managing-service-accounts) for programmatic API access (replaces Hathora API Tokens):
 
-1. Navigate to **Settings > Service Accounts**
-2. Create a service account for API access
+1. Navigate to **Access Management > Users/Groups**
+2. Create a Service Account for API access
 3. Assign appropriate permissions
 4. Store the generated credentials securely
 
