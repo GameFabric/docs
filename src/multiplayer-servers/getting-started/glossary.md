@@ -228,7 +228,7 @@ This can be the case, for example, when a Site has just been provisioned to prev
 
 ## Service Account
 
-An account used for accessing GameFabric programmatically, please refer to the documentation under [Authentication](/multiplayer-servers/authentication/authentication#managing-service-accounts).
+An account used for accessing GameFabric programmatically. For details, see the documentation in [Service Accounts](/multiplayer-servers/authentication/service-accounts#managing-service-accounts).
 
 ## SteelShield™
 

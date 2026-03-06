@@ -16,7 +16,7 @@ This guide is part of the container workflow:
 In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
-* API user credentials to push images to the GameFabric Container Registry (see [Authentication](/multiplayer-servers/authentication/authentication))
+* API user credentials to push images to the GameFabric Container Registry (see [Service Accounts](/multiplayer-servers/authentication/service-accounts))
 * A [container image of your game server binary](building-a-container-image.md)
 
 Log into the GameFabric UI before proceeding.
