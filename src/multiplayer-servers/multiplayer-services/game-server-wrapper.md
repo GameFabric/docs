@@ -22,7 +22,7 @@ Additional topics are:
 
 Before using the wrapper, make sure that:
 
-- Your game server is integrated against the Agones SDK (see [Using Agones SDK](../getting-started/using-the-agones-sdk.md)),
+- Your game server is integrated against the Agones SDK (see [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)),
 - You have a container image that contains your game server binary
   (see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) and
   [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)),

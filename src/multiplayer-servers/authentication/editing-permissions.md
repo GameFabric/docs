@@ -58,7 +58,7 @@ Keep the following requirements in mind when managing Users:
 ![add-groups-to-user.png](images/permissions/add-groups-to-user.png)
 
 ::: info
-To set up a Third-Party OIDC Provider, refer to the [Setup Third-Party OAuth Integration](setup-third-party-oauth.md) section.
+To set up a Third-Party OIDC Provider, refer to the [Setup Third-Party OAuth Integration](setup-third-party-oauth) section.
 :::
 
 ## Role

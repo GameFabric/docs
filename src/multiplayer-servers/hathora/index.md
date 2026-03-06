@@ -5,7 +5,7 @@ This guide explains how to migrate from Hathora to GameFabric.
 ::: tip Related Documentation
 - [Introduction to GameFabric](/multiplayer-servers/getting-started/introduction)
 - [Quickstart Guide](/multiplayer-servers/getting-started/quickstart)
-- [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk)
+- [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)
 - [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview)
 - [Glossary](/multiplayer-servers/getting-started/glossary)
 :::
@@ -53,7 +53,7 @@ Before starting the migration:
 - GameFabric account access (you receive your organization URL during onboarding)
 - Your existing game server Docker container
 - Familiarity with Docker and container registries
-- Understanding of the [Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) requirements
+- Understanding of the [Agones SDK](/multiplayer-servers/integration/your-game-server) requirements
 
 ### Step 1: Create service account
 
@@ -147,7 +147,7 @@ GameFabric uses Agones for [game server lifecycle](/multiplayer-servers/integrat
 
 Agones provides SDKs for C++, C# (Unity), Go, Rust, and a REST API for any language.
 
-See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) and the [Agones Client SDK documentation](https://agones.dev/site/docs/guides/client-sdks/) for details.
+See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) and the [Agones Client SDK documentation](https://agones.dev/site/docs/guides/client-sdks/) for details.
 
 ### Step 6: Server allocation
 
@@ -252,7 +252,7 @@ For migration assistance and onboarding support:
 - [Quickstart Guide](/multiplayer-servers/getting-started/quickstart)
 - [Hosting Models](/multiplayer-servers/architecture/identifying-your-hosting-model)
 - [Game Server Lifecycle](/multiplayer-servers/integration/game-server-lifecycle)
-- [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk)
+- [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)
 - [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview)
 - [Allocator API Reference](/api/multiplayer-servers/allocation-allocator)
 - [GameFabric API Guide](/multiplayer-servers/api/guide)

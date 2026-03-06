@@ -10,7 +10,7 @@ After building your container image, you should:
 
 1. [Push it to the GameFabric registry](/multiplayer-servers/getting-started/pushing-container-images)
 2. [Run your game server](/multiplayer-servers/getting-started/running-your-game-server) using the image
-3. Integrate the [Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for proper lifecycle management
+3. Integrate the [Agones SDK](/multiplayer-servers/integration/your-game-server) for proper lifecycle management
 :::
 
 ::: info Container vs. Docker
@@ -61,7 +61,7 @@ For example, this typically includes fetching dependencies required to run the b
 on certain folders or just copying and moving files.
 
 ::: warning Container User
-Container users are currently restricted to using `uid` 1000, as shown in the example below. See [Quotas](../multiplayer-services/quotas.md#container-user-id) for more details.
+Container users are currently restricted to using `uid` 1000, as shown in the example below. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#container-user-id) for more details.
 :::
 
 Here is an example, where this Dockerfile builds an image that runs the game server:
@@ -116,4 +116,4 @@ You may now run this image and your game server by running `docker run gameserve
 ## Conclusion
 
 Now that your Docker image is ready, you may proceed to make it available to GameFabric as described in
-[Pushing Container Images](pushing-container-images.md).
+[Pushing Container Images](pushing-container-images).

@@ -21,7 +21,7 @@ Your game server needs to support a minimal Agones SDK integration:
 - Transitions into state `Ready` when ready,
 - Transitions into state `Shutdown` when done.
 
-Please check [Using the Agones SDK](../../getting-started/using-the-agones-sdk)  for details.
+Please check [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)  for details.
 
 <br style="clear:right"/>
 
@@ -47,7 +47,7 @@ about the imminent allocation. This callback has several advantages:
   configured lifetime etc.
 
 - The callback can pass payloads from your matchmaker to your game server, e.g. the expected player IDs, desired game mode etc.
-  For details on how to pass a payload, see [API Specs - Allocation: Allocator](../../../api/multiplayer-servers/allocation-allocator.md).
+  For details on how to pass a payload, see [API Specs - Allocation: Allocator](/api/multiplayer-servers/allocation-allocator).
 
 ## Attributes
 

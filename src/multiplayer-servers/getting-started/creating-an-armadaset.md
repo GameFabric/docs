@@ -12,7 +12,7 @@ In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
 * A container image that has been [pushed to a branch in the registry](/multiplayer-servers/getting-started/pushing-container-images)
-* Basic understanding of [Agones SDK integration](/multiplayer-servers/getting-started/using-the-agones-sdk) for proper game server lifecycle
+* Basic understanding of [Agones SDK integration](/multiplayer-servers/integration/your-game-server) for proper game server lifecycle
 
 Log into the GameFabric UI before proceeding.
 

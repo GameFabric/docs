@@ -1,7 +1,7 @@
 # Manually registering game servers
 
 This guide describes the steps to take to integrate GameFabric Allocator within your game.
-The steps described here are in contrast to the [Allocator Sidecar](automatically-registering-game-servers.md) feature that performs these actions automatically for simple use cases.
+The steps described here are in contrast to the [Allocator Sidecar](automatically-registering-game-servers) feature that performs these actions automatically for simple use cases.
 
 ::: tip Alternative Approach
 For simpler use cases, consider using the [Allocation Sidecar](automatically-registering-game-servers) which automates the registration and allocation process.
@@ -13,7 +13,7 @@ In order to integrate with our Allocator, your game needs to meet the following 
 
 1. Be able to send outgoing HTTP requests to the allocator registry.
 2. If the game server needs to be notified about allocations, be able to bind a port on which to listen for an HTTP callback.
-3. Have integrated the [Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for game server lifecycle management.
+3. Have integrated the [Agones SDK](/multiplayer-servers/integration/your-game-server) for game server lifecycle management.
 
 ::: tip API Documentation
 For detailed API specifications, see:

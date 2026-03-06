@@ -17,7 +17,7 @@ In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
 * API user credentials to push images to the GameFabric Container Registry (see [Service Accounts](/multiplayer-servers/authentication/service-accounts))
-* A [container image of your game server binary](building-a-container-image.md)
+* A [container image of your game server binary](building-a-container-image)
 
 Log into the GameFabric UI before proceeding.
 
@@ -26,7 +26,7 @@ Log into the GameFabric UI before proceeding.
 If you do not already have a branch in which to push images, you need to create one.
 In case you haven't already done so, there are two options available to you:
 
-* **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry - you can always change the display names and policies later. See how to [edit a branch](edit-a-branch.md).
+* **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry - you can always change the display names and policies later. See how to [edit a branch](edit-a-branch).
 * **Create Branch**: This will allow you to create a custom branch with a name and an Image Retention Policy of your choice.
 
 When creating a custom branch, please adhere to the following naming conventions:

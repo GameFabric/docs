@@ -102,5 +102,5 @@ Disabling health checks allows the game server to run without calling Agones SDK
 
 ## What's next?
 
-- [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) - Integrate proper health checks and lifecycle management
+- [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) - Integrate proper health checks and lifecycle management
 - [Hosting Models](/multiplayer-servers/architecture/identifying-your-hosting-model) - Choose between Armadas and Formations

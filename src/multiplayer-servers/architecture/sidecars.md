@@ -8,7 +8,7 @@ Sidecar containers can be added to [Armadas](/multiplayer-servers/getting-starte
 
 ### Agones SDK Sidecar
 
-The Agones SDK Sidecar (`agones-gameserver-sidecar`) is automatically added to every game server by GameFabric. It runs the Agones SDK server (including the local REST endpoint) that enables your game server to communicate with the [Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk).
+The Agones SDK Sidecar (`agones-gameserver-sidecar`) is automatically added to every game server by GameFabric. It runs the Agones SDK server (including the local REST endpoint) that enables your game server to communicate with the [Agones SDK](/multiplayer-servers/integration/your-game-server).
 
 This sidecar is an integral part of GameFabric and cannot be configured or removed.
 
