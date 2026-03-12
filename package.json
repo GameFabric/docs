@@ -10,18 +10,18 @@
     "docs:serve": "vitepress serve"
   },
   "devDependencies": {
-    "mermaid": "^11.4.0",
+    "mermaid": "^11.13.0",
     "vitepress-plugin-mermaid": "^2.0.17",
-    "vue": "3.5.26"
+    "vue": "3.5.30"
   },
   "dependencies": {
-    "core-js": "^3.47.0",
+    "core-js": "^3.48.0",
     "medium-zoom": "^1.1.0",
     "mobx": "^6.15.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "redoc": "^2.5.2",
-    "styled-components": "^6.2.0",
+    "styled-components": "^6.3.11",
     "vitepress": "^1.6.4"
   },
   "packageManager": "yarn@4.13.0"
