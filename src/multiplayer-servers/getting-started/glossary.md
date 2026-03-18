@@ -7,7 +7,7 @@ Their names and description are detailed in this section in alphabetical order.
 
 The Allocation Sidecar is a [Sidecar](#sidecar) provided by GameFabric for automatic integration with the [Allocator](#allocator). It handles game server registration, allocation callbacks, and cleanup.
 
-See [Automatically Registering Game Servers](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers) for configuration details.
+See [Sidecar Containers](/multiplayer-servers/architecture/sidecars#allocation-sidecar) for an overview and [Automatically Registering Game Servers](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers) for configuration details.
 
 ## Allocator
 
