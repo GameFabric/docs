@@ -25,18 +25,6 @@ The Allocation Sidecar is provided by GameFabric for automatic integration with 
 - **Allocation callbacks**: Receives allocation notifications and transitions the game server to the "Allocated" state
 - **Cleanup**: Deregisters your game server when it shuts down
 
-::: tip Recommended version
-Use Allocation Sidecar **v0.8.0** (latest). The image is available under the `system` branch.
-:::
-
-<details>
-<summary>Changelog</summary>
-
-- **v0.8.0** (March 12, 2026) — Internal maintenance update
-- **v0.7.0** (January 19, 2026) — Internal maintenance update
-
-</details>
-
 Use the Allocation Sidecar when running session-based games with Armadas where players are assigned to servers through matchmaking.
 
 For detailed configuration, see [Automatically Registering Game Servers](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers).
