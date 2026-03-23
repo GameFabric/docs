@@ -14,7 +14,8 @@ The following versions of Unreal Engine are officially supported for the SteelSh
 - UE 5.5.3
 - UE 5.6.1
 
-If the version of the engine you use is not listed above, it is often possible to apply the closest matching patch version to your engine and the plugin should work fine, however extensive testing should be done within GameFabric with Proof of Identity enabled, to ensure that the network traffic is handled by SteelShield correctly.
+If the version of the engine you use is not listed above, you can often use the closest matching patch version for your major and minor engine version (for example, 5.2.x for 5.2.3).
+Before using an unlisted version in production, run extensive end-to-end tests in GameFabric with Proof of Identity enabled and confirm that SteelShield handles all network traffic correctly.
 
 ## Unreal Engine Patch
 
