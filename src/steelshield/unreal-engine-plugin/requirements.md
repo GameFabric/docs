@@ -6,7 +6,7 @@ For step-by-step instructions on setting up these components, see the [Getting S
 
 ## Supported Versions
 
-The following versions of Unreal Engine are officially supported for the SteelShield Unreal Engine plugin and have been tested to function correctly when deployed via GameFabric.
+The following versions of Unreal Engine are officially supported for the SteelShield Unreal Engine plugin and have been tested to function correctly when deployed via GameFabric:
 
 - UE 4.25-Plus
 - UE 4.27.2
