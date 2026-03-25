@@ -16,7 +16,7 @@ This guide is part of the container workflow:
 In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
-* A [Service Account](/multiplayer-servers/authentication/service-accounts) with push permissions for the GameFabric Container Registry. Personal SSO or login credentials do not work for registry authentication -- you must create a dedicated Service Account and assign it to a group with push permissions (e.g., `default:image-providers`).
+* A [Service Account](/multiplayer-servers/authentication/service-accounts) with push permissions for the GameFabric Container Registry. Personal SSO or login credentials do not work for registry authentication -- you must create a dedicated Service Account and assign it to a group with push permissions (e.g., `default:image-providers`)
 * A [container image of your game server binary](/multiplayer-servers/getting-started/building-a-container-image)
 
 Log into the GameFabric UI before proceeding.
@@ -79,7 +79,7 @@ Once the branch is created, you can find that URL again by clicking the **View I
 ## Push the game server image
 
 ::: tip Service Account credentials required
-The `$USERNAME` and `$PASSWORD` in the command below are your **Service Account** credentials, not your personal login or SSO credentials. If you have not created a Service Account yet, follow the [Service Accounts guide](/multiplayer-servers/authentication/service-accounts).
+The `${USERNAME}` and `${PASSWORD}` in the command below are your **Service Account** credentials, not your personal login or SSO credentials. If you have not created a Service Account yet, follow the [Service Accounts guide](/multiplayer-servers/authentication/service-accounts).
 :::
 
 Log in to the GameFabric Container Registry:
@@ -89,7 +89,11 @@ docker login -u ${USERNAME} -p ${PASSWORD} $URL
 ```
 
 ::: info
-If you encounter issues with your credentials, verify that your Service Account exists and belongs to a group with push permissions (e.g., `default:image-providers`) (see [Service Accounts](/multiplayer-servers/authentication/service-accounts)). If the problem persists, reach out via the [GameFabric Help Center](/multiplayer-servers/getting-started/glossary#gamefabric-help-center) or contact your Customer Success Manager.
+If you encounter issues with your credentials:
+
+1. Verify that your Service Account exists
+1. Confirm that it belongs to a group with push permissions (e.g., `default:image-providers`). See [Service Accounts](/multiplayer-servers/authentication/service-accounts) for details
+1. If the problem persists, reach out via the [GameFabric Help Center](/multiplayer-servers/getting-started/glossary#gamefabric-help-center) or contact your Customer Success Manager
 :::
 
 Once you are logged in, tag your image against the registry, and push it.
