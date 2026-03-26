@@ -16,7 +16,7 @@ This guide is part of the container workflow:
 In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
-* A [Service Account](/multiplayer-servers/authentication/service-accounts) with push permissions for the GameFabric Container Registry. Personal SSO or login credentials do not work for registry authentication -- you must create a dedicated Service Account and assign it to a group with push permissions (e.g., `default:image-providers`)
+* A [Service Account](/multiplayer-servers/authentication/service-accounts) with push permissions for the GameFabric Container Registry. Personal SSO or login credentials do not work for registry authentication — you must create a dedicated Service Account and assign it to a group with push permissions (e.g., `default:image-providers`)
 * A [container image of your game server binary](/multiplayer-servers/getting-started/building-a-container-image)
 
 Log into the GameFabric UI before proceeding.
