@@ -1,13 +1,13 @@
 # Identifying your Hosting Model
 
-GameFabric supports two major hosting models.
+GameFabric supports two major hosting models, reflected in the UI as **Persistent Servers** and **Dynamic Fleets**.
 
-- **Formations** are intended for long-running game servers that have game or player progression associated with them.
+- **Formations** (under **Persistent Servers** in the UI) are intended for long-running game servers that have game or player progression associated with them.
   Typically, players are given the ability to return to a specific game server, for example by selecting it from a
   server list. Each game server is usually associated with one or more unique properties, such as the name under
   which they are listed within the server list. Game servers like this are sometimes referred to as **Named Instances**
   or **Persistent Worlds**.
-- **Armadas** are the ideal choice for match-based or session-based game servers. For these games, typically a
+- **Armadas** (under **Dynamic Fleets** in the UI) are the ideal choice for match-based or session-based game servers. For these games, typically a
   matchmaking mechanism decides that a set of players should play together on one server. The matchmaker, or a similar
   service, then _allocates_ a game server for that play session and, once the session is over, the game server shuts
   down. The number of available game servers is dynamically adjusted based on demand.
@@ -25,6 +25,10 @@ are scaled up when needed, and scaled down again later. Each approach has its ow
 outlined in more detail in the following sections.
 
 ## Formations
+
+::: info UI Navigation
+Formations and Vessels are located under **Persistent Servers** in the GameFabric UI sidebar.
+:::
 
 Formations consist of **Vessels**, with each Vessel representing an individual game server that players can connect to.
 Vessels share a number of properties with the Formation that they belong to — such as the CPU and RAM resource
@@ -49,6 +53,10 @@ start, especially when scaling to Cloud. Formations are therefore not suited to 
 throughout the day. This is the purpose of Armadas.
 
 ## Armadas
+
+::: info UI Navigation
+ArmadaSets and Armadas are located under **Dynamic Fleets** in the GameFabric UI sidebar.
+:::
 
 Armadas automatically adjust the number of game servers within a given Region based on demand. To always be able to
 meet that demand, game servers are started in advance, and once they are ready to accept players, entered into a pool
