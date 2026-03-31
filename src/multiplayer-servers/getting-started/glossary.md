@@ -29,13 +29,13 @@ It can have multiple [revisions](/multiplayer-servers/getting-started/glossary#r
 
 Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade)
 
-See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
+Armadas are part of the [Dynamic Fleets](#dynamic-fleets) category in the UI. See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## ArmadaSet
 
 An ArmadaSet is the configuration for a set of Armadas that share the same Fleet template and automatic scaling strategy.
 
-See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
+ArmadaSets are part of the [Dynamic Fleets](#dynamic-fleets) category in the UI. See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## Branch
 
@@ -89,6 +89,12 @@ Dynamic Buffer is currently in Alpha.
 
 See [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha) for details.
 
+## Dynamic Fleets
+
+Dynamic Fleets is the UI category for session-based or match-based game server hosting. It contains [ArmadaSets](#armadaset) and [Armadas](#armada), which automatically scale game server capacity based on demand.
+
+See [Identifying your Hosting Model](/multiplayer-servers/architecture/identifying-your-hosting-model) for guidance on choosing between Dynamic Fleets and [Persistent Servers](#persistent-servers).
+
 ## Environment
 
 Environments are a mechanism for isolating groups of resources. Resource names must be unique within each environment, but not across environments.
@@ -108,7 +114,7 @@ This resource is always managed by an Armada, and can't be configured through th
 A Formation acts as a template for individual game servers (Vessels) spawned within it.
 Vessels inherit all properties from their respective Formation, but environment variables and command line arguments can be overridden on a per-vessel basis.
 
-See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
+Formations are part of the [Persistent Servers](#persistent-servers) category in the UI. See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## GameFabric Cloud
 
@@ -155,6 +161,12 @@ See [Editing Permissions](/multiplayer-servers/authentication/editing-permission
 ## Permission
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
+
+## Persistent Servers
+
+Persistent Servers is the UI category for long-running game servers that have game or player progression associated with them. It contains [Formations](#formation) and [Vessels](#vessel), which allow custom configuration per individual game server.
+
+See [Identifying your Hosting Model](/multiplayer-servers/architecture/identifying-your-hosting-model) for guidance on choosing between Persistent Servers and [Dynamic Fleets](#dynamic-fleets).
 
 ## Pod
 
@@ -273,7 +285,7 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#managing-protocol
 A Vessel is a single **named** game server instance. It can, but doesn't have to be part of a [Formation](#formation).
 Each Vessel can be configured completely independently.
 
-See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
+Vessels are part of the [Persistent Servers](#persistent-servers) category in the UI. See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## Wrapper
 
