@@ -31,8 +31,12 @@ In case you haven't already done so, there are two options available to you:
 
 When creating a custom branch, please adhere to the following naming conventions:
 
-* Branch names must only contain lowercase letters, numbers, hyphens (-), and periods (.).
-* Branch names must begin and end with a lowercase letter.
+* Names may only contain lowercase letters (a–z), digits (0–9), hyphens (-), and periods (.).
+* Names must begin and end with a lowercase letter or digit.
+* Hyphens may not appear at the beginning or end of a segment.
+* Periods (.) separate segments; each segment must follow the same rules.
+* Empty segments (e.g., consecutive periods like ..) are not allowed.
+* The total length must not exceed 63 characters.
 
 ::: warning Image Retention Policy
 The Image Retention Policy defines how long images are stored in the registry and how many tags are retained.
