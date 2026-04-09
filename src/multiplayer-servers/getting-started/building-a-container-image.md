@@ -60,8 +60,8 @@ A Dockerfile is a text document that contains the commands a user could call on 
 For example, this typically includes fetching dependencies required to run the binary, configuring the environment, settings permissions
 on certain folders or just copying and moving files.
 
-::: warning Container User
-Container users are currently restricted to using `uid` 1000, as shown in the example below. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#user-id) for more details.
+::: warning Container user
+GameFabric enforces uid 1000 via the Kubernetes pod security context (`runAsUser: 1000`). The container process always runs as uid 1000, regardless of the `USER` instruction in the Dockerfile. Your Dockerfile should create a user with uid 1000 and ensure all files the game server needs are owned by or readable by that user. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#user-id) for more details.
 :::
 
 Here is an example, where this Dockerfile builds an image that runs the game server:
@@ -96,8 +96,9 @@ CMD ["/app/gameserver"]
    Additionally, install anything that is required to run the game server binary.
    Keep in mind that this is a blank system, without pre-installed custom libraries.
 
-3. Make sure the game server binary is in a separate folder within the Docker image,
-   configured to be owned by a custom Linux user and group that is allowed to execute it.
+3. Create a user with uid 1000 and set up a working directory owned by that user.
+   GameFabric runs the container process as uid 1000 via the pod security context,
+   so file ownership must match to avoid permission errors at runtime.
 
 4. The game server binary should already be compiled and is then copied from your machine to the Docker image when it is built.
 

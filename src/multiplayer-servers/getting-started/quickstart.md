@@ -31,7 +31,7 @@ Package your game server into a Docker container. A minimal Dockerfile might loo
 ```Dockerfile
 FROM ubuntu:22.04
 
-# Create a non-root user with uid 1000 as required by GameFabric
+# Create a non-root user with uid 1000 (enforced by GameFabric's pod security context)
 RUN groupadd -g 1000 game && useradd -u 1000 -g 1000 -m game
 
 COPY gameserver /app/gameserver
