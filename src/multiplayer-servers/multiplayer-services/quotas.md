@@ -25,10 +25,12 @@ This page lists all known system limitations that developers should be aware of 
 
 ### User ID
 
-- **Limit**: uid 1000 required
-- **Description**: Container users are currently restricted to using `uid` 1000. This must be configured in your Dockerfile when creating container images.
+- **Limit**: uid 1000 enforced via pod security context
+- **Description**: GameFabric sets `runAsUser: 1000` in the Kubernetes pod security context. This means the container process always runs as uid 1000, regardless of the `USER` instruction in the Dockerfile.
 
-::: tip Container Image Setup
+To avoid file permission issues, create a user with uid 1000 in your Dockerfile and ensure all files the game server needs are owned by or readable by uid 1000. If the Dockerfile creates files owned by a different uid, the process may not be able to access them at runtime.
+
+::: tip Container image setup
 When building your container images, make sure to configure the user as shown in the [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) guide.
 :::
 
