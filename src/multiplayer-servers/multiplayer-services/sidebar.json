@@ -46,8 +46,18 @@
       "link": "/multiplayer-services/resource-management"
     },
     {
-      "text": "Armada Replicas and Buffer Size",
-      "link": "/multiplayer-services/armada-replicas-and-buffer"
+      "text": "Armada Scaling",
+      "link": "/multiplayer-services/armada-replicas-and-buffer",
+      "items": [
+        {
+          "text": "Replicas and Buffer Size",
+          "link": "/multiplayer-services/armada-replicas-and-buffer"
+        },
+        {
+          "text": "Scale to Zero (Alpha)",
+          "link": "/multiplayer-services/scale-to-zero"
+        }
+      ]
     },
     {
       "text": "Server Protection",
