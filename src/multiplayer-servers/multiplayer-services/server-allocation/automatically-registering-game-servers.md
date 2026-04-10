@@ -49,6 +49,10 @@ about the imminent allocation. This callback has several advantages:
 - The callback can pass payloads from your matchmaker to your game server, e.g. the expected player IDs, desired game mode etc.
   For details on how to pass a payload, see [API Specs - Allocation: Allocator](/api/multiplayer-servers/allocation-allocator).
 
+::: tip Inspecting the payload in logs
+The Allocation Sidecar logs the allocation payload at `debug` level. To see the payload in the sidecar logs, set the [`LOG_LEVEL`](#log_level-stringinfo) environment variable to `debug`.
+:::
+
 ## Attributes
 
 Attributes allow filtering game servers during the allocation process.
@@ -60,6 +64,8 @@ Only game servers whose attributes contain at least the specified filters are se
 Passing no attributes for allocation matches every game server,
 as the empty set of attributes is always a sub-set of any other attributes.
 To gain more control over filtering you can configure [required game server attributes](#alloc_required_attrs-string).
+
+The Allocation Sidecar logs the configured attributes at registration time. They appear in the `"Game Server registered with the allocator"` log entry at `info` level.
 :::
 
 ## Configuration
@@ -338,3 +344,9 @@ Providing no attributes in the allocation call matches all game servers.
 This is not always desired, so it is possible to specify required game server attributes.
 These keys can be added during the game server registration with `ALLOC_REQUIRED_ATTRS=<string>`.
 The value must be the key, e.g. `env`. If you want to require more than one attribute, you can do so using `,` as a separator.
+
+### `LOG_LEVEL` (`string=info`)
+
+Sets the log level of the Allocation Sidecar. Valid values are `debug`, `info`, `warn`, and `error`.
+
+The Allocation Sidecar logs key events at `info` level by default, including game server registration (with address, callback address, and attributes) and allocation acceptance. The allocation payload is logged at `debug` level only, because it contains external input from the matchmaker. To inspect the payload in the sidecar logs, set `LOG_LEVEL` to `debug`.
