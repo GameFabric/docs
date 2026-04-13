@@ -99,7 +99,7 @@ Listed are two Armadas running in the same Region.
     </tr>
     <tr>
         <td rowspan="2">cloud</td>
-        <td rowspan="2">0</td>
+        <td rowspan="2">1</td>
         <td>Replicas</td>
         <td>0%</td>
         <td rowspan="2">0%</td>
