@@ -205,10 +205,10 @@ Finding a good configuration is crucial for a good balance between cost-saving a
 
   The threshold at which GameFabric scales down the lower priority Region Type.
 
-It is allowed to set both Scale Up and Scale Down Utilization to the same value, but this can lead to flapping and an increase scaling activity.
-It is recommended to have a 5% gap between the two.
+It is allowed to set both Scale Up and Scale Down Utilization to the same value, but this can lead to flapping and increased scaling activity.
+It is recommended to have at least a 5% gap between the two.
 
 ::: info
 The UI only allows to set the Scale Up Utilization, and automatically sets the Scale Down Utilization to 5% less.
-This also explains why the minimum value for Scale Up Utilization is 6%.
+For this reason the minimum value for Scale Up Utilization is 6%.
 :::
