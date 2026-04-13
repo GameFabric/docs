@@ -138,7 +138,7 @@ One Armada can impact the utilization of another Armada, leading to its scale up
 This can also lead to the false expectation that an Armada Region Type that is scaled to zero must have a 0% utilization.
 :::
 
-The **Resource limits** are the maximum resources that can be consumed by all Armadas, or Vessels, running on a particular Location that belongs to that Region
+The **resource limits** are the maximum resources that can be consumed by all Armadas, or Vessels, running on a particular Location that belongs to that Region
 Type.
 The limit is currently configured.
 
@@ -149,7 +149,7 @@ and thus inaccurate utilization, which can lead to wrong scaling decisions.
 
 ### Panicking or no ready replicas
 
-The last metric is not a percentage, but a toggle, and can override the calculated utilization and scaling decisions.
+The last metric does not impact the calculated utilization, but can override the scaling decisions.
 
 **Ready replicas** are the number of game servers that are in the `Ready` state, which means they are healthy and available to be allocated to players.
 If this number drops to zero, it means that there are no more game servers available. This can either mean game servers are being allocated quickly,
