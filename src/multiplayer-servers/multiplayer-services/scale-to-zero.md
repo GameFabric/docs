@@ -4,7 +4,7 @@ Scale to Zero is a cost-saving feature that allows GameFabric, when enabled, to 
 This can save infrastructure costs.
 When demand returns, GameFabric automatically scales up the capacity to meet it.
 
-The feature is disabled by default, and is configurable per [Armada](../getting-started/glossary.md#armada) and [Region](../getting-started/glossary.md#region).
+The feature is disabled by default, and is configurable per [Armada](/multiplayer-servers/getting-started/glossary#armada) and [Region](/multiplayer-servers/getting-started/glossary#region).
 It can only scale down capacity when base capacity is available.
 Availability of base capacity is ensured by requiring at least two Region Types within the Region,
  so that the highest priority Region Type can serve as base capacity,
