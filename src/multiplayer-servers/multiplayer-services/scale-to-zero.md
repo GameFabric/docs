@@ -193,8 +193,8 @@ Finding a good configuration is crucial for a good balance between cost-saving a
   The threshold at which GameFabric scales up the lower priority Region Type. Valid values must be between 1 and 99, but values equal to 95% or higher are
   highly discouraged.
 
-  ::: warning Values >= 95% are highly discourated
-  No one want to waste resources, but game servers take time to startup, and so does infrastructure.
+  ::: warning Values >= 95% are highly discouraged
+  No one wants to waste resources, but game servers and infrastructure take time to start up.
   When the threshold is too high, it can lead to a very late scale up.
 
   Additionally and more important, in some situations it might be possible that no more game servers fit into the remaining capacity,
