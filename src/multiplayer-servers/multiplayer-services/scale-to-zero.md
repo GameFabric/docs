@@ -131,7 +131,7 @@ Another metric to calculate the utilization is the resource usage divided by the
 
 Game servers consume resources, such as CPU, Memory and Pod count.
 
-The **resource usage** are the actual resources consumed by all Armadas, or Vessels, running on a particular Location that belongs to that Region Type.
+The **resource usage** is the actual resources consumed by all Armadas, or Vessels, running on a particular Location that belongs to that Region Type.
 
 ::: info Scaled to Zero does not mean 0% utilization
 One Armada can impact the utilization of another Armada, leading to its scale up even when load for that Armada seems stable.
