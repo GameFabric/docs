@@ -1,12 +1,12 @@
 # Scale to Zero (Alpha)
 
 Scale to Zero is a cost-saving feature that allows GameFabric, when enabled, to scale down configured capacity when there is no demand.
-This can save infrastructure costs. 
+This can save infrastructure costs.
 When demand returns, GameFabric automatically scales up the capacity to meet it.
 
-The feature is disabled by default, and is configurable per [Armada](../getting-started/glossary.md#armada) and [Region](../getting-started/glossary.md#region). 
-It can only scale down capacity when base capacity is available. 
-Availability of base capacity is ensured by requiring at least two Region Types within the Region, 
+The feature is disabled by default, and is configurable per [Armada](../getting-started/glossary.md#armada) and [Region](../getting-started/glossary.md#region).
+It can only scale down capacity when base capacity is available.
+Availability of base capacity is ensured by requiring at least two Region Types within the Region,
  so that the highest priority Region Type can serve as base capacity,
  allowing GameFabric to determine whether demand is low enough to scale down the lower priority Region Type.
 
@@ -156,7 +156,7 @@ and thus inaccurate utilization, which can lead to wrong scaling decisions.
 The last metric is not a percentage, but a toggle, and can override the calculated utilization and scaling decisions.
 
 **Ready replicas** are the number of game servers that are in the `Ready` state, which means they are healthy and available to be allocated to players.
-If this number drops to zero, it means that there are no more game servers available. This can either mean game servers are being allocated quickly, 
+If this number drops to zero, it means that there are no more game servers available. This can either mean game servers are being allocated quickly,
 or mean the buffer size is too low, or the game server startup time is too long.
 
 [Dynamic Buffers](./armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha) can be used to mitigate this, but a very high and sudden increase
