@@ -112,7 +112,7 @@ Listed are two Armadas running in the same Region.
 </table>
 
 <sup>1)</sup> if configured that way,
-<sup>2)</sup> Note that resources are Armada-independent, but affecting each others utilization.
+<sup>2)</sup> Note that resources are Armada-independent, but affecting each other's utilization.
 
 ### **Replicas**
 
