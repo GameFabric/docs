@@ -175,8 +175,8 @@ as without Scale to Zero, the lower priority Region Type would already be scaled
 
 ## Reaction time
 
-The reaction time of Scale to Zero depends on the Autoscaler interval, which sets the desired replicas. It defaults to `30s`.
-See Armada &raquo; Scaling or API `armada.spec.autoscaler.fixedInterval.seconds`.
+The reaction time of Scale to Zero depends on the Autoscaler interval, which sets the desired replicas.
+It defaults to `30s` and can be configured per Armada, see GameFabric &raquo; Armada &raquo; Advanced or API `armada.spec.autoscaler.fixedInterval.seconds`.
 
 The observed replicas are reported back in real-time, but subject to rate-limiting on the cluster and GameFabric side, each usually around `10s`,
 leading to another potential delay.
