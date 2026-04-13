@@ -123,7 +123,7 @@ This number includes all game servers in all states, including but not limited t
 `Starting`, `Ready`, `Unhealthy`, and `Error`.
 
 The **max replicas** are the maximum number of replicas.
-It is configurable together as part of the Distribution, see GameFabric &raquo; Armada &raquo; Scaling or via API `armada.spec.distribution[].maxReplicas`.
+It is configurable as part of the Distribution, see GameFabric &raquo; Armada &raquo; Scaling or via API `armada.spec.distribution[].maxReplicas`.
 
 ### Resource usage
 
