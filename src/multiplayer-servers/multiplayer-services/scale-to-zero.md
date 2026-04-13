@@ -18,9 +18,7 @@ A Region describes a geographic location, whereas a Region Type splits these loc
 
 The most common Region Types distinguish _baremetal_ from the different _cloud_ capacities, usually prioritized by cost or performance.
 
-The priority allows GameFabric to put game servers on the higher priority Region Type first, and only when there is no capacity left, on the lower priority
-Region
-Types.
+The priority allows GameFabric to put game servers on the higher priority Region Type first, and only when there is no capacity left, on the lower priority Region Types.
 
 **Example:**
 
@@ -33,8 +31,7 @@ Types.
 
 ### Alternatives
 
-Other configurations are also possible, such as prioritizing by performance, when only cloud offers the ideal CPUs, or when baremetal experiences connection
-issues.
+Other configurations are also possible, such as prioritizing by performance, when only cloud offers the ideal CPUs, or when baremetal experiences connection issues.
 
 ## Utilization
 
@@ -47,18 +44,19 @@ The Region Type with the highest priority is never scaled down (state `ScaledUpL
 **Example:**
 
 Listed are two Armadas running in the same Region.
+
 - `Armada 1` / `EU` / `baremetal` is at `90%`, and would scale up `cloud`<sup>1</sup>, while
 - `Armada 2` / `EU` / `baremetal` is at `30%`, and would not scale `cloud`<sup>1</sup>.
 
 <table width="100%">
   <thead>
     <tr valign="top">
-      <td>Armada</td>
-      <td>Region</td>
-      <td>Region Type</td>
-      <td>Prio</td>
-      <td>Metric</td>
-      <td colspan="2">Utilization</td>
+      <th>Armada</th>
+      <th>Region</th>
+      <th>Region Type</th>
+      <th>Prio</th>
+      <th>Metric</th>
+      <th colspan="2">Utilization</th>
     </tr>
   </thead>
   <tbody>
