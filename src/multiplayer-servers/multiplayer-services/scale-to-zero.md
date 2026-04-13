@@ -114,7 +114,7 @@ Listed are two Armadas running in the same Region.
 <sup>1)</sup> if configured that way,
 <sup>2)</sup> Note that resources are Armada-independent, but affecting each other's utilization.
 
-### **Replicas**
+### Replicas
 
 One metric to calculate the utilization is replicas divided by max replicas. Numbers are collected per Armada Region Type.
 
@@ -125,7 +125,7 @@ This number includes all game servers in all states, including but not limited t
 The **max replicas** are the maximum number of replicas.
 It is configurable together as part of the Distribution, see GameFabric &raquo; Armada &raquo; Scaling or via API `armada.spec.distribution[].maxReplicas`.
 
-### **Resource usage**
+### Resource usage
 
 Another metric to calculate the utilization is the resource usage divided by the resource limits. Numbers are collected per Region Type.
 
@@ -147,7 +147,7 @@ Since the resource limits are configured, and not calculated, a node outage migh
 and thus inaccurate utilization, which can lead to wrong scaling decisions.
 :::
 
-### **Panicking or no ready replicas**
+### Panicking or no ready replicas
 
 The last metric is not a percentage, but a toggle, and can override the calculated utilization and scaling decisions.
 
