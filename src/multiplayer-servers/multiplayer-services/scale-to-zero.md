@@ -123,7 +123,7 @@ This number includes all game servers in all states, including but not limited t
 `Starting`, `Ready`, `Unhealthy`, and `Error`.
 
 The **max replicas** are the maximum number of replicas.
-It is configurable as part of the Distribution, see GameFabric &raquo; Armada &raquo; Scaling or via API `armada.spec.distribution[].maxReplicas`.
+It is configurable as part of the Distribution, see **GameFabric > Armada > Scaling** or via API `armada.spec.distribution[].maxReplicas`.
 
 ### Resource usage
 
@@ -176,7 +176,7 @@ as without Scale to Zero, the lower priority Region Type would already be scaled
 ## Reaction time
 
 The reaction time of Scale to Zero depends on the Autoscaler interval, which sets the desired replicas.
-It defaults to `30s` and can be configured per Armada, see GameFabric &raquo; Armada &raquo; Advanced or API `armada.spec.autoscaler.fixedInterval.seconds`.
+It defaults to `30s` and can be configured per Armada, see **GameFabric > Armada > Advanced** or via API `armada.spec.autoscaler.fixedInterval.seconds`.
 
 The observed replicas are reported back in real-time, but subject to rate-limiting on the cluster and GameFabric side, each usually around `10s`,
 leading to another potential delay.
