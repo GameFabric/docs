@@ -23,7 +23,7 @@ Instead of choosing a fixed buffer size, the Dynamic Buffer option lets GameFabr
 When enabled, GameFabric recalculates the buffer at two levels: a baseline per Region Type derived from overall demand trends, and a per-Site local adjustment based on `Ready` and `Allocated` counts, startup time, and allocation patterns.
 A slider controls the trade-off between cost efficiency and availability.
 
-Dynamic Buffer requires at least 24 hours of allocation data to stabilize and should be monitored closely after enabling.
+Dynamic Buffer requires at least 24 hours of allocation data. After you enable it, it can take up to 48 hours to stabilize, so monitor it closely during that period.
 
 For configuration details and slider values, see [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha).
 
