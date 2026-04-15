@@ -49,6 +49,10 @@
       "text": "Armada Scaling",
       "items": [
         {
+          "text": "Scaling Overview",
+          "link": "/multiplayer-services/scaling"
+        },
+        {
           "text": "Replicas and Buffer Size",
           "link": "/multiplayer-services/armada-replicas-and-buffer"
         },
