@@ -153,7 +153,7 @@ If this number drops to zero, it means that there are no more game servers avail
 or mean the buffer size is too low, or the game server startup time is too long.
 
 [Dynamic Buffers](./armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha) can be used to mitigate this, but a very high and sudden increase
-can not be mitigated.
+cannot be mitigated.
 
 Another reason for no more ready replicas could be that game servers are unable to _become_ ready. This can be caused by various issues,
 such as problems with the game server configuration, issues with the underlying infrastructure, or problems with the game server software itself.
