@@ -6,9 +6,7 @@ When demand returns, GameFabric automatically scales up the capacity to meet it.
 
 The feature is disabled by default, and is configurable per [Armada](/multiplayer-servers/getting-started/glossary#armada) and [Region](/multiplayer-servers/getting-started/glossary#region).
 It can only scale down capacity when base capacity is available.
-Availability of base capacity is ensured by requiring at least two Region Types within the Region,
- so that the highest priority Region Type can serve as base capacity,
- allowing GameFabric to determine whether demand is low enough to scale down the lower priority Region Type.
+Availability of base capacity is ensured by requiring at least two Region Types within the Region, so that the highest priority Region Type can serve as base capacity, allowing GameFabric to determine whether demand is low enough to scale down the lower priority Region Type.
 
 Scale to Zero is currently in Alpha.
 
