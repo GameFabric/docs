@@ -7,9 +7,9 @@ Each mechanism addresses a different aspect of scaling, from static configuratio
 
 Every Armada is configured with three core scaling parameters per Region Type:
 
-- **Minimum Replicas** -- the lowest number of game servers running at any time.
-- **Maximum Replicas** -- the upper bound on game servers that can be started.
-- **Buffer Size** -- the approximate number of game servers kept in the `Ready` state, waiting to be allocated.
+- **Minimum Replicas**: the lowest number of game servers running at any time.
+- **Maximum Replicas**: the upper bound on game servers that can be started.
+- **Buffer Size**: the approximate number of game servers kept in the `Ready` state, waiting to be allocated.
 
 These values determine how quickly players find a game server and how much idle capacity is maintained.
 Getting them right depends on game server startup time, session duration, and expected concurrent users.
