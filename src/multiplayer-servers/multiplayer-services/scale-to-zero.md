@@ -136,8 +136,7 @@ One Armada can impact the utilization of another Armada, leading to its scale up
 This can also lead to the false expectation that an Armada Region Type that is scaled to zero must have a 0% utilization.
 :::
 
-The **resource limits** are the maximum resources that can be consumed by all Armadas, or Vessels, running on a particular Location that belongs to that Region
-Type.
+The **resource limits** are the maximum resources that can be consumed by all Armadas, or Vessels, running on a particular Location that belongs to that Region Type.
 The limit is currently configured.
 
 ::: warning Node Outage
