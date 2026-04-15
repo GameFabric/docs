@@ -188,6 +188,11 @@ It has to be defined on a per-[environment](#environment) basis.
 
 While defining, you can assign a custom priority to each location. This priority determines which location will be filled first.
 
+## Region Type
+
+A Region Type defines a class of infrastructure (for example, bare-metal or cloud) within a [Region](#region).
+Each Region Type has its own scaling parameters, and an [Armada](#armada) can have multiple Region Types per Region to balance cost and availability.
+
 ## Replica
 
 A Replica is an individual game server instance within an [Armada](#armada).

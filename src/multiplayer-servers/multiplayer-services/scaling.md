@@ -1,7 +1,7 @@
 # Armada scaling
 
-GameFabric provides several mechanisms to control game server capacity per Region Type, balancing cost and player availability.
-Each mechanism addresses a different aspect of scaling, from static configuration to demand-driven automation.
+GameFabric provides several ways to control game server capacity per [Region Type](/multiplayer-servers/getting-started/glossary#region-type), balancing cost and player availability.
+Each addresses a different aspect of scaling, from static configuration to demand-driven automation.
 
 ## Replicas and buffer size
 
@@ -14,16 +14,16 @@ Every Armada is configured with three core scaling parameters per Region Type:
 These values determine how quickly players find a game server and how much idle capacity is maintained.
 Getting them right depends on game server startup time, session duration, and expected concurrent users.
 
-For detailed guidance, including worked examples and input validation rules, see [Replicas and buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer).
+For detailed guidance, including examples and input validation rules, see [Replicas and buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer).
 
-## Dynamic buffer (Alpha)
+## Dynamic Buffer (Alpha)
 
 Instead of choosing a fixed buffer size, the Dynamic Buffer option lets GameFabric adjust the buffer automatically based on observed player demand.
 
 When enabled, GameFabric recalculates the buffer at two levels: a baseline per Region Type derived from overall demand trends, and a per-Site local adjustment based on `Ready` and `Allocated` counts, startup time, and allocation patterns.
 A slider controls the trade-off between cost efficiency and availability.
 
-Dynamic Buffer requires at least 24 hours of allocation data. After you enable it, it can take up to 48 hours to stabilize, so monitor it closely during that period.
+Dynamic Buffer requires at least 24 hours of allocation data. Once enabled, it takes up to 48 hours to stabilize, so monitor it closely during that period.
 
 For configuration details and slider values, see [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha).
 
