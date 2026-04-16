@@ -37,7 +37,7 @@ Common names are "prod", "stge" and "dev".
 The display name is the human-readable name, and the description optionally notes the uses of the Environment.
 Click the "Create Environment" when the form is filled out.
 
-Once the Environment is created, it appears in the list and in the environment selector in the top bar. Note that the top bar environment selector is only visible when navigating environment-scoped sections of the UI.
+Once the Environment is created, it appears in the list. It is also available in the top-bar environment selector when you are in an environment-scoped section of the UI.
 
 ## Create a region
 
