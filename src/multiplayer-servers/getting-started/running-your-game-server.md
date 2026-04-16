@@ -51,6 +51,16 @@ Select the Region that this Vessel should run in.
 Please note that you do not need to specify the type of capacity within the Region (i.e. Bare Metal vs. Cloud).
 This scheduling decision is performed automatically and adjusts dynamically when capacity changes.
 
+::: info Region Immutability
+
+The Region of a Vessel is immutable, which means that if you want to change the Region, you need to create a new Vessel and delete the old one.
+This is because the Region is a fundamental part of the Vessel's identity and configuration.
+
+Instead, the Vessel can be cloned, which creates a new Vessel with the same configuration as the original one, but with a different name and Region.
+This allows you to easily create multiple similar Vessels in different Regions without having to manually configure each one from scratch.
+
+:::
+
 ![GUI_Create_Vessel_Region.png](images/formation/GUI_Create_Vessel_General.png)
 
 ### Volumes
