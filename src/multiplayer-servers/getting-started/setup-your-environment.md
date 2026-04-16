@@ -25,7 +25,7 @@ After setting up your environment and region, you'll need to:
 Environments are a mechanism for isolating groups of resources.
 They can therefore be used to separate production, staging, testing, and any other environments and ensure that they don't interfere with each other.
 
-First, visit the "Environments" section of the UI by clicking the pencil next to Environments in the sidebar menu.
+First, navigate to the "Environments" section by clicking "Environments" in the sidebar.
 
 ![GUI_Environments.png](images/environment/GUI_Environments.png)
 Create a new Environment by clicking the "Create Environment" button.
@@ -37,7 +37,7 @@ Common names are "prod", "stge" and "dev".
 The display name is the human-readable name, and the description optionally notes the uses of the Environment.
 Click the "Create Environment" when the form is filled out.
 
-Once the Environment is created, it appears in the list, and in the menu.
+Once the Environment is created, it appears in the list. It is also available in the top-bar environment selector when you are in an environment-scoped section of the UI.
 
 ## Create a region
 
