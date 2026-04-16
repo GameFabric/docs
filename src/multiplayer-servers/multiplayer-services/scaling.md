@@ -16,7 +16,7 @@ Getting them right depends on game server startup time, session duration, and ex
 
 For detailed guidance, including examples and input validation rules, see [Replicas and buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer).
 
-## Dynamic Buffer (Alpha)
+## Dynamic Buffer
 
 Instead of choosing a fixed buffer size, the Dynamic Buffer option lets GameFabric adjust the buffer automatically based on observed player demand.
 
@@ -25,9 +25,9 @@ A slider controls the trade-off between cost efficiency and availability.
 
 Dynamic Buffer requires at least 24 hours of allocation data. Once enabled, it takes up to 48 hours to stabilize, so monitor it closely during that period.
 
-For configuration details and slider values, see [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha).
+For configuration details and slider values, see [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size).
 
-## Scale to Zero (Alpha)
+## Scale to Zero
 
 Scale to Zero is a cost-saving feature that scales down lower-priority Region Types when there is no demand, and automatically scales them back up when demand returns.
 

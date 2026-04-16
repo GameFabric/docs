@@ -1,4 +1,8 @@
-# Scale to Zero (Alpha)
+# Scale to Zero
+
+::: warning Alpha feature
+Scale to Zero is currently in Alpha.
+:::
 
 Scale to Zero is a cost-saving feature that allows GameFabric, when enabled, to scale down configured capacity when there is no demand.
 This can save infrastructure costs.
@@ -7,8 +11,6 @@ When demand returns, GameFabric automatically scales up the capacity to meet it.
 The feature is disabled by default, and is configurable per [Armada](/multiplayer-servers/getting-started/glossary#armada) and [Region](/multiplayer-servers/getting-started/glossary#region).
 It can only scale down capacity when base capacity is available.
 Availability of base capacity is ensured by requiring at least two Region Types within the Region, so that the highest priority Region Type can serve as base capacity, allowing GameFabric to determine whether demand is low enough to scale down the lower priority Region Type.
-
-Scale to Zero is currently in Alpha.
 
 ## Recommended Region Types
 
@@ -152,7 +154,7 @@ The last metric does not impact the calculated utilization, but can override the
 If this number drops to zero, it means that there are no more game servers available. This can either mean game servers are being allocated quickly,
 or mean the buffer size is too low, or the game server startup time is too long.
 
-[Dynamic Buffers](./armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha) can be used to mitigate this, but a very high and sudden increase
+[Dynamic Buffers](./armada-replicas-and-buffer#dynamically-configuring-the-buffer-size) can be used to mitigate this, but a very high and sudden increase
 cannot be mitigated.
 
 Another reason for no more ready replicas could be that game servers are unable to _become_ ready. This can be caused by various issues,
@@ -163,7 +165,7 @@ GameFabric panics and immediately scales up the lower priority Region Type, rega
 This state is reported as `ScaleUpPanicked`, whereas regular states are `ScaledUp` and `ScaledToZero`.
 
 ::: warning Negative impact of panicking
-There is a trade-off when panicking, as a misconfiguration of the game server, can find its way into expensive cloud,
+There is a trade-off when panicking, as a misconfiguration of the game server can find its way into expensive cloud,
 even when the misconfiguration and the inability to start the game server has nothing to do with capacity.
 
 There is no way for GameFabric to determine reliably what kind of issue is causing the lack of ready replicas, and so it panics to be on the safe side,

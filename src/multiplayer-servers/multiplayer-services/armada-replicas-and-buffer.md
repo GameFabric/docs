@@ -177,7 +177,7 @@ The Maximum Replicas is not only a consideration of physical resources, but also
 Whether through player peaks, due to bugs or DDoS attacks, always choose a limit that is within your budget, especially on cloud.
 :::
 
-## Dynamically configuring the buffer size (Alpha)
+## Dynamically configuring the buffer size
 
 The Buffer Size can be set to a fixed value as previously explained, or it can be dynamically adjusted based on the current player demand using
 the `Dynamic Buffer` option.

@@ -87,7 +87,7 @@ Dynamic Buffer is a feature that automatically adjusts the [Buffer](#buffer) bas
 Dynamic Buffer is currently in Alpha.
 :::
 
-See [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha) for details.
+See [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size) for details.
 
 ## Dynamic Fleets
 
