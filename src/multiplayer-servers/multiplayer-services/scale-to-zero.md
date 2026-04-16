@@ -140,7 +140,7 @@ This can also lead to the false expectation that an Armada Region Type that is s
 :::
 
 The **resource limits** are the maximum resources that can be consumed by all Armadas, or Vessels, running on a particular Location that belongs to that Region Type.
-The limit is currently configured.
+These limits come from the configured capacity for that Region Type; they are not calculated from the current resources available in the cluster.
 
 ::: warning Node Outage
 Since the resource limits are configured, and not calculated, a node outage might lead to inaccurate resource limits,
