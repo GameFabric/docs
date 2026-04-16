@@ -1,6 +1,5 @@
 # Scale to Zero
 
-
 Scale to Zero is a cost-saving feature that allows GameFabric, when enabled, to scale down configured capacity when there is no demand.
 This can save infrastructure costs.
 When demand returns, GameFabric automatically scales up the capacity to meet it.
