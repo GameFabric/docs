@@ -77,6 +77,12 @@ To edit environment-based permissions, expand the resource by clicking the arrow
 To bulk edit these permissions, use the checkboxes beside the resource name.
 ![edit-role-env-based.png](images/permissions/edit-role-env-based.png)
 
+## Help Center
+
+Access to the [GameFabric Help Center](/multiplayer-servers/getting-started/glossary#gamefabric-help-center) is controlled through RBAC. Users must have the `HELPCENTER` permission to access the Help Center link in the GameFabric UI.
+
+By default, this permission is included in the `default:help-center` role, which is bound to the `default:help-center` group. To grant Help Center access, either add users to this default group or assign the `HELPCENTER` permission to a custom role.
+
 ## Service Account
 
 For the management of Service Accounts, refer to the [Service Accounts](/multiplayer-servers/authentication/service-accounts) section.
