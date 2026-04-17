@@ -134,9 +134,9 @@ Access to the Help Center requires the `HELPCENTER` permission. By default, Game
 
 A user can access the Help Center in any of the following ways:
 
-- Be a member of the `default:help-center` group.
-- Be in a group that is bound to the `default:help-center` role.
-- Be in a group bound to any role that includes the `HELPCENTER` permission.
+- Is a member of the `default:help-center` group.
+- Is in a group that is bound to the `default:help-center` role.
+- Is in a group bound to any role that includes the `HELPCENTER` permission.
 
 For details on managing groups and roles, see [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
 
