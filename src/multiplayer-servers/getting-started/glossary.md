@@ -128,17 +128,7 @@ The GameFabric Help Center is the central place for all self-service feature req
 
 ![Help Center menu location](images/glossary/help-center-menu.png)
 
-### Access control
-
-Access to the Help Center requires the `HELPCENTER` permission. By default, GameFabric bootstraps a `default:help-center` group bound to the `default:help-center` role, which includes this permission.
-
-A user can access the Help Center in any of the following ways:
-
-- Is a member of the `default:help-center` group.
-- Is in a group that is bound to the `default:help-center` role.
-- Is in a group bound to any role that includes the `HELPCENTER` permission.
-
-For details on managing groups and roles, see [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
+For access control details, see [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#help-center).
 
 ## Gateway Policies
 

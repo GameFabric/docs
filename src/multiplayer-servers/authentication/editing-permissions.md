@@ -81,7 +81,11 @@ To bulk edit these permissions, use the checkboxes beside the resource name.
 
 Access to the [GameFabric Help Center](/multiplayer-servers/getting-started/glossary#gamefabric-help-center) is controlled through RBAC. Users must have the `HELPCENTER` permission to access the Help Center link in the GameFabric UI.
 
-By default, this permission is included in the `default:help-center` role, and the `default:help-center` group is bound to that role. To grant Help Center access, either add users to this default group or assign the `HELPCENTER` permission to a custom role.
+By default, this permission is included in the `default:help-center` role, and the `default:help-center` group is bound to that role. A user has access to the Help Center if one of the following is true:
+
+- Is a member of the `default:help-center` group.
+- Is in a group that is bound to the `default:help-center` role.
+- Is in a group bound to any role that includes the `HELPCENTER` permission.
 
 ## Service Account
 
