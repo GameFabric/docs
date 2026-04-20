@@ -40,7 +40,7 @@ It is mandatory to specify the `kind` and `apiVersion` fields in the payload.
 
 ```bash
 curl -X 'POST' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels" \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/json' \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
@@ -100,7 +100,7 @@ Now that you created a Vessel, you might want to use the API to list Vessels in 
 
 ```bash
 curl -X 'GET' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels" \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
      -H 'Accept: application/json'
 ```
@@ -112,7 +112,7 @@ This can be done using the REST API too.
 
 ```bash
 curl -X 'GET' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSEL_NAME}/logs?follow=true" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels/${VESSEL_NAME}/logs?follow=true" \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
      -H 'Connection: keep-alive'
 ```
@@ -124,7 +124,7 @@ You can do so by deleting the Vessel using the REST API.
 
 ```bash
 curl -X 'DELETE' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSEL_NAME}" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels/${VESSEL_NAME}" \
      -H "Authorization: Bearer ${GF_API_TOKEN}"
 ```
 
@@ -142,7 +142,7 @@ First, retrieve the Formation to find the index of the Vessel you want to remove
 
 ```bash
 curl -X 'GET' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
      -H 'Accept: application/json' \
      -H "Authorization: Bearer ${GF_API_TOKEN}"
 ```
@@ -151,7 +151,7 @@ Then remove the Vessel by its index in the `vessels` array. Replace `0` with the
 
 ```bash
 curl -X 'PATCH' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/json-patch+json' \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
