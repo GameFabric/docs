@@ -87,7 +87,7 @@ Dynamic Buffer is a feature that automatically adjusts the [Buffer](#buffer) bas
 Dynamic Buffer is currently in Alpha.
 :::
 
-See [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size-alpha) for details.
+See [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size) for details.
 
 ## Dynamic Fleets
 
@@ -186,7 +186,15 @@ A Region is typically a geographic area made up of one or more [Locations](#loca
 
 It has to be defined on a per-[environment](#environment) basis.
 
+A Region contains at least one [Region Type](#region-type) that classifies its infrastructure, for example `baremetal` and `cloud`. Region Types control how game servers are distributed and scaled across the Locations of the Region.
+
 While defining, you can assign a custom priority to each location. This priority determines which location will be filled first.
+
+## Region Type
+
+A Region Type defines a class of infrastructure (for example, `baremetal` or `cloud`) within a [Region](#region).
+Each Region Type has its own scaling parameters, and an [Armada](#armada) can have multiple Region Types per Region to balance cost and availability.
+When using the allocator, the Region Type priority determines which type is filled first.
 
 ## Replica
 
