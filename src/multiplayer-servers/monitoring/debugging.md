@@ -93,7 +93,7 @@ RUN mkdir /app
 RUN useradd -m -u 1000 debugger
 RUN chown debugger:debugger /app
 
-# 4. Prepare your game server binary.
+# 4. Prepare the debugger script.
 USER 1000
 COPY --chown=debugger:debugger debugger.sh /app/debugger
 RUN chmod +x /app/debugger
