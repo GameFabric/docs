@@ -200,7 +200,7 @@ and each allocation has a bigger impact on the overall numbers.
 
 ::: warning
 
-Dynamic Buffer is currently in Alpha and should be used with caution. Make sure to monitor the behavior of the Buffer Size and its impact on player
+Dynamic Buffer is currently in Beta and should be used with caution. Make sure to monitor the behavior of the Buffer Size and its impact on player
 experience and costs, and adjust the configuration as needed.
 
 :::
