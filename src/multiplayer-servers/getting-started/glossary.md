@@ -17,18 +17,18 @@ The Allocator is typically used with [Armadas](#armada) for games where players 
 
 See [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) for details on when to use the Allocator and integration options.
 
-## API
-
-API stands for Application Programming Interface. GameFabric offers API access to every feature.
-Please see our dedicated [GameFabric API Guide](/multiplayer-servers/api/guide) for more information.
-
 ## Agones
 
 Agones is an open-source game server hosting and scaling framework built on [Kubernetes](#kubernetes). GameFabric uses Agones as its underlying orchestration layer to manage game server lifecycles, health checking, and scaling.
 
-Game servers integrate with Agones through its SDK, which provides client libraries for multiple languages and engines. The SDK is used to signal lifecycle state (Ready, Allocated, Shutdown) and send health check pings.
+Game servers integrate with Agones through its SDK, which provides client libraries for multiple languages and engines. The SDK is used to signal lifecycle state (`Ready`, `Allocated`, `Shutdown`) and send health check pings.
 
 See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) for integration details and the [Agones documentation](https://agones.dev/site/docs/) for the full reference.
+
+## API
+
+API stands for Application Programming Interface. GameFabric offers API access to every feature.
+Please see our dedicated [GameFabric API Guide](/multiplayer-servers/api/guide) for more information.
 
 ## Armada
 
