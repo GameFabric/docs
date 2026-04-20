@@ -44,11 +44,13 @@ Misconfigured environment variables are one of the most common issues. Verify th
 env
 ```
 
+**Warning:** `env` prints every environment variable, including secrets such as `ALLOC_TOKEN`. Avoid running this in production or any environment where container logs are shared or retained unless you redact sensitive values first. If a token is exposed in logs, rotate it afterward.
+
 Pay special attention to variables required by GameFabric services, such as `ALLOC_URL`, `ALLOC_TOKEN`, and `AGONES_SDK_HTTP_PORT`.
 
 ## Using a debugger sidecar
 
-If you cannot easily add diagnostic commands to your game server, you can run a lightweight sidecar container that automatically prints all environment variables on start and polls the Agones SDK game server object every 10 seconds. This gives you continuous visibility into the pod's runtime state through the container logs.
+If you cannot easily add diagnostic commands to your game server, you can run a lightweight sidecar container that automatically prints environment variables on start and polls the Agones SDK game server object every 10 seconds. Because this output can include secrets, use it only in non-production environments or redact sensitive values before sending logs to shared systems.
 
 ### Building the debugger sidecar image
 
