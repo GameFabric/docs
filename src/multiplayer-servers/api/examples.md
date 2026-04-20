@@ -130,6 +130,34 @@ curl -X 'DELETE' \
 
 This results in your Vessel switching to the Terminating status, and eventually disappearing once the termination process is complete.
 
+### Deleting a Vessel part of a Formation
+
+Vessels that are part of a Formation are managed by that Formation. To remove such a Vessel, remove it from the Formation's `vessels` list using a JSON Patch request.
+
+::: tip Identifying Controlled Resources
+A Vessel or Armada controlled by a Formation or ArmadaSet has an `ownerReferences` entry in its metadata pointing to the controlling resource.
+:::
+
+First, retrieve the Formation to find the index of the Vessel you want to remove:
+
+```bash
+curl -X 'GET' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}"
+```
+
+Then remove the Vessel by its index in the `vessels` array. Replace `0` with the correct index:
+
+```bash
+curl -X 'PATCH' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json-patch+json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '[{ "op": "remove", "path": "/spec/vessels/0" }]'
+```
+
 ## Creating a Region
 
 In this example, let's create a Region with the `Distributed` scheduling strategy using the REST API.
