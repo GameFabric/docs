@@ -130,7 +130,7 @@ curl -X 'DELETE' \
 
 This results in your Vessel switching to the Terminating status, and eventually disappearing once the termination process is complete.
 
-### Deleting a Vessel part of a Formation
+### Deleting a Vessel that is part of a Formation
 
 Vessels that are part of a Formation are managed by that Formation. To remove such a Vessel, remove it from the Formation's `vessels` list using a JSON Patch request.
 
