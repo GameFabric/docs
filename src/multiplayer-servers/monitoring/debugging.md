@@ -116,14 +116,14 @@ docker push <your-registry>/debugger-sidecar:1.0.0
 
 For more details on adding custom sidecars, see [Sidecar Containers](/multiplayer-servers/architecture/sidecars#custom-sidecars).
 
-Once deployed, open the **Single Game Server** dashboard in [Monitoring](/multiplayer-servers/monitoring/introduction) and select the debugger sidecar container to see the environment variables and game server object output.
+Once deployed, open the **Gameserver Single Instance** dashboard in [Monitoring](/multiplayer-servers/monitoring/introduction) and select the debugger sidecar container to see the environment variables and game server object output.
 
 ## Debugging the allocation flow
 
 If game servers are not being allocated as expected, increase the log verbosity of the [Allocation Sidecar](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers):
 
 1. Set the `LOG_LEVEL` environment variable on the Allocation Sidecar container to `debug`.
-1. Check the Allocation Sidecar logs in the **Single Game Server** dashboard.
+1. Check the Allocation Sidecar logs in the **Gameserver Single Instance** dashboard.
 
 At `debug` level, the Allocation Sidecar logs the full allocation payload from your matchmaker. At `info` level (the default), it logs registration events including the game server address, callback address, and configured [attributes](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers#attributes).
 
