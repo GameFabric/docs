@@ -128,6 +128,8 @@ The GameFabric Help Center is the central place for all self-service feature req
 
 ![Help Center menu location](images/glossary/help-center-menu.png)
 
+For access control details, see [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#help-center).
+
 ## Gateway Policies
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies).
