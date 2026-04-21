@@ -93,7 +93,7 @@ RUN mkdir /app
 RUN useradd -m -u 1000 debugger
 RUN chown debugger:debugger /app
 
-# 4. Prepare the debugger script.
+# 4. Copy the debugger entrypoint and make it executable.
 USER 1000
 COPY --chown=debugger:debugger debugger.sh /app/debugger
 RUN chmod +x /app/debugger
