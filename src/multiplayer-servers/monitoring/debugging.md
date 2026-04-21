@@ -32,7 +32,7 @@ The Agones SDK exposes a local REST endpoint inside every game server pod. You c
 curl "http://localhost:${AGONES_SDK_HTTP_PORT}/gameserver" | jq '.'
 ```
 
-This endpoint is only accessible from within the pod. The `AGONES_SDK_HTTP_PORT` environment variable is always set in every container in the pod.
+This endpoint is only accessible from within the pod. The `AGONES_SDK_HTTP_PORT` environment variable is always set in every container in the pod and defaults to `9358`.
 
 This is useful for verifying that your game server transitions through the expected lifecycle states (`Ready`, `Allocated`, `Shutdown`) and that labels and annotations are set correctly.
 
