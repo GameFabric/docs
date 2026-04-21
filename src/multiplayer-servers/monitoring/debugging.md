@@ -4,7 +4,7 @@ This guide helps you diagnose common issues with game server integration, such a
 
 ## Use Vessels for integration and debugging
 
-Even if your game ultimately requires [Armadas](/multiplayer-servers/getting-started/glossary#armada), use a [Vessel](/multiplayer-servers/getting-started/glossary#vessel) during integration and debugging. Vessels give you a single game server that you can restart directly from the UI, and container logs are visible in the UI without any additional setup. This makes the feedback loop much faster than working with Armadas.
+Even if your game ultimately requires [Armadas](/multiplayer-servers/getting-started/glossary#armada), start with a [Vessel](/multiplayer-servers/getting-started/glossary#vessel) during integration and debugging. Vessels give you a single game server that you can restart directly from the UI, and container logs are visible in the UI without any additional setup. This makes the feedback loop much faster than working with Armadas. Once your integration works with a Vessel, test with Armadas as well before deploying to production, since there are differences in configuration that may require adjustments.
 
 ## Viewing container logs
 
@@ -12,11 +12,15 @@ Every container in your game server pod writes logs to `stdout` and `stderr`, wh
 
 ### Vessel UI
 
-If you are using a [Vessel](/multiplayer-servers/getting-started/glossary#vessel), logs for all containers (including sidecars) are available directly in the Vessel UI. This is the fastest way to check what each container sees at runtime.
+If you are using a [Vessel](/multiplayer-servers/getting-started/glossary#vessel), logs for all containers (including sidecars) are available directly in the Vessel UI. Note that logs from previous container runs are not included — only logs from the current run are shown.
+
+::: warning
+The Vessel UI may struggle with game servers that produce high log volumes. For log-heavy servers, use the Grafana dashboards described below.
+:::
 
 ### Grafana
 
-For running game servers managed by Formations or Armadas, use the monitoring dashboards:
+All game server logs, including those managed by Formations or Armadas, or those from restarted containers, can be found using the monitoring dashboards:
 
 1. Navigate to **Monitoring** in the GameFabric UI.
 1. Open the **Current Gameservers** dashboard.
@@ -26,7 +30,13 @@ The **Gameserver Single Instance** dashboard shows all container logs, including
 
 ## Inspecting the game server object
 
-The Agones SDK exposes a local REST endpoint inside every game server pod. You can query it from within the pod to see the current game server state, addresses, ports, labels, and annotations:
+The Agones SDK exposes a local REST endpoint inside every game server pod. You can query it from within your container (for example, in an entrypoint script or a sidecar) to see the current game server state, addresses, ports, labels, and annotations:
+
+```bash
+curl "http://localhost:${AGONES_SDK_HTTP_PORT}/gameserver"
+```
+
+To pretty-print the JSON response, pipe to `jq` if available in your image:
 
 ```bash
 curl "http://localhost:${AGONES_SDK_HTTP_PORT}/gameserver" | jq '.'
@@ -38,21 +48,25 @@ This is useful for verifying that your game server transitions through the expec
 
 ## Checking environment variables
 
-Misconfigured environment variables are one of the most common issues. Verify that all required variables are set by printing them from within your container:
+Misconfigured environment variables are one of the most common issues. To verify that all required variables are set, print them from within your container (for example, in an entrypoint script or a sidecar):
 
 ```bash
 env
 ```
 
-**Warning:** `env` prints every environment variable, including secrets such as `ALLOC_TOKEN`. Avoid running this in production or any environment where container logs are shared or retained unless you redact sensitive values first. If a token is exposed in logs, rotate it afterward.
+::: warning
+The `env` command may not be available in minimal or distroless container images. Additionally, `env` prints every environment variable, including secrets such as `ALLOC_TOKEN`. Since the output appears in container logs, avoid running this in production or any environment where logs are shared or retained. If a secret is exposed in logs, rotate it afterward.
+:::
 
-Pay special attention to variables required by GameFabric services, such as `ALLOC_URL`, `ALLOC_TOKEN`, and `AGONES_SDK_HTTP_PORT`.
+## Using a debug sidecar
 
-## Using a debugger sidecar
+If you cannot easily add diagnostic commands to your game server, you can run a lightweight sidecar container alongside it. The following example shows one approach that prints environment variables on start and polls the Agones SDK game server object every 10 seconds. This is only an example — you can build your own debug sidecar with different tooling or safer approaches that fit your needs.
 
-If you cannot easily add diagnostic commands to your game server, you can run a lightweight sidecar container that automatically prints environment variables on start and polls the Agones SDK game server object every 10 seconds. Because this output can include secrets, use it only in non-production environments or redact sensitive values before sending logs to shared systems.
+::: warning
+Because sidecar output appears in container logs, which may include secrets, use debug sidecars only in non-production environments or redact sensitive values before sending logs to shared systems.
+:::
 
-### Building the debugger sidecar image
+### Building the debug sidecar image
 
 Create the following two files and build the container image.
 
@@ -102,23 +116,25 @@ WORKDIR /app
 CMD ["/app/debugger"]
 ```
 
-Build and push the image to your container registry:
+Build and push the image to your container registry. If you are building on macOS, specify the target platform explicitly:
 
 ```bash
-docker build -t <your-registry>/debugger-sidecar:1.0.0 .
-docker push <your-registry>/debugger-sidecar:1.0.0
+docker build --platform linux/amd64 -t <your-registry>/debug-sidecar:1.0.0 .
+docker push <your-registry>/debug-sidecar:1.0.0
 ```
 
-### Adding the debugger sidecar to your game server
+For more details on building container images, see [Building a container image](/multiplayer-servers/getting-started/building-a-container-image#create-a-dockerfile).
+
+### Adding the debug sidecar to your game server
 
 1. Navigate to your [Formation](/multiplayer-servers/getting-started/glossary#formation), [Vessel](/multiplayer-servers/getting-started/glossary#vessel), [ArmadaSet](/multiplayer-servers/getting-started/glossary#armadaset), or [Armada](/multiplayer-servers/getting-started/glossary#armada) configuration.
 1. In the **Sidecars** section, select **Create from scratch**.
-1. Set the container image to your debugger sidecar image.
+1. Set the container image to your debug sidecar image.
 1. Save your changes.
 
 For more details on adding custom sidecars, see [Sidecar Containers](/multiplayer-servers/architecture/sidecars#custom-sidecars).
 
-Once deployed, open the **Gameserver Single Instance** dashboard in [Monitoring](/multiplayer-servers/monitoring/introduction) and select the debugger sidecar container to see the environment variables and game server object output.
+Once deployed, open the **Gameserver Single Instance** dashboard in [Monitoring](/multiplayer-servers/monitoring/introduction) and select the debug sidecar container to see the environment variables and game server object output.
 
 ## Debugging the allocation flow
 
