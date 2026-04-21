@@ -40,7 +40,7 @@ It is mandatory to specify the `kind` and `apiVersion` fields in the payload.
 
 ```bash
 curl -X 'POST' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels" \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/json' \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
@@ -100,7 +100,7 @@ Now that you created a Vessel, you might want to use the API to list Vessels in 
 
 ```bash
 curl -X 'GET' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels" \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
      -H 'Accept: application/json'
 ```
@@ -112,7 +112,7 @@ This can be done using the REST API too.
 
 ```bash
 curl -X 'GET' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSEL_NAME}/logs?follow=true" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels/${VESSEL_NAME}/logs?follow=true" \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
      -H 'Connection: keep-alive'
 ```
@@ -124,11 +124,39 @@ You can do so by deleting the Vessel using the REST API.
 
 ```bash
 curl -X 'DELETE' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSEL_NAME}" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels/${VESSEL_NAME}" \
      -H "Authorization: Bearer ${GF_API_TOKEN}"
 ```
 
 This results in your Vessel switching to the Terminating status, and eventually disappearing once the termination process is complete.
+
+### Deleting a Vessel that is part of a Formation
+
+Vessels that are part of a Formation are managed by that Formation. To remove such a Vessel, remove it from the Formation's `vessels` list using a JSON Patch request.
+
+::: tip Identifying Controlled Resources
+A Vessel or Armada controlled by a Formation or ArmadaSet has an `ownerReferences` entry in its metadata pointing to the controlling resource.
+:::
+
+First, retrieve the Formation to find the index of the Vessel you want to remove:
+
+```bash
+curl -X 'GET' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}"
+```
+
+Then remove the Vessel by its index in the `vessels` array. Replace `0` with the correct index:
+
+```bash
+curl -X 'PATCH' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json-patch+json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '[{ "op": "remove", "path": "/spec/vessels/0" }]'
+```
 
 ## Creating a Region
 
