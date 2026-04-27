@@ -78,8 +78,8 @@ It requires you to select the image, which is provided under the `system` branch
 and a `Passthrough` port, using `TCP` protocol, named `allocator`.
 This is so that the allocation service can reach the Allocation Sidecar.
 
-Now specify the URL and authentication token for the allocation service
-using the `ALLOC_URL` and `ALLOC_TOKEN` environment variables.
+Now specify the URL, region, and authentication token for the allocation service
+using the `ALLOC_URL`, `ALLOC_REGION`, and `ALLOC_TOKEN` environment variables.
 It is recommended to set it in the Region, so any Formation, Vessel, ArmadaSet or Armada
 within that region is automatically configured.
 
@@ -210,6 +210,10 @@ The allocation service endpoint URL.
 ### `ALLOC_TOKEN` (`string`)
 
 The authentication bearer for the allocation service endpoint.
+
+### `ALLOC_REGION` (`string`)
+
+The region identifier used for the game server registration.
 
 ### `ALLOC_PRIORITY` (`int=0`)
 
