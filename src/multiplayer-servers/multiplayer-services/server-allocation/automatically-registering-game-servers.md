@@ -78,9 +78,9 @@ It requires you to select the image, which is provided under the `system` branch
 and a `Passthrough` port, using `TCP` protocol, named `allocator`.
 This is so that the allocation service can reach the Allocation Sidecar.
 
-Now specify the URL, region, and authentication token for the allocation service
-using the `ALLOC_URL`, `ALLOC_REGION`, and `ALLOC_TOKEN` environment variables.
-It is recommended to set it in the Region, so any Formation, Vessel, ArmadaSet or Armada
+Now specify the required `ALLOC_URL`, `ALLOC_REGION`, and `ALLOC_TOKEN` environment variables
+for the allocation service. Without these three variables, the Allocation Sidecar will not function.
+It is recommended to set these environment variables on the Region, so any Formation, Vessel, ArmadaSet or Armada
 within that region is automatically configured.
 
 ::: warning
@@ -203,6 +203,10 @@ All environment variables described in this guide must be added to the Allocatio
 not to your game server container.
 Any parent resource, such as Region or Site can also provide these environment variables
 
+## Required configuration
+
+The following environment variables are required for the Allocation Sidecar to function.
+
 ### `ALLOC_URL` (`string`)
 
 The allocation service endpoint URL.
@@ -214,6 +218,10 @@ The authentication bearer for the allocation service endpoint.
 ### `ALLOC_REGION` (`string`)
 
 The region identifier used for the game server registration.
+
+## Optional configuration
+
+The following environment variables are optional and enable additional functionality.
 
 ### `ALLOC_PRIORITY` (`int=0`)
 
