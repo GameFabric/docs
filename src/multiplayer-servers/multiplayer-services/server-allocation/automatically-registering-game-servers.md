@@ -209,7 +209,15 @@ The following environment variables are required for the Allocation Sidecar to f
 
 ### `ALLOC_URL` (`string`)
 
-The allocation service endpoint URL.
+The allocation service endpoint URL. The URL must end with `/servers`.
+
+Example:
+
+```text
+https://<your-installation>.gamefabric.dev/allocator/prod/us/servers
+```
+
+See [API Specs - Allocation: Registry](/api/multiplayer-servers/allocation-registry#tag/Registry) for details.
 
 ### `ALLOC_TOKEN` (`string`)
 
