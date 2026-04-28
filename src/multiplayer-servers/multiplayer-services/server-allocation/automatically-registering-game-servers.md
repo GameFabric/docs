@@ -197,13 +197,11 @@ a partial payload may be sent.
 Static payload variables can also be sent by [adding the environment variable `ALLOC_CALLBACK_PAYLOAD_VARS`](#alloc_callback_payload_vars-string) on
 the Allocation Sidecar container.
 
-## Advanced configuration
+## Required configuration
 
 All environment variables described in this guide must be added to the Allocation Sidecar container,
 not to your game server container.
-Any parent resource, such as Region or Site can also provide these environment variables
-
-## Required configuration
+Any parent resource, such as Region or Site can also provide these environment variables.
 
 The following environment variables are required for the Allocation Sidecar to function.
 
