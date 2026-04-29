@@ -127,12 +127,12 @@ The **max replicas** are the maximum number of replicas.
 It is configurable as part of the Distribution, see **GameFabric > Armada > Scaling** or via API `armada.spec.distribution[].maxReplicas`.
 
 ::: tip Buffer impact on utilization
-Since replicas include servers in all states, a large buffer of Ready servers contributes to the utilization calculation.
-For example, with `maxReplicas: 1000`, 600 Allocated servers and a buffer of 200 Ready servers results in 80% replica utilization — potentially triggering cloud scale-up even though only 60% of capacity is serving players.
+Since replicas include servers in all states, a large buffer of `Ready` servers contributes to the utilization calculation.
+For example, with `maxReplicas: 1000`, a configuration with 600 `Allocated` servers and a buffer of 200 `Ready` servers results in 80% replica utilization — potentially triggering the cloud to scale up even though only 60% of capacity is serving players.
 
-When configuring Scale Up Utilization, account for your buffer size. A larger buffer requires a higher scale-up threshold to avoid premature cloud activation.
+When configuring Scale Up Utilization, account for your buffer size. A larger buffer requires a higher scale up threshold to avoid premature cloud activation.
 
-When using [Dynamic Buffers](./armada-replicas-and-buffer#dynamically-configuring-the-buffer-size), the buffer size fluctuates based on demand, making baseline utilization less predictable. Availability-focused settings produce larger buffers and increase the likelihood of earlier cloud scale-up. Consider this when choosing your Scale Up Utilization threshold.
+When using [Dynamic Buffers](./armada-replicas-and-buffer#dynamically-configuring-the-buffer-size), the buffer size fluctuates based on demand, making baseline utilization less predictable. Availability-focused settings produce larger buffers and increase the likelihood of earlier cloud scale up. Consider this when choosing your Scale Up Utilization threshold.
 :::
 
 ### Resource usage
@@ -219,10 +219,10 @@ It is recommended to have at least a 5% gap between the two.
 
 ### Choosing thresholds with a large buffer
 
-When using baremetal with a sizeable Ready buffer, consider that your baseline utilization already includes those buffer servers.
+When using baremetal with a sizable `Ready` buffer, consider that your baseline utilization already includes those buffer servers.
 Your effective "idle" replica utilization is approximately `(allocated + buffer) / maxReplicas`.
 Set your Scale Up Utilization above this baseline to avoid unnecessary cloud scale-up.
-Alternatively, reduce your buffer size if cloud scale-up is triggering too early.
+Alternatively, reduce your buffer size if cloud scale up is triggering too early.
 
 When [Dynamic Buffers](./armada-replicas-and-buffer#dynamically-configuring-the-buffer-size) are enabled, the buffer size changes automatically. With availability-focused settings, allow additional headroom in your Scale Up Utilization threshold to account for buffer increases during demand peaks.
 
