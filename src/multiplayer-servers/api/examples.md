@@ -35,13 +35,13 @@ Image promotion allows you to move a container image from one branch to another 
 Use the `fieldSelector` query parameter to filter images by their image name and tag. This returns the internal object name you need for the promotion request.
 
 ```bash
-curl -X 'GET' \
+INTERNAL_IMAGE_NAME=$(curl -X 'GET' \
      "https://${GAMEFABRIC_URL}/api/container/v1/images/scopes/${SOURCE_BRANCH}?fieldSelector=spec.image=${IMAGE_NAME},spec.tag=${IMAGE_TAG}" \
      -H 'Accept: application/json' \
-     -H "Authorization: Bearer ${GF_API_TOKEN}" | jq '.items[].metadata.name'
+     -H "Authorization: Bearer ${GF_API_TOKEN}" | jq -r '.items[0].metadata.name')
 ```
 
-This returns the internal name of the image (for example, `simple-game-server-cwgpftt`). You need this value for the next step.
+This captures the internal name of the image (for example, `simple-game-server-cwgpftt`) into the `INTERNAL_IMAGE_NAME` variable for use in the next step.
 
 ### Step 2: Create the ImagePromotion
 
