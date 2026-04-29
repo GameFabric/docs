@@ -26,6 +26,58 @@ curl -X 'GET' \
 
 Take note of the Image object name, since that is what you need to reference in the Vessel specification for the next step.
 
+## Promoting an image to another branch
+
+Image promotion allows you to move a container image from one branch to another (for example, from `dev` to `prod`) after it has been tested. This is a two-step process: first, you find the internal name of the image you want to promote, then you create an `ImagePromotion` resource targeting the destination branch.
+
+### Step 1: Find the image's internal name
+
+Use the `fieldSelector` query parameter to filter images by their image name and tag. This returns the internal object name you need for the promotion request.
+
+```bash
+INTERNAL_IMAGE_NAME=$(curl -X 'GET' \
+     "https://${GAMEFABRIC_URL}/api/container/v1/images/scopes/${SOURCE_BRANCH}?fieldSelector=spec.image=${IMAGE_NAME},spec.tag=${IMAGE_TAG}" \
+     -H 'Accept: application/json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" | jq -r '.items[0].metadata.name')
+```
+
+This captures the internal name of the image (for example, `simple-game-server-cwgpftt`) into the `INTERNAL_IMAGE_NAME` variable for use in the next step.
+
+### Step 2: Create the ImagePromotion
+
+Create an `ImagePromotion` resource in the target branch, referencing the source branch and the internal image name from step 1.
+
+```bash
+curl -X 'POST' \
+     "https://${GAMEFABRIC_URL}/api/container/v1/imagepromotions/scopes/${TARGET_BRANCH}" \
+     -H 'Content-Type: application/json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '{
+  "apiVersion": "container/v1",
+  "kind": "ImagePromotion",
+  "metadata": {
+    "name": "'"$(uuidgen)"'",
+    "branch": "'"${TARGET_BRANCH}"'"
+  },
+  "spec": {
+    "branch": "'"${SOURCE_BRANCH}"'",
+    "imageName": "'"${INTERNAL_IMAGE_NAME}"'"
+  }
+}'
+```
+
+| Variable | Description |
+|----------|-------------|
+| `SOURCE_BRANCH` | The branch the image currently exists in (for example, `dev`) |
+| `TARGET_BRANCH` | The branch to promote the image to (for example, `prod`) |
+| `IMAGE_NAME` | The human-readable image name (for example, `simple-game-server`) |
+| `IMAGE_TAG` | The tag of the image (for example, `0.39`) |
+| `INTERNAL_IMAGE_NAME` | The internal object name returned from step 1 |
+
+::: tip
+See the API reference for [listing images](/api/multiplayer-servers/apiserver#tag/container.v1.Image/operation/listImage) and [creating image promotions](/api/multiplayer-servers/apiserver#tag/container.v1.ImagePromotion/operation/createImagePromotion) for full details on available fields and responses.
+:::
+
 ## Creating a Vessel
 
 In this first example, let's create a Vessel using the REST API.
