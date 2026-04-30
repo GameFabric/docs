@@ -3,13 +3,15 @@
 GameFabric organizes compute capacity into three layers. Understanding how they relate to each
 other helps you configure deployments correctly and diagnose capacity or scheduling issues.
 
-```text
-Location  (geographic node — global, managed by the platform operator)
-  └── Sites  (capacity clusters that belong to the Location)
-        ↑ referenced by
-Region  (per-environment, user-managed)
-  └── Region Types  (classify capacity, e.g. "baremetal", "cloud")
-        └── Locations  (which Locations back this type)
+```mermaid
+flowchart LR
+    subgraph global["Global — operator-managed"]
+        L[Location] --> S[Site]
+    end
+    subgraph env["Per environment — user-managed"]
+        R[Region] --> RT[Region Type]
+    end
+    RT -- references --> L
 ```
 
 Locations and Sites are global and provisioned by the platform operator (or via
