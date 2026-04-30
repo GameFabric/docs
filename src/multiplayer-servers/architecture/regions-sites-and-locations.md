@@ -58,13 +58,6 @@ Type:
 The Regions list shows aggregate CPU and memory usage across all Types for each Region as
 progress bars. These bars reflect the combined used and limit values across all Types.
 
-To see a breakdown by Type, click the **?** icon button at the end of a Region row. A popover
-opens showing CPU and memory for each Type individually:
-
-- **Limit** — the configured quota ceiling for CPU and memory in that Type. Shown as `∞` if no
-  limit is set.
-- **Used** — the CPU and memory currently consumed by running game servers.
-
 ### Protection status
 
 When SteelShield™ mitigations are active on your account, the Regions list shows a
