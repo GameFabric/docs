@@ -7,7 +7,7 @@ other helps you configure deployments correctly and diagnose capacity or schedul
 Location  (geographic node — global, managed by the platform operator)
   └── Sites  (capacity clusters that belong to the Location)
         ↑ referenced by
-Region  (per-environment, studio-managed)
+Region  (per-environment, user-managed)
   └── Region Types  (classify capacity, e.g. "baremetal", "cloud")
         └── Locations  (which Locations back this type)
 ```
@@ -20,8 +20,6 @@ deployments.
 
 See [Capacity Types](/multiplayer-servers/architecture/capacity-types) for details on bare metal,
 GameFabric Cloud, and BYOC capacity.
-
----
 
 ## Regions
 
@@ -92,18 +90,22 @@ The following operations are available from the Regions list:
 For a step-by-step walkthrough of creating a Region, see
 [Set up your environment](/multiplayer-servers/getting-started/setup-your-environment).
 
----
+::: info Filtering
+The Regions list can be filtered by protection status and by type name. Use the type filter to
+quickly find all Regions of a specific capacity class (for example, all Regions with a `cloud`
+type to check overflow capacity).
+:::
 
 ## Locations
 
 A Location is a geographic node that groups one or more Sites. It is the unit that Region Types
 reference when targeting capacity.
 
-Locations are global and read-only for studio users, with two exceptions:
+Locations are global and read-only for users, with two exceptions:
 
-- Studio users with the `clouds: post` capability can **request GameFabric Cloud capacity** at an
+- Users with the `clouds: post` capability can **request GameFabric Cloud capacity** at an
   eligible Location.
-- Studio users with the `clouds: patch` capability can **remove GameFabric Cloud capacity** from a
+- Users with the `clouds: patch,delete` capability can **remove GameFabric Cloud capacity** from a
   provisioned Location.
 
 ### Location types
@@ -149,7 +151,11 @@ GameFabric Cloud capacity cannot be added to Locations that already have BYOC ca
 - The **Associated Regions** count shows how many Regions across all environments reference this
   Location. Click it to see the list with links to each environment's Regions page.
 
----
+::: info Filtering
+The Locations list can be filtered by site state, region assignment, and location type. When
+diagnosing why a Region has no available capacity, start here — check whether the Locations
+referenced by your Region's Types have active, non-cordoned Sites.
+:::
 
 ## Sites
 
@@ -194,19 +200,7 @@ Per-Site protection states are the source of truth for the Region-level protecti
 Click **Details** on any Site row to view site-level environment variables configured by the
 operator. These variables are injected into all game servers scheduled on that Site.
 
----
-
-## Filtering and navigation tips
-
-The **Sites** list can be filtered by state and protection status. Filter by `cordoned` to audit
+::: info Filtering
+The Sites list can be filtered by state and protection status. Filter by `cordoned` to audit
 Sites that are not accepting new scheduling.
-
-The **Locations** list can be filtered by site state, region assignment, and location type.
-When diagnosing why a Region has no available capacity, start here: check whether the Locations
-referenced by your Region's Types have active, non-cordoned Sites.
-
-The **Regions** list can be filtered by protection status and by type name. This is useful for
-quickly finding all Regions of a specific capacity class (e.g. all Regions with a `cloud` type
-to check overflow capacity).
-
-
+:::
