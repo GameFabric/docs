@@ -1,6 +1,6 @@
 # Regions, Sites & Locations
 
-GameFabric organises compute capacity into three layers. Understanding how they relate to each
+GameFabric organizes compute capacity into three layers. Understanding how they relate to each
 other helps you configure deployments correctly and diagnose capacity or scheduling issues.
 
 ```text
@@ -15,7 +15,7 @@ Region  (per-environment, user-managed)
 Locations and Sites are global and provisioned by the platform operator (or via
 [GameFabric Cloud self-service](/multiplayer-servers/getting-started/gamefabric-cloud)).
 Regions are created and managed by your team inside a specific Environment.
-A Region does not create capacity — it selects and organises existing capacity for your
+A Region does not create capacity — it selects and organizes existing capacity for your
 deployments.
 
 See [Capacity Types](/multiplayer-servers/architecture/capacity-types) for details on bare metal,
@@ -48,7 +48,7 @@ Type:
   passing infrastructure context (e.g. region name, capacity tier) without hardcoding it in your
   image.
 - **Scheduling strategy** — controls how game servers are placed across nodes:
-  - `Packed` (default) — game servers are co-located on shared nodes. Maximises density.
+  - `Packed` (default) — game servers are co-located on shared nodes. Maximizes density.
   - `Distributed` — game servers spread across nodes. Reduces blast radius if a node fails.
 
 ### Capacity tracking
@@ -187,7 +187,7 @@ maintenance or deprovisioning, or when a freshly provisioned Site should not rec
 The Sites list shows:
 
 - **Total CPU** and **Total Memory** — the configured resource limit for the Site
-- **CPU used** and **Memory used** — live bars showing current utilisation
+- **CPU used** and **Memory used** — live bars showing current utilization
 
 ### Protection status
 
