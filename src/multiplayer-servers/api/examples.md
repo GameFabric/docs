@@ -28,9 +28,13 @@ Take note of the Image object name, since that is what you need to reference in 
 
 ## Promoting an image to another branch
 
-Image promotion allows you to move a container image from one branch to another (for example, from `dev` to `prod`) after it has been tested. This is a two-step process: first, you find the internal name of the image you want to promote, then you create an `ImagePromotion` resource targeting the destination branch.
+Image promotion enables you to copy a container image from one branch to another without manual intervention, reducing the risk of human error. It allows teams to validate an image in a staging or testing environment and, once it meets the required quality standards, promote it to production.
 
-### Step 1: Find the image's internal name
+This approach eliminates the need for users to manually pull, tag, and push images—operations that are error-prone, particularly in multi-platform contexts or when handling multiple image versions. By avoiding mistakes such as selecting or tagging the wrong image, image promotion provides a safer and more reliable mechanism for testing and releasing images.
+
+### Step 1: Find the internal image name
+
+You need a service account with POST permission on IMAGEPROMOTIONS for image promotions and GET permission on IMAGES to access the image resources.
 
 Use the `fieldSelector` query parameter to filter images by their image name and tag. This returns the internal object name you need for the promotion request.
 
