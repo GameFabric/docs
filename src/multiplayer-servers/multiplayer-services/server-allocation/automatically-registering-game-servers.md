@@ -1,7 +1,7 @@
 # Automatically registering game servers
 
 This guide describes how to enable and configure the automatic game server registration and the associated
-allocation handling. The goal is to enable your matchmaker to select game servers using Nitrado Allocator.
+allocation handling. The goal is to enable your matchmaker to select game servers using GameFabric Allocator.
 
 ::: tip Manual Alternative
 If you need more control over the registration process, see [Manually Registering Game Servers](manually-registering-game-servers) for a code-based approach.
