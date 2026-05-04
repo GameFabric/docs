@@ -48,7 +48,7 @@ implementation details.
 
 It is expected that the game services connect using `ip:port` rather than `host:port`.
 
-This is relevant as the related event field `detail.gameSessionInfo.dnsName` can not be set using the GameFabric Allocator.
+This is relevant as the related event field `detail.gameSessionInfo.dnsName` cannot be set using the GameFabric Allocator.
 
 Enabling external hardware with AWS Anywhere Fleets are not subject of this integration.
 
@@ -191,8 +191,8 @@ These are the necessary steps:
 
        | Field      | Type                | Description                                                                                                                  |
        |------------|---------------------|------------------------------------------------------------------------------------------------------------------------------|
-       | `region`     | `string`            | The GameFabric Allocator default region, that is used when there are no player preferences (because they have precedence) |
-       | `attributes` | `map[string]string` | The GameFabric Allocator attributes, which impact which game servers to choose.                                                 |
+       | `region`     | `string`            | The GameFabric Allocator default region, that is used when there are no player preferences (because they have precedence). |
+       | `attributes` | `map[string]string` | The GameFabric Allocator attributes, which impact which game servers to choose. |
 
        ::: info
        If the custom event data is already used, the approach is to merge the new data, but ensure:
@@ -270,13 +270,13 @@ These are the necessary steps:
 
 - Specify these environment variables:
 
-    | Environment variable | Description                                           |
-    |----------------------|-------------------------------------------------------|
-    | GF_EVENT_NAME        | Name of the new event.                                |
+    | Environment variable | Description                                              |
+    |----------------------|----------------------------------------------------------|
+    | GF_EVENT_NAME        | Name of the new event.                                   |
     | GF_ALLOC_URL         | Full URL of a GameFabric Allocator allocation endpoint.  |
     | GF_ALLOC_REGION      | Default GameFabric region.                               |
     | GF_ALLOC_TOKEN       | Authentication bearer token of the GameFabric Allocator. |
-    | GF_LOG_LEVEL         | Log level for the stdout logger.                      |
+    | GF_LOG_LEVEL         | Log level for the stdout logger.                         |
 
 - Specify this source code:
 
@@ -295,13 +295,13 @@ These are the necessary steps:
     //     }
     //     ```
     //   - AWS Lambda environments are set:
-    //     +-----------------+-------------------------------------------------------+----------+-----------------------------+
-    //     | GF_EVENT_NAME   | Name of the new event.                                | optional | GameFabricMatchmakingSucceeded |
-    //     | GF_ALLOC_URL    | Full URL of a GameFabric Allocator allocation endpoint.  | required |                             |
-    //     | GF_ALLOC_REGION | Default GameFabric region.                               | required |                             |
-    //     | GF_ALLOC_TOKEN  | Authentication bearer token of the GameFabric Allocator. | optional |                             |
-    //     | GF_LOG_LEVEL    | Log level for the stdout logger.                      | optional | info                        |
-    //     +-----------------+-------------------------------------------------------+----------+-----------------------------|
+    //     +-----------------+----------------------------------------------------------+----------+----------------------------------+
+    //     | GF_EVENT_NAME   | Name of the new event.                                   | optional | GameFabricMatchmakingSucceeded   |
+    //     | GF_ALLOC_URL    | Full URL of a GameFabric Allocator allocation endpoint.  | required |                                  |
+    //     | GF_ALLOC_REGION | Default GameFabric region.                               | required |                                  |
+    //     | GF_ALLOC_TOKEN  | Authentication bearer token of the GameFabric Allocator. | optional |                                  |
+    //     | GF_LOG_LEVEL    | Log level for the stdout logger.                         | optional | info                             |
+    //     +-----------------+----------------------------------------------------------+----------+----------------------------------+
     package main
 
     import (

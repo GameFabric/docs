@@ -3,10 +3,10 @@
 ## Introduction
 
 This documentation serves as an integration guide for developers aiming to integrate their game services and game servers
-into Nitrado multiplayer services, whereas a special focus lies on familiar concepts of Amazon GameLift.
+into GameFabric Multiplayer Services, whereas a special focus lies on familiar concepts of Amazon GameLift.
 
-The Nitrado multiplayer services consist of **GameFabric** to manage game server fleets,
-the **GameFabric Allocator** to provide a pool of ready to play game servers for matchmaking,
+The GameFabric Multiplayer Services consist of **GameFabric** to manage game server fleets,
+the **GameFabric Allocator** to provide a pool of ready-to-play game servers for matchmaking,
 and **[Agones](https://agones.dev/site/)**, which is the game server orchestration platform.
 
 ::: tip Related Documentation
@@ -249,7 +249,7 @@ reading.
 
 ## Summary
 
-Integrating Nitrado multiplayer services into matchmaking requires effort in detail:
+Integrating GameFabric Multiplayer Services into matchmaking requires effort in detail:
 the necessity to introduce a health report loop, watch an allocation trigger, and implement cloud-optimized exit behavior.
 
 We wish you success with the integration!
