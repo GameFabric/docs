@@ -5,7 +5,7 @@ other helps you configure deployments correctly and diagnose capacity or schedul
 
 ```mermaid
 flowchart LR
-    subgraph global["Global — operator-managed"]
+    subgraph global["Global — GameFabric managed"]
         L[Location] --> S[Site]
     end
     subgraph env["Per environment — user-managed"]
@@ -28,6 +28,12 @@ GameFabric Cloud, and BYOC capacity.
 A Region is the capacity target for your game server deployments. When you create an Armada or
 Formation, you target a Region. GameFabric schedules game server processes onto the Sites that
 back that Region.
+
+What counts as a logical region is a game-design decision, not a geographical one. You might group
+Frankfurt, London, and Amsterdam into a single "EU" Region if your matchmaker treats Europe as
+one pool. Or you might define "EU-West" and "EU-North" separately if latency matters for your
+title. Region Types add a further dimension: you can prioritize bare metal Locations over cloud
+within the same Region to manage cost, without changing any deployment configuration.
 
 ### Region Types
 
