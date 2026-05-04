@@ -70,12 +70,12 @@ When SteelShield™ mitigations are active on your account, the Regions list sho
 **Protection Status** column. This status is derived from the Sites that back the Region's
 Locations:
 
-| Status | Meaning |
-|---|---|
-| Protected | All backing Sites are protected |
-| Partially Protected | Some backing Sites are protected |
-| Unprotected | No backing Sites are protected |
-| Unknown | Protection state cannot be determined (no Sites resolved, or SteelShield not active) |
+| Status              | Meaning                                                                              |
+|---------------------|--------------------------------------------------------------------------------------|
+| Protected           | All backing Sites are protected                                                      |
+| Partially Protected | Some backing Sites are protected                                                     |
+| Unprotected         | No backing Sites are protected                                                       |
+| Unknown             | Protection state cannot be determined (no Sites resolved, or SteelShield not active) |
 
 ### Managing Regions
 
