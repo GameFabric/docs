@@ -60,6 +60,10 @@
       "link": "/getting-started/terminating-game-servers"
     },
     {
+      "text": "Vessel States",
+      "link": "/getting-started/vessel-states"
+    },
+    {
       "text": "Managing your Secrets",
       "link": "/getting-started/secrets"
     },
