@@ -23,7 +23,7 @@ The following table describes all vessel states.
 
 ## State transitions
 
-The diagram below shows all possible state transitions for a vessel.
+The following diagram shows all possible state transitions for a vessel.
 
 ```mermaid
 stateDiagram-v2
