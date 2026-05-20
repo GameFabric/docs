@@ -18,7 +18,7 @@ Replicas are the number of game servers running in any given state, from `Starti
 
 The **Minimum Replicas** setting keeps at least that many game servers running at all times, regardless of their state.
 When the count falls below the minimum, GameFabric spins up new game servers to compensate.
-Setting Minimum Replicas to `0` is a special case: no static floor is enforced, and the Buffer Size becomes the effective minimum instead.
+Setting Minimum Replicas to `0` is a special case: no static floor is enforced on total replicas, and the autoscaler targets the Buffer Size as the number of `Ready` servers instead.
 See [Minimum replicas](#minimum-replicas) for guidance on choosing between the two modes.
 
 The **Maximum Replicas** setting makes sure no more game servers are started when the total number of game servers reaches that number.
@@ -109,9 +109,10 @@ Frequently revisit and adjust the Minimum Replicas, Maximum Replicas, and Buffer
 Minimum Replicas has two modes depending on whether it is set to `0` or a positive value.
 
 **Set to `0` (defer to buffer):**
-When Minimum Replicas is `0`, no static floor is enforced on the total replica count.
-The Buffer Size becomes the effective floor: the autoscaler maintains `bufferSize` ready servers, and the total count can fall below the buffer value once all those servers are `Allocated` and none remain in other states.
-Use this mode when you want the buffer alone to drive capacity and have no requirement to keep a fixed number of servers running at all times.
+When Minimum Replicas is `0`, no static floor is enforced on total replicas.
+The autoscaler targets the Buffer Size as the number of `Ready` servers — it spins up new servers whenever the `Ready` count drops below the buffer.
+Total replicas at any given time reflect both `Ready` and `Allocated` servers combined, so the count rises above the buffer as demand grows and falls back as servers shut down.
+Use this mode when you want the buffer alone to drive ready capacity and have no requirement to keep a fixed number of servers running at all times.
 
 **Set to a positive value (static floor):**
 When Minimum Replicas is greater than `0`, GameFabric keeps at least that many game servers running in any state at all times — regardless of whether they are `Ready`, `Allocated`, or `Unhealthy`.
