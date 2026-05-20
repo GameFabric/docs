@@ -91,9 +91,9 @@ When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated 
 
 A synchronization state indicating that configuration could not be deployed to one or more [Sites](#site). This can occur when Sites are unavailable, experiencing connectivity issues, or when all capacity in a Location has been deprovisioned.
 
-Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), [Secret](#secret), ConfigFile, Protocol.
+Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), [Secret](#secret), ConfigFile, [Protection Protocol](#protection-protocol).
 
-For Armadas, ArmadaSets, Formations, and Protocols, the `status.reason` field provides additional context and is visible in the UI next to the affected object.
+For Armadas, ArmadaSets, Formations, and Protection Protocols, the `status.reason` field provides additional context and is visible in the UI next to the affected object.
 
 ## Dynamic Buffer
 
