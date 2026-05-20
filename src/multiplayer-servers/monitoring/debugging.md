@@ -93,7 +93,7 @@ done
 
 The Dockerfile:
 
-```dockerfile
+```Dockerfile
 # 1. Select an operating system.
 FROM ubuntu:24.04
 
