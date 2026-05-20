@@ -286,12 +286,6 @@ This can be the case, for example, when a Site has just been provisioned to prev
 
 An account used for accessing GameFabric programmatically. For details, see the documentation in [Service Accounts](/multiplayer-servers/authentication/service-accounts#managing-service-accounts).
 
-## SteelShield™
-
-SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
-
-See also [SteelShield docs](/steelshield/gamefabric/introduction).
-
 ## State
 
 Every GameFabric resource exposes a `status.state` field that reflects its current condition. States are specific to each resource type:
@@ -301,6 +295,12 @@ Every GameFabric resource exposes a `status.state` field that reflects its curre
 - **Formations:** `Synced`, [Degraded](#degraded).
 
 When a resource is not in its expected state, the `status.reason` field may provide additional context where available, visible in the UI and via the API.
+
+## SteelShield™
+
+SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
+
+See also [SteelShield docs](/steelshield/gamefabric/introduction).
 
 ## Terraform provider
 
