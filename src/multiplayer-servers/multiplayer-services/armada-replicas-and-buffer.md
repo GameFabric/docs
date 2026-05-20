@@ -1,5 +1,7 @@
 # Armada replicas and buffer
 
+These settings apply equally to Armadas and ArmadaSets. ArmadaSets configure them once and propagate the values to each per-region Armada. The rest of this page uses "Armada" for brevity.
+
 An Armada can spin up one game server, thousands of game servers, or anything in between, including no game servers as the special case of [Scaling Down](#scaling-down).
 The number of game servers running in each Region Type is determined by the Replicas and Buffer settings:
 
@@ -16,8 +18,10 @@ When configured too low, such as if not enough `Ready` game servers are availabl
 
 Replicas are the number of game servers running in any given state, from `Starting` to `Ready`, from `Allocated` to `Unhealthy`, `Shutdown` or `Error`.
 
-No matter the state of the game servers, the **Minimum Replicas** setting makes sure there are at least that many game servers running at any given time.
-If that is not the case, GameFabric spins up new game servers.
+The **Minimum Replicas** setting keeps at least that many game servers running at all times, regardless of their state.
+When the count falls below the minimum, GameFabric spins up new game servers to compensate.
+Setting Minimum Replicas to `0` is a special case: no static floor is enforced, and the Buffer Size becomes the effective minimum instead.
+See [Minimum replicas](#minimum-replicas) for guidance on choosing between the two modes.
 
 The **Maximum Replicas** setting makes sure no more game servers are started when the total number of game servers reaches that number.
 
@@ -30,10 +34,14 @@ This is important so players can find a game server quickly, without having to w
 
 When configuring an Armada, the following validation rules apply:
 
-- Minimum Replicas must be at least as big as the Buffer Size
-- Minimum Replicas must be smaller or equal to Maximum Replicas
+- Minimum Replicas must be `0` or greater.
+- Maximum Replicas must be `0` or greater.
+- Buffer Size must be greater than `0` when Maximum Replicas is greater than `0`.
+- Maximum Replicas must be greater than or equal to Buffer Size.
+- Maximum Replicas must be greater than or equal to Minimum Replicas.
+- If Minimum Replicas is greater than `0`, it must be greater than or equal to Buffer Size. Set it to `0` to defer the floor to the buffer instead (see [Minimum replicas](#minimum-replicas)).
 
-whereas <span class="nbsp">`0, 0, 0`</span> is considered <span class="nbsp">[Scaling Down](#scaling-down).</span>
+Setting all three values to `0` is a special case: see [Scaling Down](#scaling-down).
 
 ## Finding the right values
 
@@ -102,12 +110,22 @@ Frequently revisit and adjust the Minimum Replicas, Maximum Replicas, and Buffer
 
 ### Minimum replicas
 
-Choosing a value for the Minimum Replicas is mostly driven by the Buffer Size, as the Minimum Replicas must always be at least as high as the Buffer Size.
+Minimum Replicas has two modes depending on whether it is set to `0` or a positive value.
 
-The **recommended default** is to set the Minimum Replicas to the value of the Buffer Size.
+**Set to `0` (defer to buffer):**
+When Minimum Replicas is `0`, no static floor is enforced on the total replica count.
+The Buffer Size becomes the effective floor: the autoscaler maintains `bufferSize` ready servers, and the total count can fall below the buffer value once all those servers are `Allocated` and none remain in other states.
+Use this mode when you want the buffer alone to drive capacity and have no requirement to keep a fixed number of servers running at all times.
 
-In case of an upcoming release or launch, with the expectation of an instant high player count, the Minimum Replicas can be set to a higher value to ensure enough game servers are running initially to accommodate the expected load.
-It is vital to review and adjust the value after the initial peak has subsided, to avoid unnecessary costs.
+**Set to a positive value (static floor):**
+When Minimum Replicas is greater than `0`, GameFabric keeps at least that many game servers running in any state at all times — regardless of whether they are `Ready`, `Allocated`, or `Unhealthy`.
+The value must be at least as large as the Buffer Size and no larger than Maximum Replicas.
+
+The **recommended default** is to set Minimum Replicas to the same value as the Buffer Size.
+This aligns the static floor with the ready pool so the autoscaler never has to spin up extra game servers solely to satisfy the minimum.
+
+In case of an upcoming release or launch, with the expectation of an instant high player count, Minimum Replicas can be raised above the Buffer Size to pre-warm additional capacity.
+Review and lower the value once the peak has subsided to avoid unnecessary costs.
 
 ### Maximum replicas
 
