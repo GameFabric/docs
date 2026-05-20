@@ -1,7 +1,5 @@
 # Armada replicas and buffer
 
-These settings apply equally to Armadas and ArmadaSets. ArmadaSets configure them once and propagate the values to each per-region Armada. The rest of this page uses "Armada" for brevity.
-
 An Armada can spin up one game server, thousands of game servers, or anything in between, including no game servers as the special case of [Scaling Down](#scaling-down).
 The number of game servers running in each Region Type is determined by the Replicas and Buffer settings:
 
@@ -34,12 +32,10 @@ This is important so players can find a game server quickly, without having to w
 
 When configuring an Armada, the following validation rules apply:
 
-- Minimum Replicas must be `0` or greater.
-- Maximum Replicas must be `0` or greater.
-- Buffer Size must be greater than `0` when Maximum Replicas is greater than `0`.
-- Maximum Replicas must be greater than or equal to Buffer Size.
-- Maximum Replicas must be greater than or equal to Minimum Replicas.
-- If Minimum Replicas is greater than `0`, it must be greater than or equal to Buffer Size. Set it to `0` to defer the floor to the buffer instead (see [Minimum replicas](#minimum-replicas)).
+- All three values must be `0` or greater.
+- Maximum Replicas must be at least as high as both Minimum Replicas and Buffer Size.
+- Buffer Size must be greater than `0` if Maximum Replicas is greater than `0`.
+- If Minimum Replicas is greater than `0`, it must be at least as high as Buffer Size. Set it to `0` to let the buffer act as the lower bound instead (see [Minimum replicas](#minimum-replicas)).
 
 Setting all three values to `0` is a special case: see [Scaling Down](#scaling-down).
 
