@@ -91,7 +91,7 @@ When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated 
 
 A synchronization state indicating that configuration could not be deployed to one or more [Sites](#site). This can occur when Sites are unavailable, experiencing connectivity issues, or when all capacity in a Location has been deprovisioned.
 
-Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), Secret, ConfigFile, Protocol, Gateway Policy.
+Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), [Secret](#secret), ConfigFile, Protocol, [Gateway Policies](#gateway-policies).
 
 The reason for the Degraded state is shown in the UI next to the affected object and is also available via the API in the `status.reason` field.
 
