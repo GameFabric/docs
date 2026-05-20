@@ -87,6 +87,14 @@ For more information, see the [Kubernetes documentation](https://kubernetes.io/d
 
 When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
 
+## Degraded
+
+A synchronization state indicating that configuration could not be deployed to one or more [Sites](#site). This can occur when Sites are unavailable, experiencing connectivity issues, or when all capacity in a Location has been deprovisioned.
+
+Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), [Secret](#secret), ConfigFile, [Protection Protocol](#protection-protocol).
+
+For Armadas, ArmadaSets, Formations, and Protection Protocols, the `status.reason` field provides additional context and is visible in the UI next to the affected object.
+
 ## Dynamic Buffer
 
 Dynamic Buffer is a feature that automatically adjusts the [Buffer](#buffer) based on current game server demand. When enabled, GameFabric monitors the number of `Ready` and `Allocated` game servers, startup time, and demand on each [Site](#site), then scales the buffer accordingly.
@@ -277,6 +285,16 @@ This can be the case, for example, when a Site has just been provisioned to prev
 ## Service Account
 
 An account used for accessing GameFabric programmatically. For details, see the documentation in [Service Accounts](/multiplayer-servers/authentication/service-accounts#managing-service-accounts).
+
+## State
+
+Every GameFabric resource exposes a `status.state` field that reflects its current condition. States are specific to each resource type:
+
+- **Vessels:** `Pending`, `Scheduled`, `Created`, `Starting`, `Running`, `Terminating`, `Error`, `Suspended`. See [Vessel states](/multiplayer-servers/getting-started/vessel-states).
+- **Armadas and ArmadaSets:** `Synced`, [Degraded](#degraded).
+- **Formations:** `Synced`, [Degraded](#degraded).
+
+When a resource is not in its expected state, the `status.reason` field may provide additional context where available, visible in the UI and via the API.
 
 ## SteelShield™
 

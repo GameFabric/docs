@@ -29,12 +29,10 @@ Create a Branch in the GameFabric UI under **Container Images > Branches**.
 Package your game server into a Docker container. A minimal Dockerfile might look like:
 
 ```Dockerfile
-FROM ubuntu:22.04
-
-# Create a non-root user with uid 1000 (enforced by GameFabric's pod security context)
-RUN groupadd -g 1000 game && useradd -u 1000 -g 1000 -m game
+FROM ubuntu:24.04
 
 COPY gameserver /app/gameserver
+# GameFabric runs containers as uid 1000 (enforced by the pod security context)
 RUN chown 1000:1000 /app/gameserver
 
 USER 1000

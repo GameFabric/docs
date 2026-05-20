@@ -61,28 +61,27 @@ For example, this typically includes fetching dependencies required to run the b
 on certain folders or just copying and moving files.
 
 ::: warning Container user
-GameFabric enforces uid 1000 via the Kubernetes pod security context (`runAsUser: 1000`). The container process always runs as uid 1000, regardless of the `USER` instruction in the Dockerfile. Your Dockerfile should create a user with uid 1000 and ensure all files the game server needs are owned by or readable by that user. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#user-id) for more details.
+GameFabric enforces uid 1000 via the Kubernetes pod security context (`runAsUser: 1000`). The container process always runs as uid 1000, regardless of the `USER` instruction in the Dockerfile. Ensure all files the game server needs are owned by or readable by uid 1000. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#user-id) for more details.
 :::
 
 Here is an example, where this Dockerfile builds an image that runs the game server:
 
 ```Dockerfile
 # 1. Select an operating system.
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # 2. Pre-install requirements.
 RUN apt-get update \
         && apt-get install -y gnupg ca-certificates \
-        && apt-get clean -y
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/*
 
 # 3. Prepare a working directory and permissions.
-RUN mkdir /app
-RUN useradd -m -u 1000 gameserver
-RUN chown gameserver:gameserver /app
+RUN mkdir /app && chown 1000:1000 /app
 
 # 4. Prepare your game server binary.
 USER 1000
-COPY --chown=gameserver:gameserver path/to/gameserver /app/
+COPY --chown=1000:1000 path/to/gameserver /app/
 RUN chmod +x /app/gameserver
 WORKDIR /app
 
@@ -90,13 +89,13 @@ CMD ["/app/gameserver"]
 ```
 
 1. First, select a Linux operating system, ideally a minimal one to reduce the overall image size, but
-   for the sake of simplicity this example uses Ubuntu 22.04 (LTS).
+   for the sake of simplicity this example uses Ubuntu 24.04 (LTS).
 
 2. Update the dependencies to ensure all security patches are included in the built image.
    Additionally, install anything that is required to run the game server binary.
    Keep in mind that this is a blank system, without pre-installed custom libraries.
 
-3. Create a user with uid 1000 and set up a working directory owned by that user.
+3. Set up a working directory owned by uid 1000.
    GameFabric runs the container process as uid 1000 via the pod security context,
    so file ownership must match to avoid permission errors at runtime.
 
