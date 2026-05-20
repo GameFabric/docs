@@ -118,10 +118,8 @@ Use this mode when you want the buffer alone to drive ready capacity and have no
 When Minimum Replicas is greater than `0`, GameFabric keeps at least that many game servers running in any state at all times — regardless of whether they are `Ready`, `Allocated`, or `Unhealthy`.
 The value must be at least as large as the Buffer Size and no larger than Maximum Replicas.
 
-The **recommended default** is to set Minimum Replicas to the same value as the Buffer Size.
-This aligns the static floor with the ready pool so the autoscaler never has to spin up extra game servers solely to satisfy the minimum.
-
-In case of an upcoming release or launch, with the expectation of an instant high player count, Minimum Replicas can be raised above the Buffer Size to pre-warm additional capacity.
+The **recommended default** is `0`: let the buffer drive ready capacity without adding a separate static floor.
+Use a positive value only when you have a specific reason to guarantee a minimum number of servers running regardless of demand — for example, pre-warming capacity ahead of a launch.
 Review and lower the value once the peak has subsided to avoid unnecessary costs.
 
 ### Maximum replicas
