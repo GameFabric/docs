@@ -305,6 +305,8 @@ Each Vessel can be configured completely independently.
 
 Vessels are part of the [Persistent Servers](#persistent-servers) category in the UI. See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
+See [Vessel states](/multiplayer-servers/getting-started/vessel-states) for a description of each state a vessel can be in.
+
 ## Wrapper
 
 A wrapper can be used to call your game server binary in order to provide additional functionality.

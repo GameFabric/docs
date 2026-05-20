@@ -1,5 +1,12 @@
 # Game server lifecycle
 
+::: tip Platform-level states
+This page covers the Agones game server states your code signals through the SDK. GameFabric maps these onto its own platform states:
+
+- For [Vessels](/multiplayer-servers/getting-started/glossary#vessel) (Persistent Servers), GameFabric exposes vessel states such as `Pending`, `Running`, and `Terminating` in the UI and API. See [Vessel states](/multiplayer-servers/getting-started/vessel-states).
+- For [Armadas](/multiplayer-servers/getting-started/glossary#armada) (Dynamic Fleets), individual game servers are managed as part of a Fleet and are not assigned named states in the same way. Scaling and allocation behavior is described in [Armada scaling](/multiplayer-servers/multiplayer-services/scaling).
+:::
+
 1. **Start:** Game server process is launched.
 2. **Ready:** The server signals `Ready()` after initialization and when it is prepared to accept players.
 3. **Allocated:** The server should call `Allocate()` only when the first player has joined. While in this state, the server is guaranteed not to be shut down for maintenance or scaling.
