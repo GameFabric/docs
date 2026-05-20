@@ -61,7 +61,7 @@ For example, this typically includes fetching dependencies required to run the b
 on certain folders or just copying and moving files.
 
 ::: warning Container user
-GameFabric enforces uid 1000 via the Kubernetes pod security context (`runAsUser: 1000`). The container process always runs as uid 1000, regardless of the `USER` instruction in the Dockerfile. Your Dockerfile should create a user with uid 1000 and ensure all files the game server needs are owned by or readable by that user. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#user-id) for more details.
+GameFabric enforces uid 1000 via the Kubernetes pod security context (`runAsUser: 1000`). The container process always runs as uid 1000, regardless of the `USER` instruction in the Dockerfile. Ensure all files the game server needs are owned by or readable by uid 1000. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#user-id) for more details.
 :::
 
 Here is an example, where this Dockerfile builds an image that runs the game server:

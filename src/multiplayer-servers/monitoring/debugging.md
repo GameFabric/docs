@@ -125,8 +125,9 @@ For more details on building container images, see [Building a container image](
 
 ### Adding the debug sidecar to your game server
 
-1. Navigate to your [Formation](/multiplayer-servers/getting-started/glossary#formation), [Vessel](/multiplayer-servers/getting-started/glossary#vessel), [ArmadaSet](/multiplayer-servers/getting-started/glossary#armadaset), or [Armada](/multiplayer-servers/getting-started/glossary#armada) configuration.
-1. In the **Sidecars** section, select **Create from scratch**.
+1. Navigate to your [Formation](/multiplayer-servers/getting-started/glossary#formation), [Vessel](/multiplayer-servers/getting-started/glossary#vessel), [ArmadaSet](/multiplayer-servers/getting-started/glossary#armadaset), or [Armada](/multiplayer-servers/getting-started/glossary#armada) detail view.
+1. Go to **Settings → Containers** and select **Add Sidecar Container**.
+1. Select **Create from scratch**.
 1. Set the container image to your debug sidecar image.
 1. Save your changes.
 

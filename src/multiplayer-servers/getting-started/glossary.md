@@ -91,9 +91,9 @@ When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated 
 
 A synchronization state indicating that configuration could not be deployed to one or more [Sites](#site). This can occur when Sites are unavailable, experiencing connectivity issues, or when all capacity in a Location has been deprovisioned.
 
-Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), [Secret](#secret), ConfigFile, Protocol, [Gateway Policies](#gateway-policies).
+Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), [Secret](#secret), ConfigFile, Protocol.
 
-The reason for the Degraded state is shown in the UI next to the affected object and is also available via the API in the `status.reason` field.
+For Armadas, ArmadaSets, Formations, and Protocols, the `status.reason` field provides additional context and is visible in the UI next to the affected object.
 
 ## Dynamic Buffer
 
@@ -291,6 +291,16 @@ An account used for accessing GameFabric programmatically. For details, see the 
 SteelShield is a DDoS protection system designed for the specific purpose of protecting game servers from large scale DDoS attacks.
 
 See also [SteelShield docs](/steelshield/gamefabric/introduction).
+
+## State
+
+Every GameFabric resource exposes a `status.state` field that reflects its current condition. States are specific to each resource type:
+
+- **Vessels:** `Pending`, `Scheduled`, `Created`, `Starting`, `Running`, `Terminating`, `Error`, `Suspended`. See [Vessel states](/multiplayer-servers/getting-started/vessel-states).
+- **Armadas and ArmadaSets:** `Synced`, [Degraded](#degraded).
+- **Formations:** `Synced`, [Degraded](#degraded).
+
+When a resource is not in its expected state, the `status.reason` field may provide additional context where available, visible in the UI and via the API.
 
 ## Terraform provider
 
