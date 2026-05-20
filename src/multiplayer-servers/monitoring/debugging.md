@@ -100,7 +100,8 @@ FROM ubuntu:24.04
 # 2. Pre-install requirements.
 RUN apt-get update \
         && apt-get install -y gnupg ca-certificates curl jq \
-        && apt-get clean -y
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/*
 
 # 3. Prepare a working directory and permissions.
 RUN mkdir /app && chown 1000:1000 /app
