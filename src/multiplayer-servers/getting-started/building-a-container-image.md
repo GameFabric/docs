@@ -68,7 +68,7 @@ Here is an example, where this Dockerfile builds an image that runs the game ser
 
 ```Dockerfile
 # 1. Select an operating system.
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # 2. Pre-install requirements.
 RUN apt-get update \
@@ -76,13 +76,11 @@ RUN apt-get update \
         && apt-get clean -y
 
 # 3. Prepare a working directory and permissions.
-RUN mkdir /app
-RUN useradd -m -u 1000 gameserver
-RUN chown gameserver:gameserver /app
+RUN mkdir /app && chown 1000:1000 /app
 
 # 4. Prepare your game server binary.
 USER 1000
-COPY --chown=gameserver:gameserver path/to/gameserver /app/
+COPY --chown=1000:1000 path/to/gameserver /app/
 RUN chmod +x /app/gameserver
 WORKDIR /app
 
@@ -90,13 +88,13 @@ CMD ["/app/gameserver"]
 ```
 
 1. First, select a Linux operating system, ideally a minimal one to reduce the overall image size, but
-   for the sake of simplicity this example uses Ubuntu 22.04 (LTS).
+   for the sake of simplicity this example uses Ubuntu 24.04 (LTS).
 
 2. Update the dependencies to ensure all security patches are included in the built image.
    Additionally, install anything that is required to run the game server binary.
    Keep in mind that this is a blank system, without pre-installed custom libraries.
 
-3. Create a user with uid 1000 and set up a working directory owned by that user.
+3. Set up a working directory owned by uid 1000.
    GameFabric runs the container process as uid 1000 via the pod security context,
    so file ownership must match to avoid permission errors at runtime.
 
