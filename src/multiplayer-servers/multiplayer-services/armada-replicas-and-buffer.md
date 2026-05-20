@@ -30,7 +30,7 @@ This is important so players can find a game server quickly, without having to w
 
 ## Input validation
 
-When configuring an Armada, the following validation rules apply:
+When configuring an Armada or ArmadaSet, the following validation rules apply:
 
 - All three values must be `0` or greater.
 - Maximum Replicas must be at least as high as both Minimum Replicas and Buffer Size.
