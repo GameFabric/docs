@@ -17,7 +17,7 @@ When configured too low, such as if not enough `Ready` game servers are availabl
 Replicas are the number of game servers running in any given state, from `Starting` to `Ready`, from `Allocated` to `Unhealthy`, `Shutdown` or `Error`.
 
 The **Minimum Replicas** setting keeps at least that many game servers running at all times, regardless of their state.
-When the count falls below the minimum, GameFabric spins up new game servers to compensate.
+When the count falls below the minimum — for example, as game sessions terminate and servers shut down — GameFabric spins up new game servers to compensate.
 Setting Minimum Replicas to `0` is a special case: no static floor is enforced on total replicas, and the autoscaler targets the Buffer Size as the number of `Ready` servers instead.
 See [Minimum replicas](#minimum-replicas) for guidance on choosing between the two modes.
 
