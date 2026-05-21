@@ -54,7 +54,7 @@ There is **no recommended default**, as it depends on multiple factors specific 
 **Important factors to determine the Buffer Size:**
 
 1. **Game server startup time:**
-   
+
    Quicker startup times reduce the need for a large Buffer Size.
 
 2. **Game session duration:**
@@ -130,7 +130,7 @@ A Location can hold multiple different Armadas, each with different Resource Req
 **Important factors to determine the Maximum Replicas:**
 
 1. **Available resources:**
-   
+
    The total CPU and Memory available on the Locations associated with the Region Type define the technical limit for the Maximum Replicas.
 
 2. **Game server Resource Requests:**
@@ -143,7 +143,7 @@ A Location can hold multiple different Armadas, each with different Resource Req
    An open world game mode requires more resources than a town server that only handles social interactions, but both may end up on the same Locations.
 
 4. **Overcommitment strategy:**
-   
+
    Not all game servers are `Allocated` at the same time, some stay `Ready` for a while.
    Intentional overcommitment is generally recommended to improve overall utilization.
    The challenge is managing allocations when multiple Armadas share the same underlying resources.
@@ -195,15 +195,15 @@ Whether through player peaks, due to bugs or DDoS attacks, always choose a limit
 The Buffer Size can be set to a fixed value as previously explained, or it can be dynamically adjusted based on the current player demand using
 the `Dynamic Buffer` option.
 
-When dynamic mode is enabled, GameFabric adjusts Buffer Size at two levels.  
-First, it updates the baseline Buffer Size for each region type based on overall demand trends.  
+When dynamic mode is enabled, GameFabric adjusts Buffer Size at two levels.
+First, it updates the baseline Buffer Size for each region type based on overall demand trends.
 Then, for each Site, it applies an additional local adjustment using site-specific signals such as `Ready` and `Allocated` game server counts, startup time, and player demand.
 This allows for a more responsive and cost-effective approach to managing the Buffer Size, as it can automatically scale up or down based on the current trends.
 
 ::: info
 
-Dynamic Buffer needs at least 24 hours of allocation data to determine a suitable Buffer Size, and it can take up to 48 hours to stabilize on a good 
-Buffer Size after being enabled. During this time, it is recommended to closely monitor the behavior of the Buffer Size and its impact on player experience 
+Dynamic Buffer needs at least 24 hours of allocation data to determine a suitable Buffer Size, and it can take up to 48 hours to stabilize on a good
+Buffer Size after being enabled. During this time, it is recommended to closely monitor the behavior of the Buffer Size and its impact on player experience
 and costs, and adjust the configuration as needed.
 
 It is expected that smaller player numbers (<50 CCU) cause more fluctuations in the Buffer Size, as there is less data to base the adjustments on,
@@ -220,7 +220,7 @@ experience and costs, and adjust the configuration as needed.
 
 ### Enabling dynamic buffer
 
-To enable the Dynamic Buffer, toggle the `Dynamic Buffer` option on a `Region - Type`. You will be asked to confirm that you understand 
+To enable the Dynamic Buffer, toggle the `Dynamic Buffer` option on a `Region - Type`. You will be asked to confirm that you understand
 the implications of enabling this feature.
 
 Once enabled GameFabric starts to control the Buffer Size, and any manual adjustments to the Buffer Size are be overridden by GameFabric's adjustments
@@ -239,12 +239,12 @@ The slider configures the cost-efficiency of the Buffer Size adjustments, with a
 
 The slider configuration can generally be categorized as follows:
 
-- **Cost-Efficient (1-3)**: The number of `Ready` game servers is kept to a minimum and scaling up happens more slowly which can result in game servers not 
+- **Cost-Efficient (1-3)**: The number of `Ready` game servers is kept to a minimum and scaling up happens more slowly which can result in game servers not
   being available during allocation peaks.
 - **Balanced (4-11)**: A balance between cost and availability is maintained, with a moderate approach to scaling game servers.
 - **Availability-Focused (12-15)**: The number of `Ready` game servers is increased to ensure availability during allocation peaks, with faster scaling up of game servers.
 
-::: info 
+::: info
 
 The Buffer Size calculated can be constrained by the Minimum Replicas. If this is observed, it is recommended to increase the Minimum Replicas to allow
 for a larger Buffer Size.
