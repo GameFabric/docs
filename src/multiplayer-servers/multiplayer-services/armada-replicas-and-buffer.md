@@ -119,7 +119,7 @@ When Minimum Replicas is greater than `0`, GameFabric keeps at least that many g
 The value must be at least as large as the Buffer Size and no larger than Maximum Replicas.
 
 The **recommended default** is `0`: let the buffer drive ready capacity without adding a separate static floor.
-Use a positive value only when you have a specific reason to guarantee a minimum number of servers running regardless of demand — for example, pre-warming capacity ahead of a launch.
+Use a non-zero value only when you have a specific reason to guarantee a minimum number of servers running regardless of demand — for example, pre-warming capacity ahead of a launch.
 Review and lower the value once the peak has subsided to avoid unnecessary costs.
 
 ### Maximum replicas
