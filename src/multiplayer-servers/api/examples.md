@@ -116,7 +116,7 @@ curl -X 'POST' \
           {
             "name":"gameserver",
             "branch":"<your-branch>",
-            "image":"<your-image-name>",
+            "image":"<your-image-object-name>",
             "ports":[
               {
                 "name":"game",
@@ -152,13 +152,13 @@ curl -X 'POST' \
 
 ## Adding a Vessel to a Formation
 
-To add a vessel to an existing formation via the API, you need to PATCH the formation resource itself. This appends the vessel to the formation's `spec.vessels` list, and the formation controller creates and manages it.
+To add a Vessel to an existing Formation via the API, you need to PATCH the Formation resource itself. This appends the Vessel to the Formation's `spec.vessels` list, and the formation controller creates and manages it.
 
 ::: warning
-Do **not** create a standalone vessel with `ownerReferences` pointing to a formation. Setting `ownerReferences` does not add the vessel to the formation's `spec.vessels`, so the formation controller treats it as an orphan and deletes it.
+Do **not** create a standalone Vessel with `ownerReferences` pointing to a Formation. Setting `ownerReferences` does not add the Vessel to the Formation's `spec.vessels`, so the formation controller treats it as an orphan and deletes it.
 :::
 
-Use a JSON Patch request to append a vessel to the formation's `spec.vessels` array:
+Use a JSON Patch request to append a Vessel to the Formation's `spec.vessels` array:
 
 ```bash
 curl -X 'PATCH' \
@@ -176,7 +176,7 @@ curl -X 'PATCH' \
 }]'
 ```
 
-The vessel inherits the formation's template configuration. If you need to override specific container settings for this vessel, add an `override` field:
+The Vessel inherits the Formation's template configuration. If you need to override specific container settings for this Vessel, add an `override` field:
 
 ```bash
 curl -X 'PATCH' \
