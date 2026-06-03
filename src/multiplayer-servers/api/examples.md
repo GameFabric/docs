@@ -150,6 +150,62 @@ curl -X 'POST' \
 }'
 ```
 
+## Adding a Vessel to a Formation
+
+To add a vessel to an existing formation via the API, you need to PATCH the formation resource itself. This adds the vessel to the formation's `vessels` list, and the formation controller will create and manage it.
+
+::: warning
+Do **not** create a standalone vessel with `ownerReferences` pointing to a formation. This does not register the vessel in the formation's config. The formation controller will treat it as orphaned and delete it.
+:::
+
+Use a JSON Patch request to append a vessel to the formation's `spec.vessels` array:
+
+```bash
+curl -X 'PATCH' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json-patch+json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '[{
+  "op": "add",
+  "path": "/spec/vessels/-",
+  "value": {
+    "name": "my-new-vessel",
+    "region": "<your-region>"
+  }
+}]'
+```
+
+The vessel inherits the formation's template configuration. If you need to override specific container settings for this vessel, add an `override` field:
+
+```bash
+curl -X 'PATCH' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json-patch+json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '[{
+  "op": "add",
+  "path": "/spec/vessels/-",
+  "value": {
+    "name": "my-new-vessel",
+    "region": "<your-region>",
+    "override": {
+      "containers": [
+        {
+          "name": "gameserver",
+          "image": "<your-image-object-name>",
+          "args": [
+            "/home/gameserver/server",
+            "--config=/home/gameserver/config.json"
+          ]
+        }
+      ]
+    }
+  }
+}]'
+```
+
 ## Listing Vessels
 
 Now that you created a Vessel, you might want to use the API to list Vessels in order to know whether yours was scheduled successfully.
