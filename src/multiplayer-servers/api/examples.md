@@ -152,10 +152,10 @@ curl -X 'POST' \
 
 ## Adding a Vessel to a Formation
 
-To add a vessel to an existing formation via the API, you need to PATCH the formation resource itself. This adds the vessel to the formation's `vessels` list, and the formation controller will create and manage it.
+To add a vessel to an existing formation via the API, you need to PATCH the formation resource itself. This appends the vessel to the formation's `spec.vessels` list, and the formation controller creates and manages it.
 
 ::: warning
-Do **not** create a standalone vessel with `ownerReferences` pointing to a formation. This does not register the vessel in the formation's config. The formation controller will treat it as orphaned and delete it.
+Do **not** create a standalone vessel with `ownerReferences` pointing to a formation. Setting `ownerReferences` does not add the vessel to the formation's `spec.vessels`, so the formation controller treats it as an orphan and deletes it.
 :::
 
 Use a JSON Patch request to append a vessel to the formation's `spec.vessels` array:
