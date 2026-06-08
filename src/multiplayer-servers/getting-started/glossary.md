@@ -119,6 +119,12 @@ Alongside the [RBAC](#rbac) features, it also allows limiting the access to cert
 
 Capacity is managed on a per Environment basis via [Regions](#region).
 
+## Export Store
+
+An export store is a configuration object that targets one S3-compatible bucket for continuous delivery of [audit log](/multiplayer-servers/monitoring/auditlogs) events. Each export store has a status: **Active**, **Suspended**, or **Error**.
+
+See [Audit log exports](/multiplayer-servers/monitoring/audit-log-exports) for setup and configuration instructions.
+
 ## Fleet
 
 A Fleet is a set of warm GameServers that are available to be allocated from.
