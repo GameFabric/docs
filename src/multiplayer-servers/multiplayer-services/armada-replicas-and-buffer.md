@@ -30,7 +30,7 @@ This is important so players can find a game server quickly, without having to w
 
 Allocation speed is independent of the underlying infrastructure. Whether game servers run on bare metal or cloud, the Allocator assigns a `Ready` server from the buffer pool instantly. The buffer is equally important on both infrastructure types: without enough `Ready` servers, players wait for a new server to start up regardless of the hardware underneath.
 
-In cloud environments, GameFabric autoscales the number of Nodes to match demand — scaling up when more capacity is needed and scaling back down to save costs. This does not affect the allocation path. With the right buffer configuration, there are always enough `Ready` servers available to handle allocation requests while new capacity comes online in the background.
+In cloud environments, GameFabric autoscales the number of nodes to match demand — scaling up when more capacity is needed and scaling back down to save costs. This does not affect the allocation path. With the right buffer configuration, there are always enough `Ready` servers available to handle allocation requests while new capacity comes online in the background.
 
 ## Input validation
 
