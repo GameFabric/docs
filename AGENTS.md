@@ -11,6 +11,9 @@ If you add new tooling (linters/tests), update this file.
 - Build output: `.vitepress/dist`
 
 ## Commands (build / lint / test)
+
+> **Tooling rule:** Use `yarn` directly if it is available on your system. If yarn (or npm) is not installed, use the Docker-based equivalents via `make` instead.
+
 ### Install
 - `corepack enable && yarn install`
   - CI enables Corepack before install.
@@ -18,13 +21,13 @@ If you add new tooling (linters/tests), update this file.
 
 ### Local development
 - Dev server: `yarn docs:dev` (binds `0.0.0.0`, default `http://localhost:5173`)
-- Container dev server:
+- Container dev server (no local yarn/npm required):
   - Build image: `make image` (uses `.dev/Dockerfile`)
   - Run: `make dev` (mounts `./src` into the container)
 
 ### Build / preview
-- Build: `yarn docs:build`
-- Preview build: `yarn docs:serve`
+- Build: `yarn docs:build` — or `make build` if yarn is not installed
+- Preview build: `yarn docs:serve` — or `make serve` if yarn is not installed
 
 ### Linting (current)
 - No ESLint/Prettier/formatter configured.
@@ -37,14 +40,14 @@ If you add new tooling (linters/tests), update this file.
 ### Tests (current)
 - No unit/integration test runner configured (`vitest`/`jest` not present).
 - Validation is primarily:
-  - `yarn docs:build` to catch build-time failures
-  - `yarn docs:dev` or `yarn docs:serve` for manual verification
+  - `yarn docs:build` (or `make build`) to catch build-time failures
+  - `yarn docs:dev` (or `make dev`) for manual verification
 
-### “Single test” guidance
-- There is no “run one test” command today.
+### "Single test" guidance
+- There is no "run one test" command today.
 - Closest equivalents:
-  - Validate one page visually: `yarn docs:dev` then navigate to the route.
-  - Catch build regressions quickly: `yarn docs:build`.
+  - Validate one page visually: `yarn docs:dev` (or `make dev`) then navigate to the route.
+  - Catch build regressions quickly: `yarn docs:build` (or `make build`).
 - If a test runner is added later (recommended: `vitest`), also document:
   - `yarn test` (full suite)
   - `yarn vitest -t "test name"` (single test)
@@ -60,8 +63,8 @@ When adding docs:
 - Update the nearest `sidebar.json` and include an `order` field.
 
 ## Validation checklist
-- Build still passes: `yarn docs:build`.
-- Spot-check changed pages in `yarn docs:dev`.
+- Build still passes: `yarn docs:build` (or `make build`).
+- Spot-check changed pages in `yarn docs:dev` (or `make dev`).
 - Ensure `sidebar.json` stays valid JSON and `order` values remain unique.
 - Verify new/changed links and images render as expected.
 
@@ -137,10 +140,7 @@ For OpenAPI pages, follow the existing pattern (see `README.md`):
 ## Safety notes for agents
 - Don't add new dependencies unless necessary for docs rendering.
 - Avoid touching large image assets unless requested (big diffs).
-- After code changes, verify the build passes:
-  - Preferred: `yarn docs:build` (if Yarn/Corepack is available locally)
-  - Fallback: `docker run --rm gamefabric-docs-dev yarn docs:build` (requires `make image` first)
-  - No tooling: note in PR that build was not verified locally
+- After code changes, verify the build passes: `yarn docs:build` (or `make build` if yarn is not installed).
 
 ## Copilot rules
 
