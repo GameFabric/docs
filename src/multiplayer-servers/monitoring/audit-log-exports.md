@@ -15,12 +15,13 @@ See [Permissions](#permissions) for the full list of required capabilities.
 
 The following permissions are required to manage audit log exports. A user must belong to a `group` with a `role` that includes the relevant permissions.
 
-| Action | Resource | Verb | API group |
-|---|---|---|---|
-| View exports | `exportstores` | `GET` | `audit` |
-| Create exports | `exportstores` | `POST` | `audit` |
-| Edit exports | `exportstores` | `PATCH` | `audit` |
-| Delete exports | `exportstores` | `DELETE` | `audit` |
+| Action         | Resource       | Verb     | API group |
+|----------------|----------------|----------|-----------|
+| View exports   | `exportstores` | `GET`    | `audit`   |
+| Create exports | `exportstores` | `POST`   | `audit`   |
+| Edit exports   | `exportstores` | `PATCH`  | `audit`   |
+| Delete exports | `exportstores` | `DELETE` | `audit`   |
+
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions) for more information.
 
@@ -49,15 +50,15 @@ To add a new export destination, follow these steps.
 
 The following fields are available:
 
-| Field | Required | Description |
-|---|---|---|
-| **Name** | Yes | A unique identifier for this export store. Must be lowercase alphanumeric, and may contain `-` or `.`. Maximum 63 characters. |
-| **Endpoint** | No | The S3-compatible endpoint URL. Defaults to `https://s3.amazonaws.com`. Use a custom value for providers such as Cloudflare R2. |
-| **Region** | Yes | The storage region (for example, `eu-west-1`). Use `auto` for providers that do not require a region. |
-| **Bucket** | Yes | The name of the S3 bucket to deliver logs into. |
-| **Object path / prefix** | No | An optional key prefix (folder) prepended to every uploaded object. |
-| **Access Key ID** | Yes | The access key ID for HMAC credential authentication. |
-| **Secret Access Key** | Yes | The secret access key for HMAC credential authentication. |
+| Field                    | Required | Description                                                                                                                     |
+|--------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------|
+| **Name**                 | Yes      | A unique identifier for this export store. Must be lowercase alphanumeric, and may contain `-` or `.`. Maximum 63 characters.   |
+| **Endpoint**             | No       | The S3-compatible endpoint URL. Defaults to `https://s3.amazonaws.com`. Use a custom value for providers such as Cloudflare R2. |
+| **Region**               | Yes      | The storage region (for example, `eu-west-1`). Use `auto` for providers that do not require a region.                           |
+| **Bucket**               | Yes      | The name of the S3 bucket to deliver logs into.                                                                                 |
+| **Object path / prefix** | No       | An optional key prefix (folder) prepended to every uploaded object.                                                             |
+| **Access Key ID**        | Yes      | The access key ID for HMAC credential authentication.                                                                           |
+| **Secret Access Key**    | Yes      | The secret access key for HMAC credential authentication.                                                                       |
 
 ## Edit an export store
 
