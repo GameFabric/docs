@@ -13,6 +13,7 @@ Every Armada is configured with three core scaling parameters per Region Type:
 
 These values determine how quickly players find a game server and how much idle capacity is maintained.
 Getting them right depends on game server startup time, session duration, and expected concurrent users.
+The buffer is equally important on bare metal and cloud: allocation always draws from the pool of `Ready` servers, regardless of the underlying infrastructure.
 
 For detailed guidance, including examples and input validation rules, see [Replicas and buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer).
 
