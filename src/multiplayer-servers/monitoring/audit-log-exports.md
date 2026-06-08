@@ -1,6 +1,6 @@
 # Audit log exports
 
-Audit log exports let you continuously push audit logs to an external S3-compatible storage location. This is useful for long-term retention, compliance archiving, or feeding audit data into your own SIEM or analytics pipeline.
+Audit log exports let you continuously push audit logs to an external S3-compatible storage location. This is useful for long-term retention, compliance archiving, or feeding audit data into your own SIEM (Security Information and Event Management) or analytics pipeline.
 
 ::: info Delivery delay
 To guarantee that all audit log events are captured, GameFabric intentionally delays delivery by a couple of minutes. Events generated close to the current time may not yet appear in the export destination. This applies both to continuous delivery and to the final batch written when an export store is disabled.
@@ -92,3 +92,4 @@ To delete an export store, follow these steps.
 1. Open the **Manage Exports** drawer.
 1. Open the action menu (⋮) for the export store.
 1. Click **Delete** and confirm the action in the dialog.
+

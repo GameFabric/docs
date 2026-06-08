@@ -3,7 +3,7 @@
 Audit logs record every action taken in your GameFabric installation, including who made the change, which resource was affected, and whether the operation succeeded. Use audit logs to investigate incidents, satisfy compliance requirements, or track configuration drift.
 
 ::: info Data availability
-Audit logs may be delayed by up to 2 minutes due to collection and processing pipelines.
+Audit logs may be delayed by a couple of minutes due to collection and processing pipelines.
 :::
 
 To access audit logs, click **Audit Logs** in the sidebar.
