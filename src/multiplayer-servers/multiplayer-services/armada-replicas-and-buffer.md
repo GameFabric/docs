@@ -28,9 +28,9 @@ The **Maximum Replicas** setting makes sure no more game servers are started whe
 The Buffer Size is the [approximate](#buffer-size-value) number of game servers that are kept in the `Ready` state, waiting to get `Allocated`.
 This is important so players can find a game server quickly, without having to wait for a new game server to start up.
 
-Allocation speed is independent of the underlying infrastructure. Whether game servers run on bare metal or cloud, the Allocator assigns a `Ready` server from the buffer pool instantly. The buffer is equally important on both infrastructure types: without enough `Ready` servers, players wait for a new server to start up regardless of the hardware underneath.
+Allocation speed is independent of the underlying [capacity type](/multiplayer-servers/architecture/capacity-types). Whether game servers run on bare metal or cloud, allocation draws from the pool of `Ready` servers in the buffer. When you use the [Allocator](/multiplayer-servers/getting-started/glossary#allocator), it assigns a `Ready` server instantly. The buffer is equally important on all capacity types: without enough `Ready` servers, players wait for a new server to start up.
 
-In cloud environments, GameFabric autoscales the number of nodes to match demand — scaling up when more capacity is needed and scaling back down to save costs. This does not affect the allocation path. With the right buffer configuration, there are always enough `Ready` servers available to handle allocation requests while new capacity comes online in the background.
+In cloud environments, GameFabric [autoscales the number of nodes](/multiplayer-servers/architecture/capacity-types#gamefabric-cloud) to match demand. This does not affect the allocation path. With the right buffer configuration, there are always enough `Ready` servers available to handle allocation requests while new nodes come online in the background.
 
 ## Input validation
 

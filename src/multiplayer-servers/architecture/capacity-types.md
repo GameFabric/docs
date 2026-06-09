@@ -26,6 +26,7 @@ Key characteristics:
 - **Powered by GCP**: Built on Google Cloud Platform's high-performance infrastructure, utilizing a specialized selection of machine types optimized for GameFabric workloads.
 - **Integrated billing**: All costs are billed through GameFabric.
 - **Density**: Supports up to 100 game servers per node.
+- **Node autoscaling**: GameFabric automatically adjusts the number of nodes within a cloud Location based on game server demand — scaling up when more capacity is needed and scaling back down to save costs.
 
 To provision GameFabric Cloud capacity, see [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
 
@@ -46,6 +47,7 @@ Key characteristics:
 - **Multi-cloud support**: Supports Google Cloud Platform, Amazon Web Services, and Microsoft Azure with full machine type flexibility.
 - **Separate billing**: Cloud costs are billed directly by your cloud provider, preserving any negotiated rates or committed-use discounts.
 - **Density**: Supports up to 100 game servers per node.
+- **Node autoscaling**: GameFabric automatically adjusts the number of nodes based on game server demand — scaling up when more capacity is needed and scaling back down to save costs.
 
 To set up BYOC, see [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup).
 
