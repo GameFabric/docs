@@ -21,7 +21,7 @@ Budget states and alert thresholds are evaluated independently for each open inv
 This means that at the turn of a month, spend tracked under the closing period and spend tracked under the opening period are counted separately — each can independently trigger alerts.
 
 Once an invoice is finalized, its entry is removed from the cloud budget view.
-No history is kept — budget tracking is only relevant while an invoice period is open.
+Budget tracking does not retain historical data — for past spend, refer to your invoices under **ADMIN AREA → Billing Reports**.
 
 ## Budget states
 
