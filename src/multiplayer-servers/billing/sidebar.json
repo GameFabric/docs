@@ -1,0 +1,11 @@
+{
+  "text": "Billing",
+  "collapsed": false,
+  "order": 8,
+  "items": [
+    {
+      "text": "Cloud budget",
+      "link": "/billing/cloud-budget"
+    }
+  ]
+}
