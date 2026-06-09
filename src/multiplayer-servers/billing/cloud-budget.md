@@ -11,6 +11,18 @@ It is not available for bare metal or Bring Your Own Cloud (BYOC) capacity.
 
 ![Cloud budget list showing three budgets with their states, spend, and thresholds](images/cloud-budget-list.png)
 
+## Invoice period
+
+An invoice period corresponds to a calendar month.
+At any given time, one or two invoice periods may be active: the current month's, and potentially the previous month's if it has not yet been finalized.
+Invoices are finalized with a delay to account for cloud provider reporting lag, so the previous month's invoice can remain open for up to five (5) business days into the new month.
+
+Budget states and alert thresholds are evaluated independently for each open invoice period.
+This means that at the turn of a month, spend tracked under the closing period and spend tracked under the opening period are counted separately — each can independently trigger alerts.
+
+Once an invoice is finalized, its entry is removed from the cloud budget view.
+No history is kept — budget tracking is only relevant while an invoice period is open.
+
 ## Budget states
 
 Each budget reports a state that reflects the current spend for the active invoice period.
@@ -78,8 +90,6 @@ A receiver cannot be deleted while any budget still references it.
 
 ![Receivers list showing a receiver with its name, email recipients, and last notified time](images/cloud-budget-receivers.png)
 
-![Add receiver form with a name field and an email recipients field](images/cloud-budget-receiver-form.png)
-
 ## Alert notifications
 
 GameFabric sends an email alert whenever a threshold or the maximum budget is crossed for the active invoice period.
@@ -93,15 +103,42 @@ When spend crosses a configured threshold, all receivers for that budget receive
 When spend exceeds the maximum budget, all receivers for that budget receive an email with the subject **GameFabric Cloud Budget Alert: Maximum Budget Exceeded**.
 
 ::: info Concurrent invoices
-At the start of a new calendar month, the previous invoice period may still be open while the new one has already started.
-Both invoice periods are tracked independently, and each can generate its own threshold and maximum budget alerts.
+At the turn of a month, both the closing and the opening invoice periods may be open simultaneously.
+Each can independently trigger alerts, so you may receive notifications for both periods at the same time.
 :::
 
 ## Suspending a budget
 
 Suspending a budget stops all further alert notifications without deleting the budget or its configuration.
-While suspended, the recorded spend history is cleared.
 When re-enabled, GameFabric evaluates spend from the current state; no alerts are sent retroactively for thresholds crossed during the suspension period.
+
+::: warning Spend tracking is paused while suspended
+While a budget is suspended, GameFabric stops tracking spend against it.
+Any spend already recorded for open invoice periods is cleared from the budget's perspective when you suspend it.
+This does not affect invoicing — cloud spend continues to be recorded for billing purposes regardless.
+:::
+
+## Managing budgets
+
+### Create a receiver
+
+A budget requires at least one receiver, so create a receiver first if none exist.
+
+1. Go to **Admin Area → Billing Reports → Budget Alerting**.
+2. Select the **Receivers** tab and click **Add Receiver**.
+3. Enter a name and one or more email addresses.
+
+![Add receiver form with a name field and an email recipients field](images/cloud-budget-receiver-form.png)
+
+### Create a budget
+
+1. Go to **Admin Area → Billing Reports → Budget Alerting**.
+2. Select the **Budgets** tab and click **Add Budget**.
+3. Enter a name and set the maximum budget in USD.
+4. Optionally configure alert thresholds — specific amounts or an interval.
+5. Select one or more receivers to notify.
+
+![Create/edit budget form showing the None, Specific amounts, and Interval threshold strategy options](images/cloud-budget-form.png)
 
 ## Permissions
 
