@@ -78,7 +78,7 @@ A receiver cannot be deleted while any budget still references it.
 
 ![Receivers list showing a receiver with its name, email recipients, and last notified time](images/cloud-budget-receivers.png)
 
-<!-- TODO: add screenshot of the create/edit receiver form -->
+![Add receiver form with a name field and an email recipients field](images/cloud-budget-receiver-form.png)
 
 ## Alert notifications
 
@@ -96,8 +96,6 @@ When spend exceeds the maximum budget, all receivers for that budget receive an 
 At the start of a new calendar month, the previous invoice period may still be open while the new one has already started.
 Both invoice periods are tracked independently, and each can generate its own threshold and maximum budget alerts.
 :::
-
-<!-- TODO: add screenshot of the budget status drawer showing per-invoice spend and state -->
 
 ## Suspending a budget
 
