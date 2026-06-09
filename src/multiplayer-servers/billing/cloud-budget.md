@@ -9,7 +9,7 @@ Cloud budget is only available for [GameFabric Cloud](/multiplayer-servers/getti
 It is not available for bare metal or Bring Your Own Cloud (BYOC) capacity.
 :::
 
-<!-- TODO: add screenshot of the cloud budget list overview -->
+![Cloud budget list showing three budgets with their states, spend, and thresholds](images/cloud-budget-list.png)
 
 ## Budget states
 
@@ -66,7 +66,7 @@ Example with `start: $20,000` and `step: $20,000` on a `$100,000` budget:
 
 > Thresholds at $20,000 — $40,000 — $60,000 — $80,000, then the maximum budget alert at $100,000.
 
-<!-- TODO: add screenshot of the create/edit budget form showing both threshold strategy options -->
+![Create/edit budget form showing the None, Specific amounts, and Interval threshold strategy options](images/cloud-budget-form.png)
 
 ## Receivers
 
@@ -76,7 +76,7 @@ Receivers are managed separately and can be reused across multiple budgets.
 Each budget must reference at least one receiver and at most five.
 A receiver cannot be deleted while any budget still references it.
 
-<!-- TODO: add screenshot of the receivers list -->
+![Receivers list showing a receiver with its name, email recipients, and last notified time](images/cloud-budget-receivers.png)
 
 <!-- TODO: add screenshot of the create/edit receiver form -->
 
