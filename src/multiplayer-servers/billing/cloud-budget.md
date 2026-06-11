@@ -144,8 +144,8 @@ A budget requires at least one receiver, so create a receiver first if none exis
 
 To view and manage cloud budgets, a user must belong to a group with a role that grants the following permissions:
 
-- `get` on the `cloudbudgets` resource in the `billing` API group — required to view budgets.
-- `get` on the `receivers` resource in the `notification` API group — required to view and assign receivers.
+- `get` on the `cloudbudgets` resource — required to view budgets.
+- `get` on the `receivers` resource — required to view and assign receivers.
 
 ::: tip Access control
 For more information on managing permissions, see [Editing permissions](/multiplayer-servers/authentication/editing-permissions).
