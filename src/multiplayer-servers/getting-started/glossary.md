@@ -13,6 +13,13 @@ See [Sidecar Containers](/multiplayer-servers/architecture/sidecars#allocation-s
 
 The Allocator is an optional service that manages a pool of ready-to-use game servers for session-based games. It acts as a broker between your matchmaker and GameFabric's infrastructure. The Allocator is not included by default and must be ordered separately.
 
+The Allocator exposes two endpoints, each with its own authentication token:
+
+- **Registry** (`/servers`) — where game servers register and send keep-alives. Authenticated with the **Registry Token**.
+- **Allocator** (`/allocate`) — where your matchmaker requests a game server. Authenticated with the **Allocator Token**.
+
+For each Allocator you order, you receive both tokens.
+
 The Allocator is typically used with [Armadas](#armada) for games where players are assigned to servers by matchmaking rather than choosing from a server list. For persistent servers where players browse and select their own server, use [Formations](#formation) without the Allocator.
 
 See [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) for details on when to use the Allocator and integration options.

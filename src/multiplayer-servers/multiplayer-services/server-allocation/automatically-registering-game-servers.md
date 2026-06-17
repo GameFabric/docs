@@ -78,7 +78,7 @@ It requires you to select the image, which is provided under the `system` branch
 and a `Passthrough` port, using `TCP` protocol, named `allocator`.
 This is so that the allocation service can reach the Allocation Sidecar.
 
-Now specify the required `ALLOC_URL`, `ALLOC_REGION`, and `ALLOC_TOKEN` environment variables
+Now specify the required `ALLOC_URL`, `ALLOC_REGION`, and `ALLOC_TOKEN` (Registry Token) environment variables
 for the allocation service. Without these three variables, the Allocation Sidecar will not function.
 It is recommended to set these environment variables on the Region, so any Formation, Vessel, ArmadaSet or Armada
 within that region is automatically configured.
@@ -219,7 +219,17 @@ See [API Specs - Allocation: Registry](/api/multiplayer-servers/allocation-regis
 
 ### `ALLOC_TOKEN` (`string`)
 
-The authentication bearer for the allocation service endpoint.
+The authentication bearer token for the Registry service. This is the **Registry Token**, used to
+register and keep-alive game servers.
+
+::: warning Use the Registry Token, not the Allocator Token
+For each Allocator you order, you receive two separate tokens:
+
+- **Registry Token** — used by game servers (via the sidecar) to register with the Registry service. This is what `ALLOC_TOKEN` must be set to.
+- **Allocator Token** — used by your matchmaker or backend to call the `/allocate` endpoint.
+
+Using the wrong token causes registration to fail with an authentication error.
+:::
 
 ### `ALLOC_REGION` (`string`)
 
