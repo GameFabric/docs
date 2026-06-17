@@ -79,7 +79,7 @@ and a `Passthrough` port, using `TCP` protocol, named `allocator`.
 This is so that the allocation service can reach the Allocation Sidecar.
 
 Now specify the required `ALLOC_URL`, `ALLOC_REGION`, and `ALLOC_TOKEN` (Registry Token) environment variables
-for the allocation service. Without these three variables, the Allocation Sidecar will not function.
+for the Registry service. Without these three variables, the Allocation Sidecar will not function.
 It is recommended to set these environment variables on the Region, so any Formation, Vessel, ArmadaSet or Armada
 within that region is automatically configured.
 
