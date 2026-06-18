@@ -116,7 +116,7 @@ curl -X 'POST' \
           {
             "name":"gameserver",
             "branch":"<your-branch>",
-            "image":"<your-image-name>",
+            "image":"<your-image-object-name>",
             "ports":[
               {
                 "name":"game",
@@ -148,6 +148,62 @@ curl -X 'POST' \
     }
   }
 }'
+```
+
+## Adding a Vessel to a Formation
+
+To add a Vessel to an existing Formation via the API, you need to PATCH the Formation resource itself. This appends the Vessel to the Formation's `spec.vessels` list, and the formation controller creates and manages it.
+
+::: warning
+Do **not** create a standalone Vessel with `ownerReferences` pointing to a Formation. Setting `ownerReferences` does not add the Vessel to the Formation's `spec.vessels`, so the formation controller treats it as an orphan and deletes it.
+:::
+
+Use a JSON Patch request to append a Vessel to the Formation's `spec.vessels` array:
+
+```bash
+curl -X 'PATCH' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json-patch+json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '[{
+  "op": "add",
+  "path": "/spec/vessels/-",
+  "value": {
+    "name": "my-new-vessel",
+    "region": "<your-region>"
+  }
+}]'
+```
+
+The Vessel inherits the Formation's template configuration. If you need to override specific container settings for this Vessel, add an `override` field:
+
+```bash
+curl -X 'PATCH' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json-patch+json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '[{
+  "op": "add",
+  "path": "/spec/vessels/-",
+  "value": {
+    "name": "my-new-vessel",
+    "region": "<your-region>",
+    "override": {
+      "containers": [
+        {
+          "name": "gameserver",
+          "image": "<your-image-object-name>",
+          "args": [
+            "/home/gameserver/server",
+            "--config=/home/gameserver/config.json"
+          ]
+        }
+      ]
+    }
+  }
+}]'
 ```
 
 ## Listing Vessels
