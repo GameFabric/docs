@@ -1,10 +1,14 @@
-# Automatically Registering Game Servers
+# Automatically registering game servers
 
 This guide describes how to enable and configure the automatic game server registration and the associated
-allocation handling. The goal is to enable your matchmaker to select game servers using Nitrado Allocator.
+allocation handling. The goal is to enable your matchmaker to select game servers using the GameFabric Allocator.
 
 ::: tip Manual Alternative
 If you need more control over the registration process, see [Manually Registering Game Servers](manually-registering-game-servers) for a code-based approach.
+:::
+
+::: info What is a Sidecar?
+For background on sidecar containers and other available sidecars, see [Sidecar Containers](/multiplayer-servers/architecture/sidecars).
 :::
 
 ## Pre-requisites
@@ -17,11 +21,11 @@ Your game server needs to support a minimal Agones SDK integration:
 - Transitions into state `Ready` when ready,
 - Transitions into state `Shutdown` when done.
 
-Please check [Using the Agones SDK](../../getting-started/using-the-agones-sdk)  for details.
+Please check [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) for details.
 
 <br style="clear:right"/>
 
-## Automatic Registration
+## Automatic registration
 
 When a matchmaker requests a game server from the allocation service, the game server must not only be "Ready",
 it must also be registered with the allocation service.
@@ -43,7 +47,11 @@ about the imminent allocation. This callback has several advantages:
   configured lifetime etc.
 
 - The callback can pass payloads from your matchmaker to your game server, e.g. the expected player IDs, desired game mode etc.
-  For details on how to pass a payload, see [API Specs - Allocation: Allocator](../../../api/multiplayer-servers/allocation-allocator.md).
+  For details on how to pass a payload, see [API Specs - Allocation: Allocator](/api/multiplayer-servers/allocation-allocator).
+
+::: tip Inspecting the payload in logs
+The Allocation Sidecar logs the allocation payload at `debug` level. To see the payload in the sidecar logs, set the [`LOG_LEVEL`](#log_level-stringinfo) environment variable to `debug`.
+:::
 
 ## Attributes
 
@@ -56,6 +64,8 @@ Only game servers whose attributes contain at least the specified filters are se
 Passing no attributes for allocation matches every game server,
 as the empty set of attributes is always a sub-set of any other attributes.
 To gain more control over filtering you can configure [required game server attributes](#alloc_required_attrs-string).
+
+The Allocation Sidecar logs the configured attributes at registration time. They appear in the `"Game Server registered with the allocator"` log entry at `info` level.
 :::
 
 ## Configuration
@@ -68,9 +78,9 @@ It requires you to select the image, which is provided under the `system` branch
 and a `Passthrough` port, using `TCP` protocol, named `allocator`.
 This is so that the allocation service can reach the Allocation Sidecar.
 
-Now specify the URL and authentication token for the allocation service
-using the `ALLOC_URL` and `ALLOC_TOKEN` environment variables.
-It is recommended to set it in the Region, so any Formation, Vessel, ArmadaSet or Armada
+Now specify the required `ALLOC_URL`, `ALLOC_REGION`, and `ALLOC_TOKEN` environment variables
+for the allocation service. Without these three variables, the Allocation Sidecar will not function.
+It is recommended to set these environment variables on the Region, so any Formation, Vessel, ArmadaSet or Armada
 within that region is automatically configured.
 
 ::: warning
@@ -84,7 +94,7 @@ Also do not use `UDP/TCP`, as this results in a different naming scheme.
 The Allocation Sidecar watches for the state change "Ready", registers the game server to the pre-configured
 allocation service, and when allocated, transitions the state to "Allocated".
 
-## Game Server Integration
+## Game server integration
 
 With the registration and allocation handling automated,
 your game server needs to be extended to support watching for the "Allocated" state change.
@@ -187,19 +197,37 @@ a partial payload may be sent.
 Static payload variables can also be sent by [adding the environment variable `ALLOC_CALLBACK_PAYLOAD_VARS`](#alloc_callback_payload_vars-string) on
 the Allocation Sidecar container.
 
-## Advanced Configuration
+## Required configuration
 
 All environment variables described in this guide must be added to the Allocation Sidecar container,
 not to your game server container.
-Any parent resource, such as Region or Site can also provide these environment variables
+Any parent resource, such as Region or Site can also provide these environment variables.
+
+The following environment variables are required for the Allocation Sidecar to function.
 
 ### `ALLOC_URL` (`string`)
 
-The allocation service endpoint URL.
+The allocation service endpoint URL. The URL must end with `/servers`.
+
+Example:
+
+```text
+https://<your-installation>.gamefabric.dev/allocator/prod/us/servers
+```
+
+See [API Specs - Allocation: Registry](/api/multiplayer-servers/allocation-registry#tag/Registry) for details.
 
 ### `ALLOC_TOKEN` (`string`)
 
 The authentication bearer for the allocation service endpoint.
+
+### `ALLOC_REGION` (`string`)
+
+The region identifier used for the game server registration.
+
+## Optional configuration
+
+The following environment variables are optional and enable additional functionality.
 
 ### `ALLOC_PRIORITY` (`int=0`)
 
@@ -334,3 +362,9 @@ Providing no attributes in the allocation call matches all game servers.
 This is not always desired, so it is possible to specify required game server attributes.
 These keys can be added during the game server registration with `ALLOC_REQUIRED_ATTRS=<string>`.
 The value must be the key, e.g. `env`. If you want to require more than one attribute, you can do so using `,` as a separator.
+
+### `LOG_LEVEL` (`string=info`)
+
+Sets the log level of the Allocation Sidecar. Valid values are `debug`, `info`, `warn`, and `error`.
+
+The Allocation Sidecar logs key events at `info` level by default, including game server registration (with address, callback address, and attributes) and allocation acceptance. The allocation payload is logged at `debug` level only, because it contains external input from the matchmaker. To inspect the payload in the sidecar logs, set `LOG_LEVEL` to `debug`.

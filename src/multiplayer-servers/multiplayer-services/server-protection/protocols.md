@@ -13,7 +13,7 @@ In order to protect your game server's traffic, your GameFabric installation req
 
 - Protection support enabled, usually indicated by the presence of the Protection/SteelShield navigation item.
 - Sites that support SteelShield.
-- Game servers deployed via [Armadas](/multiplayer-servers/hosting-models/identifying-your-hosting-model#armadas) or [Formations](/multiplayer-servers/hosting-models/identifying-your-hosting-model#formations)
+- Game servers deployed via [Armadas](/multiplayer-servers/architecture/identifying-your-hosting-model#armadas) or [Formations](/multiplayer-servers/architecture/identifying-your-hosting-model#formations)
 
 ## Mitigations
 
@@ -39,7 +39,7 @@ Allowing both protocols while only one is supported by the Mitigation is not all
 Once the Protocol is created, you may use it in any ArmadaSet, Armada, Formation or Vessel.
 In order to do so, in their Container configuration page, you must select a Protection Protocol for each game server port.
 
-## Protect Game Server Ports
+## Protect game server ports
 
 Any ArmadaSet, Armada, Formation or Vessel requires at least one game server port.
 This port is usually meant for communication between your game server and game clients.
@@ -60,7 +60,7 @@ The assignment triggers an immediate rollout with the new port assignment.
 Allocated game servers as always are not affected, so they keep running under the old configuration.
 :::
 
-## Unsupported Sites
+## Unsupported sites
 
 Sites are game server clusters, and currently SteelShield is not supported on every Site.
 If you scale up and end up having game servers on multiple Sites, you may have game servers that are protected,

@@ -1,4 +1,4 @@
-# Pushing Container Images
+# Pushing container images
 
 In this section, you will learn how to make a container image available to GameFabric for subsequent deployment.
 
@@ -16,23 +16,27 @@ This guide is part of the container workflow:
 In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
-* API user credentials to push images to the GameFabric Container Registry (see [Authentication](/multiplayer-servers/getting-started/authentication))
-* A [container image of your game server binary](building-a-container-image.md)
+* A [Service Account](/multiplayer-servers/authentication/service-accounts) with push permissions for the GameFabric Container Registry. Personal SSO or login credentials do not work for registry authentication — you must create a dedicated Service Account and assign it to a group with push permissions (e.g., `default:image-providers`)
+* A [container image of your game server binary](/multiplayer-servers/getting-started/building-a-container-image)
 
 Log into the GameFabric UI before proceeding.
 
-## Create a Branch
+## Create a branch
 
 If you do not already have a branch in which to push images, you need to create one.
 In case you haven't already done so, there are two options available to you:
 
-* **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry - you can always change the display names and policies later. See how to [edit a branch](edit-a-branch.md).
+* **Add default Branches**: This will create two branches, "Production" and "Development", with default Image Retention Policies. Don't worry - you can always change the display names and policies later. See how to [edit a branch](edit-a-branch).
 * **Create Branch**: This will allow you to create a custom branch with a name and an Image Retention Policy of your choice.
 
 When creating a custom branch, please adhere to the following naming conventions:
 
-* Branch names must only contain lowercase letters, numbers, hyphens (-), and periods (.).
-* Branch names must begin and end with a lowercase letter.
+* Names may only contain lowercase letters (a–z), digits (0–9), hyphens (-), and periods (.).
+* Names must begin and end with a lowercase letter or digit.
+* Hyphens may not appear at the beginning or end of a segment.
+* Periods (.) separate segments; each segment must follow the same rules.
+* Empty segments (e.g., consecutive periods like ..) are not allowed.
+* The total length must not exceed 63 characters.
 
 ::: warning Image Retention Policy
 The Image Retention Policy defines how long images are stored in the registry and how many tags are retained.
@@ -43,7 +47,7 @@ For example, with **Keep Days** set to 14 and **Keep Count** set to 10, images o
 _Note: Either **Keep Days** or **Keep Count** (or both) must be >0. Setting **Keep Days** or **Keep Count** to _0_ means that specific rule will be ignored._
 :::
 
-### Add default Branches
+### Add default branches
 
 ::: info
 This option is only available if you have not created any branches yet.
@@ -57,7 +61,7 @@ This option is only available if you have not created any branches yet.
 4. The default branches are created. You can now see them in the branches overview.
 ![GUI_branches_created_default.png](images/branches/GUI_branches_created_default.png)
 
-### Create custom Branch
+### Create custom branch
 
 You can also create custom branches with a name and an Image Retention Policy of your choice.
 
@@ -78,14 +82,22 @@ Once the branch is created, you can find that URL again by clicking the **View I
 
 ## Push the game server image
 
-Now, login to the GameFabric Container Registry by running the following command:
+::: tip Service Account credentials required
+The `${USERNAME}` and `${PASSWORD}` in the command below are your **Service Account** credentials, not your personal login or SSO credentials. If you have not created a Service Account yet, follow the [Service Accounts guide](/multiplayer-servers/authentication/service-accounts).
+:::
+
+Log in to the GameFabric Container Registry:
 
 ```bash
 docker login -u ${USERNAME} -p ${PASSWORD} $URL
 ```
 
 ::: info
-If you encounter issues with your credentials, contact the administrator of your GameFabric installation.
+If you encounter issues with your credentials:
+
+1. Verify that your Service Account exists
+1. Confirm that it belongs to a group with push permissions (e.g., `default:image-providers`). See [Service Accounts](/multiplayer-servers/authentication/service-accounts) for details
+1. If the problem persists, reach out via the [GameFabric Help Center](/multiplayer-servers/getting-started/glossary#gamefabric-help-center) or contact your Customer Success Manager
 :::
 
 Once you are logged in, tag your image against the registry, and push it.
@@ -95,6 +107,26 @@ Do not forget to include the branch name after the registry URL.
 docker tag gameserver:v1.0.0       ${URL}/${BRANCH}/gameserver:v1.0.0
 docker push --platform linux/amd64 ${URL}/${BRANCH}/gameserver:v1.0.0
 ```
+
+::: warning Immutable tags
+Once you push an image tag, you cannot overwrite it. Pushing the same `image:tag` combination again fails.
+
+Immutable tags ensure that a given tag always refers to the exact same image content:
+
+- **Reproducibility** — Deployments using a specific tag always use identical content.
+- **Security** — Prevents accidental or malicious overwrites of production images.
+- **Auditability** — Provides a clear history of what was deployed and when.
+
+Use unique tags for each build:
+
+- Semantic versioning: `gameserver:v1.0.0`, `gameserver:v1.0.1`
+- Build identifiers: `gameserver:build-1234`, `gameserver:abc123def`
+- Timestamps: `gameserver:dev-20260224-143052`
+
+The registry rejects the `:latest` tag.
+
+To deploy new image versions automatically, enable [autoUpdate](/multiplayer-servers/getting-started/running-your-game-server#image) in your Vessel or Armada configuration. The system watches for new tags matching a pattern and triggers rollouts when they appear.
+:::
 
 You should now see the game image listed in the branch detail view.
 

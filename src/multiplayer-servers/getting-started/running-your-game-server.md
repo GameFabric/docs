@@ -1,9 +1,9 @@
-# Running your Game Server
+# Running your game server
 
 In this section, you will learn how to run your first game server.
 
 ::: tip Understanding Hosting Models
-Before proceeding, consider reviewing the [hosting models guide](/multiplayer-servers/hosting-models/identifying-your-hosting-model) to understand the difference between Vessels (long-running servers) and Armadas (session-based servers), and choose the right approach for your needs.
+Before proceeding, consider reviewing the [hosting models guide](/multiplayer-servers/architecture/identifying-your-hosting-model) to understand the difference between Vessels (long-running servers) and Armadas (session-based servers), and choose the right approach for your needs.
 :::
 
 ## Prerequisites
@@ -12,11 +12,11 @@ In order to follow this guide, make sure you have the following:
 
 * User credentials to access your GameFabric UI and environment of choice
 * A container image that has been [pushed to a branch in the registry](pushing-container-images)
-* Basic understanding of [Agones SDK integration](/multiplayer-servers/getting-started/using-the-agones-sdk) for proper game server lifecycle
+* Basic understanding of [Agones SDK integration](/multiplayer-servers/integration/your-game-server) for proper game server lifecycle
 
 Log into the GameFabric UI before proceeding.
 
-## Create Configuration Files (optional)
+## Create configuration files (optional)
 
 If your game server requires configuration files, you should add those before creating your first game server.
 
@@ -51,6 +51,16 @@ Select the Region that this Vessel should run in.
 Please note that you do not need to specify the type of capacity within the Region (i.e. Bare Metal vs. Cloud).
 This scheduling decision is performed automatically and adjusts dynamically when capacity changes.
 
+::: info Region Immutability
+
+The Region of a Vessel is immutable, which means that if you want to change the Region, you need to create a new Vessel and delete the old one.
+This is because the Region is a fundamental part of the Vessel's identity and configuration.
+
+Instead, the Vessel can be cloned, which creates a new Vessel with the same configuration as the original one, but with a different name and Region.
+This allows you to easily create multiple similar Vessels in different Regions without having to manually configure each one from scratch.
+
+:::
+
 ![GUI_Create_Vessel_Region.png](images/formation/GUI_Create_Vessel_General.png)
 
 ### Volumes
@@ -69,11 +79,11 @@ This makes the game server container use that image.
 ![GUI_Create_Vessel_Containers_Image.png](images/formation/GUI_Create_Vessel_Containers_Image.png)
 
 :::warning
-If you select `latest (auto update)`, pushing a new version of your game server image immediately triggers an automatic rollout.
+If you select `autoUpdate`, pushing a new version of your game server image immediately triggers an automatic rollout.
 This can be very convenient for development purposes, as it avoids you having to edit the Vessel whenever you push a new version.
 :::
 
-#### Environment Variables
+#### Environment variables
 
 Environment variables are a convenient way of exposing configuration options to the game server without defining a full configuration file.
 You can define them as static key/value pairs, or, by selecting the "Pod Field" type, expose metadata about the deployed game server,
@@ -83,18 +93,19 @@ such as the name of the region the game server is deployed to or the version of 
 
 Supported pod fields are:
 
-| Pod field                  | Description                                                        | Resolved by                 |
-|----------------------------|--------------------------------------------------------------------|-----------------------------|
-| `metadata.name`            | Name of the game server, usually referring to the unique pod name. | Kubernetes                  |
-| `metadata.labels['<KEY>']` | Accessor to the game server labels.                                | Kubernetes                  |
-| `metadata.armadaName`      | Name of the associated Armada.                                     | GameFabric (Armada only)    |
-| `metadata.vesselName`      | Name of the associated Vessel.                                     | GameFabric (Formation only) |
-| `metadata.regionName`      | Name of the region.                                                | GameFabric (any)            |
-| `metadata.regionTypeName`  | Name of the region type.                                           | GameFabric (any)            |
-| `metadata.siteName`        | Name of the site.                                                  | GameFabric (any)            |
-| `metadata.imageBranch`     | Name of the image branch of the used game server image.            | GameFabric (any)            |
-| `metadata.imageName`       | Name of the used game server image.                                | GameFabric (any)            |
-| `metadata.imageTag`        | Tag name of the used game server image.                            | GameFabric (any)            |
+| Pod field                     | Description                                                        | Resolved by                 |
+|-------------------------------|--------------------------------------------------------------------|-----------------------------|
+| `metadata.name`               | Name of the game server, usually referring to the unique pod name. | Kubernetes                  |
+| `metadata.labels['<KEY>']`    | Accessor to the game server labels.                                | Kubernetes                  |
+| `metadata.armadaName`         | Name of the associated Armada.                                     | GameFabric (Armada only)    |
+| `metadata.vesselName`         | Name of the associated Vessel.                                     | GameFabric (Formation only) |
+| `metadata.regionName`         | Name of the region.                                                | GameFabric (any)            |
+| `metadata.regionTypeName`     | Name of the region type.                                           | GameFabric (any)            |
+| `metadata.regionTypePriority` | Priority of the region type.                                       | GameFabric (any)            |
+| `metadata.siteName`           | Name of the site.                                                  | GameFabric (any)            |
+| `metadata.imageBranch`        | Name of the image branch of the used game server image.            | GameFabric (any)            |
+| `metadata.imageName`          | Name of the used game server image.                                | GameFabric (any)            |
+| `metadata.imageTag`           | Tag name of the used game server image.                            | GameFabric (any)            |
 
 For more information, see the [full list of supported Kubernetes fields](https://kubernetes.io/docs/concepts/workloads/pods/downward-api/#downwardapi-fieldRef).
 
@@ -108,7 +119,7 @@ There are two types of ports you can configure:
 * **Dynamic** is the preferred default. The game server locally binds to a predetermined port (such as `7777`) and
   at runtime, a random public port is chosen that game clients can then use to reach the game server. If the game server
   needs to communicate its public IP and ports to an outside system, such as a server list, the game server needs to
-  query this data from the Agones SDK.
+  query this data from the Agones SDK. See [Discovering Your Public Address](/multiplayer-servers/integration/your-game-server#discovering-your-public-address) for details.
 * **Passthrough** may be required if a game server requires public and local port to be the same (Steam's A2S query
   being a notable example). The public port is randomly chosen at runtime, and the game server then has to locally
   bind to that specific port after retrieving it from the Agones SDK. Passthrough should only be used when required.
@@ -124,7 +135,11 @@ Below are some port name conventions and what they are typically used for:
 | rcon      | Any remote control endpoint that can be used to manage the game server at runtime. |
 | allocator | Callback endpoint for a server allocation mechanism.                               |
 
-#### Command and Arguments
+::: info
+The `allocator` port is used by the [Allocator service](/multiplayer-servers/multiplayer-services/server-allocation/overview), which manages server assignment for matchmaking-based games. Games that rely on a server browser instead of matchmaking do not require this port.
+:::
+
+#### Command and arguments
 
 You can also override the command run by the container, as well as CLI arguments your game server starts with.
 
@@ -172,34 +187,37 @@ new arbitrary container from scratch.
 
 ![GUI_Create_Vessel_Containers_Sidecar.png](images/formation/GUI_Create_Vessel_Containers_Sidecar.png)
 
-### Advanced Options
+### Advanced options
 
 In this last section you can adjust advanced options like enabling profiling, configuring health checks, and defining
 grace periods for game server termination.
 
 #### Profiling
 
-GameFabric Mutliplayer Servers has built-in support for eBPF-based CPU performances profiling using [Grafana Pryroscope](https://grafana.com/oss/pyroscope/).
-This feature has an expected CPU performance impact of just 2-3%, so in most cases it is safe to be enabled.
+GameFabric Multiplayer Servers has built-in support for eBPF-based CPU performance profiling using [Grafana Pyroscope](https://grafana.com/oss/pyroscope/).
+This feature has an expected CPU performance impact of just 2-3%, so in most cases it is safe to enable.
+
+::: tip Learn More
+For details on troubleshooting profiling issues, including symbol resolution, see the [Profiling guide](/multiplayer-servers/monitoring/profiling).
+:::
 
 ![GUI_Create_Vessel_Advanced_Profiling.png](images/formation/GUI_Create_Vessel_Advanced_Profiling.png)
 
-#### Health Checks
+#### Health checks
 
 If a game server fails to call `agones.Health()`, it will be considered unhealthy and terminated.
 The thresholds for that process can be configured here. The default values are usually okay to use.
 
 ![GUI_Create_Vessel_Advanced_Health_Checks.png](images/formation/GUI_Create_Vessel_Advanced_Health_Checks.png)
 
-:::warning Disabling Health Checks
-Health checks should only be disabled in testing and troubleshooting scenarios, for example when testing your Agones
-SDK integration. For production usage health checks should always be enabled, otherwise game servers that are in an
-unresponsive state cannot be automatically detected and cleaned up.
+:::warning Health Checks: Default State & Best Practices
+Health Checks are disabled by default to simplify the initial testing and integration of your Game Server SDK.
+However, for production usage, it is recommended that they be enabled. If Health Checks remain disabled in a live environment, game servers that enter an unresponsive or "frozen" state cannot be automatically detected or cleaned up by the platform, leading to potential matchmaking failures. Additionally, we do not make any promises as to lifecycle handling of such game servers without health checks during maintenances; game servers without proper integration may be evicted at a moment's notice during maintenance.
 :::
 
-#### Termination Grace Periods
+#### Termination grace periods
 
-Game servers may receive [*Shutdown Hints*](terminating-game-servers.md), observable via the Agones SDK.
+Game servers may receive [*Shutdown Hints*](terminating-game-servers), observable via the Agones SDK.
 These hints are used when game servers need to shut down within a specific time frame due to an external reason.
 
 The reasons for a server to be told it should shut down are:
@@ -215,7 +233,7 @@ The configured grace period is the time that the game server can use to graceful
 by informing the players to disconnect and shutting down when all players have left.
 When the game server has not shut down before the grace period has passed, it is forcefully terminated.
 
-## Visualize and Configure
+## Visualize and configure
 
 Now that the Vessel has been successfully created, it should become visible in the "Vessels" section.
 If the game server starts up as expected and completes its `agones.Ready()` call, the state of the Vessel should switch to "RUNNING".

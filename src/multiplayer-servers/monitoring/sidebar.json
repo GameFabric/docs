@@ -1,7 +1,7 @@
 {
   "text": "Monitoring",
   "collapsed": false,
-  "order": 4,
+  "order": 7,
   "items": [
     {
       "text": "Introduction",
@@ -12,8 +12,20 @@
       "link": "/monitoring/dashboards"
     },
     {
+      "text": "Profiling",
+      "link": "/monitoring/profiling"
+    },
+    {
       "text": "Audit Logs",
       "link": "/monitoring/auditlogs"
+    },
+    {
+      "text": "Audit Log Exports",
+      "link": "/monitoring/audit-log-exports"
+    },
+    {
+      "text": "Debugging",
+      "link": "/monitoring/debugging"
     }
   ]
 }

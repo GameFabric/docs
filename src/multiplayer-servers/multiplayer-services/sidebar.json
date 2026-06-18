@@ -1,11 +1,15 @@
 {
   "text": "Multiplayer Servers",
   "collapsed": false,
-  "order": 3,
+  "order": 6,
   "items": [
     {
       "text": "Server Allocation",
       "items": [
+        {
+          "text": "Server Allocation Overview",
+          "link": "/multiplayer-services/server-allocation/overview"
+        },
         {
           "text": "Allocating from Armadas",
           "link": "/multiplayer-services/server-allocation/allocating-from-armadas"
@@ -40,6 +44,23 @@
     {
       "text": "Resource Management",
       "link": "/multiplayer-services/resource-management"
+    },
+    {
+      "text": "Armada Scaling",
+      "items": [
+        {
+          "text": "Scaling Overview",
+          "link": "/multiplayer-services/scaling"
+        },
+        {
+          "text": "Replicas and Buffer Size",
+          "link": "/multiplayer-services/armada-replicas-and-buffer"
+        },
+        {
+          "text": "Scale to Zero",
+          "link": "/multiplayer-services/scale-to-zero"
+        }
+      ]
     },
     {
       "text": "Server Protection",

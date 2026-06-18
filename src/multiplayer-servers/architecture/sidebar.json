@@ -1,0 +1,27 @@
+{
+  "text": "Architecture",
+  "collapsed": false,
+  "order": 4,
+  "items": [
+    {
+      "text": "Capacity Types",
+      "link": "/architecture/capacity-types"
+    },
+    {
+      "text": "Regions, Sites & Locations",
+      "link": "/architecture/regions-sites-and-locations"
+    },
+    {
+      "text": "Identifying your Hosting Model",
+      "link": "/architecture/identifying-your-hosting-model"
+    },
+    {
+      "text": "Sidecar Containers",
+      "link": "/architecture/sidecars"
+    },
+    {
+      "text": "Matchmaking",
+      "link": "/architecture/matchmaking"
+    }
+  ]
+}

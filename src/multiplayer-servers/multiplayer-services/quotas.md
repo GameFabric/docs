@@ -2,7 +2,7 @@
 
 This page lists all known system limitations that developers should be aware of when using GameFabric Multiplayer Services.
 
-## Server Limitations
+## Server limitations
 
 ### Game Servers per baremetal Node
 
@@ -14,39 +14,41 @@ This page lists all known system limitations that developers should be aware of 
 - **Limit**: 100 Game Servers per cloud node
 - **Description**: Each node in the GameFabric cloud cluster can host a maximum of 100 game server instances simultaneously.
 
-## Environment Limitations
+## Environment limitations
 
-### Name Length
+### Name length
 
 - **Limit**: 4 letters maximum
 - **Description**: The name of an Environment uniquely identifies it and is restricted to a maximum of 4 letters. Common names are "prod", "stge" and "dev".
 
-## Container Limitations
+## Container limitations
 
 ### User ID
 
-- **Limit**: uid 1000 required
-- **Description**: Container users are currently restricted to using `uid` 1000. This must be configured in your Dockerfile when creating container images.
+- **Limit**: uid 1000 enforced via pod security context
+- **Description**: GameFabric sets `runAsUser: 1000` in the Kubernetes pod security context. This means the container process always runs as uid 1000, regardless of the `USER` instruction in the Dockerfile.
 
-::: tip Container Image Setup
+To avoid file permission issues, create a user with uid 1000 in your Dockerfile and ensure all files the game server needs are owned by or readable by uid 1000. If the Dockerfile creates files owned by a different uid, the process may not be able to access them at runtime.
+
+::: tip Container image setup
 When building your container images, make sure to configure the user as shown in the [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) guide.
 :::
 
-## Logging Limitations
+## Logging limitations
 
 Limits for game server logging apply both *per game server* and *globally*. Exceeding the limits will cause log lines to be dropped.
 Burst amounts allow for temporarily exceeding rate limits, for example if the logging frequency is higher during start up.
 
-### Log Throughput per Game Server
+### Log throughput per game server
 
 - **Limit**: 100 lines per second per game server (with a burst size of 500 lines)
 - **Description**: If a game server exceeds this logging rate, additional log lines may be dropped.
 
-### Global Log Throughput
+### Global log throughput
 
 - **Limit**: 10 megabytes per second globally (with a burst size of 50 megabytes)
 - **Description**: If your aggregated log stream exceeds this rate, additional log lines may be dropped.
 
-## Additional Information
+## Additional information
 
 For questions about increasing these limits or if you encounter other limitations not documented here, please contact GameFabric support.

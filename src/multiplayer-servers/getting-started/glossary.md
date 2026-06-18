@@ -5,13 +5,25 @@ Their names and description are detailed in this section in alphabetical order.
 
 ## Allocation Sidecar
 
-The `Allocation Sidecar` is a [Sidecar](#sidecar) provided by Nitrado for easy integration with the [Allocator](#allocator).
+The Allocation Sidecar is a [Sidecar](#sidecar) provided by GameFabric for automatic integration with the [Allocator](#allocator). It handles game server registration, allocation callbacks, and cleanup.
+
+See [Sidecar Containers](/multiplayer-servers/architecture/sidecars#allocation-sidecar) for an overview and [Automatically Registering Game Servers](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers) for configuration details.
 
 ## Allocator
 
-The Allocator is an extra product feature that lets you register your game servers against it so that your matchmaker can choose the best available server.
+The Allocator is an optional service that manages a pool of ready-to-use game servers for session-based games. It acts as a broker between your matchmaker and GameFabric's infrastructure. The Allocator is not included by default and must be ordered separately.
 
-See also [docs for using the Allocation Sidecar](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers).
+The Allocator is typically used with [Armadas](#armada) for games where players are assigned to servers by matchmaking rather than choosing from a server list. For persistent servers where players browse and select their own server, use [Formations](#formation) without the Allocator.
+
+See [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) for details on when to use the Allocator and integration options.
+
+## Agones
+
+Agones is an open-source game server hosting and scaling framework built on [Kubernetes](#kubernetes). GameFabric uses Agones as its underlying orchestration layer to manage game server lifecycles, health checking, and scaling.
+
+Game servers integrate with Agones through its SDK, which provides client libraries for multiple languages and engines. The SDK is used to signal lifecycle state (`Ready`, `Allocated`, `Shutdown`) and send health check pings.
+
+See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) for integration details and the [Agones documentation](https://agones.dev/site/docs/) for the full reference.
 
 ## API
 
@@ -25,13 +37,13 @@ It can have multiple [revisions](/multiplayer-servers/getting-started/glossary#r
 
 Revisions are kept track of in order to allow you to roll back to a previous revision, as well as manage multiple revisions running in parallel (for example during a rollout upgrade)
 
-See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
+Armadas are part of the [Dynamic Fleets](#dynamic-fleets) category in the UI. See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## ArmadaSet
 
 An ArmadaSet is the configuration for a set of Armadas that share the same Fleet template and automatic scaling strategy.
 
-See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
+ArmadaSets are part of the [Dynamic Fleets](#dynamic-fleets) category in the UI. See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
 
 ## Branch
 
@@ -39,11 +51,25 @@ GameFabric runs its own internal Container registry proxy, which is where you sh
 Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch.
 The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
+## BYOC
+
+BYOC (Bring Your Own Cloud) is a capacity type where GameFabric manages resources within a customer's own cloud provider account (GCP, AWS, or Azure). The customer grants Nitrado access to create and manage Locations in their cloud infrastructure, while maintaining their own cloud subscription and billing relationship.
+
+See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup) and [Capacity Types](/multiplayer-servers/architecture/capacity-types).
+
+## Buffer Size
+
+The Buffer Size is the number of game servers kept in the `Ready` state, waiting to be allocated. Maintaining a buffer ensures players can be matched to a server quickly without waiting for a new server to start.
+
+The Buffer Size can be set to a fixed value or managed automatically using [Dynamic Buffer](#dynamic-buffer).
+
+See [Armada Replicas and Buffer](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#buffer-size) for configuration guidance.
+
 ## CCU
 
 CCU stands for Concurrent Users. It is a key metric that represents the total number of players who are actively playing on a game server at the same time.
 
-See [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk.md#player-count-and-capacity-tracking)
+See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)
 
 ## Cluster
 
@@ -51,9 +77,39 @@ A cluster refers to a group of bare metal or cloud servers located in the same l
 In the context of GameFabric, clusters are implemented as [sites](/multiplayer-servers/getting-started/glossary#site).
 While a "Cluster" refers to the physical or virtual grouping of servers, a "Site" represents the GameFabric-specific abstraction used to manage and interact with these clusters.
 
+## Container
+
+A container is a lightweight, standalone executable package that includes everything needed to run your game server: code, runtime, system tools, and settings. Containers are a core [Kubernetes](#kubernetes) concept. In GameFabric, your game server runs as a container, optionally alongside [Sidecar](#sidecar) containers within the same [pod](#pod).
+
+For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/containers/).
+
 ## Cordoned
 
 When a [Site](#site) is marked as cordoned, it becomes unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
+
+## Degraded
+
+A synchronization state indicating that configuration could not be deployed to one or more [Sites](#site). This can occur when Sites are unavailable, experiencing connectivity issues, or when all capacity in a Location has been deprovisioned.
+
+Objects that can be Degraded: [Armada](#armada), [ArmadaSet](#armadaset), [Formation](#formation), [Secret](#secret), ConfigFile, [Protection Protocol](#protection-protocol).
+
+For Armadas, ArmadaSets, Formations, and Protection Protocols, the `status.reason` field provides additional context and is visible in the UI next to the affected object.
+
+## Dynamic Buffer
+
+Dynamic Buffer is a feature that automatically adjusts the [Buffer](#buffer) based on current game server demand. When enabled, GameFabric monitors the number of `Ready` and `Allocated` game servers, startup time, and demand on each [Site](#site), then scales the buffer accordingly.
+
+::: warning
+Dynamic Buffer is currently in Beta.
+:::
+
+See [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size) for details.
+
+## Dynamic Fleets
+
+Dynamic Fleets is the UI category for session-based or match-based game server hosting. It contains [ArmadaSets](#armadaset) and [Armadas](#armada), which automatically scale game server capacity based on demand.
+
+See [Identifying your Hosting Model](/multiplayer-servers/architecture/identifying-your-hosting-model) for guidance on choosing between Dynamic Fleets and [Persistent Servers](#persistent-servers).
 
 ## Environment
 
@@ -62,6 +118,12 @@ They can therefore be used to separate production, staging, testing, and any oth
 Alongside the [RBAC](#rbac) features, it also allows limiting the access to certain environments from users.
 
 Capacity is managed on a per Environment basis via [Regions](#region).
+
+## Export Store
+
+An export store is a configuration object that targets one S3-compatible bucket for continuous delivery of [audit log events](/multiplayer-servers/monitoring/auditlogs). Each export store has a status: **Active**, **Suspended**, or **Error**.
+
+See [Audit log exports](/multiplayer-servers/monitoring/audit-log-exports) for setup and configuration instructions.
 
 ## Fleet
 
@@ -74,7 +136,21 @@ This resource is always managed by an Armada, and can't be configured through th
 A Formation acts as a template for individual game servers (Vessels) spawned within it.
 Vessels inherit all properties from their respective Formation, but environment variables and command line arguments can be overridden on a per-vessel basis.
 
-See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
+Formations are part of the [Persistent Servers](#persistent-servers) category in the UI. See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
+
+## GameFabric Cloud
+
+GameFabric Cloud enables provisioning and deprovisioning of cloud [Locations](#location) directly from GameFabric, increasing available server capacity without requiring a separate cloud provider subscription.
+
+See also [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
+
+## GameFabric Help Center
+
+The GameFabric Help Center is the central place for all self-service feature requests, orders, and cancellations. It is accessible from within the GameFabric UI via the "?" menu in the top navigation bar.
+
+![Help Center menu location](images/glossary/help-center-menu.png)
+
+For access control details, see [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#help-center).
 
 ## Gateway Policies
 
@@ -82,14 +158,21 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies)
 
 ## Group
 
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#group).
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#group).
+
+## Kubernetes
+
+Kubernetes is the open-source container orchestration platform that powers GameFabric's infrastructure. It manages the deployment, scaling, and operation of your game servers across [Sites](#site). While GameFabric abstracts most Kubernetes complexity, some concepts like [pods](#pod) and [containers](#container) appear in the documentation and UI.
+
+For more information, see the [Kubernetes documentation](https://kubernetes.io/).
 
 ## Location
 
 A Location is a group of [Sites](#site) that share a geographical area and other characteristics.
-This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
-See also [Region](#region) for how to use it.
+Locations are managed by Nitrado for all capacity types. To request bare metal or [BYOC](#byoc) capacity, submit a request via the [GameFabric Help Center](#gamefabric-help-center). For [GameFabric Cloud](#gamefabric-cloud), you request capacity directly through the GameFabric UI.
+
+See also [Capacity Types](/multiplayer-servers/architecture/capacity-types) and [Region](#region).
 
 ## Mitigation
 
@@ -97,17 +180,29 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#mitigations).
 
 ## User
 
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#user).
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#user).
 
 ## Permission
 
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
+
+## Persistent Servers
+
+Persistent Servers is the UI category for long-running game servers that have game or player progression associated with them. It contains [Formations](#formation) and [Vessels](#vessel), which allow custom configuration per individual game server.
+
+See [Identifying your Hosting Model](/multiplayer-servers/architecture/identifying-your-hosting-model) for guidance on choosing between Persistent Servers and [Dynamic Fleets](#dynamic-fleets).
+
+## Pod
+
+A pod is a [Kubernetes](#kubernetes) unit that runs one or more [containers](#container) together with shared networking and storage. In GameFabric, each game server runs in its own pod alongside [Sidecar](#sidecar) containers.
+
+For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/pods/).
 
 ## RBAC
 
 Role-Based Access Control (RBAC) is the system used in the GameFabric to manage your team's access to the platform.
 
-See also [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
+See also [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
 
 ## Region
 
@@ -115,7 +210,15 @@ A Region is typically a geographic area made up of one or more [Locations](#loca
 
 It has to be defined on a per-[environment](#environment) basis.
 
+A Region contains at least one [Region Type](#region-type) that classifies its infrastructure, for example `baremetal` and `cloud`. Region Types control how game servers are distributed and scaled across the Locations of the Region.
+
 While defining, you can assign a custom priority to each location. This priority determines which location will be filled first.
+
+## Region Type
+
+A Region Type defines a class of infrastructure (for example, `baremetal` or `cloud`) within a [Region](#region).
+Each Region Type has its own scaling parameters, and an [Armada](#armada) can have multiple Region Types per Region to balance cost and availability.
+When using the allocator, the Region Type priority determines which type is filled first.
 
 ## Replica
 
@@ -144,7 +247,18 @@ E.g: Due to its flexible nature, an ArmadaSet can be revision 12 and control Arm
 
 ## Role
 
-See [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions#role).
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#role).
+
+## Scheduling Strategy
+
+The scheduling strategy controls how game servers are placed across nodes when they are started.
+
+Available options:
+
+- **Packed**: Game servers gravitate toward shared nodes using pod affinity (default)
+- **Distributed**: Game servers spread across nodes based on available resources
+
+See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for configuration details.
 
 ## Secret
 
@@ -152,26 +266,41 @@ See [Secrets](/multiplayer-servers/getting-started/secrets).
 
 ## Sidecar
 
-A sidecar is a container that runs alongside your game server container, providing additional functionality.
-For example, Nitrado provides an allocator sidecar which can handle the allocation process for you.
-You could also run your own sidecars for monitoring or other purposes.
+A sidecar is a container that runs alongside your game server container within the same [pod](#pod), sharing network and storage. Sidecars provide additional functionality without modifying your game server code.
 
-## Shutdown Hints
+GameFabric provides the [Allocation Sidecar](#allocation-sidecar) for automatic allocator integration. You can also add custom sidecars for monitoring, logging, debugging, or other purposes.
+
+Sidecars can be added to [Armadas](#armada), [ArmadaSets](#armadaset), [Formations](#formation), and [Vessels](#vessel).
+
+See [Sidecar Containers](/multiplayer-servers/architecture/sidecars) for a comprehensive guide.
+
+## Shutdown hints
 
 See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessel-shutdown-behavior).
 
 ## Site
 
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a [Location](#location).
-This specific resource is not configurable through the GameFabric UI. It is configured by Nitrado, for you.
 
-A [Site](#site) can be marked as cordoned, making it unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
+Sites are managed by Nitrado. For [GameFabric Cloud](#gamefabric-cloud) Locations, Sites are automatically created when provisioning capacity through the UI.
+
+A Site can be marked as cordoned, making it unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
 
 This can be the case, for example, when a Site has just been provisioned to prevent premature allocations, or when a Site is being prepared for deprovisioning.
 
 ## Service Account
 
-An account used for accessing GameFabric programmatically, please refer to the documentation under [Authentication](/multiplayer-servers/getting-started/authentication#managing-service-accounts).
+An account used for accessing GameFabric programmatically. For details, see the documentation in [Service Accounts](/multiplayer-servers/authentication/service-accounts#managing-service-accounts).
+
+## State
+
+Every GameFabric resource exposes a `status.state` field that reflects its current condition. States are specific to each resource type:
+
+- **Vessels:** `Pending`, `Scheduled`, `Created`, `Starting`, `Running`, `Terminating`, `Error`, `Suspended`. See [Vessel states](/multiplayer-servers/getting-started/vessel-states).
+- **Armadas and ArmadaSets:** `Synced`, [Degraded](#degraded).
+- **Formations:** `Synced`, [Degraded](#degraded).
+
+When a resource is not in its expected state, the `status.reason` field may provide additional context where available, visible in the UI and via the API.
 
 ## SteelShield™
 
@@ -181,7 +310,7 @@ See also [SteelShield docs](/steelshield/gamefabric/introduction).
 
 ## Terraform provider
 
-GameFabric offers its own Terraform provider to interact with the platform. Please see the dedicated documentation under [Terraform provider](/multiplayer-servers/integration/your-backend#terraform-provider-support).
+GameFabric offers its own Terraform provider to interact with the platform. See the [Terraform provider](/multiplayer-servers/integration/terraform) documentation for installation and usage instructions.
 
 ## Protection Status
 
@@ -198,7 +327,9 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#managing-protocol
 A Vessel is a single **named** game server instance. It can, but doesn't have to be part of a [Formation](#formation).
 Each Vessel can be configured completely independently.
 
-See also [hosting model](/multiplayer-servers/hosting-models/identifying-your-hosting-model).
+Vessels are part of the [Persistent Servers](#persistent-servers) category in the UI. See also [hosting model](/multiplayer-servers/architecture/identifying-your-hosting-model).
+
+See [Vessel states](/multiplayer-servers/getting-started/vessel-states) for a description of each state a vessel can be in.
 
 ## Wrapper
 

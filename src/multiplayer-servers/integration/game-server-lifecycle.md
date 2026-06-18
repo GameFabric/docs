@@ -1,4 +1,11 @@
-# Game Server Lifecycle
+# Game server lifecycle
+
+::: tip Platform-level states
+This page covers the Agones game server states your code signals through the SDK. GameFabric maps these onto its own platform states:
+
+- For [Vessels](/multiplayer-servers/getting-started/glossary#vessel) (Persistent Servers), GameFabric exposes vessel states such as `Pending`, `Running`, and `Terminating` in the UI and API. See [Vessel states](/multiplayer-servers/getting-started/vessel-states).
+- For [Armadas](/multiplayer-servers/getting-started/glossary#armada) (Dynamic Fleets), individual game servers are managed as part of a Fleet and are not assigned named states in the same way. Scaling and allocation behavior is described in [Armada scaling](/multiplayer-servers/multiplayer-services/scaling).
+:::
 
 1. **Start:** Game server process is launched.
 2. **Ready:** The server signals `Ready()` after initialization and when it is prepared to accept players.
@@ -26,10 +33,11 @@ The SDKs for [Unreal Engine](https://agones.dev/site/docs/guides/client-sdks/unr
 Once the game server has fully started up and would be ready to accept players, the game server
 must call the `Ready()` function once.
 
-By default, the Unreal Engine SDK automatically calls `Connect()` upon initializing.
+By default, the Unreal Engine SDK automatically calls `Connect()` once the SDK is initialized.
 `Connect()` polls the game server endpoint until a successful response is received and then calls `Ready()`.
-While convenient, we recommend disabling this default behaviour (`bDisableAutoConnect`) and instead
-performing this call explicitly (either `Connect()` or `Ready()`), as the game server might not immediately be able to accept connections.
+While convenient, we recommend considering disabling this default behavior (`bDisableAutoConnect`) and instead
+perform this call explicitly (either `Connect()` or `Ready()`),
+as the game server might not immediately be able to accept connections.
 
 ## `Reserve()`
 
@@ -42,15 +50,19 @@ This call signals to the hosting environment that the game server is in use and 
 
 You generally only need to call `Allocate()` yourself in one of two cases:
 
+::: tip
+For an overview of when server allocation is required and how to select an appropriate integration approach, see [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview).
+:::
+
 ### 1) A notification from an external server allocation mechanism
 
 This is required if you manually register against
-[Nitrado's server allocation registry](/multiplayer-servers/multiplayer-services/server-allocation/manually-registering-game-servers.md)
+[Nitrado's server allocation registry](/multiplayer-servers/multiplayer-services/server-allocation/manually-registering-game-servers)
 or if you use an existing game hosting SDK such as Amazon GameLift.
 If you receive a callback or event from these outside systems on your game server that a game session is about to start,
 you must call `Allocate()` to prevent the game session from being interrupted.
 
-::: note Wait for state change after calling `Allocate()`
+::: info Wait for state change after calling `Allocate()`
 
 Calling `Allocate()` does not guarantee that the server moves into the allocated state.
 A shutdown process might already be in progress and happen in parallel.

@@ -1,7 +1,7 @@
 {
   "text": "Integration",
   "collapsed": false,
-  "order": 1,
+  "order": 3,
   "items": [
     {
       "text": "Your Game Server",
@@ -10,6 +10,10 @@
     {
       "text": "Your Infrastructure",
       "link": "/integration/your-backend"
+    },
+    {
+      "text": "Terraform Provider",
+      "link": "/integration/terraform"
     },
     {
       "text": "Game Server Life Cycle",

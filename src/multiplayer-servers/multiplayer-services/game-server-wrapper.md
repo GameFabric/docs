@@ -22,13 +22,13 @@ Additional topics are:
 
 Before using the wrapper, make sure that:
 
-- Your game server is integrated against the Agones SDK (see [Using Agones SDK](../getting-started/using-the-agones-sdk.md)),
+- Your game server is integrated against the Agones SDK (see [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)),
 - You have a container image that contains your game server binary
   (see [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) and
   [Pushing Container Images](/multiplayer-servers/getting-started/pushing-container-images)),
 - You have either an Armada or Vessel configured to run the container image
   (see [Running your Game Server](/multiplayer-servers/getting-started/running-your-game-server) and
-  [Hosting Models](/multiplayer-servers/hosting-models/identifying-your-hosting-model)).
+  [Hosting Models](/multiplayer-servers/architecture/identifying-your-hosting-model)).
 
 If your game server cannot run in GameFabric because it is missing vital information such as IP address or port numbers,
 the wrapper can already help with its templating features.
@@ -52,14 +52,14 @@ Here are the steps for the integration:
   - Use the new image
   - Configure the wrapper
 
-### Add the Wrapper to your Container Image
+### Add the wrapper to your container image
 
 See the publicly available [gswrapper releases](https://github.com/gamefabric/gswrapper/releases).
 
 Depending on how you create your container image, the integration for it can be as simple as:
 
 ```Dockerfile
-ARG version=v2.5.0
+ARG version=v2.6.0
 
 ADD https://github.com/GameFabric/gswrapper/releases/download/${version}/gsw_linux_x86_64 \
     /app/gsw
@@ -122,7 +122,7 @@ It is able to pass the collected information as command-line arguments to your g
 The wrapper uses the standard [Go templating syntax](https://pkg.go.dev/text/template#section-documentation) to configure the command line to run your game
 server.
 
-#### Command-line Arguments
+#### Command-line arguments
 
 The available template variables are:
 
@@ -139,7 +139,7 @@ The available template variables are:
 /app/gsw -- /app/gameserver --port="{{ .GameServerPort }}" --query-port="{{ .Ports.query }}" --servername="{{ .Env.POD_NAME }}"
 ```
 
-#### Configuration Files
+#### Configuration files
 
 The wrapper can be configured to render a templated configuration file before executing the game server.
 
@@ -168,7 +168,7 @@ gameserver:
 /app/gsw --config.template-path=template.yaml --config.output-path=config.yaml -- /app/gameserver --config=config.yaml
 ```
 
-### Log Tailing
+### Log tailing
 
 The wrapper supports tailing log files and printing them to `stdout`. This can be used to enable log collection for log files, which
 would otherwise be inaccessible.
@@ -187,7 +187,7 @@ Log files, on the other hand, would otherwise be lost as soon as the container o
 /app/gsw --tail-log.paths=gameserver.log --tail-log.paths=error.log -- /app/gameserver
 ```
 
-### Shutdown Handling
+### Shutdown handling
 
 The wrapper can terminate the game server after an elapsed amount of time, by shutting it down after a configured duration, depending on its state (`Scheduled`,
 `Ready`, `Allocated`).
@@ -206,7 +206,7 @@ This is useful to force the shutdown of stuck game servers or to allow fleet com
 /app/gsw --shutdown.ready=1h --shutdown.allocated=24h -- /app/gameserver
 ```
 
-### Post-Stop Hook
+### Post-stop hook
 
 A post-stop hook allows an executable to run after the game server stops. It can be configured to trigger in both error and non-error scenarios — whether the
 server exits due to a failure or shuts down normally.

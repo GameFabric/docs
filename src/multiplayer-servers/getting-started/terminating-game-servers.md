@@ -1,10 +1,10 @@
-# Terminating Game Servers
+# Terminating game servers
 
 ## Armadas
 
 ### Summary
 
-If the game server is not [integrated properly](./using-the-agones-sdk.md) or if bugs or other issues occur, it may lead to a situation where a manual shutdown is required. This part of the document describes the process.
+If the game server is not [integrated properly](/multiplayer-servers/integration/your-game-server) or if bugs or other issues occur, it may lead to a situation where a manual shutdown is required. This part of the document describes the process.
 
 ### Requirements
 
@@ -60,7 +60,7 @@ Finally, enable the "namespace" field to be displayed.
 
 To perform maintenance on long-running vessels without interfering with active game servers, the game server should respond to shutdown hints provided via annotations.
 
-### Allocated Vessels
+### Allocated vessels
 
 If shutdown or restart is required for an already allocated Vessel, the following two annotations are added to each affected Vessel:
 
@@ -85,7 +85,7 @@ If there is a `SpecChange` with a higher wait period than a following `UserIniti
 It can however be shutdown early by the game server itself responding to the annotations or leaving `Allocated` after all players left.
 :::
 
-### Non-allocated Vessels
+### Non-allocated vessels
 
 Non-allocated Vessels are shut down immediately, in accordance with the `Termination Grace Period` (under `Settings`->`Advanced`).
 

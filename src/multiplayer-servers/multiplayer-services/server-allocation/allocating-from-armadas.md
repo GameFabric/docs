@@ -3,7 +3,7 @@
 Allocation requests are typically performed by a Matchmaker.
 
 Before a game server can be allocated, it first needs to be entered into the pool of currently available game servers.
-This registration process can be performed [from within your game server code](manually-registering-game-servers.md) or through a [sidecar](automatically-registering-game-servers.md) provided by Nitrado.
+This registration process can be performed [from within your game server code](manually-registering-game-servers) or through a [sidecar](automatically-registering-game-servers) provided by Nitrado.
 
 In order for the server to then get allocated, a `POST` request must be sent to the Allocator service, on its
 [`/allocate`](/api/multiplayer-servers/allocation-allocator.html#tag/Allocator) endpoint.

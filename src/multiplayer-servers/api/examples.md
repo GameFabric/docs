@@ -1,4 +1,4 @@
-# API Usage Examples
+# API usage examples
 
 This section provides examples of how to use the GameFabric REST API.
 
@@ -6,11 +6,11 @@ This section provides examples of how to use the GameFabric REST API.
 For a comprehensive overview of the API structure and available endpoints, see the [API Guide](/multiplayer-servers/api/guide).
 :::
 
-## Pre-requisites
+## Prerequisites
 
-* Follow the steps described in the [API Authentication](../getting-started/authentication.md) section to create a Service Account and fetch a token that gives you access to the REST API.
-* Follow [the guide to push an image](../getting-started/pushing-container-images.md) of your game server into the registry.
-* Understand the [hosting models](/multiplayer-servers/hosting-models/identifying-your-hosting-model) to know whether to use Vessels or Armadas.
+* Follow the steps described in the [Service Accounts](/multiplayer-servers/authentication/service-accounts) section to create a Service Account and fetch a token that gives you access to the REST API.
+* Follow [the guide to push an image](/multiplayer-servers/getting-started/pushing-container-images) of your game server into the registry.
+* Understand the [hosting models](/multiplayer-servers/architecture/identifying-your-hosting-model) to know whether to use Vessels or Armadas.
 
 ## Listing your images
 
@@ -26,6 +26,62 @@ curl -X 'GET' \
 
 Take note of the Image object name, since that is what you need to reference in the Vessel specification for the next step.
 
+## Promoting an image to another branch
+
+Image promotion enables you to copy a container image from one branch to another without manual intervention, reducing the risk of human error. It allows teams to validate an image in a staging or testing environment and, once it meets the required quality standards, promote it to production.
+
+This approach eliminates the need for users to manually pull, tag, and push images—operations that are error-prone, particularly in multi-platform contexts or when handling multiple image versions. By avoiding mistakes such as selecting or tagging the wrong image, image promotion provides a safer and more reliable mechanism for testing and releasing images.
+
+### Step 1: Find the internal image name
+
+You need a service account with POST permission on IMAGEPROMOTIONS for image promotions and GET permission on IMAGES to access the image resources.
+
+Use the `fieldSelector` query parameter to filter images by their image name and tag. This returns the internal object name you need for the promotion request.
+
+```bash
+INTERNAL_IMAGE_NAME=$(curl -X 'GET' \
+     "https://${GAMEFABRIC_URL}/api/container/v1/images/scopes/${SOURCE_BRANCH}?fieldSelector=spec.image=${IMAGE_NAME},spec.tag=${IMAGE_TAG}" \
+     -H 'Accept: application/json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" | jq -r '.items[0].metadata.name')
+```
+
+This captures the internal name of the image (for example, `simple-game-server-cwgpftt`) into the `INTERNAL_IMAGE_NAME` variable for use in the next step.
+
+### Step 2: Create the ImagePromotion
+
+Create an `ImagePromotion` resource in the target branch, referencing the source branch and the internal image name from step 1.
+
+```bash
+curl -X 'POST' \
+     "https://${GAMEFABRIC_URL}/api/container/v1/imagepromotions/scopes/${TARGET_BRANCH}" \
+     -H 'Content-Type: application/json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '{
+  "apiVersion": "container/v1",
+  "kind": "ImagePromotion",
+  "metadata": {
+    "name": "'"$(uuidgen)"'",
+    "branch": "'"${TARGET_BRANCH}"'"
+  },
+  "spec": {
+    "branch": "'"${SOURCE_BRANCH}"'",
+    "imageName": "'"${INTERNAL_IMAGE_NAME}"'"
+  }
+}'
+```
+
+| Variable | Description |
+|----------|-------------|
+| `SOURCE_BRANCH` | The branch the image currently exists in (for example, `dev`) |
+| `TARGET_BRANCH` | The branch to promote the image to (for example, `prod`) |
+| `IMAGE_NAME` | The human-readable image name (for example, `simple-game-server`) |
+| `IMAGE_TAG` | The tag of the image (for example, `0.39`) |
+| `INTERNAL_IMAGE_NAME` | The internal object name returned from step 1 |
+
+::: tip
+See the API reference for [listing images](/api/multiplayer-servers/apiserver#tag/container.v1.Image/operation/listImage) and [creating image promotions](/api/multiplayer-servers/apiserver#tag/container.v1.ImagePromotion/operation/createImagePromotion) for full details on available fields and responses.
+:::
+
 ## Creating a Vessel
 
 In this first example, let's create a Vessel using the REST API.
@@ -40,7 +96,7 @@ It is mandatory to specify the `kind` and `apiVersion` fields in the payload.
 
 ```bash
 curl -X 'POST' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels" \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/json' \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
@@ -100,7 +156,7 @@ Now that you created a Vessel, you might want to use the API to list Vessels in 
 
 ```bash
 curl -X 'GET' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels" \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
      -H 'Accept: application/json'
 ```
@@ -112,7 +168,7 @@ This can be done using the REST API too.
 
 ```bash
 curl -X 'GET' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSSEL_NAME}/logs?follow=true" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels/${VESSEL_NAME}/logs?follow=true" \
      -H "Authorization: Bearer ${GF_API_TOKEN}" \
      -H 'Connection: keep-alive'
 ```
@@ -124,8 +180,76 @@ You can do so by deleting the Vessel using the REST API.
 
 ```bash
 curl -X 'DELETE' \
-     "https://${GAMEFABRIC_URL}/api/formation/v1beta1/environments/${ENV}/vessels/${VESSSEL_NAME}" \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/vessels/${VESSEL_NAME}" \
      -H "Authorization: Bearer ${GF_API_TOKEN}"
 ```
 
 This results in your Vessel switching to the Terminating status, and eventually disappearing once the termination process is complete.
+
+### Deleting a Vessel that is part of a Formation
+
+Vessels that are part of a Formation are managed by that Formation. To remove such a Vessel, remove it from the Formation's `vessels` list using a JSON Patch request.
+
+::: tip Identifying Controlled Resources
+A Vessel or Armada controlled by a Formation or ArmadaSet has an `ownerReferences` entry in its metadata pointing to the controlling resource.
+:::
+
+First, retrieve the Formation to find the index of the Vessel you want to remove:
+
+```bash
+curl -X 'GET' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}"
+```
+
+Then remove the Vessel by its index in the `vessels` array. Replace `0` with the correct index:
+
+```bash
+curl -X 'PATCH' \
+     "https://${GAMEFABRIC_URL}/api/formation/v1/environments/${ENV}/formations/${FORMATION_NAME}" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json-patch+json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '[{ "op": "remove", "path": "/spec/vessels/0" }]'
+```
+
+## Creating a Region
+
+In this example, let's create a Region with the `Distributed` scheduling strategy using the REST API.
+
+::: tip Scheduling Strategy
+The `scheduling` field controls how game servers are distributed across nodes.
+See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for details. This feature is currently only available via the API.
+:::
+
+```bash
+curl -X 'POST' \
+     "https://${GAMEFABRIC_URL}/api/core/v1/environments/${ENV}/regions" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
+     -H "Authorization: Bearer ${GF_API_TOKEN}" \
+     -d '{
+  "apiVersion": "core/v1",
+  "kind": "Region",
+  "metadata": {
+    "name": "eu-west",
+    "environment": "${ENV}"
+  },
+  "spec": {
+    "displayName": "EU West",
+    "description": "European West region",
+    "types": [
+      {
+        "name": "default",
+        "locations": ["${LOCATION}"],
+        "template": {
+          "scheduling": "Distributed"
+        }
+      }
+    ]
+  }
+}'
+```
+
+The `scheduling` field accepts either `Packed` (default) or `Distributed` as its value.

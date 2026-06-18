@@ -1,4 +1,4 @@
-# Building a Container Image
+# Building a container image
 
 The purpose of this guide is to explain how to package game server binaries as Docker images.
 This document will help you if you do not already have a Docker image for your game server,
@@ -10,7 +10,7 @@ After building your container image, you should:
 
 1. [Push it to the GameFabric registry](/multiplayer-servers/getting-started/pushing-container-images)
 2. [Run your game server](/multiplayer-servers/getting-started/running-your-game-server) using the image
-3. Integrate the [Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk) for proper lifecycle management
+3. Integrate the [Agones SDK](/multiplayer-servers/integration/your-game-server) for proper lifecycle management
 :::
 
 ::: info Container vs. Docker
@@ -60,29 +60,28 @@ A Dockerfile is a text document that contains the commands a user could call on 
 For example, this typically includes fetching dependencies required to run the binary, configuring the environment, settings permissions
 on certain folders or just copying and moving files.
 
-::: warning Container User
-Container users are currently restricted to using `uid` 1000, as shown in the example below. See [Quotas](../multiplayer-services/quotas.md#container-user-id) for more details.
+::: warning Container user
+GameFabric enforces uid 1000 via the Kubernetes pod security context (`runAsUser: 1000`). The container process always runs as uid 1000, regardless of the `USER` instruction in the Dockerfile. Ensure all files the game server needs are owned by or readable by uid 1000. See [Quotas](/multiplayer-servers/multiplayer-services/quotas#user-id) for more details.
 :::
 
 Here is an example, where this Dockerfile builds an image that runs the game server:
 
 ```Dockerfile
 # 1. Select an operating system.
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # 2. Pre-install requirements.
 RUN apt-get update \
         && apt-get install -y gnupg ca-certificates \
-        && apt-get clean -y
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/*
 
 # 3. Prepare a working directory and permissions.
-RUN mkdir /app
-RUN useradd -m -u 1000 gameserver
-RUN chown gameserver:gameserver /app
+RUN mkdir /app && chown 1000:1000 /app
 
 # 4. Prepare your game server binary.
 USER 1000
-COPY --chown=gameserver:gameserver path/to/gameserver /app/
+COPY --chown=1000:1000 path/to/gameserver /app/
 RUN chmod +x /app/gameserver
 WORKDIR /app
 
@@ -90,14 +89,15 @@ CMD ["/app/gameserver"]
 ```
 
 1. First, select a Linux operating system, ideally a minimal one to reduce the overall image size, but
-   for the sake of simplicity this example uses Ubuntu 22.04 (LTS).
+   for the sake of simplicity this example uses Ubuntu 24.04 (LTS).
 
 2. Update the dependencies to ensure all security patches are included in the built image.
    Additionally, install anything that is required to run the game server binary.
    Keep in mind that this is a blank system, without pre-installed custom libraries.
 
-3. Make sure the game server binary is in a separate folder within the Docker image,
-   configured to be owned by a custom Linux user and group that is allowed to execute it.
+3. Set up a working directory owned by uid 1000.
+   GameFabric runs the container process as uid 1000 via the pod security context,
+   so file ownership must match to avoid permission errors at runtime.
 
 4. The game server binary should already be compiled and is then copied from your machine to the Docker image when it is built.
 
@@ -116,4 +116,4 @@ You may now run this image and your game server by running `docker run gameserve
 ## Conclusion
 
 Now that your Docker image is ready, you may proceed to make it available to GameFabric as described in
-[Pushing Container Images](pushing-container-images.md).
+[Pushing Container Images](pushing-container-images).

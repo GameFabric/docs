@@ -1,6 +1,6 @@
-# Setup your Environment
+# Set up your environment
 
-In this section, you will learn how to setup an Environment and a Region in that Environment.
+In this section, you will learn how to set up an Environment and a Region in that Environment.
 
 ::: tip Key Concepts
 Before proceeding, review the [Glossary](/multiplayer-servers/getting-started/glossary) to understand key concepts like Environments, Regions, Locations, and Sites.
@@ -15,31 +15,31 @@ Log into the GameFabric UI before proceeding.
 ::: tip Next steps
 After setting up your environment and region, you'll need to:
 
-1. [Authenticate and create a service account](/multiplayer-servers/getting-started/authentication)
+1. [Create and manage Service Accounts](/multiplayer-servers/authentication/service-accounts)
 2. [Build and push your container image](/multiplayer-servers/getting-started/building-a-container-image)
 3. [Deploy your game servers](/multiplayer-servers/getting-started/running-your-game-server)
 :::
 
-## Create an Environment
+## Create an environment
 
 Environments are a mechanism for isolating groups of resources.
 They can therefore be used to separate production, staging, testing, and any other environments and ensure that they don't interfere with each other.
 
-First, visit the "Environments" section of the UI by clicking the pencil next to Environments in the sidebar menu.
+First, navigate to the "Environments" section by clicking "Environments" in the sidebar.
 
 ![GUI_Environments.png](images/environment/GUI_Environments.png)
 Create a new Environment by clicking the "Create Environment" button.
 
 ![GUI_Environments_Create.png](images/environment/GUI_Environments_Create.png)
 
-The name of the Environment uniquely identifies it and is restricted to a maximum of 4 letters (see [Quotas](../multiplayer-services/quotas.md#environment-name-length) for details).
+The name of the Environment uniquely identifies it and is restricted to a maximum of 4 letters (see [Quotas](/multiplayer-servers/multiplayer-services/quotas#name-length) for details).
 Common names are "prod", "stge" and "dev".
 The display name is the human-readable name, and the description optionally notes the uses of the Environment.
 Click the "Create Environment" when the form is filled out.
 
-Once the Environment is created, it appears in the list, and in the menu.
+Once the Environment is created, it appears in the list. It is also available in the top-bar environment selector when you are in an environment-scoped section of the UI.
 
-## Create a Region
+## Create a region
 
 Regions group Locations where resources are hosted, typically geographically.
 

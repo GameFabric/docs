@@ -1,9 +1,9 @@
-# Amazon GameLift FlexMatch Integration Documentation
+# Amazon GameLift FlexMatch integration documentation
 
 ## Introduction
 
 This documentation serves as an integration guide for you, as an AWS GameLift customer, seeking to transition from a current
-AWS-managed hosting solution to a hosting solution supported by Nitrado, leveraging the Nitrado Allocator.
+AWS-managed hosting solution to a hosting solution supported by Nitrado, leveraging the GameFabric Allocator.
 This transition maintains compatibility with the AWS FlexMatch matchmaker.
 
 Technically the transition is done by switching from the _managed_ to the _standalone_ mode of the matchmaker.
@@ -15,10 +15,10 @@ This is achieved by acting as if there were no changes at AWS at all, except for
 which should result in configuration or variable adjustments, rather than code and logic changes.
 
 ::: tip Related Documentation
-- For general allocation guidance, see [Allocating from Armadas](../allocating-from-armadas)
+- For general allocation guidance, see [Allocating from Armadas](/multiplayer-servers/multiplayer-services/server-allocation/allocating-from-armadas)
 - For the Allocator API specification, see [Allocator API](/api/multiplayer-servers/allocation-allocator)
 - For GameLift integration without FlexMatch, see [GameLift Integration](gamelift)
-- For understanding hosting models, see [Hosting Models](/multiplayer-servers/hosting-models/identifying-your-hosting-model)
+- For understanding hosting models, see [Hosting Models](/multiplayer-servers/architecture/identifying-your-hosting-model)
 :::
 
 Table of contents:
@@ -48,28 +48,28 @@ implementation details.
 
 It is expected that the game services connect using `ip:port` rather than `host:port`.
 
-This is relevant as the related event field `detail.gameSessionInfo.dnsName` can not be set using the Nitrado Allocator.
+This is relevant as the related event field `detail.gameSessionInfo.dnsName` cannot be set using the GameFabric Allocator.
 
 Enabling external hardware with AWS Anywhere Fleets are not subject of this integration.
 
-### Nitrado Allocator
+### GameFabric Allocator
 
-The Nitrado Allocator manages ready-to-play game servers and allows allocating them.
+The GameFabric Allocator manages ready-to-play game servers and allows allocating them.
 It is expected that your Nitrado contact has provided you access to the installation or installations.
 If there are multiple matchmakers running in multiple AWS regions (e.g. Europe and US),
-you most likely want one Nitrado Allocator nearby too.
-For **each** Nitrado Allocator you need:
+you most likely want one GameFabric Allocator nearby too.
+For **each** GameFabric Allocator you need:
 
 - Allocator URL
 - Allocator Authentication token
-- (optional) Default Nitrado region
+- (optional) Default GameFabric region
 - Allocator attributes
 
-The Nitrado Allocator consists of two components, which need a brief introduction, together with a description of regions and attributes:
+The GameFabric Allocator consists of two components, which need a brief introduction, together with a description of regions and attributes:
 
 #### Registry service
 
-The registry service of the Nitrado Allocator accepts game server registrations (on game server startup), keep-alives
+The registry service of the GameFabric Allocator accepts game server registrations (on game server startup), keep-alives
 (while idling) and de-registrations (on shutdown or when unhealthy).
 On registration, a game server must provide its region, attributes, required attribute keys (optional) and priority (has a default).
 
@@ -97,14 +97,14 @@ the matchmaker.
 
 ### Fleet management
 
-With the Nitrado Allocator in place, there must be a component that manages game server fleets.
-Otherwise, the Nitrado Allocator would not be able to provide ready-to-play game servers.
+With the GameFabric Allocator in place, there must be a component that manages game server fleets.
+Otherwise, the GameFabric Allocator would not be able to provide ready-to-play game servers.
 This is usually done by the GameFabric. The GameFabric manages fleets with scale up and scale down depending on the demand.
 
 ### Nitrado Ping Discovery (optional)
 
 To find the fastest game server for a match,
-we recommend adding the latency between the client and the various Nitrado regions to matchmaking requests.
+we recommend adding the latency between the client and the various GameFabric regions to matchmaking requests.
 
 <img align="left" alt="AWS Documentation on how to add latency to a player's matchmaking request" height="32" width="32" src="./images/flexmatch/aws.png" target="_blank" style="margin-right:0.5rem"/>
 
@@ -112,7 +112,7 @@ we recommend adding the latency between the client and the various Nitrado regio
 
 The Nitrado Ping Discovery offers ping targets for that matter, as well as various different protocols.
 
-Without adding latency to matchmaking requests, the Nitrado Allocator is called with a default region, which
+Without adding latency to matchmaking requests, the GameFabric Allocator is called with a default region, which
 then serves a game server that may not be the fastest one available for the participants of a match.
 
 The process of selecting a region is integrated into the AWS Lambda function, as detailed in the subsequent explanation.
@@ -191,8 +191,8 @@ These are the necessary steps:
 
        | Field      | Type                | Description                                                                                                                  |
        |------------|---------------------|------------------------------------------------------------------------------------------------------------------------------|
-       | `region`     | `string`            | The Nitrado Allocator default region, that is used when there are no player preferences (because they have precedence) |
-       | `attributes` | `map[string]string` | The Nitrado Allocator attributes, which impact which game servers to choose.                                                 |
+       | `region`     | `string`            | The GameFabric Allocator default region, that is used when there are no player preferences (because they have precedence). |
+       | `attributes` | `map[string]string` | The GameFabric Allocator attributes, which impact which game servers to choose. |
 
        ::: info
        If the custom event data is already used, the approach is to merge the new data, but ensure:
@@ -202,10 +202,10 @@ These are the necessary steps:
        - (if the data format is not JSON) to replace the decoder in the soon-to-be-added AWS Lambda function.
        :::
 
-       ::: info Matchmaking per Nitrado region
-       If separating player pools by Nitrado region is required (in addition to the AWS region),
+       ::: info Matchmaking per GameFabric region
+       If separating player pools by GameFabric region is required (in addition to the AWS region),
        the matchmaking ruleset has to be (copied, referenced and) extended with a rule for same player attributes and
-       the player attributes must carry the Nitrado region.
+       the player attributes must carry the GameFabric region.
        :::
 
 - Depending on your **AWS IAM permission setup**, only new resources need to be added to existing policies.
@@ -270,19 +270,19 @@ These are the necessary steps:
 
 - Specify these environment variables:
 
-    | Environment variable | Description                                           |
-    |----------------------|-------------------------------------------------------|
-    | NI_EVENT_NAME        | Name of the new event.                                |
-    | NI_ALLOC_URL         | Full URL of a Nitrado Allocator allocation endpoint.  |
-    | NI_ALLOC_REGION      | Default Nitrado region.                               |
-    | NI_ALLOC_TOKEN       | Authentication bearer token of the Nitrado Allocator. |
-    | NI_LOG_LEVEL         | Log level for the stdout logger.                      |
+    | Environment variable | Description                                              |
+    |----------------------|----------------------------------------------------------|
+    | GF_EVENT_NAME        | Name of the new event.                                   |
+    | GF_ALLOC_URL         | Full URL of a GameFabric Allocator allocation endpoint.  |
+    | GF_ALLOC_REGION      | Default GameFabric region.                               |
+    | GF_ALLOC_TOKEN       | Authentication bearer token of the GameFabric Allocator. |
+    | GF_LOG_LEVEL         | Log level for the stdout logger.                         |
 
 - Specify this source code:
 
     ```go
     // Package main contains an AWS Lambda function that receives and re-emits an existing AWS GameLift event,
-    // extended with a newly obtained Nitrado Allocator game server.
+    // extended with a newly obtained GameFabric Allocator game server.
     //
     // Requirements:
     //   - SNS topic is added as an AWS Lambda trigger.
@@ -295,13 +295,13 @@ These are the necessary steps:
     //     }
     //     ```
     //   - AWS Lambda environments are set:
-    //     +-----------------+-------------------------------------------------------+----------+-----------------------------+
-    //     | NI_EVENT_NAME   | Name of the new event.                                | optional | NitradoMatchmakingSucceeded |
-    //     | NI_ALLOC_URL    | Full URL of a Nitrado Allocator allocation endpoint.  | required |                             |
-    //     | NI_ALLOC_REGION | Default Nitrado region.                               | required |                             |
-    //     | NI_ALLOC_TOKEN  | Authentication bearer token of the Nitrado Allocator. | optional |                             |
-    //     | NI_LOG_LEVEL    | Log level for the stdout logger.                      | optional | info                        |
-    //     +-----------------+-------------------------------------------------------+----------+-----------------------------|
+    //     +-----------------+----------------------------------------------------------+----------+----------------------------------+
+    //     | GF_EVENT_NAME   | Name of the new event.                                   | optional | GameFabricMatchmakingSucceeded   |
+    //     | GF_ALLOC_URL    | Full URL of a GameFabric Allocator allocation endpoint.  | required |                                  |
+    //     | GF_ALLOC_REGION | Default GameFabric region.                               | required |                                  |
+    //     | GF_ALLOC_TOKEN  | Authentication bearer token of the GameFabric Allocator. | optional |                                  |
+    //     | GF_LOG_LEVEL    | Log level for the stdout logger.                         | optional | info                             |
+    //     +-----------------+----------------------------------------------------------+----------+----------------------------------+
     package main
 
     import (
@@ -357,31 +357,31 @@ These are the necessary steps:
 
     var (
         // newMatchmakingEvent is the new event detail type of the event we want to emit.
-        // It is a clone of the filtered event, with the connection information from the Nitrado Allocator attached,
+        // It is a clone of the filtered event, with the connection information from the GameFabric Allocator attached,
         // so its event body is almost identical to the one emitted by AWS FlexMatch in Queue mode.
         newMatchmakingEvent = firstNonEmpty(
-            os.Getenv("NI_EVENT_NAME"),
-            "NitradoMatchmakingSucceeded",
+            os.Getenv("GF_EVENT_NAME"),
+            "GameFabricMatchmakingSucceeded",
         )
 
-        // allocURL contains the Nitrado Allocator URL, e.g. https://allocator.[...].nitrado.systems/allocate
-        allocURL = os.Getenv("NI_ALLOC_URL")
+        // allocURL contains the GameFabric Allocator URL, e.g. https://allocator.[...].nitrado.systems/allocate
+        allocURL = os.Getenv("GF_ALLOC_URL")
 
-        // allocRegion contains the default Nitrado Allocator region.
+        // allocRegion contains the default GameFabric Allocator region.
         //
         // Region preferences (high to low preference):
         // 1. Player latencies (player field "latencyInMs") from the matchmaking tickets,
         // 2. Custom event data (json key "region") from the matchmaking configuration,
-        // 3. Lambda environment var NI_ALLOC_REGION.
-        allocRegion = os.Getenv("NI_ALLOC_REGION")
+        // 3. Lambda environment var GF_ALLOC_REGION.
+        allocRegion = os.Getenv("GF_ALLOC_REGION")
 
-        // allocToken contains the Nitrado Allocator authentication token.
-        allocToken = os.Getenv("NI_ALLOC_TOKEN")
+        // allocToken contains the GameFabric Allocator authentication token.
+        allocToken = os.Getenv("GF_ALLOC_TOKEN")
 
         // logLevel contains the log level.
         // Suggested options: debug, info, error.
         logLevel = must(logger.LevelFromString(firstNonEmpty(
-            os.Getenv("NI_LOG_LEVEL"),
+            os.Getenv("GF_LOG_LEVEL"),
             logger.Info.String(),
         )))
 
@@ -479,13 +479,13 @@ These are the necessary steps:
         // Select the region from our three sources:
         // 1. Player latencies (player field "latencyInMs") from the matchmaking tickets,
         // 2. Custom event data (json key "region") from the matchmaking configuration,
-        // 3. Lambda environment var NI_ALLOC_REGION
+        // 3. Lambda environment var GF_ALLOC_REGION
         regions := []string{region, customStruct.Region, allocRegion}
         region = firstNonEmpty(regions...)
         log.Debug("Region selected", lctx.Str("selected", region), lctx.Strs("regions", regions))
 
         // With `Queue` mode, we got the allocated game server attached to the event automatically.
-        // With `Standalone` mode, we have no game server for the match, so we need to call the Nitrado Allocator to get one.
+        // With `Standalone` mode, we have no game server for the match, so we need to call the GameFabric Allocator to get one.
 
         log.Debug(
             "Allocating server",
@@ -589,9 +589,9 @@ These are the necessary steps:
         Game int `json:"game"`
     }
 
-    // allocateServer returns a game server from the Nitrado Allocator.
+    // allocateServer returns a game server from the GameFabric Allocator.
     //
-    // The Nitrado Allocator consists of
+    // The GameFabric Allocator consists of
     // - a registry where game servers register for a region and with attributes (e.g. env=prod),
     // - an allocate endpoint that requires a region and attributes, so it can return a matching game server.
     // Further Nitrado components handle scaling to ensure that there is always a game server available.
@@ -600,12 +600,12 @@ These are the necessary steps:
         allocReq := allocRequest{
             Region: region,
 
-            // Attributes are used to match game servers within the Nitrado Allocator.
+            // Attributes are used to match game servers within the GameFabric Allocator.
             //
             // Example:
-            // - Game server A registers with attributes [env=prod] to the Nitrado Allocator.
-            // - Game server B registers with attributes [env=stag] to the Nitrado Allocator.
-            // - Game server C registers with attributes [env=stag, canary=true] and required attributes [canary] to the Nitrado Allocator.
+            // - Game server A registers with attributes [env=prod] to the GameFabric Allocator.
+            // - Game server B registers with attributes [env=stag] to the GameFabric Allocator.
+            // - Game server C registers with attributes [env=stag, canary=true] and required attributes [canary] to the GameFabric Allocator.
             //
             // - An allocation request provides no attributes.
             // => Only game server A or B are returned.
@@ -734,14 +734,14 @@ These are the necessary steps:
 
   One key functionality of the AWS Lambda function is its ability to determine the optimal region for the players involved in a match.
   This is why it is recommended to add the field `LatencyInMs` when starting matchmaking.
-  Ideally with measurements for all regions that are served by the Nitrado Allocator in that specific region.
+  Ideally with measurements for all regions that are served by the GameFabric Allocator in that specific region.
 
   For details how to do obtain latency for Nitrado locations, see the Nitrado Ping Discovery documentation.
 
 - **Verify the functionality of the new AWS Lambda function** by starting as many matchmaking requests as needed to form a new
   match.
   AWS CloudWatch provides access to the logs, which should be sufficient to identify permission, encoding or API issues.
-  Use `NI_LOG_LEVEL=debug` to increase the log level.
+  Use `GF_LOG_LEVEL=debug` to increase the log level.
 
   ![](images/flexmatch/cloudwatch.png "Screenshot from AWS CloudWatch showing logs for all intermediate steps of the AWS Lambda function")
 
@@ -755,7 +755,7 @@ With the applied changes in AWS, two changes are required to consume the modific
 Your game service needs to use a different matchmaker when starting and processing matchmaking.
 A matchmaker is referred to by matchmaking configuration name.
 
-This is to run matchmaking with the Nitrado Allocator capacity, instead of the AWS-managed capacity.
+This is to run matchmaking with the GameFabric Allocator capacity, instead of the AWS-managed capacity.
 
 The name must be updated for when you start matchmaking, describe matchmaking (if used at all),
 within subsequent event handling and eventually other locations.
@@ -777,7 +777,7 @@ The measurement can be added to each matchmaking ticket and guarantees the optim
 
 Your game service needs to use a different event name to determine a succeeded matchmaking.
 
-This is to use the event that contains a Nitrado Allocator game server.
+This is to use the event that contains a GameFabric Allocator game server.
 If the new event name is not used, the event does not contain any game server connection information,
 which makes the game service unable to fetch this information from the event.
 
@@ -785,6 +785,6 @@ The name must be updated within the event handling, eventually in subscription f
 
 | Before                            | After                                                                         |
 |-----------------------------------|-------------------------------------------------------------------------------|
-| `MatchmakingSucceeded`<br/>&nbsp; | `NitradoMatchmakingSucceeded` <br/>(or what has been set for `NI_EVENT_NAME`) |
+| `MatchmakingSucceeded`<br/>&nbsp; | `GameFabricMatchmakingSucceeded` <br/>(or what has been set for `GF_EVENT_NAME`) |
 
-Verify that your game succeeds with matchmaking and connects to a Nitrado Allocator game server.
+Verify that your game succeeds with matchmaking and connects to a GameFabric Allocator game server.

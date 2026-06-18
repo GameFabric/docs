@@ -1,18 +1,18 @@
-# Amazon GameLift Integration Documentation
+# Amazon GameLift integration documentation
 
 ## Introduction
 
 This documentation serves as an integration guide for developers aiming to integrate their game services and game servers
-into Nitrado multiplayer services, whereas a special focus lies on familiar concepts of Amazon GameLift.
+into GameFabric Multiplayer Services, whereas a special focus lies on familiar concepts of Amazon GameLift.
 
-The Nitrado multiplayer services consist of **GameFabric** to manage game server fleets,
-the **Nitrado Allocator** to provide a pool of ready to play game servers for matchmaking,
+The GameFabric Multiplayer Services consist of **GameFabric** to manage game server fleets,
+the **GameFabric Allocator** to provide a pool of ready-to-play game servers for matchmaking,
 and **[Agones](https://agones.dev/site/)**, which is the game server orchestration platform.
 
 ::: tip Related Documentation
-- For general allocation guidance, see [Allocating from Armadas](../allocating-from-armadas)
+- For general allocation guidance, see [Allocating from Armadas](/multiplayer-servers/multiplayer-services/server-allocation/allocating-from-armadas)
 - For the Allocator API specification, see [Allocator API](/api/multiplayer-servers/allocation-allocator)
-- For Agones SDK integration, see [Using the Agones SDK](/multiplayer-servers/getting-started/using-the-agones-sdk)
+- For Agones SDK integration, see [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)
 - For FlexMatch integration, see [FlexMatch Integration](flexmatch)
 :::
 
@@ -103,7 +103,7 @@ and match information to the game client.
 
 After becoming ready, a game server can be allocated at any time.
 
-The backend service is required to call the Nitrado Allocator `/allocate` endpoint and request a game server.
+The backend service is required to call the GameFabric Allocator `/allocate` endpoint and request a game server.
 
 See [Allocation: Allocator API documentation](/api/multiplayer-servers/allocation-allocator.html) for details
 
@@ -249,7 +249,7 @@ reading.
 
 ## Summary
 
-Integrating Nitrado multiplayer services into matchmaking requires effort in detail:
+Integrating GameFabric Multiplayer Services into matchmaking requires effort in detail:
 the necessity to introduce a health report loop, watch an allocation trigger, and implement cloud-optimized exit behavior.
 
 We wish you success with the integration!

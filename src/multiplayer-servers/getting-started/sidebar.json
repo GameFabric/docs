@@ -8,8 +8,12 @@
       "link": "/getting-started/introduction"
     },
     {
-      "text": "Authentication",
-      "link": "/getting-started/authentication"
+      "text": "Quickstart",
+      "link": "/getting-started/quickstart"
+    },
+    {
+      "text": "GameFabric Cloud",
+      "link": "/getting-started/gamefabric-cloud"
     },
     {
       "text": "Configuring your Cloud Provider",
@@ -40,16 +44,12 @@
       "link": "/getting-started/setup-your-environment"
     },
     {
-      "text": "Setup Third-Party OAuth Integration",
-      "link": "/getting-started/setup-third-party-oauth"
-    },
-    {
-      "text": "Editing Permissions",
-      "link": "/getting-started/editing-permissions"
-    },
-    {
       "text": "Running your Game Server",
       "link": "/getting-started/running-your-game-server"
+    },
+    {
+      "text": "Creating an ArmadaSet",
+      "link": "/getting-started/creating-an-armadaset"
     },
     {
       "text": "Terminating ArmadaSets",
@@ -60,9 +60,14 @@
       "link": "/getting-started/terminating-game-servers"
     },
     {
+      "text": "Vessel States",
+      "link": "/getting-started/vessel-states"
+    },
+    {
       "text": "Managing your Secrets",
       "link": "/getting-started/secrets"
     },
+
     {
       "text": "Glossary",
       "link": "/getting-started/glossary"
