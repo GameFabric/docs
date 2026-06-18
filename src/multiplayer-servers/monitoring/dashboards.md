@@ -9,7 +9,7 @@ This dashboard shows BlackBox Exporter (BBE) probe results from each of your ass
 
 This dashboard helps you determine whether game server incidents originate from cloud-provider connectivity issues rather than defects in the application.
 
-### Interpreting the Dashboard
+### Interpreting the dashboard
 
 Red segments represent periods where a probe failed.
 
