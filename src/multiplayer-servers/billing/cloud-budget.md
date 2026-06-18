@@ -1,8 +1,8 @@
 # Cloud budget
 
-Cloud budget lets you define a maximum USD spend limit for your GameFabric Cloud usage and configure notification thresholds so you are alerted before that limit is reached.
+Cloud budget lets you monitor your GameFabric Cloud spending by configuring a maximum budget and notification thresholds.
 When a threshold or the maximum budget is crossed, GameFabric sends email notifications to the configured receivers.
-Reaching the maximum budget does not suspend or terminate any running services.
+Cloud budget is notification-only — it does not cap, throttle, or suspend your cloud capacity.
 
 ::: info GameFabric Cloud only
 Cloud budget is only available for [GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud) capacity.
@@ -38,11 +38,11 @@ The following states are possible:
 
 ## Maximum budget
 
-The maximum budget is the upper USD spend limit for a billing period.
+The maximum budget is the upper USD spend threshold for a billing period.
 It must be greater than zero.
 
 Exceeding the maximum budget triggers a critical alert to all configured receivers.
-It does not pause, throttle, or terminate any running cloud capacity.
+It does not cap, throttle, or suspend your cloud capacity.
 
 ## Thresholds
 
