@@ -19,7 +19,7 @@ In practice:
 - A sustained failure to a single target may still have no impact. For example, if the target is a provider your game does not use or a backup DNS endpoint.
 - If failures persist across multiple targets, GameFabric automatically marks the service as **Degraded** on [status.gamefabric.com](https://status.gamefabric.com).
 
-:::info Probe results do not always reflect network issues
+::: info Probe results do not always reflect network issues
 Probe results are not a definitive measure of network health: a failing probe does not necessarily indicate a network issue, and network issues can occur even when probes succeed. Probes test only specific routes from nodes to a fixed set of predefined targets.
 
 Limitations:
