@@ -76,6 +76,14 @@ and
 
 Timestamps are set to the current time, plus the time configured for each reason via: `Settings`->`Advanced`->`Shutdown Notification`.
 
+Implementation expectation for game servers:
+
+1. Observe `g8c.io/shutdown-timestamp` on the Agones GameServer object.
+1. Treat the timestamp as a shutdown deadline and start graceful shutdown handling as soon as it appears.
+1. Exit the game server process before the deadline is reached.
+
+To reduce player impact, stop accepting new matches and notify connected players with an in-game countdown until shutdown.
+
 ::: info Multiple shutdown reasons
 * The annotations are set once and never updated
 * They disappear with the shutdown of the game server

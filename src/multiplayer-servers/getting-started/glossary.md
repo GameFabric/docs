@@ -283,6 +283,8 @@ See [Sidecar Containers](/multiplayer-servers/architecture/sidecars) for a compr
 
 ## Shutdown hints
 
+Shutdown hints are annotations on the Agones GameServer object that include a shutdown deadline. Your game server is expected to observe them and exit before the deadline.
+
 See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessel-shutdown-behavior).
 
 ## Site
