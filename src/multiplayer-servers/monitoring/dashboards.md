@@ -16,7 +16,7 @@ Red segments represent periods where a probe failed.
 In practice:
 
 - Brief probe failures are common and usually not actionable.
-- A sustained failure to a single target may still have no impact -- for example, if the target is a provider your game does not use or a backup DNS endpoint.
+- A sustained failure to a single target may still have no impact. For example, if the target is a provider your game does not use or a backup DNS endpoint.
 - If failures persist across multiple targets, GameFabric automatically marks the service as **Degraded** on [status.gamefabric.com](https://status.gamefabric.com).
 
 :::info Probe results do not always reflect network issues
