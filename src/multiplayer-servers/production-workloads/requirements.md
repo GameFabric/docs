@@ -22,13 +22,31 @@ See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) fo
 
 #### Armadas
 
-After a session ends (for example, when the last player leaves), the game server should either return to an `Agones Ready` state if it's meant to be reused for new sessions, or shut down if it's no longer needed. Additionally, the maximum lifetime of any game server should be limited to 24 hours.
+After a session ends (for example, when the last player leaves), the game server should either return to an `Agones Ready` state if it's meant to be reused for new sessions, or shut down if it's no longer needed.
+
+For Armadas, we strongly recommend that you either limit game server lifetime to 24 hours or implement shutdown hints in your game server.
+
+If neither is implemented, a game server can be terminated once it is 24 hours old, including while a match is still running.
 
 #### Formations
 
 For Formations, you must provide shutdown hints as described in [running your game server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods).
 
 Refer to [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessels) for additional details.
+
+#### Node maintenance eviction policy
+
+To maintain platform stability and security, lifecycle management guidance is enforced during node maintenance events that require node drain.
+
+When node drain is required, Allocated game servers (both Armada- and Vessel-based) receive shutdown hints and are evicted according to the following behavior:
+
+1. **Less than 24 hours old**: The shutdown hint is set to the exact time when the game server reaches 24 hours of age.
+1. **More than 24 hours old**: The shutdown hint is set to current time + 1 hour, giving the game server a 1-hour grace period to exit gracefully.
+1. **Eviction procedure**: After the shutdown hint time is reached, the game server is evicted from the node using standard Agones shutdown procedures.
+
+Ready or unallocated game servers are evicted immediately when node drain starts.
+
+This policy does not introduce a general 24-hour lifetime limit for all game servers. Eviction occurs only when GameFabric actively drains a node, for example to apply critical security updates or perform required reboots.
 
 ## Best practices
 
