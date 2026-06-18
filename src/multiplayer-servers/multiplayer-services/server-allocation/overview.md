@@ -70,6 +70,10 @@ sequenceDiagram
 4. **Connection Info:** The Allocator returns the server's connection details (IP, port) to the matchmaker.
 5. **Connect:** The matchmaker sends the connection info to the players, who connect to the game server.
 
+::: info Authentication tokens
+Registration (step 1) and allocation (step 2) use separate authentication tokens. For each Allocator you order, you receive a **Registry Token** for game server registration and an **Allocator Token** for calling `/allocate`. See [ALLOC_TOKEN](automatically-registering-game-servers#alloc_token-string) for details.
+:::
+
 After the match ends, the game server shuts down, and the Armada automatically starts a new server to replace it in the pool.
 
 ## Choosing an integration approach
