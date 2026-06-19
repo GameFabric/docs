@@ -49,7 +49,7 @@ It does not cap, throttle, or suspend your cloud capacity.
 Thresholds are intermediate spend levels that trigger early-warning alerts before the maximum budget is reached.
 They are optional, but recommended.
 
-Specific thresholds and interval thresholds can be configured independently or together.
+Specific thresholds and interval thresholds are mutually exclusive — you can configure one or the other, but not both.
 
 ### Specific thresholds
 
