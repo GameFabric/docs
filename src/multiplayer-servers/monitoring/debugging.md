@@ -10,6 +10,10 @@ Even if your game ultimately requires [Armadas](/multiplayer-servers/getting-sta
 
 Every container in your game server pod writes logs to `stdout` and `stderr`, which GameFabric collects automatically. There are two ways to access them.
 
+::: info File-based logs
+Many game engines (for example, Unreal Engine) write logs to files rather than to stdout. These file-based logs are **not** collected automatically and do not appear in the Vessel UI or Grafana. To make them available, you can use the [Game Server Wrapper's log tailing feature](/multiplayer-servers/multiplayer-services/game-server-wrapper#log-tailing) to forward log files to stdout. Note that [logging quotas](/multiplayer-servers/multiplayer-services/quotas#logging-limitations) apply.
+:::
+
 ### Vessel UI
 
 If you are using a [Vessel](/multiplayer-servers/getting-started/glossary#vessel), logs for all containers (including sidecars) are available directly in the Vessel UI. Note that logs from previous container runs are not included — only logs from the current run are shown.

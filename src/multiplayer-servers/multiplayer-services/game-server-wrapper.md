@@ -181,6 +181,8 @@ Log files, on the other hand, would otherwise be lost as soon as the container o
 |-----------------------|----------------------|-------------------------------------------------------------------|
 | `--tail-log.paths`    | `TAIL_LOG_PATHS`     | Paths from which to tail log files. Can be passed multiple times. |
 
+Tailed logs count toward the [logging quotas](/multiplayer-servers/multiplayer-services/quotas#logging-limitations).
+
 **Example:**
 
 ```shell

@@ -37,10 +37,15 @@ There are a lot of predefined dashboards under "Dashboards".
 
 ## Logs
 
-Everything that the game server prints to either `stdout` or `stderr` is automatically collected.
+Everything that the game server prints to either `stdout` or `stderr` is automatically collected and available in the [monitoring dashboards](/multiplayer-servers/monitoring/debugging#viewing-container-logs).
 
-::: info Logging Quotas
-Logging is limited to *100 lines per second per game server with a 500 lines burst size* and
-globally to *10 megabytes per second with a 50 megabyte burst size*.
+Logs written to files inside the container are **not** collected automatically. File-based logs are lost when the container stops. This is relevant for game engines such as Unreal Engine that write logs to disk by default rather than to stdout.
+
+::: tip Forwarding file-based logs
+If your game server writes logs to files, you can use the [Game Server Wrapper's log tailing feature](/multiplayer-servers/multiplayer-services/game-server-wrapper#log-tailing) to forward them to `stdout`. This makes file-based logs available in Grafana and the Vessel UI alongside your other logs.
+:::
+
+::: info Logging quotas
+[Logging quotas](/multiplayer-servers/multiplayer-services/quotas#logging-limitations) apply. If your game server exceeds the rate limits, log lines are dropped.
 If you require different limits, contact GameFabric support.
 :::
