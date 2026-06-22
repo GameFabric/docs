@@ -4,9 +4,9 @@ Scale to Zero is a cost-saving feature that allows GameFabric, when enabled, to 
 This can save infrastructure costs.
 When demand returns, GameFabric automatically scales up the capacity to meet it.
 
-::: warning Alpha feature
-Scale to Zero is currently in Alpha and should be used with caution, as it can lead to unexpected scaling decisions.
-It is recommended to test the feature thoroughly in a staging environment before enabling it in production, and to monitor the scaling decisions frequently.
+::: info Beta feature
+Scale to Zero is currently in Beta and is considered stable for most workloads.
+We still recommend validating your settings in a staging environment first and monitoring scaling behavior after rollout.
 :::
 
 The feature is disabled by default, and is configurable per [Armada](/multiplayer-servers/getting-started/glossary#armada) and [Region](/multiplayer-servers/getting-started/glossary#region).
