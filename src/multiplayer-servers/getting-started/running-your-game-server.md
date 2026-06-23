@@ -227,6 +227,15 @@ The reasons for a server to be told it should shut down are:
   server needs to shut down so that the new configuration can be applied.
 * **User Initiated**: A suspension or restart was triggered by a user through the GameFabric UI or API.
 
+Your game server is expected to handle shutdown hints explicitly:
+
+1. Observe the shutdown hint on the Agones GameServer object.
+1. If a hint is present, treat its timestamp as a deadline and start shutdown handling immediately.
+1. Exit the game server process before the hint timestamp is reached.
+
+For the best player experience, implement graceful shutdown logic that lets active sessions end cleanly before exit.
+At minimum, show an in-game message such as "This server will shut down in X minutes" and stop accepting new matches.
+
 ![GUI_Create_Vessel_Advanced_Grace_Periods.png](images/formation/GUI_Create_Vessel_Advanced_Grace_Periods.png)
 
 The configured grace period is the time that the game server can use to gracefully shut down, for example,

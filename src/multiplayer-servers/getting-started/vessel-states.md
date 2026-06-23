@@ -54,7 +54,7 @@ A freshly created vessel follows this path:
 
 ### Restart and reconfiguration
 
-When a spec change is detected, a site is cordoned for maintenance, or a restart is triggered by a user, the vessel enters `Terminating`. GameFabric sends a shutdown hint to the game server and waits for it to exit. Once cleanup is complete, the vessel returns to `Pending` and the startup flow begins again.
+When a spec change is detected, a site is cordoned for maintenance, or a restart is triggered by a user, the vessel enters `Terminating`. GameFabric sends a shutdown hint to the game server and waits for it to exit. Your game server should observe the shutdown hint timestamp and exit before that deadline. Once cleanup is complete, the vessel returns to `Pending` and the startup flow begins again.
 
 ### Suspension
 
