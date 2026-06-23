@@ -28,6 +28,8 @@ For Armadas, we strongly recommend that you either limit game server lifetime to
 
 If neither is implemented, a game server can be terminated once it is 24 hours old, including while a match is still running.
 
+For more details on the exact eviction flow for allocated game servers, see [Node maintenance eviction policy](#node-maintenance-eviction-policy).
+
 #### Formations
 
 For Formations, you must provide shutdown hints as described in [running your game server](/multiplayer-servers/getting-started/running-your-game-server#termination-grace-periods).
