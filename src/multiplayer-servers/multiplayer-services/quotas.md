@@ -14,6 +14,13 @@ This page lists all known system limitations that developers should be aware of 
 - **Limit**: 100 Game Servers per cloud node
 - **Description**: Each node in the GameFabric cloud cluster can host a maximum of 100 game server instances simultaneously.
 
+### Node drain eviction behavior
+
+- **Limit**: Node maintenance drain can evict game servers.
+- **Description**: During required node drain, this behavior is system-enforced. Allocated game servers under 24 hours old receive a shutdown hint at their 24-hour age, and allocated game servers over 24 hours old receive a shutdown hint set to current time + 1 hour. Ready or unallocated game servers are evicted immediately.
+
+For full lifecycle guidance, see [Requirements and best practices](/multiplayer-servers/production-workloads/requirements#lifecycle-management).
+
 ## Environment limitations
 
 ### Name length
