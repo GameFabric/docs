@@ -63,8 +63,8 @@ You can add both endpoints as data sources in your own Grafana instance.
 ### Metrics data source
 
 1. In Grafana, go to **Connections > Data sources** and select **Add new data source**.
-1. Choose **Prometheus** as the data source type.
-1. Set the **URL** to `https://<your-installation>.gamefabric.dev/observability/metrics/`.
+2. Choose **Prometheus** as the data source type.
+3. Set the **URL** to `https://<your-installation>.gamefabric.dev/observability/metrics/`.
 4. Under **Authentication**, set the **Authentication method** to **No authentication**
 5. Under **HTTP headers**, click **Add header** and set **Header** to `Authorization` and **Value** to `Bearer <token>`. Replace `<token>` with the token you receive from your Customer Success Manager. Keep the `Bearer` prefix.
 1. Select **Save & test** to verify the connection.
@@ -72,10 +72,10 @@ You can add both endpoints as data sources in your own Grafana instance.
 ### Logs data source
 
 1. In Grafana, go to **Connections > Data sources** and select **Add new data source**.
-1. Choose **Loki** as the data source type.
-1. Set the **URL** to `https://<your-installation>.gamefabric.dev/observability/logs/`.
+2. Choose **Loki** as the data source type.
+3. Set the **URL** to `https://<your-installation>.gamefabric.dev/observability/logs/`.
 4. Under **Authentication**, set the **Authentication method** to **No authentication**
 5. Under **HTTP headers**, click **Add header** and set **Header** to `Authorization` and **Value** to `Bearer <token>`. Replace `<token>` with the token you receive from your Customer Success Manager. Keep the `Bearer` prefix.
-1. Select **Save & test** to verify the connection.
+6. Select **Save & test** to verify the connection.
 
 Once the data sources are configured, you can build dashboards and alerts in your own Grafana instance using the same metrics and logs that power the built-in GameFabric monitoring dashboards.
