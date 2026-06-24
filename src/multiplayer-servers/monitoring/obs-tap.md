@@ -74,7 +74,8 @@ You can add both endpoints as data sources in your own Grafana instance.
 1. In Grafana, go to **Connections > Data sources** and select **Add new data source**.
 1. Choose **Loki** as the data source type.
 1. Set the **URL** to `https://<your-installation>.gamefabric.dev/observability/logs/`.
-1. Under **Authentication**, configure the credentials you received when access was granted.
+4. Under **Authentication**, set the **Authentication method** to **No authentication**
+5. Under **HTTP headers**, click on **Add header** and set **Header** to `Authorization` and **Value** to `Bearer <token>` (<token> has to be replaced with the actual token you receive from your Customer Success Manager, but the word Bearer has to be present as a prefix)
 1. Select **Save & test** to verify the connection.
 
 Once the data sources are configured, you can build dashboards and alerts in your own Grafana instance using the same metrics and logs that power the built-in GameFabric monitoring dashboards.
