@@ -8,7 +8,7 @@ Access to the observability tap is not enabled by default. To request it, contac
 
 ## Endpoints
 
-All observability tap endpoints are hosted under your installation's base URL:
+All observability tap endpoints are available under your installation's base URL:
 
 ```
 https://<your-installation>.gamefabric.dev/observability/
