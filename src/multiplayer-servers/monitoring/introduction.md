@@ -32,8 +32,19 @@ For more information on managing permissions, see [Editing Permissions](/multipl
 
 ## Metrics
 
-There are metrics for every feature of the product.
-There are a lot of predefined dashboards under "Dashboards".
+GameFabric includes predefined dashboards with metrics across your game server fleet and cluster. These dashboards help you understand performance, capacity, and reliability without requiring custom setup.
+
+Examples of data available in Monitoring include:
+
+- Game server scaling activity, including scale-up and scale-down trends
+- Game server CPU and memory utilization, including percentiles, averages, regional rollups, and top consumers for anomaly detection
+- Node-level host metrics for both bare metal and cloud environments
+- Node connectivity checks to common external providers and endpoints
+- Cluster utilization and the gap between requested resources and actual usage
+- Allocator activity and request patterns
+- Kubernetes events that affect your workloads
+
+For practical guidance on sizing CPU and memory requests and limits using these metrics, see [Resource management](/multiplayer-servers/multiplayer-services/resource-management).
 
 ## Logs
 
