@@ -65,7 +65,8 @@ You can add both endpoints as data sources in your own Grafana instance.
 1. In Grafana, go to **Connections > Data sources** and select **Add new data source**.
 1. Choose **Prometheus** as the data source type.
 1. Set the **URL** to `https://<your-installation>.gamefabric.dev/observability/metrics/`.
-1. Under **Authentication**, configure the credentials you received when access was granted.
+4. Under **Authentication**, set the **Authentication method** to **No authentication**
+5. Under **HTTP headers**, click on **Add header** and set **Header** to `Authorization` and **Value** to `Bearer <token>` (<token> has to be replaced with the actual token you receive from your Customer Success Manager, but the word Bearer has to be present as a prefix)
 1. Select **Save & test** to verify the connection.
 
 ### Logs data source
