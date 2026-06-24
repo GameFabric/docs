@@ -1,6 +1,6 @@
 # Observability tap
 
-The observability tap gives you direct, read-only access to the Prometheus-compatible metrics API and the Loki-compatible logs API for your GameFabric installation. Use it to pull data into your own Grafana instance or any other observability tooling that supports these APIs.
+The observability tap gives you direct, read-only access to the Prometheus-compatible metrics API and the Loki-compatible logs API for your GameFabric installation. Use it to display data in your own Grafana instance or in any other observability tool that supports these APIs.
 
 ## Requesting access
 
