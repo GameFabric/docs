@@ -32,7 +32,8 @@ The following Prometheus HTTP API paths are available under the metrics endpoint
 - `/observability/metrics/api/v1/query` — instant query
 - `/observability/metrics/api/v1/query_range` — range query
 - `/observability/metrics/api/v1/series` — series metadata
-- `/observability/metrics/api/v1/label.*` — label introspection
+- `/observability/metrics/api/v1/labels` — label names
+- `/observability/metrics/api/v1/label/<label_name>/values` — label values
 - `/observability/metrics/api/v1/metadata` — metric metadata
 - `/observability/metrics/api/v1/status/buildinfo` — build information
 
