@@ -32,7 +32,7 @@ For more information on managing permissions, see [Editing Permissions](/multipl
 
 ## Metrics
 
-GameFabric comes with a Grafana instance (accessible via the "Monitoring" menu item in the sidebar of your GameFabric instance) and a dozen preinstalled Grafana dashboards. These dashboards help you understand performance, capacity, and reliability of your game server fleets, nodes and sites without requiring a custom observability setup in your game server.
+GameFabric comes with a Grafana instance (accessible via the "Monitoring" menu item in the sidebar of your GameFabric instance) and a dozen preinstalled Grafana dashboards. These dashboards help you understand the performance, capacity, and reliability of your game server fleets, nodes, and sites without requiring a custom observability setup for your game servers.
 
 Some examples of data available in Grafana:
 
