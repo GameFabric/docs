@@ -47,7 +47,8 @@ The following Loki HTTP API paths are available under the logs endpoint:
 
 - `/observability/logs/loki/api/v1/query` — instant query
 - `/observability/logs/loki/api/v1/query_range` — range query
-- `/observability/logs/loki/api/v1/labels` and `/observability/logs/loki/api/v1/label/.*` — label introspection
+- `/observability/logs/loki/api/v1/labels` — label names
+- `/observability/logs/loki/api/v1/label/<label_name>/values` — label values
 - `/observability/logs/loki/api/v1/series` — series metadata
 - `/observability/logs/loki/api/v1/index/stats` — index statistics
 - `/observability/logs/loki/api/v1/tail` — live tail
