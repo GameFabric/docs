@@ -230,7 +230,7 @@ into a payload that is sent to the Allocator when the game server is allocated.
 ::: danger Annotations must be visible before Ready
 The Allocation Sidecar reads the callback annotations **once** when the game server transitions to
 `Ready`, and caches the result. It does not re-read annotations at allocation time. If annotations
-are not yet visible on the GameServer object at the moment the sidecar processes the `Ready` state,
+are not yet visible on the `GameServer` object at the moment the sidecar processes the `Ready` state,
 they will not be included in the callback payload.
 
 The Agones SDK does not guarantee that `SetAnnotation` is immediately visible on the GameServer
