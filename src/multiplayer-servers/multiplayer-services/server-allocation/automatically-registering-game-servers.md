@@ -91,10 +91,49 @@ Also do not use `UDP/TCP`, as this results in a different naming scheme.
 **Optional**: If you want use [attributes](#attributes), add one or more label prefixed with `allocator.nitrado.net/`, e.g.
 `allocator.nitrado.net/env=prod` so your matchmaker can filter for them.
 
+::: warning Attributes cannot be set from game server code
+Attributes are derived from Kubernetes labels prefixed with `allocator.nitrado.net/`.
+The Agones SDK's `SetLabel()` always adds the prefix `agones.dev/sdk-`, making it impossible
+to create `allocator.nitrado.net/` labels from within the game server at runtime.
+Attributes must be configured statically via the GameFabric UI or API.
+:::
+
 The Allocation Sidecar watches for the state change "Ready", registers the game server to the pre-configured
 allocation service, and when allocated, transitions the state to "Allocated".
 
 ## Game server integration
+
+The Allocation Sidecar supports passing data in two directions during the allocation flow:
+
+| Direction | Environment Variable | Description |
+|-----------|---------------------|-------------|
+| Matchmaker → Game Server | `ALLOC_PAYLOAD_ANNOTATION` or `ALLOC_PAYLOAD_FILE` | The matchmaker sends a payload in the `/allocate` request. The sidecar writes it as annotations or a file on the game server. |
+| Game Server → Allocator | `ALLOC_CALLBACK_PAYLOAD_ANNOTATION` or `ALLOC_CALLBACK_PAYLOAD_VARS` | The sidecar reads annotations (or env vars) from the game server at `Ready` time and returns them in the `/allocate` response. |
+
+```mermaid
+sequenceDiagram
+    participant GS as Game Server
+    participant SC as Allocation Sidecar
+    participant AL as Allocator
+    participant MM as Matchmaker
+
+    GS->>GS: SetAnnotation (callback data)
+    GS->>SC: Ready()
+    SC->>SC: Read callback annotations (cached)
+    SC->>AL: Register
+    MM->>AL: /allocate {payload}
+    AL->>SC: Allocation callback {payload}
+    SC->>GS: Write payload as annotations
+    SC->>GS: Write "last-applied" marker
+    SC-->>AL: Response {callback payload}
+    AL-->>MM: Response {address, ports, payload}
+```
+
+::: info
+Both directions are independent and optional. You can use one, both, or neither.
+If using both, `ALLOC_PAYLOAD_ANNOTATION` and `ALLOC_CALLBACK_PAYLOAD_ANNOTATION` must have
+**different** prefix values to avoid mixing incoming and outgoing data.
+:::
 
 With the registration and allocation handling automated,
 your game server needs to be extended to support watching for the "Allocated" state change.
@@ -188,10 +227,15 @@ In order to return information about the game server to the process calling `/al
 The Allocation Sidecar reads game server annotations, and those prefixed with the given string get compiled
 into a payload that is sent to the Allocator when the game server is allocated.
 
-:::danger
-The annotations must be set on the game server before notifying the Agones SDK that the game server is
-ready, otherwise there is no guarantee that the Allocation Sidecar will see all the annotations, and
-a partial payload may be sent.
+:::danger Annotations must be visible before Ready
+The Allocation Sidecar reads the callback annotations **once** when the game server transitions to
+`Ready`, and caches the result. It does not re-read annotations at allocation time. If annotations
+are not yet visible on the GameServer object at the moment the sidecar processes the `Ready` state,
+they will not be included in the callback payload.
+
+The Agones SDK does not guarantee that `SetAnnotation` is immediately visible on the GameServer
+object. Ensure annotations are set and confirmed (e.g. by calling `GameServer()` and verifying
+the annotations appear in the response) before calling `Ready()`.
 :::
 
 Static payload variables can also be sent by [adding the environment variable `ALLOC_CALLBACK_PAYLOAD_VARS`](#alloc_callback_payload_vars-string) on
