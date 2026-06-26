@@ -70,7 +70,7 @@ ports := gs.GetStatus().GetPorts()
 
 #### Querying the registration endpoint
 
-Now, your server can make an HTTP POST request to the [/servers/](https://nitrado.gitlab.io/b2b/allocator/allocator/latest/registry.html)
+Now, your server can make an HTTP POST request to the [/servers/](/api/multiplayer-servers/allocation-registry)
 endpoint of the Registry server.
 
 The request body should follow this structure.
