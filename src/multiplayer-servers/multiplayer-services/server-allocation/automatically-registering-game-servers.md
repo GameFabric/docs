@@ -94,7 +94,7 @@ Also do not use `UDP/TCP`, as this results in a different naming scheme.
 ::: warning Attributes cannot be set from game server code
 Attributes are derived from Kubernetes labels prefixed with `allocator.nitrado.net/`.
 The Agones SDK's `SetLabel()` always adds the prefix `agones.dev/sdk-`, making it impossible
-to create `allocator.nitrado.net/` labels from within the game server at runtime.
+to create `allocator.nitrado.net/` labels via the Agones SDK at runtime.
 Attributes must be configured statically via the GameFabric UI or API.
 :::
 
