@@ -91,7 +91,7 @@ Also do not use `UDP/TCP`, as this results in a different naming scheme.
 **Optional**: If you want to use [attributes](#attributes), add one or more labels prefixed with `allocator.nitrado.net/`, e.g.
 `allocator.nitrado.net/env=prod` so your matchmaker can filter for them.
 
-::: warning Attributes cannot be set from game server code
+::: warning Attributes cannot be set via the Agones SDK
 Attributes are derived from Kubernetes labels prefixed with `allocator.nitrado.net/`.
 The Agones SDK's `SetLabel()` always adds the prefix `agones.dev/sdk-`, making it impossible
 to create `allocator.nitrado.net/` labels via the Agones SDK at runtime.
