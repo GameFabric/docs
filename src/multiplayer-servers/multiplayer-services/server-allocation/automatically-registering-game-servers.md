@@ -88,7 +88,7 @@ The port name `allocator` must not be changed, otherwise it is not recognized by
 Also do not use `UDP/TCP`, as this results in a different naming scheme.
 :::
 
-**Optional**: If you want use [attributes](#attributes), add one or more label prefixed with `allocator.nitrado.net/`, e.g.
+**Optional**: If you want to use [attributes](#attributes), add one or more label prefixed with `allocator.nitrado.net/`, e.g.
 `allocator.nitrado.net/env=prod` so your matchmaker can filter for them.
 
 ::: warning Attributes cannot be set from game server code
