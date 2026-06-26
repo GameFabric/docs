@@ -108,7 +108,7 @@ The Allocation Sidecar supports passing data in two directions during the alloca
 | Direction | Environment Variable | Description |
 |-----------|---------------------|-------------|
 | Matchmaker → Game Server | `ALLOC_PAYLOAD_ANNOTATION` or `ALLOC_PAYLOAD_FILE` | The matchmaker sends a payload in the `/allocate` request. The sidecar writes it as annotations or a file on the game server. |
-| Game Server → Allocator | `ALLOC_CALLBACK_PAYLOAD_ANNOTATION` or `ALLOC_CALLBACK_PAYLOAD_VARS` | The sidecar reads annotations (or env vars) from the game server at `Ready` time and returns them in the `/allocate` response. |
+| Game Server → Allocator | `ALLOC_CALLBACK_PAYLOAD_ANNOTATION` or `ALLOC_CALLBACK_PAYLOAD_VARS` | The sidecar reads callback annotations from the game server at `Ready` time (or includes static variables from its own environment) and returns them in the `/allocate` response. |
 
 ```mermaid
 sequenceDiagram
