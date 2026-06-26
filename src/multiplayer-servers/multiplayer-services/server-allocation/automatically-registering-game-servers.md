@@ -123,7 +123,7 @@ sequenceDiagram
     SC->>AL: Register
     MM->>AL: /allocate {payload}
     AL->>SC: Allocation callback {payload}
-    SC->>GS: Write payload as annotations
+    SC->>GS: Write payload as annotations or a file
     SC->>GS: Write "last-applied" marker
     SC-->>AL: Response {callback payload}
     AL-->>MM: Response {address, ports, payload}
