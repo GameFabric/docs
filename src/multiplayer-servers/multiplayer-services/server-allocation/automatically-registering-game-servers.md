@@ -302,7 +302,7 @@ Multi-dimensional payload results in concatenated keys using the `.` as separato
 Mutual exclusive to `ALLOC_PAYLOAD_FILE`.
 
 ::: warning Timing
-The state change to `Allocated` fires before the payload annotations are written.
+To keep response times low, the state changes to `Allocated` before the payload annotations are written.
 Wait for the [`ALLOC_PAYLOAD_ANNOTATION_LAST_APPLIED_NAME`](#alloc_payload_annotation_last_applied_name-stringlast-applied)
 marker annotation before reading any payload annotations.
 See [Write payload to annotations](#write-payload-to-annotations) for a code example.
