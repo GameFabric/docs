@@ -3,9 +3,9 @@
 GameFabric provides predefined Grafana dashboards for monitoring your infrastructure.
 You can find these under "Dashboards" in your Grafana instance.
 
-## BBE probes from nodes
+## Network health probes (via Blackbox Exporter)
 
-This dashboard shows Blackbox Exporter (BBE) probe results from each of your assigned nodes to predefined targets, including major cloud providers (Google Cloud (GCP), Azure, and Amazon Web Services (AWS)) and DNS servers (such as Cloudflare at 1.1.1.1 and Google at 8.8.8.8).
+This dashboard shows probe results from each of your assigned nodes to predefined targets, including major cloud providers (Google Cloud (GCP), Azure, and Amazon Web Services (AWS)) and DNS servers (such as Cloudflare at 1.1.1.1 and Google at 8.8.8.8).
 
 This dashboard helps you determine whether game server incidents originate from cloud-provider connectivity issues rather than defects in the application.
 
