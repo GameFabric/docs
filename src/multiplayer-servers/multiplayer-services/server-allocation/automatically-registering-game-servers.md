@@ -391,7 +391,7 @@ The annotation keys are split using '.' as a separator to create a complex paylo
 
 ::: warning Timing
 Callback annotations are read **once** at `Ready` time and cached.
-Annotations must be set and confirmed on the GameServer object before calling `Ready()`.
+Annotations must be set and confirmed on the `GameServer` object before calling `Ready()`.
 See [Return a payload to the Allocator](#return-a-payload-to-the-allocator) for details.
 :::
 
