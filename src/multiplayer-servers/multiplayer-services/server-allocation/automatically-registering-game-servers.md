@@ -299,7 +299,7 @@ By setting a non-empty value, stores the payload in game server annotations.
 The used string extends the existing Agones prefix that is used for annotations.
 Setting it to e.g. `payload-` results in the final prefix being `agones.dev/sdk-payload-`.
 Multi-dimensional payload results in concatenated keys using the `.` as separator.
-Mutual exclusive to `ALLOC_PAYLOAD_FILE`.
+Mutually exclusive to `ALLOC_PAYLOAD_FILE`.
 
 ::: warning Timing
 To keep response times low, the state changes to `Allocated` before the payload annotations are written.
