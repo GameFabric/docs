@@ -299,7 +299,13 @@ By setting a non-empty value, stores the payload in game server annotations.
 The used string extends the existing Agones prefix that is used for annotations.
 Setting it to e.g. `payload-` results in the final prefix being `agones.dev/sdk-payload-`.
 Multi-dimensional payload results in concatenated keys using the `.` as separator.
-Mutual exclusive to `ALLOC_PAYLOAD_FILE`.
+Mutually exclusive with `ALLOC_PAYLOAD_FILE`.
+
+::: warning Timing
+To keep response times low, the state changes to `Allocated` before the payload annotations are written.
+Wait for the [`ALLOC_PAYLOAD_ANNOTATION_LAST_APPLIED_NAME`](#alloc_payload_annotation_last_applied_name-stringlast-applied) marker annotation before reading any payload annotations.
+See [Write payload to annotations](#write-payload-to-annotations) for a code example.
+:::
 
 Here is an example mapping:
 
@@ -382,6 +388,12 @@ Uses annotations as the response payload to the Allocator.
 By setting a non-empty value, the string extends the existing Agones standard prefix to filter annotations.
 Setting it to e.g. `payload-` results in the final prefix being `agones.dev/sdk-payload-`.
 The annotation keys are split using '.' as a separator to create a complex payload.
+
+::: warning Timing
+Callback annotations are read **once** at `Ready` time and cached.
+Annotations must be set and confirmed on the `GameServer` object before calling `Ready()`.
+See [Return a payload to the Allocator](#return-a-payload-to-the-allocator) for details.
+:::
 
 The following is an example mapping.
 
