@@ -71,6 +71,10 @@ export default withMermaid(defineConfig({
                     {
                         "text": "Allocation: Allocator",
                         "link": "/api/multiplayer-servers/allocation-allocator"
+                    },
+                    {
+                        "text": "Ping Discovery",
+                        "link": "/api/multiplayer-servers/ping-discovery"
                     }
                 ]
 

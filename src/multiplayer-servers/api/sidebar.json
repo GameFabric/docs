@@ -34,6 +34,11 @@
       "text": "Allocation: Allocator ⤴",
       "link": "/api-specs/allocation-allocator",
       "external": true
+    },
+    {
+      "text": "Ping Discovery ⤴",
+      "link": "/api-specs/ping-discovery",
+      "external": true
     }
   ]
 }

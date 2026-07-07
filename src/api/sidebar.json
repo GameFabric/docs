@@ -16,8 +16,12 @@
       "link": "/api/multiplayer-servers/allocation-registry"
     },
     {
-      "text": "Allocation: multiplayer-servers",
+      "text": "Allocation: Allocator",
       "link": "/api/multiplayer-servers/allocation-allocator"
+    },
+    {
+      "text": "Ping Discovery",
+      "link": "/api/multiplayer-servers/ping-discovery"
     }
   ]
 }
