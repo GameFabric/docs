@@ -7,6 +7,10 @@ The steps described here are in contrast to the [Allocation Sidecar](automatical
 For simpler use cases, consider using the [Allocation Sidecar](automatically-registering-game-servers) which automates the registration and allocation process.
 :::
 
+::: info What is a Sidecar?
+For background on sidecar containers and the Allocation Sidecar specifically, see [Sidecar Containers](/multiplayer-servers/architecture/sidecars).
+:::
+
 ## Pre-requisites
 
 In order to integrate with our Allocator, your game needs to meet the following requirements.

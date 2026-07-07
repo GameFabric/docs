@@ -12,6 +12,14 @@
       "link": "/architecture/regions-sites-and-locations"
     },
     {
+      "text": "Allocators",
+      "link": "/architecture/allocators"
+    },
+    {
+      "text": "Ping Services",
+      "link": "/architecture/ping-services"
+    },
+    {
       "text": "Identifying your Hosting Model",
       "link": "/architecture/identifying-your-hosting-model"
     },
