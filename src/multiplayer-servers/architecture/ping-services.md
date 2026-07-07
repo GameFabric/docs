@@ -21,6 +21,10 @@ so that currently running integrations continue to authenticate without interrup
 
 ![Expanded Ping Service row showing the URL and masked token with copy buttons](images/ping-services-expanded.png)
 
+::: tip API Documentation
+For the full Ping Discovery API specification, see the [Ping Discovery API](/api/multiplayer-servers/ping-discovery).
+:::
+
 ## Phase lifecycle
 
 | Phase         | Meaning                                                 |
