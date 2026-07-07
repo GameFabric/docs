@@ -10,7 +10,7 @@ Ping Services are global resources — they are not scoped to a specific Environ
 user-configurable spec and are read-only in the UI. Provisioning and decommissioning is handled
 by the platform operator.
 
-<!-- TODO: screenshot of the Ping Services page showing the summary table with phase and name columns -->
+![Ping Services page showing the table with phase and name columns](images/ping-services-overview.png)
 
 ## Endpoint
 
@@ -19,7 +19,7 @@ Each Ping Service exposes a single URL and a rotating list of access tokens.
 Always use the **last token** in the list. Older tokens are kept visible during the rotation window
 so that currently running integrations continue to authenticate without interruption.
 
-<!-- TODO: screenshot of an expanded Ping Service row showing the URL and masked token with copy buttons -->
+![Expanded Ping Service row showing the URL and masked token with copy buttons](images/ping-services-expanded.png)
 
 ## Phase lifecycle
 

@@ -10,7 +10,7 @@ Allocators are global resources — they are not scoped to a specific Environmen
 in the UI; provisioning and decommissioning is handled by the platform operator through your
 provisioning system.
 
-<!-- TODO: screenshot of the Allocators page showing the summary table with phase, name, region, and rate limit columns -->
+![Allocators page showing the table with phase, name, region, and rate limit columns](images/allocators-overview.png)
 
 ## The region field
 
@@ -28,7 +28,7 @@ When game servers register with the Allocator, they advertise this string as the
 
 Each Allocator exposes two endpoints, both visible when you expand a row on the Allocators page.
 
-<!-- TODO: screenshot of an expanded allocator row showing the Registry and Allocation endpoint sections with masked tokens -->
+![Expanded allocator row showing the Registry and Allocation endpoint sections with masked tokens](images/allocators-expanded.png)
 
 ### Registry
 
