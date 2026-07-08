@@ -1,6 +1,6 @@
 # Observability tap
 
-The observability tap gives you direct, read-only access to the Prometheus-compatible metrics API and the Loki-compatible logs API for your GameFabric installation. Use it to display data in your own Grafana instance or in any other observability tool that supports these APIs.
+The observability tap gives you direct, read-only access to the Prometheus-compatible metrics API and the Loki-compatible logs API for your GameFabric installation. Use it to display data in your own premises with observability tools that support these APIs.
 
 ## Requesting access
 
@@ -20,7 +20,7 @@ The two sub-paths expose the respective APIs:
 
 | API | Base URL |
 | --- | -------- |
-| Prometheus-compatible metrics (VictoriaMetrics) | `https://<your-installation>.gamefabric.dev/observability/metrics/` |
+| Prometheus-compatible metrics | `https://<your-installation>.gamefabric.dev/observability/metrics/` |
 | Loki-compatible logs | `https://<your-installation>.gamefabric.dev/observability/logs/` |
 
 ## Querying metrics
@@ -67,7 +67,7 @@ You can add both endpoints as data sources in your own Grafana instance.
 3. Set the **URL** to `https://<your-installation>.gamefabric.dev/observability/metrics/`.
 4. Under **Authentication**, set the **Authentication method** to **No authentication**
 5. Under **HTTP headers**, click **Add header** and set **Header** to `Authorization` and **Value** to `Bearer <token>`. Replace `<token>` with the token you receive from your Customer Success Manager. Keep the `Bearer` prefix.
-1. Select **Save & test** to verify the connection.
+6. Select **Save & test** to verify the connection.
 
 ### Logs data source
 
