@@ -56,11 +56,13 @@ The following Loki HTTP API paths are available under the logs endpoint:
 
 Refer to the [Loki LogQL reference](https://grafana.com/docs/loki/latest/query/) for the full query language documentation.
 
-## Adding as a Grafana data source
+## Connecting to the observability tap from your own observability tool
+
+### Grafana
 
 You can add both endpoints as data sources in your own Grafana instance.
 
-### Metrics data source
+#### Metrics data source
 
 1. In Grafana, go to **Connections > Data sources** and select **Add new data source**.
 2. Choose **Prometheus** as the data source type.
@@ -69,7 +71,7 @@ You can add both endpoints as data sources in your own Grafana instance.
 5. Under **HTTP headers**, click **Add header** and set **Header** to `Authorization` and **Value** to `Bearer <token>`. Replace `<token>` with the token you receive from your Customer Success Manager. Keep the `Bearer` prefix.
 6. Select **Save & test** to verify the connection.
 
-### Logs data source
+#### Logs data source
 
 1. In Grafana, go to **Connections > Data sources** and select **Add new data source**.
 2. Choose **Loki** as the data source type.
