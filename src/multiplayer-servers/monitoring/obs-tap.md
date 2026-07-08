@@ -25,7 +25,7 @@ The two sub-paths expose the respective APIs:
 
 ## Querying metrics
 
-The metrics endpoint is compatible with the [VictoriaMetrics MetricsQL](https://docs.victoriametrics.com/metricsql/) query language, which is a superset of PromQL. Any tool that supports PromQL also works against this endpoint.
+The metrics endpoint is compatible with the [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) query language. Any tool that supports PromQL also works against this endpoint.
 
 The following Prometheus HTTP API paths are available under the metrics endpoint:
 
@@ -37,7 +37,7 @@ The following Prometheus HTTP API paths are available under the metrics endpoint
 - `/observability/metrics/api/v1/metadata` — metric metadata
 - `/observability/metrics/api/v1/status/buildinfo` — build information
 
-Refer to the [VictoriaMetrics MetricsQL reference](https://docs.victoriametrics.com/metricsql/) for the full query language documentation.
+Refer to the [Prometheus query documentation](https://prometheus.io/docs/prometheus/latest/querying/basics/) for the full query language reference.
 
 ## Querying logs
 
