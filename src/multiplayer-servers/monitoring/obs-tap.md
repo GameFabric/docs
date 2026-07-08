@@ -27,7 +27,7 @@ The two sub-paths expose the respective APIs:
 
 The metrics endpoint is compatible with the [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) query language. Any tool that supports PromQL also works against this endpoint.
 
-The following Prometheus HTTP API paths are available under the metrics endpoint:
+The following Prometheus HTTP API paths are available:
 
 - `/observability/metrics/api/v1/query` — instant query
 - `/observability/metrics/api/v1/query_range` — range query
@@ -43,7 +43,7 @@ Refer to the [Prometheus query documentation](https://prometheus.io/docs/prometh
 
 The logs endpoint is compatible with the [Loki LogQL](https://grafana.com/docs/loki/latest/query/) query language.
 
-The following Loki HTTP API paths are available under the logs endpoint:
+The following Loki HTTP API paths are available:
 
 - `/observability/logs/loki/api/v1/query` — instant query
 - `/observability/logs/loki/api/v1/query_range` — range query
@@ -67,7 +67,7 @@ You can add both endpoints as data sources in your own Grafana instance.
 1. In Grafana, go to **Connections > Data sources** and select **Add new data source**.
 2. Choose **Prometheus** as the data source type.
 3. Set the **URL** to `https://<your-installation>.gamefabric.dev/observability/metrics/`.
-4. Under **Authentication**, set the **Authentication method** to **No authentication**
+4. Under **Authentication**, set the **Authentication method** to **No authentication**.
 5. Under **HTTP headers**, click **Add header** and set **Header** to `Authorization` and **Value** to `Bearer <token>`. Replace `<token>` with the token you receive from your Customer Success Manager. Keep the `Bearer` prefix.
 6. Select **Save & test** to verify the connection.
 
@@ -76,7 +76,7 @@ You can add both endpoints as data sources in your own Grafana instance.
 1. In Grafana, go to **Connections > Data sources** and select **Add new data source**.
 2. Choose **Loki** as the data source type.
 3. Set the **URL** to `https://<your-installation>.gamefabric.dev/observability/logs/`.
-4. Under **Authentication**, set the **Authentication method** to **No authentication**
+4. Under **Authentication**, set the **Authentication method** to **No authentication**.
 5. Under **HTTP headers**, click **Add header** and set **Header** to `Authorization` and **Value** to `Bearer <token>`. Replace `<token>` with the token you receive from your Customer Success Manager. Keep the `Bearer` prefix.
 6. Select **Save & test** to verify the connection.
 
