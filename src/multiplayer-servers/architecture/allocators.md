@@ -39,7 +39,7 @@ or use the Allocation Sidecar to [handle registration automatically](/multiplaye
 
 ### Allocation
 
-The Allocation endpoint and token only informational character and can be used by matchmakers or backends to allocate registered game servers.
+The Allocation endpoint and token are informational only and can be used by matchmakers or backends to allocate registered game servers.
 
 ### Rotating tokens
 
