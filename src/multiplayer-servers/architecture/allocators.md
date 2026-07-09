@@ -32,13 +32,14 @@ Each Allocator exposes two endpoints, both visible when you expand a row on the 
 
 ### Registry
 
-Game servers use the Registry endpoint to register and deregister themselves. The `ALLOC_URL` and
-`ALLOC_TOKEN` environment variables must point to this endpoint.
+Game servers can use the Registry endpoint to register and deregister themselves.
+When the allocator is attached to a Region, GameFabric automatically injects the Registry endpoint URL (`ALLOC_URL`) and the latest registry token (`ALLOC_TOKEN`) as environment variables into every game server container scheduled in that Region.
+The game server must [manually call the Registry endpoint to register itself](/multiplayer-servers/multiplayer-services/server-allocation/manually-registering-game-servers), 
+or use the Allocation Sidecar to [handle registration automatically](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers).
 
 ### Allocation
 
-Matchmakers and backends use the Allocation endpoint to request an available game server. This
-endpoint requires a separate Allocator Token — do not use the Registry Token here.
+The Allocation endpoint and token only informational character and can be used by matchmakers or backends to allocate registered game servers.
 
 ### Rotating tokens
 
@@ -69,7 +70,7 @@ ArmadaSets, Armadas, Formations, and Vessels — without any manual configuratio
 | `ALLOC_PRIORITY` | Index of the Region Type in which the game server runs (0 = first type, 1 = second, …) |
 
 ::: info Allocation Sidecar
-These variables are consumed by the **Allocation Sidecar** — a container that runs alongside your
+These variables are consumed by the **Allocation Sidecar** — a container that can be configured to run alongside your
 game server and handles registration and deregistration automatically.
 
 - For an overview of what the Allocation Sidecar is and when to use it, see
@@ -80,7 +81,7 @@ game server and handles registration and deregistration automatically.
 
 ### Override precedence
 
-The same variable name may appear in multiple configuration layers. When that happens, the
+The same environment variable name may appear in multiple configuration layers. When that happens, the
 highest-precedence source wins:
 
 | Precedence | Source                                  | Example use case                  |
@@ -92,7 +93,8 @@ highest-precedence source wins:
 
 This means that if you define `ALLOC_REGION` explicitly on a Region Type template, it overrides
 the value injected by the allocator. If you define it on an Armada or Vessel directly, it overrides
-everything. See the [Migration section](#migrating-from-manual-configuration) for guidance on
+the one from the Region Type or from the injected Allocator.
+See the [Migration section](#migrating-from-manual-configuration) for guidance on
 removing manual settings after enabling managed injection.
 
 ## Rate limiting
@@ -102,7 +104,7 @@ Each Allocator can be configured with rate limits that apply to incoming allocat
 - **QPS** — maximum number of queries per second.
 - **Burst** — maximum burst size permitted above the QPS limit.
 
-Both values are visible in the **Rate Limit** column of the Allocators table.
+Both values are visible in the **Rate Limit** column of the Allocators table and are based on your contract tier.
 
 ## Phase lifecycle
 
@@ -133,7 +135,7 @@ environment variables on a Region Type template, or directly on individual Armad
 their containers. Attaching a managed Allocator to a Region replaces this manual workflow with
 automatic injection.
 
-### What changes
+### What changes?
 
 The most important change is **`ALLOC_REGION`**.
 
@@ -166,7 +168,7 @@ result in game servers registering under a different string than your matchmaker
 allocation failures.
 :::
 
-### Removing manual configuration after migration
+### Removing manual configuration
 
 Once you have verified that the managed allocator is injecting the correct values:
 
@@ -182,7 +184,7 @@ will silently shadow the managed values and defeat the purpose of the managed al
 
 Suppose you have:
 
-- An Allocator named `us-east-1` with `spec.region: "prod-us-east"`.
+- An Allocator with `spec.region: "prod-us-east"`.
 - A GameFabric Region named `us-east` with two types: `baremetal` (index 0) and `cloud` (index 1).
 - Previously, the Region Type template had:
   ```
@@ -191,7 +193,7 @@ Suppose you have:
   ALLOC_REGION = us-east
   ```
 
-After attaching the `us-east-1` allocator to the `us-east` region:
+After attaching the allocator to the `us-east` region:
 
 - `ALLOC_URL` is injected automatically from the allocator's Registry endpoint URL.
 - `ALLOC_TOKEN` is injected automatically (latest token from the rotation list).
