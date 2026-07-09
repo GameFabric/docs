@@ -7,7 +7,7 @@ region. This allows the matchmaker or game client to select the lowest-latency r
 session.
 
 ::: info Requires correct Allocator integration
-The Ping Service discovers game servers through the Allocator. 
+The Ping Service discovers game servers through the Allocator.
 If there are no registered game servers, the Ping Service may not be able to provide ping targets.
 
 See [Allocators](/multiplayer-servers/architecture/allocators) and
