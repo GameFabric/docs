@@ -34,7 +34,7 @@ Each Allocator exposes two endpoints, both visible when you expand a row on the 
 
 Game servers can use the Registry endpoint to register and deregister themselves.
 When the allocator is attached to a Region, GameFabric automatically injects the Registry endpoint URL (`ALLOC_URL`) and the latest registry token (`ALLOC_TOKEN`) as environment variables into every game server container scheduled in that Region.
-The game server must [manually call the Registry endpoint to register itself](/multiplayer-servers/multiplayer-services/server-allocation/manually-registering-game-servers), 
+The game server must [manually call the Registry endpoint to register itself](/multiplayer-servers/multiplayer-services/server-allocation/manually-registering-game-servers)
 or use the Allocation Sidecar to [handle registration automatically](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers).
 
 ### Allocation
