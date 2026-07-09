@@ -187,7 +187,7 @@ Suppose you have:
 - An Allocator with `spec.region: "prod-us-east"`.
 - A GameFabric Region named `us-east` with two types: `baremetal` (index 0) and `cloud` (index 1).
 - Previously, the Region Type template had:
-  ```
+  ```text
   ALLOC_URL   = https://allocator.example.com/prod/us-east/servers
   ALLOC_TOKEN = <your-registry-token>
   ALLOC_REGION = us-east
