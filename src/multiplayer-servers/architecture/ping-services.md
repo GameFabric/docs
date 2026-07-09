@@ -7,9 +7,8 @@ region. This allows the matchmaker or game client to select the lowest-latency r
 session.
 
 ::: info Requires correct Allocator integration
-The Ping Service discovers game servers through the Allocator. If server registration is not
-correctly configured — for example, if game servers are not registering with the correct
-`ALLOC_REGION` value — the data returned by the Ping Service will be inaccurate or incomplete.
+The Ping Service discovers game servers through the Allocator. 
+If there are no registered game servers, the Ping Service may not be able to provide ping targets.
 
 See [Allocators](/multiplayer-servers/architecture/allocators) and
 [Automatically Registering Game Servers](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers)
