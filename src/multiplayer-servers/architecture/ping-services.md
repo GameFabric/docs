@@ -6,6 +6,16 @@ targets to game clients, who then measure round-trip latency to real game server
 region. This allows the matchmaker or game client to select the lowest-latency region for a player
 session.
 
+::: info Requires correct Allocator integration
+The Ping Service discovers game servers through the Allocator. If server registration is not
+correctly configured — for example, if game servers are not registering with the correct
+`ALLOC_REGION` value — the data returned by the Ping Service will be inaccurate or incomplete.
+
+See [Allocators](/multiplayer-servers/architecture/allocators) and
+[Automatically Registering Game Servers](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers)
+for setup guidance.
+:::
+
 Ping Services are global resources — they are not scoped to a specific Environment. They have no
 user-configurable spec and are read-only in the UI. Provisioning and decommissioning is handled
 by the platform operator.
