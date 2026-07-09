@@ -61,11 +61,11 @@ When an Allocator is attached to a Region, GameFabric automatically injects the 
 environment variables into every game server container scheduled in that Region — across all
 ArmadaSets, Armadas, Formations, and Vessels — without any manual configuration:
 
-| Variable | Value |
-|---|---|
-| `ALLOC_URL` | Registry endpoint URL |
-| `ALLOC_TOKEN` | Latest registry token (last in the rotation list) |
-| `ALLOC_REGION` | The allocator's `spec.region` string |
+| Variable         | Value                                                                                  |
+|------------------|----------------------------------------------------------------------------------------|
+| `ALLOC_URL`      | Registry endpoint URL                                                                  |
+| `ALLOC_TOKEN`    | Latest registry token (last in the rotation list)                                      |
+| `ALLOC_REGION`   | The allocator's `spec.region` string                                                   |
 | `ALLOC_PRIORITY` | Index of the Region Type in which the game server runs (0 = first type, 1 = second, …) |
 
 ::: info Allocation Sidecar
@@ -76,19 +76,19 @@ game server and handles registration and deregistration automatically.
   [Sidecar Containers](/multiplayer-servers/architecture/sidecars#allocation-sidecar).
 - For step-by-step configuration, see
   [Automatically Registering Game Servers](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers).
-:::
+  :::
 
 ### Override precedence
 
 The same variable name may appear in multiple configuration layers. When that happens, the
 highest-precedence source wins:
 
-| Precedence | Source | Example use case |
-|---|---|---|
-| Highest | Armada / Vessel env vars | Per-deployment overrides |
-| High | Region Type template env vars | Type-level infrastructure context |
-| Low | Allocator-injected env vars (`ALLOC_*`) | Automatic injection — see above |
-| Lowest | Site template env vars | Platform-operator defaults |
+| Precedence | Source                                  | Example use case                  |
+|------------|-----------------------------------------|-----------------------------------|
+| Highest    | Armada / Vessel env vars                | Per-deployment overrides          |
+| High       | Region Type template env vars           | Type-level infrastructure context |
+| Low        | Allocator-injected env vars (`ALLOC_*`) | Automatic injection — see above   |
+| Lowest     | Site template env vars                  | Platform-operator defaults        |
 
 This means that if you define `ALLOC_REGION` explicitly on a Region Type template, it overrides
 the value injected by the allocator. If you define it on an Armada or Vessel directly, it overrides
@@ -106,9 +106,9 @@ Both values are visible in the **Rate Limit** column of the Allocators table.
 
 ## Phase lifecycle
 
-| Phase | Meaning |
-|---|---|
-| `Active` | The Allocator is operational and serving traffic. |
+| Phase         | Meaning                                                                      |
+|---------------|------------------------------------------------------------------------------|
+| `Active`      | The Allocator is operational and serving traffic.                            |
 | `Terminating` | The Allocator is being decommissioned. It cannot be attached to new Regions. |
 
 ## Navigating to the Allocators page
