@@ -78,17 +78,17 @@ game server and handles registration and deregistration automatically.
   [Automatically Registering Game Servers](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers).
 :::
 
-### Override priority
+### Override precedence
 
 The same variable name may appear in multiple configuration layers. When that happens, the
-highest-priority source wins. Priority from highest to lowest:
+highest-precedence source wins:
 
-| Priority | Source | Example use case |
+| Precedence | Source | Example use case |
 |---|---|---|
-| 1 (highest) | Armada / Vessel env vars | Per-deployment overrides |
-| 2 | Region Type template env vars | Type-level infrastructure context |
-| 3 | Allocator-injected env vars (`ALLOC_*`) | Automatic injection — see above |
-| 4 (lowest) | Site template env vars | Platform-operator defaults |
+| Highest | Armada / Vessel env vars | Per-deployment overrides |
+| High | Region Type template env vars | Type-level infrastructure context |
+| Low | Allocator-injected env vars (`ALLOC_*`) | Automatic injection — see above |
+| Lowest | Site template env vars | Platform-operator defaults |
 
 This means that if you define `ALLOC_REGION` explicitly on a Region Type template, it overrides
 the value injected by the allocator. If you define it on an Armada or Vessel directly, it overrides
@@ -174,8 +174,8 @@ Once you have verified that the managed allocator is injecting the correct value
    Type templates.
 2. Remove the same variables from any Armada or Vessel env vars that were carrying them.
 
-Because manually set variables at the Armada/Vessel or Region Type level take priority over
-allocator-injected values (see [Override priority](#override-priority)), leaving them in place
+Because manually set variables at the Armada/Vessel or Region Type level take precedence over
+allocator-injected values (see [Override precedence](#override-precedence)), leaving them in place
 will silently shadow the managed values and defeat the purpose of the managed allocator.
 
 ### Example
