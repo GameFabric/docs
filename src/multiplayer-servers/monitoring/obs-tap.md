@@ -27,9 +27,9 @@ The two sub-paths expose the respective APIs:
 
 All requests to the observability tap must include a Bearer token in the `Authorization` header:
 
-~~~http
+````http
 Authorization: Bearer <token>
-~~~
+````
 
 You receive this token when access is granted. Include it with every request, regardless of which tool or client you use.
 
