@@ -32,8 +32,19 @@ For more information on managing permissions, see [Editing Permissions](/multipl
 
 ## Metrics
 
-There are metrics for every feature of the product.
-There are a lot of predefined dashboards under "Dashboards".
+GameFabric comes with a Grafana instance (accessible via the "Monitoring" menu item in the sidebar of your GameFabric instance) and several preinstalled dashboards. These dashboards help you understand the performance, capacity, and reliability of your game server fleets, nodes, and sites without requiring a custom observability setup for your game servers.
+
+Some examples of data available in Grafana:
+
+- Game server scaling activity, including scale-up and scale-down trends
+- Game server CPU and memory utilization, including percentiles, averages, regional rollups, and top consumers for anomaly detection
+- Node-level host metrics for both bare metal and cloud environments
+- Node connectivity checks to common external providers and endpoints
+- Cluster utilization and the gap between requested resources and actual usage
+- Allocator activity and request patterns
+- Kubernetes events that affect your workloads
+
+For practical guidance on sizing CPU and memory requests and limits using these metrics, see [Resource management](/multiplayer-servers/multiplayer-services/resource-management).
 
 ## Logs
 

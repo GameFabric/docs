@@ -26,6 +26,10 @@
     {
       "text": "Debugging",
       "link": "/monitoring/debugging"
+    },
+    {
+      "text": "Observability Tap",
+      "link": "/monitoring/obs-tap"
     }
   ]
 }
