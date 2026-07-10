@@ -60,3 +60,7 @@ If your game server writes logs to files, you can use the [Game Server Wrapper's
 [Logging quotas](/multiplayer-servers/multiplayer-services/quotas#logging-limitations) apply. If your game server exceeds the rate limits, log lines are dropped.
 If you require different limits, contact GameFabric support.
 :::
+
+## External integration
+
+If you want to query your metrics and logs from your own observability tools, see the [Observability tap](/multiplayer-servers/monitoring/obs-tap).

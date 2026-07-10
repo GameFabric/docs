@@ -185,6 +185,14 @@ See also [Capacity Types](/multiplayer-servers/architecture/capacity-types) and 
 
 See also [SteelShield docs](/steelshield/gamefabric/gamefabric#mitigations).
 
+## Observability tap
+
+The observability tap exposes your GameFabric installation's [monitoring](/multiplayer-servers/monitoring/introduction) data to external tooling. It provides read-only access to a Prometheus-compatible metrics API and a Loki-compatible logs API, allowing you to query metrics and logs from your own observability stack.
+
+Access is not enabled by default and must be requested through your Customer Success Manager or the [GameFabric Help Center](#gamefabric-help-center).
+
+See [Observability tap](/multiplayer-servers/monitoring/obs-tap) for endpoint details and setup instructions.
+
 ## User
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#user).
