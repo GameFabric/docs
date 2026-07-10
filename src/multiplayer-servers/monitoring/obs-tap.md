@@ -4,7 +4,7 @@ The observability tap gives you direct, read-only access to the Prometheus-compa
 
 ## Requesting access
 
-Access to the observability tap is not enabled by default. To request it, contact your **Customer Success Manager** or raise a request through the **[GameFabric Help Center](/multiplayer-servers/getting-started/glossary#gamefabric-help-center)**. Once approved, you receive the credentials needed to authenticate against the endpoints.
+Access to the observability tap is not enabled by default. To request it, contact your **Customer Success Manager** or raise a request through the **[GameFabric Help Center](/multiplayer-servers/getting-started/glossary#gamefabric-help-center)**. Once approved, you receive the Bearer token needed to authenticate against the endpoints.
 
 ## Endpoints
 
