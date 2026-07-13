@@ -32,12 +32,8 @@
       "link": "/monitoring/obs-tap"
     },
     {
-      "text": "Downloading Armada Logs",
-      "link": "/monitoring/armada-logs"
-    },
-    {
-      "text": "Downloading Vessel Logs",
-      "link": "/monitoring/vessel-logs"
+      "text": "Game server logs",
+      "link": "/monitoring/game-server-logs"
     }
   ]
 }
