@@ -3,7 +3,7 @@
 // the stock VPHero entirely. src/index.md's frontmatter no longer has a `hero:`
 // key, so VPHero's `v-if="frontmatter.hero"` is false and this is the only
 // hero content rendered — avoids a duplicate/stacked hero.
-import { useData } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 
 const { isDark, theme } = useData()
 </script>
@@ -12,7 +12,7 @@ const { isDark, theme } = useData()
   <div class="home-hero">
     <div class="home-text">
       <div class="home-title-row">
-        <img :src="isDark ? theme.logo.dark : theme.logo.light" alt="GameFabric" class="home-logo" />
+        <img :src="withBase(isDark ? theme.logo.dark : theme.logo.light)" alt="GameFabric" class="home-logo" />
       </div>
       <p class="home-tag">Two Models, One Fabric</p>
       <p class="home-sub">Game server orchestration and management. Everything you need to run multiplayer infrastructure at launch scale and beyond.</p>
@@ -23,7 +23,7 @@ const { isDark, theme } = useData()
       <a href="https://gamefabric.com" target="_blank" class="home-ext">gamefabric.com ↗</a>
     </div>
     <div class="home-image">
-      <img src="/graphic_data_flow_game_orchestration.png" alt="" />
+      <img :src="withBase('/graphic_data_flow_game_orchestration.png')" alt="" />
     </div>
   </div>
 </template>
