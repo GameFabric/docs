@@ -1,7 +1,7 @@
 # Game server logs
 
 GameFabric lets you download game server logs as a compressed archive.
-Logs are retrieved from the platform's log aggregation service and delivered as a `.log.gz` file directly to your browser.
+Logs are retrieved from the platform's log aggregation service and delivered as a `.log.gz` file directly to your browser. GameFabric provides them for Vessels and Armadas and they are slightly different to retrieve.
 
 ## Vessel logs
 
@@ -35,7 +35,7 @@ For more information on managing permissions, see [Editing Permissions](/multipl
 
 ### Downloading logs from a previous instance
 
-Each time a Vessel restarts it is assigned a new UID, and logs from the previous run are retained under the old UID.
+Each time a Vessel restarts it is assigned a new pod UID, and logs from the previous run are retained under the old pod UID.
 
 To download logs from a previous Vessel instance:
 
@@ -50,13 +50,13 @@ If no UIDs appear in the dropdown, the Vessel likely has no logs yet. If you kno
 
 Click **Download**. Once the request completes, your browser saves the file as `<vessel-name>.log.gz`.
 
-A success notification confirms the download. If an error occurs — for example because no logs exist for the selected UID and time range — an error notification is shown with the server's message.
+If there are no logs an empty file is downloaded.
 
 ## Armada logs
 
 Downloading Armada logs works the same way — navigate to **Dynamic Fleets → Armadas**, open the row menu (⋮) for the Armada you are interested in, and select **Download Logs**.
 
-The difference is that an Armada can run many game server pods simultaneously, so instead of selecting an instance by UID, you must provide the name of the specific pod you want logs from. The UI does not list available pods, so you need to supply the pod name yourself.
+The difference is that an Armada can run many game server pods simultaneously, so instead of selecting an instance by UID, you must provide the name of the specific pod you want logs from. The UI does not list available pods, so you need to [find the pod name](#finding-a-pod-name) yourself.
 
 ### Permissions
 
@@ -79,22 +79,23 @@ For more information on managing permissions, see [Editing Permissions](/multipl
 
 An Armada can run thousands of game server pods simultaneously, and the GameFabric UI does not list individual pod names. You need to obtain the pod name from outside the UI. Common sources include:
 
-- **Your game server process** — Kubernetes injects the pod name into the container as the `POD_NAME` environment variable. Your game server can log or report this value on startup so that your operations team can retrieve it when needed.
+- **Your game server process** — configure your Armada or Vessel to inject the pod name into the container at runtime using `valueFrom.fieldRef`. Your game server can then log or expose this value on startup so your operations team can retrieve it when needed.
 - **Your matchmaker or allocation system** — if your matchmaker records which pod handled a session, the pod name will be in those records.
-- **The GameFabric API** — you can query game servers via the API and filter by armada to retrieve individual pod names programmatically.
 
-### Downloading
+#### Injecting the pod name via fieldRef
 
-Click **Download**. Once the request completes, your browser saves the file as `<armada-name>.log.gz`.
+Add the following to the `env` array of the container in your Armada or Vessel spec:
 
-A success notification confirms the download. If an error occurs — for example because the pod name is not found or the time range contains no data — an error notification is shown with the server's message.
-
-## Opening the log file
-
-The downloaded file is compressed with gzip. To read it:
-
-```bash
-gunzip my-server.log.gz
-# or stream it directly:
-zcat my-server.log.gz | less
+```json
+{
+  "name": "POD_NAME",
+  "valueFrom": {
+    "fieldRef": {
+      "fieldPath": "metadata.name"
+    }
+  }
+}
 ```
+
+At runtime, `POD_NAME` will contain the full pod name (e.g. `my-armada-site-abc123-xyz`). The `fieldRef` mechanism also exposes other useful fields, including `metadata.armadaName`, `metadata.regionName`, `metadata.siteName`, `metadata.imageName`, and `metadata.imageTag`.
+
