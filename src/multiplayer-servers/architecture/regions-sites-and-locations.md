@@ -77,15 +77,28 @@ Locations:
 | Unprotected         | No backing Sites are protected                                                       |
 | Unknown             | Protection state cannot be determined (no Sites resolved, or SteelShield not active) |
 
+### Allocator attachment
+
+A Region can be associated with a managed **Allocator** — a game server allocation service
+provisioned by GameFabric. When an Allocator is attached, GameFabric automatically injects the
+Registry endpoint URL, token, and region identifier into every game server container scheduled in
+that Region, without any manual environment variable configuration.
+
+See [Allocators](/multiplayer-servers/architecture/allocators) for full details, including the
+automatic environment variable injection, override priority rules, and migration guidance for
+existing regions. See [Ping Services](/multiplayer-servers/architecture/ping-services) for details
+on the ping measurement service.
+
 ### Managing Regions
 
 The following operations are available from the Regions list:
 
-- **Edit** — opens a two-tab modal. The **General** tab updates display name and description. The
-  **Types** tab adds, removes, reorders, and reconfigures types — including location assignments,
-  priority, environment variables, and scheduling strategy.
-- **Clone** — creates a new Region with the same type configuration. Useful when setting up
-  parallel environments (e.g. cloning a `prod` region to create `staging`).
+- **Edit** — opens a two-tab modal. The **General** tab updates display name, description, and the
+  Allocator assignment. The **Types** tab adds, removes, reorders, and reconfigures types —
+  including location assignments, priority, environment variables, and scheduling strategy.
+- **Clone** — creates a new Region with the same type configuration, including the Allocator
+  assignment. Useful when setting up parallel environments (e.g. cloning a `prod` region to create
+  `staging`).
 - **Delete** — removes the Region. Running deployments targeting this Region should be stopped
   first.
 

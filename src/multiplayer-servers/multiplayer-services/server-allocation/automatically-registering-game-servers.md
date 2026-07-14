@@ -83,6 +83,18 @@ for the Registry service. Without these three variables, the Allocation Sidecar 
 It is recommended to set these environment variables on the Region, so any Formation, Vessel, ArmadaSet or Armada
 within that region is automatically configured.
 
+::: tip Managed Allocators inject these variables automatically
+If your Region has a managed [Allocator](/multiplayer-servers/architecture/allocators) attached,
+`ALLOC_URL`, `ALLOC_TOKEN`, `ALLOC_REGION`, and `ALLOC_PRIORITY` are injected into every game
+server container automatically. You do not need to set them manually on the Region or on individual
+deployments.
+
+If you are migrating from manual configuration, read the
+[migration guidance](/multiplayer-servers/architecture/allocators#migrating-from-manual-configuration)
+carefully — in particular the note on `ALLOC_REGION`, which may change value when a managed
+allocator is attached.
+:::
+
 ::: warning
 The port name `allocator` must not be changed, otherwise it is not recognized by the Allocation Sidecar.
 Also do not use `UDP/TCP`, as this results in a different naming scheme.
