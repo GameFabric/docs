@@ -17,8 +17,8 @@ const { isDark, theme } = useData()
       <p class="home-tag">Two Models, One Fabric</p>
       <p class="home-sub">Game server orchestration and management. Everything you need to run multiplayer infrastructure at launch scale and beyond.</p>
       <div class="home-ctas">
-        <a class="btn btn-y" href="/multiplayer-servers/getting-started/introduction">Get Started →</a>
-        <a class="btn btn-o" href="/steelshield/gamefabric/introduction">SteelShield™ Docs</a>
+        <a class="btn btn-y" :href="withBase('/multiplayer-servers/getting-started/introduction')">Get Started →</a>
+        <a class="btn btn-o" :href="withBase('/steelshield/gamefabric/introduction')">SteelShield™ Docs</a>
       </div>
       <a href="https://gamefabric.com" target="_blank" class="home-ext">gamefabric.com ↗</a>
     </div>
@@ -82,7 +82,7 @@ const { isDark, theme } = useData()
     text-decoration: none !important;
 }
 .btn-y {
-    background: var(--vp-c-brand-1);
+    background: var(--vp-c-brand-solid);
     color: #101010;
 }
 .btn-y:hover {

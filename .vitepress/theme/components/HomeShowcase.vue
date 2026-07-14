@@ -2,6 +2,7 @@
 // Renders into VitePress's built-in `home-features-after` slot (see ../Layout.vue).
 // This slot renders unconditionally regardless of whether the home page's
 // `features:` frontmatter is populated, so src/index.md needs no changes.
+import { withBase } from 'vitepress'
 import { cards } from '../data/homeShowcase'
 </script>
 
@@ -13,7 +14,7 @@ import { cards } from '../data/homeShowcase'
         v-for="card in cards"
         :key="card.title"
         class="showcase-card"
-        :href="card.link"
+        :href="withBase(card.link)"
       >
         <div class="card-top">
           <div class="card-icon">
@@ -75,7 +76,7 @@ import { cards } from '../data/homeShowcase'
     width: 34px;
     height: 34px;
     border-radius: 6px;
-    background: var(--vp-c-brand-1);
+    background: var(--vp-c-brand-solid);
     color: #101010;
     display: flex;
     align-items: center;
