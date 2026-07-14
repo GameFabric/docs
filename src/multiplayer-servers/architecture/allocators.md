@@ -106,6 +106,8 @@ Each Allocator can be configured with rate limits that apply to incoming allocat
 
 Both values are visible in the **Rate Limit** column of the Allocators table and are based on your contract tier.
 
+When a client exceeds the configured rate limit, the Allocator responds with **HTTP 429 (Too Many Requests)**. The client should back off and retry after a short delay.
+
 ## Phase lifecycle
 
 | Phase         | Meaning                                                                      |
