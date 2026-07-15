@@ -54,9 +54,9 @@ If there are no logs an empty file is downloaded.
 
 ## Armada logs
 
-Downloading Armada logs works the same way — navigate to **Dynamic Fleets → Armadas**, open the row menu (⋮) for the Armada you are interested in, and select **Download Logs**.
+Navigate to **Dynamic Fleets → Armadas**, open the row menu (⋮) for the Armada you are interested in, and select **Download Logs**.
 
-The difference is that an Armada can run many game server pods simultaneously, so instead of selecting an instance by UID, you must provide the name of the specific pod you want logs from. The UI does not list available pods, so you need to [find the pod name](#finding-a-pod-name) yourself.
+Armadas can run many game server pods simultaneously, so you must provide the name of the specific pod you want logs from. The UI does not list available pods, so you need to [find the pod name](#finding-a-pod-name) yourself.
 
 ### Permissions
 
@@ -97,5 +97,5 @@ Add the following to the `env` array of the container in your Armada or Vessel s
 }
 ```
 
-At runtime, `POD_NAME` will contain the full pod name (e.g. `my-armada-site-abc123-xyz`). The `fieldRef` mechanism also exposes other useful fields, including `metadata.armadaName`, `metadata.regionName`, `metadata.siteName`, `metadata.imageName`, and `metadata.imageTag`.
+At runtime, `POD_NAME` contains the full pod name (e.g. `my-armada-site-abc123-xyz`). The `fieldRef` mechanism also exposes other useful fields, including `metadata.armadaName`, `metadata.regionName`, `metadata.siteName`, `metadata.imageName`, and `metadata.imageTag`.
 
