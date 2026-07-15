@@ -42,7 +42,7 @@ To download logs from a previous Vessel instance:
 1. Open the **Vessel UID** dropdown in the drawer.
 2. Select the UID of the instance you want.
 
-The dropdown is populated automatically when the drawer opens. If the list cannot be loaded, the dropdown falls back to the current instance's UID.
+The available list of instance UIDs to pick from is populated automatically when the drawer opens. If the list cannot be loaded, the dropdown falls back to the current instance's UID.
 
 If no UIDs appear in the dropdown, the Vessel likely has no logs yet. If you know the UID you want, you can type it directly into the field.
 
