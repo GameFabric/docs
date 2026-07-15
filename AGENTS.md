@@ -4,8 +4,8 @@ Most changes are Markdown under `src/`; there is a small amount of Vue/JS for th
 If you add new tooling (linters/tests), update this file.
 
 ## Quick facts
-- Package manager: `yarn` via Corepack (`packageManager: yarn@4.1.1`)
-- Node: CI uses Node `20` (`.github/workflows/main.yml`)
+- Package manager: `yarn` via Corepack (`packageManager: yarn@4.17.1`)
+- Node: CI uses Node `24` (`.github/workflows/main.yml`)
 - Docs framework: `vitepress` (Vite-based)
 - Content root: `src/` (VitePress `srcDir`)
 - Build output: `.vitepress/dist`
