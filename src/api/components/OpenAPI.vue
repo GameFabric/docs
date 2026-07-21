@@ -32,7 +32,7 @@ let html: string
 // Brand redesign: override just the accent color Redoc uses for links/buttons/
 // borders, without touching the rest of dark-theme.js's tuned zinc palette.
 const brandTheme = {
-  light: { primary: { main: '#6E5300' } },
+  light: { colors: { primary: { main: '#6E5300' } } },
   dark: { ...dark, colors: { ...dark.colors, primary: { main: '#FFD744' } } },
 }
 
