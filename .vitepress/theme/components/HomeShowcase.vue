@@ -18,10 +18,7 @@ import { cards } from '../data/homeShowcase'
       >
         <div class="card-top">
           <div class="card-icon">
-            <svg v-if="card.icon === 'quickstart'" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
-            <svg v-else-if="card.icon === 'multiplayer'" width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="2" y="14" width="20" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><circle cx="5.5" cy="6.5" r="1" fill="currentColor"/><circle cx="5.5" cy="17.5" r="1" fill="currentColor"/></svg>
-            <svg v-else-if="card.icon === 'steelshield'" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5.5v5.5c0 4.8 3.4 9.3 8 10.5 4.6-1.2 8-5.7 8-10.5V5.5L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg v-else-if="card.icon === 'api'" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M8 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 3v6h8M9 17h6M9 13h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" v-html="card.icon"></svg>
           </div>
           <span class="card-title">{{ card.title }}</span>
         </div>
@@ -36,7 +33,7 @@ import { cards } from '../data/homeShowcase'
 .showcase-wrap {
     max-width: 1152px;
     margin: 0 auto;
-    padding: 0 24px 64px;
+    padding: 48px 24px 64px;
 }
 .showcase-label {
     font-size: 11px;

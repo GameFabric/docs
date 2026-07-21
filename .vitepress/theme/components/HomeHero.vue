@@ -3,24 +3,21 @@
 // the stock VPHero entirely. src/index.md's frontmatter no longer has a `hero:`
 // key, so VPHero's `v-if="frontmatter.hero"` is false and this is the only
 // hero content rendered — avoids a duplicate/stacked hero.
-import { useData, withBase } from 'vitepress'
-
-const { isDark, theme } = useData()
+// No wordmark here: the navbar already renders the GameFabric logo on every
+// page (including this one), so this hero leads with a plain header instead.
+import { withBase } from 'vitepress'
 </script>
 
 <template>
   <div class="home-hero">
     <div class="home-text">
-      <div class="home-title-row">
-        <img :src="withBase(isDark ? theme.logo.dark : theme.logo.light)" alt="GameFabric" class="home-logo" />
-      </div>
-      <p class="home-tag">Two Models, One Fabric</p>
+      <h1 class="home-title">Two Models, One Fabric</h1>
       <p class="home-sub">Game server orchestration and management. Everything you need to run multiplayer infrastructure at launch scale and beyond.</p>
       <div class="home-ctas">
         <a class="btn btn-y" :href="withBase('/multiplayer-servers/getting-started/introduction')">Get Started →</a>
         <a class="btn btn-o" :href="withBase('/steelshield/gamefabric/introduction')">SteelShield™ Docs</a>
       </div>
-      <a href="https://gamefabric.com" target="_blank" class="home-ext">gamefabric.com ↗</a>
+      <a href="https://gamefabric.com" target="_blank" rel="noopener noreferrer" class="home-ext">gamefabric.com ↗</a>
     </div>
     <div class="home-image">
       <img :src="withBase('/graphic_data_flow_game_orchestration.png')" alt="" />
@@ -42,20 +39,12 @@ const { isDark, theme } = useData()
     flex: 1;
     min-width: 0;
 }
-.home-title-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 12px;
-}
-.home-logo {
-    height: 32px;
-    width: auto;
-}
-.home-tag {
-    font-size: 16px;
-    color: var(--vp-c-text-2);
-    margin: 0 0 8px;
+.home-title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--vp-c-text-1);
+    margin: 0 0 12px;
 }
 .home-sub {
     font-size: 15px;
@@ -127,6 +116,7 @@ const { isDark, theme } = useData()
     }
     .home-image {
         width: 200px;
+        margin-right: 0;
         align-self: center;
     }
 }
