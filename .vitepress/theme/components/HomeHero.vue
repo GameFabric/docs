@@ -20,7 +20,7 @@ import { withBase } from 'vitepress'
       <a href="https://gamefabric.com" target="_blank" rel="noopener noreferrer" class="home-ext">gamefabric.com ↗</a>
     </div>
     <div class="home-image">
-      <img :src="withBase('/graphic_data_flow_game_orchestration.png')" alt="" />
+      <img :src="withBase('/graphic_data_flow_game_orchestration.png')" alt="Diagram showing GameFabric game server orchestration data flow" />
     </div>
   </div>
 </template>
