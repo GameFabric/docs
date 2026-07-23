@@ -1,27 +1,203 @@
+/**
+ * GameFabric docs: brand/UI redesign theme override
+ *
+ * Scope: this file ONLY restyles VitePress's own built-in components
+ * (nav, sidebar, TOC, search, callouts, code blocks). No markup or
+ * content changes anywhere in this patch depend on it.
+ *
+ * It replaces the two brand-color blocks that shipped before (which used
+ * non-canonical variable names like --vp-c-brand-light/-dark/-darker and
+ * left light mode on the old blue) with a complete, canonical --vp-c-*
+ * token set for both appearances, derived from the GameFabric UI redesign
+ * mockup (Pages/Docs Site/Docs.html, --dc-* tokens).
+ */
+
+/* ────────────────────────────────────────────────────────────────
+   1. Brand + neutral tokens
+   ──────────────────────────────────────────────────────────────── */
 :root {
-    --vp-c-brand-1: #4498c4;
-    --vp-c-brand-light: #57a2ca;
-    --vp-c-brand-lighter: #69add0;
-    --vp-c-brand-dark: #3d89b0;
-    --vp-c-brand-darker: #367a9d;
+    /* brand (light): mockup --dc-mu light value, tuned for AA contrast on white */
+    --vp-c-brand-1: #D4AF37;
+    --vp-c-brand-2: #7C5E00;
+    --vp-c-brand-3: #8A6900;
+    --vp-c-brand-soft: rgba(110, 83, 0, 0.07);
+    /* Solid fills (buttons, icon chips) stay the same vivid mustard in both
+       themes — only text/link uses of brand color (--vp-c-brand-1 above) get
+       darkened for AA contrast on a light background. */
+    --vp-c-brand-solid: #FFD744;
+
+    --vp-button-brand-bg: var(--vp-c-brand-solid);
+    --vp-button-brand-border: var(--vp-c-brand-solid);
+    --vp-button-brand-text: #101010;
+    --vp-button-brand-hover-bg: #A98C2C;
+    --vp-button-brand-hover-border: #A98C2C;
+    --vp-button-brand-hover-text: #101010;
+    --vp-button-brand-active-bg: #C9BB20;
+    --vp-button-brand-active-border: #C9BB20;
+    --vp-button-brand-active-text: #101010;
+
+    /* neutrals: mockup --dc-bg/-bg-s/-bg-el/-fg/-fg2/-fg3 (light) */
+    --vp-c-bg-soft: #EBEBED;
+    --vp-c-bg-elv: #EBEBED;
+    --vp-c-divider: rgba(0, 0, 0, 0.08);
+    --vp-c-border: rgba(0, 0, 0, 0.16);
+    --vp-c-text-3: #8A8A8A;
+
+    /* code */
+    --vp-code-block-bg: #F1F1F3;
+
+    /* callouts: info = blue, tip = green, warning = mustard (mockup c-info/c-tip/c-warn) */
+    --vp-custom-block-info-border: rgba(30, 82, 184, 0.2);
+    --vp-custom-block-info-text: #1E52B8;
+    --vp-custom-block-info-bg: rgba(30, 82, 184, 0.05);
+
+    --vp-custom-block-tip-border: rgba(20, 110, 66, 0.18);
+    --vp-custom-block-tip-text: #146E42;
+    --vp-custom-block-tip-bg: rgba(20, 110, 66, 0.05);
+    --vp-c-tip-1: #146E42;
+    --vp-c-tip-2: #146E42;
+    --vp-c-tip-3: #146E42;
+    --vp-c-tip-soft: rgba(20, 110, 66, 0.1);
+
+    --vp-custom-block-warning-border: rgba(110, 83, 0, 0.18);
+    --vp-custom-block-warning-text: #6E5300;
+    --vp-custom-block-warning-bg: rgba(110, 83, 0, 0.05);
 }
 
 .dark {
+    /* brand (dark): mockup --dc-mu dark value (mustard) */
     --vp-c-brand-1: #FFD744;
-    --vp-c-brand-soft: #ffdb57;
-    --vp-c-brand-2: #ffdf69;
-    --vp-c-brand-3: #e6c23d;
-    --vp-c-brand-4: #ccac36;
-    --vp-button-brand-bg: unset;
-    --vp-button-brand-border: #ccac36;
+    --vp-c-brand-2: #FFDF69;
+    --vp-c-brand-3: #E6C23D;
+    --vp-c-brand-soft: rgba(255, 215, 68, 0.1);
+    --vp-c-brand-solid: #FFD744;
 
-    --vp-c-tip-1: var(--vp-c-yellow-1);
-    --vp-c-tip-2: var(--vp-c-yellow-2);
-    --vp-c-tip-3: var(--vp-c-yellow-3);
-    --vp-c-tip-soft: var(--vp-c-yellow-soft);
+    --vp-button-brand-bg: var(--vp-c-brand-1);
+    --vp-button-brand-border: var(--vp-c-brand-1);
+    --vp-button-brand-text: #101010;
+    --vp-button-brand-hover-bg: #FFB636;
+    --vp-button-brand-hover-border: #FFB636;
+    --vp-button-brand-hover-text: #101010;
+    --vp-button-brand-active-bg: #FFD744;
+    --vp-button-brand-active-border: #FFD744;
+    --vp-button-brand-active-text: #101010;
+
+    /* neutrals: mockup --dc-bg/-bg-s/-bg-el/-fg/-fg2/-fg3 (dark) */
+    --vp-c-bg: #101010;
+    --vp-c-bg-alt: #0C0C0C;
+    --vp-c-bg-soft: #191919;
+    --vp-c-bg-elv: #191919;
+    --vp-c-divider: rgba(255, 255, 255, 0.07);
+    --vp-c-border: rgba(255, 255, 255, 0.13);
+    --vp-c-text-1: #E4E4E4;
+    --vp-c-text-2: #909090;
+    --vp-c-text-3: #5A5A5A;
+
+    /* code */
+    --vp-code-block-bg: #0A0A0A;
+
+    /* callouts: info = blue, tip = green (was mistakenly yellow), warning = mustard */
+    --vp-custom-block-info-border: rgba(91, 138, 245, 0.2);
+    --vp-custom-block-info-text: #5B8AF5;
+    --vp-custom-block-info-bg: rgba(91, 138, 245, 0.05);
+
+    --vp-custom-block-tip-border: rgba(61, 214, 140, 0.18);
+    --vp-custom-block-tip-text: #3DD68C;
+    --vp-custom-block-tip-bg: rgba(61, 214, 140, 0.05);
+    --vp-c-tip-1: #3DD68C;
+    --vp-c-tip-2: #3DD68C;
+    --vp-c-tip-3: #3DD68C;
+    --vp-c-tip-soft: rgba(61, 214, 140, 0.1);
+
+    --vp-custom-block-warning-border: rgba(255, 215, 68, 0.18);
+    --vp-custom-block-warning-text: #FFD744;
+    --vp-custom-block-warning-bg: rgba(255, 215, 68, 0.05);
 }
 
+/* Home hero title: explicitly white in dark mode; light mode keeps
+   HomeHero.vue's default theme text color so it stays legible on white. */
+.dark .home-title { color: #FFFFFF; }
 
+/* ────────────────────────────────────────────────────────────────
+   2. Component reskin: restyles VitePress's existing DOM, no new markup
+   ──────────────────────────────────────────────────────────────── */
+
+/* Nav bar + dropdown flyouts (VitePress already implements the nav-item
+   hover-flyout pattern the mockup reimplemented from scratch) */
+.VPNavBar { border-bottom: 1px solid var(--vp-c-divider); }
+.VPFlyout .menu {
+    border: 1px solid var(--vp-c-border);
+    border-radius: 8px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .35);
+}
+.VPNavBarMenuLink:hover, .VPFlyout .button:hover {
+    background: var(--vp-c-bg-soft);
+    border-radius: 6px;
+}
+
+/* Sidebar */
+.VPSidebar { background-color: var(--vp-c-bg-alt); }
+.VPSidebarItem.level-0 > .item > .text,
+.VPSidebarItem .group-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--vp-c-text-3);
+}
+.VPSidebarItem .link:hover .text { color: var(--vp-c-text-1); }
+.VPSidebarItem .link.active .text {
+    color: var(--vp-c-brand-1);
+    font-weight: 600;
+}
+.VPSidebarItem .link.active { background: var(--vp-c-brand-soft); border-radius: 6px; }
+
+/* Sticky "On this page" TOC: scroll-spy is native (outline: 'deep'), color/border only */
+.VPDocAsideOutline .outline-link {
+    font-size: 12.5px;
+    border-left: 2px solid var(--vp-c-border);
+    padding-left: 12px;
+}
+.VPDocAsideOutline .outline-link.active {
+    color: var(--vp-c-brand-1);
+    border-left-color: var(--vp-c-brand-1);
+}
+
+/* Local search modal (⌘K): provider already 'local', skin only */
+.VPLocalSearchBox .shell {
+    border: 1px solid var(--vp-c-border);
+    border-radius: 10px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, .4);
+}
+.VPLocalSearchBox .result.selected { background: var(--vp-c-bg-soft); }
+
+/* Article typography */
+.vp-doc h1 { border-bottom: 1px solid var(--vp-c-divider); padding-bottom: 16px; }
+.vp-doc h2 { border-top: 1px solid transparent; }
+.vp-doc a { color: var(--vp-c-brand-1); }
+.vp-doc code { color: var(--vp-c-brand-1); }
+
+/* Code blocks: file/language bar */
+div[class*='language-'] {
+    border: 1px solid var(--vp-c-border);
+    border-radius: 8px;
+}
+div[class*='language-'] > .lang {
+    color: var(--vp-c-text-3);
+    font-size: 10px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+/* Doc footer / pager */
+.VPDocFooter .edit-link-button { color: var(--vp-c-text-3); }
+.VPDocFooter .edit-link-button:hover { color: var(--vp-c-brand-1); }
+.VPDocFooter .pager-link { border: 1px solid var(--vp-c-border); border-radius: 8px; }
+.VPDocFooter .pager-link:hover { border-color: var(--vp-c-brand-1); }
+
+/* ────────────────────────────────────────────────────────────────
+   3. Existing utility classes: unchanged, kept as-is
+   ──────────────────────────────────────────────────────────────── */
 .medium-zoom-overlay {
     z-index: 100;
 }

@@ -2,6 +2,8 @@
 import DefaultTheme from 'vitepress/theme'
 import { inBrowser, useData, useRouter } from 'vitepress'
 import { watch } from 'vue'
+import HomeShowcase from './components/HomeShowcase.vue'
+import HomeHero from './components/HomeHero.vue'
 
 const { page } = useData()
 const { go } = useRouter()
@@ -38,5 +40,12 @@ watch(
 </script>
 
 <template>
-  <DefaultTheme.Layout />
+  <DefaultTheme.Layout>
+    <template #home-hero-before>
+      <HomeHero />
+    </template>
+    <template #home-features-after>
+      <HomeShowcase />
+    </template>
+  </DefaultTheme.Layout>
 </template>

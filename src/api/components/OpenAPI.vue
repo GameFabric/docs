@@ -29,6 +29,12 @@ const container = ref(null);
 let reactRoot: Root | undefined = undefined;
 let html: string
 
+// Brand redesign: override just the accent color Redoc uses for links/buttons/
+// borders, without touching the rest of dark-theme.js's tuned zinc palette.
+const brandTheme = {
+  light: { colors: { primary: { main: '#6E5300' } } },
+  dark: { ...dark, colors: { ...dark.colors, primary: { main: '#FFD744' } } },
+}
 
 // observer callback to control loading state once the docs are hydrated.
 let observer = null
@@ -56,7 +62,7 @@ const init = () => {
     options: {
       hideHostname: true,
       hideLoading: true,
-      theme: isDark.value ? dark : { primary: { main: '#367a9d' } },
+      theme: isDark.value ? brandTheme.dark : brandTheme.light,
       scrollYOffset: 64 // navbar height
     },
   });
@@ -155,7 +161,7 @@ onUnmounted(() => {
   height: 80px;
   margin-top: -0.5em;
 
-  border: 8px solid #367a9d;
+  border: 8px solid #6E5300;
   border-radius: 100%;
   border-bottom-color: transparent;
   -webkit-animation: spinner 1s linear 0s infinite;
