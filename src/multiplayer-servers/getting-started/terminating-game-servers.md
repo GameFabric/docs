@@ -33,7 +33,7 @@ This method uses the GameFabric monitoring system.
 
 The monitoring service (Grafana) is accessible via the GameFabric installation, located at the `/monitoring` path.
 
-Within the "GameServer Analysis" section, under "Current Gameservers," users can find detailed information about active game server instances.
+Within the "GameServer Analysis" section, under "Running Gameservers," users can find detailed information about active game server instances.
 This interface displays the Pod name along with other relevant operational data.
 The name of the site is a concatenation of cluster and namespace.
 
@@ -47,7 +47,7 @@ The namespace is not visible by default, it has to be enabled manually, as shown
 
 First, edit the panel by clicking on the title and selecting "Edit".
 
-![Current Gameservers in Grafana](./images/monitoring/monitoring_edit_gameserver_columns.png)
+![Running Gameservers in Grafana](./images/monitoring/monitoring_edit_gameserver_columns.png)
 
 Then, in the "Transform" tab, add a new "Organize fields" transformation.
 
