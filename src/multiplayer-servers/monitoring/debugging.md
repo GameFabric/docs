@@ -27,7 +27,7 @@ The Vessel UI may struggle with game servers that produce high log volumes. For 
 All game server logs, including those managed by Formations or Armadas, or those from restarted containers, can be found using the monitoring dashboards:
 
 1. Navigate to **Monitoring** in the GameFabric UI.
-1. Open the **Current Gameservers** dashboard.
+1. Open the **Running Gameservers** dashboard.
 1. Click any matching pod name. This opens the **Gameserver Single Instance** dashboard.
 
 The **Gameserver Single Instance** dashboard shows all container logs, including all sidecar logs, automatically. There is nothing to select or configure.

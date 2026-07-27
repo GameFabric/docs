@@ -20,7 +20,7 @@ Profiling data is only collected while the feature is enabled. You cannot retroa
 
 Profiling data is visualized in your Grafana instance. There are two ways to access it:
 
-1. **Current Gameservers dashboard** - Click on any game server (pod) name to drill down into its profiling data.
+1. **Running Gameservers dashboard** - Click on any game server (pod) name to drill down into its profiling data.
 
 2. **Gameserver Single Instance dashboard** - Navigate to this dashboard and select your game server to view its flame graph and CPU profiling data.
 
