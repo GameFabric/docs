@@ -1,7 +1,8 @@
 # Game server logs
 
 GameFabric lets you download game server logs as a compressed archive.
-Logs are retrieved from the platform's log aggregation service and delivered as a `.log.gz` file directly to your browser. GameFabric provides them for Vessels and Armadas and they are slightly different to retrieve.
+Logs are retrieved from the platform's log aggregation service and delivered as a `.log.gz` file directly to your browser.
+Logs are available for both Vessels and Armadas, but with slightly different retrieval methods.
 
 ## Vessel logs
 
@@ -57,21 +58,12 @@ To download Armada logs, a user must belong to a `group` with a `role` that has 
 For more information on managing permissions, see [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
 :::
 
-### Form fields
-
-| Field | Required | Description |
-|---|---|---|
-| **Armada Name** | Yes | Pre-filled with the name of the Armada you selected. You can edit it to download logs from a different Armada without reopening the dialog. |
-| **Pod Name** | Yes | The name of the game server pod whose logs you want. Must be obtained outside the UI — see [Finding a pod name](#finding-a-pod-name) below. |
-| **Time Range** | No | Restricts logs to a specific time window. Supports up to 30 days of history. Leave empty to include all available logs. |
-| **Limit Results** | No | Maximum number of log entries to download. Defaults to 100,000. |
-
 ### Finding a pod name
 
 An Armada can run thousands of game server pods simultaneously, and the GameFabric UI does not list individual pod names. You need to obtain the pod name from outside the UI. Common sources include:
 
 - **Your game server process** — configure your Armada or Vessel to inject the pod name into the container at runtime using `valueFrom.fieldRef`. Your game server can then log or expose this value on startup so your operations team can retrieve it when needed.
-- **Your matchmaker or allocation system** — if your matchmaker records which pod handled a session, the pod name will be in those records.
+- **Your matchmaker or allocation system** — if your matchmaker records which pod handled a session, the pod name is in those records.
 
 #### Injecting the pod name via fieldRef
 
