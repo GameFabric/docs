@@ -8,20 +8,20 @@ If the game server is not [integrated properly](/multiplayer-servers/integration
 
 ### Requirements
 
-To manually shut down a game server, you must know its site name and pod name.
+To manually shut down a game server, you must know its Site name and pod name.
 
 ### How & where
 
 #### Via GameFabric UI
 
-The GameFabric panel offers a direct interface for managing game servers. Navigate to the "Armadas" section. In the list of game server deployments, locate the desired instance. Click on the three vertical dots positioned just after the "Details" button for that specific game server. From the dropdown menu, select the "Terminate game server" option. Enter the site name and pod name of the game server to terminate.
+The GameFabric panel offers a direct interface for managing game servers. Navigate to the "Armadas" section. In the list of game server deployments, locate the desired instance. Click on the three vertical dots positioned just after the "Details" button for that specific game server. From the dropdown menu, select the "Terminate game server" option. Enter the Site name and pod name of the game server to terminate.
 
 #### Via GameFabric API
 This endpoint allows for the termination of a specific game server instance within a given site. The `{ns}` placeholder represents the site name, and `{name}` represents the unique identifier of the game server to be terminated. Successful execution removes the specified game server from active deployment.
 
 `DELETE /api/core/v1/sites/{ns}/gameservers/{name}`
 
-### Identifying the site and pod name
+### Identifying the Site and pod name
 
 Determining the specific pod name for termination requires checking pods that are actively running. Unlike the static site name, pod names are generated dynamically and can change.
 
@@ -32,7 +32,7 @@ There are multiple ways to determine the pod's name, but the following sections 
 This method uses Grafana. Grafana is accessible via the "Monitoring" link in the sidebar of your GameFabric installation or by adding the `/monitoring` path to the hostname of your GameFabric installation.
 
 In Grafana you can find the "Running Gameservers" dashboard in the "GameServer Analysis" folder which offers detailed information about running game servers.
-The table panel displays the pod name along with other relevant data for every running game server at that point in time (usually now). You can use the filters at the top of the dashboard to narrow down the list of game servers to find the one you want to terminate. Once you've located the desired game server, copy the pod name from the "pod" column and the site name from the "site" column (you can use the "Copy to Clipboard" button when hovering over the cell and clicking on the eye icon) to paste them into the termination dialog in the GameFabric UI or your GameFabric API call.
+The table panel displays the pod name along with other relevant data for every running game server at that point in time (usually `now`). You can use the filters at the top of the dashboard to narrow down the list of game servers to find the one you want to terminate. Once you've located the desired game server, copy the pod name from the "pod" column and the Site name from the "site" column (you can use the "Copy to Clipboard" button when hovering over the cell and clicking on the eye icon) to paste them into the termination dialog in the GameFabric UI or your GameFabric API call.
 
 ## Vessels
 
