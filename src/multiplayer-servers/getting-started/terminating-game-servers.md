@@ -29,9 +29,7 @@ There are multiple ways to determine the pod's name, but the following sections 
 
 #### Using Grafana
 
-This method uses Grafana, GameFabric's monitoring system.
-
-Grafana is accessible via the "Monitoring" link in the sidebar of your GameFabric installation or by adding the `/monitoring` path to the hostname of your GameFabric installation.
+This method uses Grafana. Grafana is accessible via the "Monitoring" link in the sidebar of your GameFabric installation or by adding the `/monitoring` path to the hostname of your GameFabric installation.
 
 In Grafana you can find the "Running Gameservers" dashboard in the "GameServer Analysis" folder which offers detailed information about running game servers.
 The table panel displays the pod name along with other relevant data for every running game server at that point in time (usually now). You can use the filters at the top of the dashboard to narrow down the list of game servers to find the one you want to terminate. Once you've located the desired game server, copy the pod name from the "pod" column and the site name from the "site" column (you can use the "Copy to Clipboard" button when hovering over the cell and clicking on the eye icon) to paste them into the termination dialog in the GameFabric UI or your GameFabric API call.
