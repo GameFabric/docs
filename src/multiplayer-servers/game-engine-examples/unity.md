@@ -5,9 +5,11 @@
 This guide covers how to run a Unity Dedicated Server on GameFabric with Agones lifecycle integration. It applies to any Unity networking SDK (Photon Fusion, Mirror, Netcode for GameObjects, FishNet, etc.).
 
 ::: tip Related Documentation
+
 - [Game Server Lifecycle](/multiplayer-servers/integration/game-server-lifecycle)
 - [Using the Agones SDK](/multiplayer-servers/integration/your-game-server)
 - [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image)
+
 :::
 
 ## Agones SDK for Unity
