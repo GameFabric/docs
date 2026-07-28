@@ -107,7 +107,7 @@ This follows the standard [Game Server Lifecycle](/multiplayer-servers/integrati
 
 ## Unity Dedicated Server Build
 
-Unity 6 and Unity 2022.3+ support a dedicated **Dedicated Server** build target that produces a headless Linux binary:
+Unity 6 and Unity 2022.3+ support the **Dedicated Server** build target, which produces a headless Linux binary:
 
 1. Install the **Dedicated Server Build Support (Linux)** module via Unity Hub
 2. In Unity: **File → Build Profiles → Dedicated Server → Linux**
