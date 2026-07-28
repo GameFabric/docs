@@ -30,7 +30,7 @@ Always pin the Agones SDK to a specific version tag (e.g. `#v1.59.0`). Without a
 The SDK provides the `AgonesSdk` MonoBehaviour with the following async methods:
 
 | Method | Returns | Purpose |
-|--------|---------|---------|
+| ------ | ------- | ------- |
 | `Ready()` | `Task<bool>` | Signal that the server is ready to accept players |
 | `Allocate()` | `Task<bool>` | Signal that the server is actively serving a game session |
 | `Shutdown()` | `Task<bool>` | Signal that the server should be shut down |
