@@ -19,7 +19,7 @@ The resources available for game server scheduling are:
 **Allocatable capacity = Total node resources − Platform overhead**
 
 ::: warning Scheduling failures
-If your game server's resource request exceeds a single node's allocatable capacity, scheduling will fail — even with autoscaling enabled, because every newly provisioned node has the same overhead.
+If any of your game server's resource requests exceeds a node's allocatable capacity for that resource, scheduling will fail — even with autoscaling enabled, because every newly provisioned node has the same overhead.
 To resolve this, either reduce your per-server resource requests or switch to a larger node type.
 :::
 
