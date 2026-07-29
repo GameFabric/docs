@@ -33,7 +33,7 @@ The Agones Unity SDK is available as a Unity Package Manager (UPM) dependency. A
 Always pin the Agones SDK to a specific version tag (e.g. `#v1.59.0`). Without a version pin, Unity will pull the latest commit from the main branch, which may introduce breaking changes.
 :::
 
-The SDK provides the `AgonesSdk` MonoBehaviour with the following async methods:
+The SDK provides the `AgonesSdk` [`MonoBehaviour`](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html) with the following async methods:
 
 | Method | Returns | Purpose |
 | ------ | ------- | ------- |
@@ -126,16 +126,14 @@ The output is:
 
 ## Container Image
 
-::: warning Container user
 GameFabric enforces uid 1000 via the Kubernetes pod security context (`runAsUser: 1000`). Ensure all files are owned by uid 1000. See [Building a Container Image](/multiplayer-servers/getting-started/building-a-container-image) for details.
-:::
 
 ```dockerfile
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    libglib2.0-0 ca-certificates libssl3 && \
+    libglib2.0-0 ca-certificates libssl3t64 && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /app && chown 1000:1000 /app
@@ -148,11 +146,4 @@ COPY --chown=1000:1000 server_Data/ ./server_Data/
 RUN chmod +x /app/server.x86_64
 
 ENTRYPOINT ["/app/server.x86_64", "-batchmode", "-nographics"]
-```
-
-Build and push:
-
-```bash
-docker build -t <registry>/my-game-server:<tag> .
-docker push <registry>/my-game-server:<tag>
 ```
