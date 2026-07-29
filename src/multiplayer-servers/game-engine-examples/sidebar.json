@@ -6,6 +6,10 @@
     {
       "text": "Unity",
       "link": "/game-engine-examples/unity"
+    },
+    {
+      "text": "Photon Fusion",
+      "link": "/game-engine-examples/photon-fusion"
     }
   ]
 }
