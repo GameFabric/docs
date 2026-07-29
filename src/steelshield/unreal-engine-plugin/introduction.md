@@ -24,30 +24,17 @@ attacks. It achieves this by intercepting network traffic on the path to the gam
 combination of source address, destination address, port and network packet contents match the type of packets which
 would normally be expected for that game server.
 
-The SteelShield Plugin for Unreal Engine enables better and more accurate packet matching by the SteelShield service.
-This is achieved by having a backend system, typically the *game server*, authenticate the client via a
-username/password account system, and then issue the *game client* a *JWT* containing the account and game details, and
-signed with a *certificate* that is shared between the game author and Nitrado.
+The **SteelShield Plugin for Unreal Engine** enables better and more accurate
+packet matching by the SteelShield service by implementing [Proof of
+Identity](/steelshield/gamefabric/introduction#level-3-proof-of-identity-using-deep-packet-inspection).
+It communicates with the [SteelShield Token Service](/steelshield/token-service/index)
+to prepend a **SteelShield Token** to network packets sent to the game server.
+This allows quick identification of malicious traffic, preventing it from
+propagating all the way to the game server, and offers traceability of attackers
+for quick user banning possibilities.
 
-This *JWT* is then submitted to the *SteelShield Token Service* by the *game client*, where the certificate and game
-credentials are validated, and a *SteelShield Token* is issued to the *game client*.
-
-This *SteelShield Token* is then prepended to all network packets sent by the *game client*, where the *SteelShield
-Service* is able to intercept them, and validate that the prepended *SteelShield Token* matches one that was issued by
-the *SteelShield Token Service*.
-
-Should the *SteelShield Token* be missing, or not match one issued by the *SteelShield Token Service*, then the network
-packet is dropped by the *SteelShield Service* and is never received by the *game server*.
-
-This ensures that large DDoS attacks from botnets or via reflection attacks are prevented from reaching the *game
-server* as they would not have been able to go through the authentication process to receive a valid *SteelShield Token*
-which allows their traffic to pass through the *SteelShield Service*
-
-Should an attacker perform the authentication process and then use their received *SteelShield Token* is used in an attack,
-the *SteelShield Token* would be able to be traced back to that individuals account, and the user banned.
-
-*SteelShield Tokens* are also set to *roll over* every 15 minutes (by default) in order to ensure that the token can not
-be used in future DDoS attacks.
+*SteelShield Tokens* are also set to *roll over* every 15 minutes (by default)
+in order to ensure that the token cannot be used in future DDoS attacks.
 
 ::: tip Using SteelShield with GameFabric
 SteelShield is integrated with GameFabric Multiplayer Servers to provide DDoS protection for your game servers. For more information on deploying game servers with GameFabric, see the [Multiplayer Servers documentation](/multiplayer-servers/getting-started/introduction).

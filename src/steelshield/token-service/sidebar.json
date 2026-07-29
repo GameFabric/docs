@@ -1,0 +1,23 @@
+{
+  "text": "Token Service",
+  "collapsed": false,
+  "order": 3,
+  "items": [
+    {
+      "text": "Token Service Overview",
+      "link": "/token-service/index"
+    },
+    {
+      "text": "Managing Token Services",
+      "link": "/token-service/managing-token-services"
+    },
+    {
+      "text": "Authentication Types",
+      "link": "/token-service/authentication-types"
+    },
+    {
+      "text": "API Reference",
+      "link": "/token-service/api-reference"
+    }
+  ]
+}
