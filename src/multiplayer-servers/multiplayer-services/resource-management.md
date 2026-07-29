@@ -9,6 +9,41 @@ Your game servers run as containers with defined resource constraints.
 These constraints ensure fair resource sharing across multiple game servers on the same physical hardware while preventing
 any single server from consuming excessive resources that could impact other games.
 
+## Node capacity and platform overhead
+
+Not all of a node's resources are available for your game servers.
+Each node reserves a small portion of its CPU and memory for platform services such as log collection, networking, metrics, and image distribution.
+
+The resources available for game server scheduling are:
+
+**Allocatable capacity = Total node resources − Platform overhead**
+
+::: warning Scheduling failures
+If your game server's resource request exceeds a single node's allocatable capacity, scheduling will fail — even with autoscaling enabled, because every newly provisioned node has the same overhead.
+To resolve this, either reduce your per-server resource requests or switch to a larger node type.
+:::
+
+### Typical overhead
+
+Platform overhead varies by cluster configuration, but as a general guideline:
+
+- **CPU**: Approximately 0.5 vCPU (500m) is reserved per node for platform services.
+- **Memory**: A portion of memory is also reserved. The exact amount depends on your cluster configuration.
+
+### Example
+
+On an `n4-standard-2` node (2 vCPUs, 8 GiB RAM):
+
+- **CPU allocatable for game servers**: ~1400–1500m (after ~500m platform overhead)
+- **Memory allocatable for game servers**: Depends on cluster configuration
+
+In this scenario, a game server requesting more than ~1500m CPU cannot be scheduled on any node — regardless of how many nodes autoscaling adds.
+
+### Sizing your node type
+
+When choosing a node type, ensure that after platform overhead, there is enough allocatable capacity for at least one game server plus a small buffer.
+If your game servers require large resource requests, select a node type with proportionally more resources.
+
 ## Resource requests vs limits
 
 ### Resource requests
