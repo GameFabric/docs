@@ -11,8 +11,8 @@ any single server from consuming excessive resources that could impact other gam
 
 ## Node capacity and platform overhead
 
-Not all of a node's resources are available for your game servers.
-Each node reserves a small portion of its CPU and memory for platform services such as log collection, networking, metrics, and image distribution.
+Not all node resources (i.e., CPU and memory) are available for your game servers.
+Each node reserves a small portion of its CPU and memory for platform services such as log collection, networking, hardware metrics, connectivity checks, OS update management and optimization of image distribution to enable specific GameFabric platform features and improve the reliability of the node.
 
 The resources available for game server scheduling are:
 
