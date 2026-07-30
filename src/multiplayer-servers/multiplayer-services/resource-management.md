@@ -23,7 +23,7 @@ If a game server's CPU or memory request exceeds the node's allocatable capacity
 To resolve this, either reduce your per-server resource requests or switch to a larger node type.
 :::
 
-### Typical overhead
+### Typical size of platform-reserved resources
 
 The size of the platform-reserved resources can vary by a small margin, but as a general guideline:
 
