@@ -5,9 +5,8 @@ Proper resource configuration ensures optimal game performance while controlling
 
 ## Overview
 
-Your game servers run as containers with defined resource constraints.
-These constraints ensure fair resource sharing across multiple game servers on the same physical hardware while preventing
-any single server from consuming excessive resources that could impact other games.
+Your game servers run as containers with defined resource requests.
+These requests ensure that resources are distributed efficiently across multiple game servers on the same physical hardware without wasting capacity.
 
 ## Node capacity and platform overhead
 
@@ -28,16 +27,25 @@ To resolve this, either reduce your per-server resource requests or switch to a 
 The size of the platform-reserved resources can vary by a small margin, but as a general guideline:
 
 - **CPU**: Approximately 0.5 vCPU (500m) is reserved per node for platform services.
-- **Memory**: A portion of memory is also reserved. The exact amount depends on your cluster configuration.
+- **Memory**: Up to 2Gi memory per node is reserved for platform services.
 
-### Example
+### Examples
 
-On an `n4-standard-2` node (2 vCPUs, 8 GiB RAM):
+#### Small node: `n4-standard-2` (2 vCPUs, 8Gi RAM)
 
-- **CPU allocatable for game servers after deducting platform-reserved cpu**: ~1500m
-- **Memory allocatable for game servers**: Depends on cluster configuration
+- **CPU allocatable for game servers after deducting platform-reserved CPU**: ~1500m
+- **Memory allocatable for game servers after deducting system- and platform-reserved memory**: ~4Gi
 
-In this scenario, a game server requesting more than ~1500m CPU cannot be scheduled on any node — regardless of how many nodes autoscaling adds.
+In this scenario, a game server requesting more than ~1500m CPU or more than ~4Gi memory cannot be scheduled on any node — regardless of how many nodes autoscaling adds.
+
+On small nodes, system- and platform-reserved resources account for roughly 50% of total memory, making them less efficient for hosting game servers.
+
+#### Large node: `n4-standard-16` (16 vCPUs, 64Gi RAM)
+
+- **CPU allocatable for game servers after deducting platform-reserved CPU**: ~15500m
+- **Memory allocatable for game servers after deducting system- and platform-reserved memory**: ~60Gi
+
+On larger nodes, the reserved resources make up only about 6% of total memory, leaving significantly more capacity for game servers.
 
 ### Sizing your node type
 
