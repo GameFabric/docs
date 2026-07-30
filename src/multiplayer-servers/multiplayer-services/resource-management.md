@@ -25,7 +25,7 @@ To resolve this, either reduce your per-server resource requests or switch to a 
 
 ### Typical overhead
 
-Platform overhead varies by cluster configuration, but as a general guideline:
+The size of the platform-reserved resources can vary by a small margin, but as a general guideline:
 
 - **CPU**: Approximately 0.5 vCPU (500m) is reserved per node for platform services.
 - **Memory**: A portion of memory is also reserved. The exact amount depends on your cluster configuration.
