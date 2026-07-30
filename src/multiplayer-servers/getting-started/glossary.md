@@ -325,6 +325,12 @@ SteelShield is a DDoS protection system designed for the specific purpose of pro
 
 See also [SteelShield docs](/steelshield/gamefabric/introduction).
 
+## Token Service
+
+The Token Service is a public-facing API provided by [SteelShield](#steelshieldtm) for [Proof of Identity](/steelshield/gamefabric/introduction#level-3-proof-of-identity-using-deep-packet-inspection) authentication. It verifies game client credentials and issues **SteelShield Tokens** that authorize game traffic to pass through DDoS protection.
+
+See [Token Service Overview](/steelshield/token-service/) for details on how it works, and [Managing Token Services](/steelshield/token-service/managing-token-services) for setup instructions.
+
 ## Terraform provider
 
 GameFabric offers its own Terraform provider to interact with the platform. See the [Terraform provider](/multiplayer-servers/integration/terraform) documentation for installation and usage instructions.
