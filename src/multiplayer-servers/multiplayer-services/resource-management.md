@@ -16,7 +16,7 @@ Each node reserves a small portion of its CPU and memory for platform services s
 
 The resources available for game server scheduling are:
 
-**Allocatable capacity = Total node resources − Platform overhead**
+**Allocatable capacity = Total node resources - System-reserved resources - Platform-reserved resources**
 
 ::: warning Scheduling failures
 If a game server's CPU or memory request exceeds the node's allocatable capacity for that resource, scheduling will fail — even with autoscaling enabled, because every newly provisioned node comes with the same allocatable capacity.
