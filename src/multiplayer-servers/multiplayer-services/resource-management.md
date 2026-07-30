@@ -41,7 +41,7 @@ In this scenario, a game server requesting more than ~1500m CPU cannot be schedu
 
 ### Sizing your node type
 
-When choosing a node type, ensure that after platform overhead, there is enough allocatable capacity for at least one game server plus a small buffer.
+When choosing a node type, ensure that after deducting system- and platform-reserved resources, there is enough allocatable capacity for at least one game server plus a small safety buffer.
 If your game servers require large resource requests, select a node type with proportionally more resources.
 
 ## Resource requests vs limits
