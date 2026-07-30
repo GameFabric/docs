@@ -43,9 +43,9 @@ On small nodes, system- and platform-reserved resources account for roughly 50% 
 #### Large node: `n4-standard-16` (16 vCPUs, 64Gi RAM)
 
 - **CPU allocatable for game servers after deducting platform-reserved CPU**: ~15500m
-- **Memory allocatable for game servers after deducting system- and platform-reserved memory**: ~60Gi
+- **Memory allocatable for game servers after deducting system- and platform-reserved memory**: ~55.25Gi
 
-On larger nodes, the reserved resources make up only about 6% of total memory, leaving significantly more capacity for game servers.
+On larger nodes, the reserved resources make up only about 12% of total memory, leaving significantly more capacity for game servers.
 
 ### Sizing your node type
 
