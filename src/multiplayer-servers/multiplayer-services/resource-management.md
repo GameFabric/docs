@@ -33,7 +33,7 @@ The size of the platform-reserved resources can vary by a small margin, but as a
 
 #### Small node: `n4-standard-2` (2 vCPUs, 8Gi RAM)
 
-- **CPU allocatable for game servers after deducting platform-reserved CPU**: ~1500m
+- **CPU allocatable for game servers after deducting system- and platform-reserved CPU**: ~1500m
 - **Memory allocatable for game servers after deducting system- and platform-reserved memory**: ~4Gi
 
 In this scenario, a game server requesting more than ~1500m CPU or more than ~4Gi memory cannot be scheduled on any node — regardless of how many nodes autoscaling adds.
