@@ -34,7 +34,7 @@ Platform overhead varies by cluster configuration, but as a general guideline:
 
 On an `n4-standard-2` node (2 vCPUs, 8 GiB RAM):
 
-- **CPU allocatable for game servers**: ~1400–1500m (after ~500m platform overhead)
+- **CPU allocatable for game servers after deducting platform-reserved cpu**: ~1500m
 - **Memory allocatable for game servers**: Depends on cluster configuration
 
 In this scenario, a game server requesting more than ~1500m CPU cannot be scheduled on any node — regardless of how many nodes autoscaling adds.
