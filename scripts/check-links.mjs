@@ -126,11 +126,13 @@ for (const file of pages) {
     for (const match of content.matchAll(/!\[[^\]]*\]\(([^)\s]+)/g)) {
         const src = match[1];
         if (/^(https?:|data:|mailto:)/.test(src)) continue;
-        const candidates = src.startsWith('/')
-            ? [path.join(publicDir, src), path.join(srcDir, src)]
-            : [path.resolve(path.dirname(file), src)];
-        if (!candidates.some((candidate) => fs.existsSync(candidate))) {
-            fail(file, `image does not exist: ${src}`);
+        // Absolute image paths are served from public/ at build time; a file that
+        // only exists next to the page will 404 in production.
+        const candidate = src.startsWith('/')
+            ? path.join(publicDir, src)
+            : path.resolve(path.dirname(file), src);
+        if (!fs.existsSync(candidate)) {
+            fail(file, `image does not exist: ${src}${src.startsWith('/') ? ' (absolute image paths must be in src/public)' : ''}`);
         }
     }
 

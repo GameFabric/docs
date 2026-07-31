@@ -1,0 +1,35 @@
+{
+  "text": "Configure",
+  "collapsed": false,
+  "order": 4,
+  "items": [
+    {
+      "text": "Environments and regions",
+      "link": "/configure/environments-and-regions"
+    },
+    {
+      "text": "Secrets",
+      "link": "/configure/secrets"
+    },
+    {
+      "text": "Resource management",
+      "link": "/configure/resource-management"
+    },
+    {
+      "text": "Quotas",
+      "link": "/configure/quotas"
+    },
+    {
+      "text": "Game server wrapper",
+      "link": "/configure/game-server-wrapper"
+    },
+    {
+      "text": "GameFabric Cloud",
+      "link": "/configure/gamefabric-cloud"
+    },
+    {
+      "text": "Configuring your cloud provider",
+      "link": "/configure/cloud-provider-setup"
+    }
+  ]
+}

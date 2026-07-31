@@ -1,0 +1,44 @@
+{
+  "text": "Deploy",
+  "collapsed": false,
+  "order": 5,
+  "items": [
+    {
+      "text": "Vessels",
+      "link": "/deploy/vessels"
+    },
+    {
+      "text": "Vessel states",
+      "link": "/deploy/vessel-states"
+    },
+    {
+      "text": "ArmadaSets",
+      "link": "/deploy/armadasets"
+    },
+    {
+      "text": "Scaling",
+      "items": [
+        {
+          "text": "Scaling overview",
+          "link": "/deploy/scaling"
+        },
+        {
+          "text": "Replicas and buffer size",
+          "link": "/deploy/replicas-and-buffer"
+        },
+        {
+          "text": "Scale to zero",
+          "link": "/deploy/scale-to-zero"
+        }
+      ]
+    },
+    {
+      "text": "Terminating game servers",
+      "link": "/deploy/terminating-game-servers"
+    },
+    {
+      "text": "Terminating ArmadaSets",
+      "link": "/deploy/terminating-armadasets"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "text": "Protect",
+  "collapsed": false,
+  "order": 7,
+  "items": [
+    {
+      "text": "Ports and protocols",
+      "link": "/protect/protocols"
+    },
+    {
+      "text": "Gateway policies",
+      "link": "/protect/gateway-policies"
+    }
+  ]
+}

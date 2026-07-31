@@ -1,0 +1,11 @@
+{
+  "text": "Migrate",
+  "collapsed": false,
+  "order": 11,
+  "items": [
+    {
+      "text": "Migrating from Hathora",
+      "link": "/migrate/hathora"
+    }
+  ]
+}

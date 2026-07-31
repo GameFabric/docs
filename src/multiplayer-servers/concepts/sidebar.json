@@ -1,0 +1,39 @@
+{
+  "text": "Concepts",
+  "collapsed": false,
+  "order": 2,
+  "items": [
+    {
+      "text": "Hosting models",
+      "link": "/concepts/hosting-models"
+    },
+    {
+      "text": "Capacity types",
+      "link": "/concepts/capacity-types"
+    },
+    {
+      "text": "Regions, sites and locations",
+      "link": "/concepts/regions-sites-and-locations"
+    },
+    {
+      "text": "Scheduling strategy",
+      "link": "/concepts/scheduling-strategy"
+    },
+    {
+      "text": "Allocators",
+      "link": "/concepts/allocators"
+    },
+    {
+      "text": "Ping services",
+      "link": "/concepts/ping-services"
+    },
+    {
+      "text": "Matchmaking",
+      "link": "/concepts/matchmaking"
+    },
+    {
+      "text": "Sidecar containers",
+      "link": "/concepts/sidecars"
+    }
+  ]
+}

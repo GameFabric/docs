@@ -1,0 +1,61 @@
+{
+  "text": "Integrate",
+  "collapsed": false,
+  "order": 6,
+  "items": [
+    {
+      "text": "Your game server",
+      "link": "/integrate/your-game-server"
+    },
+    {
+      "text": "Game server life cycle",
+      "link": "/integrate/game-server-lifecycle"
+    },
+    {
+      "text": "Player count tracking",
+      "link": "/integrate/player-count-tracking"
+    },
+    {
+      "text": "Server allocation",
+      "items": [
+        {
+          "text": "Server allocation overview",
+          "link": "/integrate/server-allocation/overview"
+        },
+        {
+          "text": "Allocating from Armadas",
+          "link": "/integrate/server-allocation/allocating-from-armadas"
+        },
+        {
+          "text": "Automatically registering game servers",
+          "link": "/integrate/server-allocation/automatically-registering-game-servers"
+        },
+        {
+          "text": "Manually registering game servers",
+          "link": "/integrate/server-allocation/manually-registering-game-servers"
+        },
+        {
+          "text": "Integration examples",
+          "items": [
+            {
+              "text": "Amazon GameLift",
+              "link": "/integrate/server-allocation/integration-examples/gamelift"
+            },
+            {
+              "text": "Amazon GameLift FlexMatch",
+              "link": "/integrate/server-allocation/integration-examples/flexmatch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Your infrastructure",
+      "link": "/integrate/your-backend"
+    },
+    {
+      "text": "Terraform provider",
+      "link": "/integrate/terraform"
+    }
+  ]
+}

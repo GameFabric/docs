@@ -1,0 +1,19 @@
+{
+  "text": "Get started",
+  "collapsed": false,
+  "order": 1,
+  "items": [
+    {
+      "text": "Introduction",
+      "link": "/get-started/introduction"
+    },
+    {
+      "text": "Quickstart",
+      "link": "/get-started/quickstart"
+    },
+    {
+      "text": "Glossary",
+      "link": "/get-started/glossary"
+    }
+  ]
+}

@@ -37,5 +37,5 @@ for quick user banning possibilities.
 in order to ensure that the token cannot be used in future DDoS attacks.
 
 ::: tip Using SteelShield with GameFabric
-SteelShield is integrated with GameFabric Multiplayer Servers to provide DDoS protection for your game servers. For more information on deploying game servers with GameFabric, see the [Multiplayer Servers documentation](/multiplayer-servers/getting-started/introduction).
+SteelShield is integrated with GameFabric Multiplayer Servers to provide DDoS protection for your game servers. For more information on deploying game servers with GameFabric, see the [Multiplayer Servers documentation](/multiplayer-servers/get-started/introduction).
 :::

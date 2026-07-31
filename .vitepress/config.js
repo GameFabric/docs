@@ -50,7 +50,7 @@ export default withMermaid(defineConfig({
             {
                 text: 'Documentation',
                 items: [
-                    {text: 'Multiplayer Servers', link: '/multiplayer-servers/getting-started/introduction'},
+                    {text: 'Multiplayer Servers', link: '/multiplayer-servers/get-started/introduction'},
                     {text: 'SteelShield', link: '/steelshield/gamefabric/introduction'},
                 ]
             }, {

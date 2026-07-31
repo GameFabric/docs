@@ -8,9 +8,9 @@ For a comprehensive overview of the API structure and available endpoints, see t
 
 ## Prerequisites
 
-* Follow the steps described in the [Service Accounts](/multiplayer-servers/authentication/service-accounts) section to create a Service Account and fetch a token that gives you access to the REST API.
-* Follow [the guide to push an image](/multiplayer-servers/getting-started/pushing-container-images) of your game server into the registry.
-* Understand the [hosting models](/multiplayer-servers/architecture/identifying-your-hosting-model) to know whether to use Vessels or Armadas.
+* Follow the steps described in the [Service Accounts](/multiplayer-servers/administration/service-accounts) section to create a Service Account and fetch a token that gives you access to the REST API.
+* Follow [the guide to push an image](/multiplayer-servers/container-images/pushing-container-images) of your game server into the registry.
+* Understand the [hosting models](/multiplayer-servers/concepts/hosting-models) to know whether to use Vessels or Armadas.
 
 ## Listing your images
 
@@ -276,7 +276,7 @@ In this example, let's create a Region with the `Distributed` scheduling strateg
 
 ::: tip Scheduling Strategy
 The `scheduling` field controls how game servers are distributed across nodes.
-See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for details. This feature is currently only available via the API.
+See [Scheduling Strategy](/multiplayer-servers/concepts/scheduling-strategy) for details. This feature is currently only available via the API.
 :::
 
 ```bash

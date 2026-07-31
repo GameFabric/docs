@@ -1,0 +1,27 @@
+{
+  "text": "Administration",
+  "collapsed": false,
+  "order": 9,
+  "items": [
+    {
+      "text": "Getting access",
+      "link": "/administration/getting-access"
+    },
+    {
+      "text": "Permissions",
+      "link": "/administration/permissions"
+    },
+    {
+      "text": "Service accounts",
+      "link": "/administration/service-accounts"
+    },
+    {
+      "text": "OIDC providers",
+      "link": "/administration/oidc-providers"
+    },
+    {
+      "text": "Cloud budget",
+      "link": "/administration/cloud-budget"
+    }
+  ]
+}

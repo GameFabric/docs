@@ -1,0 +1,43 @@
+{
+  "text": "Operate",
+  "collapsed": false,
+  "order": 8,
+  "items": [
+    {
+      "text": "Production requirements",
+      "link": "/operate/production-requirements"
+    },
+    {
+      "text": "Monitoring and logs",
+      "link": "/operate/monitoring"
+    },
+    {
+      "text": "Dashboards",
+      "link": "/operate/dashboards"
+    },
+    {
+      "text": "Game server logs",
+      "link": "/operate/game-server-logs"
+    },
+    {
+      "text": "Debugging",
+      "link": "/operate/debugging"
+    },
+    {
+      "text": "Profiling",
+      "link": "/operate/profiling"
+    },
+    {
+      "text": "Observability tap",
+      "link": "/operate/observability-tap"
+    },
+    {
+      "text": "Audit logs",
+      "link": "/operate/audit-logs"
+    },
+    {
+      "text": "Audit log exports",
+      "link": "/operate/audit-log-exports"
+    }
+  ]
+}
