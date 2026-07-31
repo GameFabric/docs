@@ -1,3 +1,8 @@
+---
+title: "Automatically registering game servers"
+description: "This guide describes how to enable and configure the automatic game server registration and the associated allocation handling."
+---
+
 # Automatically registering game servers
 
 This guide describes how to enable and configure the automatic game server registration and the associated
@@ -30,7 +35,7 @@ Please check [Using the Agones SDK](/multiplayer-servers/integrate/your-game-ser
 When a matchmaker requests a game server from the allocation service, the game server must not only be "Ready",
 it must also be registered with the allocation service.
 The transition to the ready state can only be determined by the game server itself, whereas the registration can be automated.
-The respective component is called Allocation Sidecar or Allocator Sidecar.
+The respective component is called the Allocation Sidecar.
 The service waits for the game server to become "Ready" and then registers it with the allocation service.
 It also ensures that when the game server stops that its registration gets removed.
 

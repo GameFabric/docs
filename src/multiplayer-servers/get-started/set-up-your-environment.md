@@ -1,3 +1,8 @@
+---
+title: "Step 5: Set up your environment"
+description: "Create the environment and region your game servers run in, and decide which capacity is used first."
+---
+
 # Step 5: Set up your environment
 
 **Goal:** create the environment and region your game server will run in.

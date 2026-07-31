@@ -1,9 +1,14 @@
+---
+title: "Creating an ArmadaSet"
+description: "In this section, you will learn how to create an ArmadaSet for session-based or match-based game servers."
+---
+
 # Creating an ArmadaSet
 
 In this section, you will learn how to create an ArmadaSet for session-based or match-based game servers.
 
 ::: tip Understanding Hosting Models
-ArmadaSets are designed for session-based games where a matchmaker allocates game servers on demand. If your game uses persistent servers or server browsers, consider using [Formations and Vessels](/multiplayer-servers/deploy/vessels) instead. See the [hosting models guide](/multiplayer-servers/concepts/hosting-models) for more details.
+ArmadaSets are designed for session-based games where a matchmaker allocates game servers on demand. If your game uses persistent servers or server browsers, consider using [Formations and Vessels](/multiplayer-servers/concepts/formations) instead. See the [hosting models guide](/multiplayer-servers/concepts/hosting-models) for more details.
 :::
 
 ## Prerequisites
@@ -18,7 +23,7 @@ Log into the GameFabric UI before proceeding.
 
 ## Create an ArmadaSet
 
-Choose an [environment](/multiplayer-servers/configure/environments) for your ArmadaSet, then navigate to Armadas > ArmadaSets in the UI and click "Create ArmadaSet" to begin.
+Choose an [environment](/multiplayer-servers/configure/environments) for your ArmadaSet, then navigate to **Dynamic Fleets > ArmadaSets** in the UI and click "Create ArmadaSet" to begin.
 
 ### General
 
@@ -48,7 +53,7 @@ Volumes allow you to share data between multiple containers within the same [pod
 
 The Containers section defines your game server configuration. This includes the container image, environment variables, ports, commands, ConfigFiles, resources, and sidecars.
 
-The configuration options are identical to those for Vessels. For detailed explanations of each setting, see the [Containers section](/multiplayer-servers/deploy/vessels#containers) in the Vessel guide.
+The configuration options are identical to those for Vessels. For detailed explanations of each setting, see [Container configuration](/multiplayer-servers/deploy/container-configuration#containers).
 
 Key configuration areas:
 
@@ -58,17 +63,17 @@ Key configuration areas:
 * **Command and arguments**: Override the container's default command if needed
 * **ConfigFiles**: Mount configuration files into your container
 * **Resources**: Set CPU and memory requests and limits
-* **Sidecars**: Add additional containers (e.g., Allocator sidecar)
+* **Sidecars**: Add additional containers (such as the Allocation Sidecar)
 
-::: info Allocator Sidecar
-For session-based games using the Allocator service, you typically add an Allocator sidecar container. See [Sidecar Containers](/multiplayer-servers/concepts/sidecars#allocation-sidecar) for setup details and the [Server Allocation Overview](/multiplayer-servers/integrate/server-allocation/overview) for when this is required.
+::: info Allocation Sidecar
+For session-based games using the Allocator service, you typically add an Allocation Sidecar container. See [Sidecar Containers](/multiplayer-servers/concepts/sidecars#allocation-sidecar) for setup details and the [Server Allocation Overview](/multiplayer-servers/integrate/server-allocation/overview) for when this is required.
 :::
 
 ### Advanced
 
 The Advanced section contains options for profiling, health checks, and termination grace periods. These settings work the same way as for Vessels.
 
-For detailed explanations, see the [Advanced options section](/multiplayer-servers/deploy/vessels#advanced-options) in the Vessel guide.
+For detailed explanations, see [Container configuration](/multiplayer-servers/deploy/container-configuration#advanced-options).
 
 Key settings:
 
@@ -82,7 +87,7 @@ Health checks are disabled by default for initial testing. To ensure unresponsiv
 
 ## Visualize and configure
 
-After creating the ArmadaSet, it appears in the Armadas section of the UI. The ArmadaSet automatically creates an Armada for each configured region.
+After creating the ArmadaSet, it appears under **Dynamic Fleets** in the UI. The ArmadaSet automatically creates an Armada for each configured region.
 
 Click on an ArmadaSet to view its details, including:
 

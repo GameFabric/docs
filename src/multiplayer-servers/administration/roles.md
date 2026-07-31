@@ -1,3 +1,8 @@
+---
+title: "Roles and the permission model"
+description: "GameFabric controls access with role-based access control. This page explains the model. For the click-path to edit a role or a group, see Permissions."
+---
+
 # Roles and the permission model
 
 GameFabric controls access with role-based access control. This page explains the model. For the

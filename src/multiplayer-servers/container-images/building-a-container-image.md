@@ -1,3 +1,8 @@
+---
+title: "Building a container image"
+description: "The purpose of this guide is to explain how to package game server binaries as Docker images."
+---
+
 # Building a container image
 
 The purpose of this guide is to explain how to package game server binaries as Docker images.

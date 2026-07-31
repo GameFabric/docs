@@ -1,3 +1,8 @@
+---
+title: "Step 4: Push your image"
+description: "Create a branch in the GameFabric Container Registry and push your game server container image to it."
+---
+
 # Step 4: Push your image
 
 **Goal:** create a branch in the GameFabric registry and push your container image to it.
@@ -5,7 +10,7 @@
 **Before you start:** you need the service account from step 2 and the container image from
 step 3.
 
-GameFabric hosts its own container registry. Images live on **branches**, which are release tracks
+GameFabric hosts its own container registry, the GameFabric Container Registry. Images live on **branches**, which are release tracks
 such as production and development. A game server always runs a specific image from a specific
 branch.
 

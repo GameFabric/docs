@@ -1,3 +1,8 @@
+---
+title: "Sidecar Containers"
+description: "A sidecar is a container that runs alongside your game server container within the same pod."
+---
+
 # Sidecar Containers
 
 A sidecar is a container that runs alongside your game server container within the same [pod](/multiplayer-servers/get-started/glossary#pod). Sidecars share the pod's network namespace and can access data through shared volumes, enabling them to provide additional functionality without modifying your game server code.
@@ -45,7 +50,7 @@ You can add custom sidecar containers for purposes such as:
 3. Configure the container image, ports, environment variables, and resource limits
 4. Save your changes
 
-For UI guidance, see [Running your Game Server](/multiplayer-servers/deploy/vessels).
+For UI guidance, see [Vessels](/multiplayer-servers/deploy/vessels).
 
 ## Best practices
 

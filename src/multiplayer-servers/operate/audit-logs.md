@@ -1,3 +1,8 @@
+---
+title: "Audit logs"
+description: "Audit logs record every action taken in your GameFabric installation, including who made the change, which resource was affected, and whether the operation s..."
+---
+
 # Audit logs
 
 Audit logs record every action taken in your GameFabric installation, including who made the change, which resource was affected, and whether the operation succeeded. Use audit logs to investigate incidents, satisfy compliance requirements, or track configuration drift.

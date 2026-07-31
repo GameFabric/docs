@@ -1,3 +1,8 @@
+---
+title: "Armada replicas and buffer"
+description: "An Armada can spin up one game server, thousands of game servers, or anything in between, including no game servers as the special case of Scaling Down."
+---
+
 # Armada replicas and buffer
 
 An Armada can spin up one game server, thousands of game servers, or anything in between, including no game servers as the special case of [Scaling Down](#scaling-down).

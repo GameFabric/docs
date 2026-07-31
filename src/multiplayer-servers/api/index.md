@@ -1,3 +1,8 @@
+---
+title: "API"
+description: "Everything you can do in the GameFabric UI you can also do through its REST API."
+---
+
 # API
 
 Everything you can do in the GameFabric UI you can also do through its REST API. Use it to

@@ -1,3 +1,8 @@
+---
+title: "Step 8: Next steps"
+description: "Where to go after your first game server runs: scaling, allocation, monitoring, protection and going live."
+---
+
 # Step 8: Next steps
 
 **Goal:** choose what to set up next, based on what your game needs.
@@ -22,7 +27,7 @@ per region.
   idle
 
 If you chose **Formations**, group your Vessels into a Formation so they share one configuration.
-See [Running your game server](/multiplayer-servers/deploy/vessels).
+See [Vessels](/multiplayer-servers/deploy/vessels).
 
 ## Connect your matchmaker
 

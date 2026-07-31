@@ -1,3 +1,8 @@
+---
+title: "Profiling"
+description: "GameFabric Multiplayer Servers has built-in support for eBPF-based CPU performance profiling using Grafana Pyroscope."
+---
+
 # Profiling
 
 GameFabric Multiplayer Servers has built-in support for eBPF-based CPU performance profiling using [Grafana Pyroscope](https://grafana.com/oss/pyroscope/).

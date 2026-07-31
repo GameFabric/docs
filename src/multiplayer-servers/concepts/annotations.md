@@ -1,3 +1,8 @@
+---
+title: "Annotations and labels"
+description: "Annotations and labels are key-value metadata attached to GameFabric resources."
+---
+
 # Annotations and labels
 
 Annotations and labels are key-value metadata attached to GameFabric resources. Both appear on

@@ -1,3 +1,8 @@
+---
+title: "Authentication Types"
+description: "A Token Service can be configured with one of three main authentication methods. Each method determines how the Token Service verifies game client tokens."
+---
+
 # Authentication Types
 
 A Token Service can be configured with one of three main authentication methods.

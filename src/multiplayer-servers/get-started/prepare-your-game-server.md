@@ -1,3 +1,8 @@
+---
+title: "Step 3: Prepare your game server"
+description: "Integrate the Agones SDK into your game server and package it as a container image that GameFabric can run."
+---
+
 # Step 3: Prepare your game server
 
 **Goal:** integrate the Agones SDK into your game server, then package it as a container image

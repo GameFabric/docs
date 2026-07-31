@@ -1,3 +1,8 @@
+---
+title: "Amazon GameLift FlexMatch integration documentation"
+description: "This documentation serves as an integration guide for you, as an AWS GameLift customer, seeking to transition from a current AWS-managed hosting solution to..."
+---
+
 # Amazon GameLift FlexMatch integration documentation
 
 ## Introduction

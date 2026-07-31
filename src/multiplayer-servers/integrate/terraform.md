@@ -1,3 +1,8 @@
+---
+title: "Terraform provider"
+description: "GameFabric supports Infrastructure as Code (IaC) through official Terraform and OpenTofu provider plugins."
+---
+
 # Terraform provider
 
 GameFabric supports Infrastructure as Code (IaC) through official Terraform and OpenTofu provider plugins. These enable programmatic management of GameFabric resources using version-controlled configurations.

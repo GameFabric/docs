@@ -1,3 +1,8 @@
+---
+title: "Identifying your Hosting Model"
+description: "GameFabric supports two major hosting models, reflected in the UI as Persistent Servers and Dynamic Fleets."
+---
+
 # Identifying your Hosting Model
 
 GameFabric supports two major hosting models, reflected in the UI as **Persistent Servers** and **Dynamic Fleets**.

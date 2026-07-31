@@ -1,3 +1,8 @@
+---
+title: "GameFabric API Guide"
+description: "This document describes the various APIs that compose the GameFabric API."
+---
+
 # GameFabric API Guide
 
 This document describes the various APIs that compose the GameFabric API.

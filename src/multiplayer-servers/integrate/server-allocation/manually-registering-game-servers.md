@@ -1,3 +1,8 @@
+---
+title: "Manually registering game servers"
+description: "This guide describes the steps to take to integrate GameFabric Allocator within your game."
+---
+
 # Manually registering game servers
 
 This guide describes the steps to take to integrate GameFabric Allocator within your game.

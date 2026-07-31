@@ -1,3 +1,8 @@
+---
+title: "Introduction"
+description: "An introduction to the SteelShield plugin for Unreal Engine, including the keywords used throughout this documentation."
+---
+
 # Introduction
 
 ::: details Keywords

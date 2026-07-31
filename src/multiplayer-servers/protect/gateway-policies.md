@@ -1,3 +1,8 @@
+---
+title: "Gateway Policies"
+description: "Gateway policies provide an additional layer of protection for your game infrastructure by redirecting specific outgoing game server traffic to destinations..."
+---
+
 # Gateway Policies
 
 Gateway policies provide an additional layer of protection for your game infrastructure by

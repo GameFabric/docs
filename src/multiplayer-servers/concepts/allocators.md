@@ -1,3 +1,8 @@
+---
+title: "Allocators"
+description: "An Allocator is a managed game server allocation service provisioned and operated by GameFabric."
+---
+
 # Allocators
 
 An Allocator is a managed game server allocation service provisioned and operated by GameFabric.

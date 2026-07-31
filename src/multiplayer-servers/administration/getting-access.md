@@ -1,3 +1,8 @@
+---
+title: "Getting Access"
+description: "GameFabric uses SSO (Single Sign-On) for user authentication and RBAC (Role-Based Access Control) for permissions."
+---
+
 # Getting Access
 
 ## Overview

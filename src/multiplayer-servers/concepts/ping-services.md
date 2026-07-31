@@ -1,3 +1,8 @@
+---
+title: "Ping Services"
+description: "A Ping Service (or Ping Discovery Service) is a managed network measurement service provisioned and operated by GameFabric."
+---
+
 # Ping Services
 
 A Ping Service (or Ping Discovery Service) is a managed network measurement service provisioned

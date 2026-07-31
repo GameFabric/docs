@@ -1,3 +1,8 @@
+---
+title: "Allocating from Armadas"
+description: "How a matchmaker requests a game server from an Armada, and what the allocation request and response contain."
+---
+
 # Allocating from Armadas
 
 Allocation requests are typically performed by a Matchmaker.

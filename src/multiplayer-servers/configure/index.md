@@ -1,3 +1,8 @@
+---
+title: "Configure"
+description: "This section covers the resources your game servers need in place before and around a deployment: where they run, what they can consume, and what configurati..."
+---
+
 # Configure
 
 This section covers the resources your game servers need in place before and around a deployment:

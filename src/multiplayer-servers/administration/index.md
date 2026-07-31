@@ -1,3 +1,8 @@
+---
+title: "Administration"
+description: "This section covers who can use your GameFabric installation, what they are allowed to do, and what it costs."
+---
+
 # Administration
 
 This section covers who can use your GameFabric installation, what they are allowed to do, and

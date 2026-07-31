@@ -1,3 +1,8 @@
+---
+title: "Config files"
+description: "A config file is a named block of configuration content that GameFabric mounts into your game server containers as a file."
+---
+
 # Config files
 
 A config file is a named block of configuration content that GameFabric mounts into your game

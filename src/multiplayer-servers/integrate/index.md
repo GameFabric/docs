@@ -1,3 +1,8 @@
+---
+title: "Integrate"
+description: "This section covers the code you write: in your game server, in your backend, and in your tooling."
+---
+
 # Integrate
 
 This section covers the code you write: in your game server, in your backend, and in your

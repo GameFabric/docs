@@ -1,3 +1,8 @@
+---
+title: "Audit log exports"
+description: "Audit log exports let you continuously push audit logs to an external S3-compatible storage location."
+---
+
 # Audit log exports
 
 Audit log exports let you continuously push audit logs to an external S3-compatible storage location. This is useful for long-term retention, compliance archiving, or feeding audit data into your own SIEM (Security Information and Event Management) or analytics pipeline.

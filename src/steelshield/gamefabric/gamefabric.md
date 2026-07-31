@@ -1,3 +1,8 @@
+---
+title: "How to Enable Advanced Protection for Game Servers"
+description: "Enable SteelShield protection for your game servers in GameFabric."
+---
+
 # How to Enable Advanced Protection for Game Servers
 
 To enable protection for your game servers:

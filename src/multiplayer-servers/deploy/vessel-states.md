@@ -1,3 +1,8 @@
+---
+title: "Vessel states"
+description: "A vessel's status.state field describes where it is in its infrastructure lifecycle."
+---
+
 # Vessel states
 
 A vessel's `status.state` field describes where it is in its infrastructure lifecycle. This state is visible in the GameFabric UI, returned by the API, and exposed as a Prometheus metric. Understanding each state helps you diagnose why a vessel is not running or why it is restarting.

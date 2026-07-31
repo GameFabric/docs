@@ -1,3 +1,8 @@
+---
+title: "Hathora Migration Guide"
+description: "This guide explains how to migrate from Hathora to GameFabric."
+---
+
 # Hathora Migration Guide
 
 This guide explains how to migrate from Hathora to GameFabric.
@@ -127,7 +132,7 @@ See [Regions](/multiplayer-servers/configure/regions) for details.
 
 The buffer size determines how many ready game servers are maintained.
 
-See [Running your Game Server](/multiplayer-servers/deploy/vessels) and [Armada Replicas and Buffer Size](/multiplayer-servers/deploy/replicas-and-buffer) for details.
+See [Vessels](/multiplayer-servers/deploy/vessels) and [Armada Replicas and Buffer Size](/multiplayer-servers/deploy/replicas-and-buffer) for details.
 
 ### Step 5: Integrate Agones SDK
 
@@ -206,7 +211,7 @@ Values can reference direct values, [Secrets](/multiplayer-servers/configure/sec
 
 ### Config Files
 
-Create configuration files in GameFabric and mount them into your game server container. See [Running your Game Server](/multiplayer-servers/deploy/vessels) for details.
+Create configuration files in GameFabric and mount them into your game server container. See [Vessels](/multiplayer-servers/deploy/vessels) for details.
 
 ### Secrets
 

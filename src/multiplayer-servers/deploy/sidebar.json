@@ -16,6 +16,10 @@
       "link": "/deploy/vessel-states"
     },
     {
+      "text": "Container configuration",
+      "link": "/deploy/container-configuration"
+    },
+    {
       "text": "ArmadaSets",
       "link": "/deploy/armadasets"
     },

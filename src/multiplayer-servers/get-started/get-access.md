@@ -1,3 +1,8 @@
+---
+title: "Step 2: Get access"
+description: "Sign in to GameFabric with SSO and create the service account your CI pipeline uses to push images."
+---
+
 # Step 2: Get access
 
 **Goal:** sign in to GameFabric, and create the service account your tooling uses to push images.
@@ -36,7 +41,7 @@ group. If not, ask an administrator to confirm your group grants those permissio
 ## Create a service account
 
 A service account is a non-human identity with its own username and password. You use it in step 4
-to log in to the container registry, and later for API calls and CI pipelines.
+to log in to the GameFabric Container Registry, and later for API calls and CI pipelines.
 
 1. Go to **Access Management > Users/Groups**.
 2. In the **Service Accounts** panel, select **Create Service Account**.

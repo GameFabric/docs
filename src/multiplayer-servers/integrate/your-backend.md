@@ -1,3 +1,8 @@
+---
+title: "Programmatic Access to GameFabric"
+description: "In addition to our web-based user interface, GameFabric provides several programmatic methods for interacting with its features."
+---
+
 # Programmatic Access to GameFabric
 
 In addition to our web-based user interface, GameFabric provides several programmatic methods for interacting with its features.
@@ -8,7 +13,7 @@ In addition to our web-based user interface, GameFabric provides several program
 Game server images can be uploaded using `docker` to any [Branch](/multiplayer-servers/get-started/glossary#branch) of your choice.
 If you have selected `autoUpdate` in your configuration, pushing a new version of your game server image will immediately trigger an automatic rollout.
 
-For more details, see the [Running your Game Server](/multiplayer-servers/deploy/vessels#image) documentation.
+For more details, see [Container configuration](/multiplayer-servers/deploy/container-configuration#image).
 
 ## API access
 

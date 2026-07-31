@@ -1,3 +1,8 @@
+---
+title: "Using the Plugin"
+description: "How to use the SteelShield plugin for Unreal Engine once it is set up."
+---
+
 # Using the Plugin
 
 Please ensure you have the SteelShield plugin correctly set up as described in the [Getting Started](/steelshield/unreal-engine-plugin/getting-started) section.

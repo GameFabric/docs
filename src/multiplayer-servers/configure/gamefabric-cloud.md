@@ -1,3 +1,8 @@
+---
+title: "GameFabric Cloud"
+description: "GameFabric Cloud enables provisioning and deprovisioning of cloud Locations directly from GameFabric, increasing available server capacity."
+---
+
 # GameFabric Cloud
 
 GameFabric Cloud enables provisioning and deprovisioning of cloud [Locations](/multiplayer-servers/get-started/glossary#location)

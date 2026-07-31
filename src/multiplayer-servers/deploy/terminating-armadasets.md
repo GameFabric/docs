@@ -1,3 +1,8 @@
+---
+title: "Terminating ArmadaSets"
+description: "GameFabric allows you to gracefully or forcefully terminate ArmadaSets."
+---
+
 # Terminating ArmadaSets
 
 ## Overview

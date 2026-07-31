@@ -1,3 +1,8 @@
+---
+title: "Scale to Zero"
+description: "Scale to Zero is a cost-saving feature that allows GameFabric, when enabled, to scale down configured capacity when there is no demand."
+---
+
 # Scale to Zero
 
 Scale to Zero is a cost-saving feature that allows GameFabric, when enabled, to scale down configured capacity when there is no demand.
@@ -10,8 +15,21 @@ We still recommend validating your settings in a staging environment first and m
 :::
 
 The feature is disabled by default, and is configurable per [Armada](/multiplayer-servers/get-started/glossary#armada) and [Region](/multiplayer-servers/get-started/glossary#region).
-It can only scale down capacity when base capacity is available.
-Availability of base capacity is ensured by requiring at least two Region Types within the Region, so that the highest priority Region Type can serve as base capacity, allowing GameFabric to determine whether demand is low enough to scale down the lower priority Region Type.
+
+## Why two Region Types are required
+
+Scaling something to zero is only safe if something else is still there to absorb the players.
+GameFabric calls that something else the **base capacity**: the highest priority Region Type in the
+Region, which always stays running and is never scaled down.
+
+Base capacity does two jobs. It keeps serving players while the lower priority Region Type is at
+zero, and it provides the utilization signal GameFabric watches to decide when to scale that Region
+Type back up.
+
+A Region with only one Region Type has no base capacity, so scaling it to zero would leave nowhere
+for players to go and no signal to scale back up from. For that reason, Scale to Zero requires at
+least two Region Types in the Region. In the usual setup that means bare metal as base capacity at
+priority 0, and cloud at priority 1 as the capacity that scales to zero.
 
 ## Recommended Region Types
 

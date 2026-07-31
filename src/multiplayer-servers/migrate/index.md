@@ -1,3 +1,8 @@
+---
+title: "Migrate"
+description: "Guides for moving an existing game server deployment to GameFabric."
+---
+
 # Migrate
 
 Guides for moving an existing game server deployment to GameFabric.

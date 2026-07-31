@@ -1,3 +1,8 @@
+---
+title: "Token Service Overview"
+description: "The Token Service is a public-facing API used for Proof of Identity in SteelShield."
+---
+
 # Token Service Overview
 
 The Token Service is a public-facing API used for [Proof of Identity](/steelshield/gamefabric/introduction#level-3-proof-of-identity-using-deep-packet-inspection) in SteelShield. It authenticates game clients and issues **SteelShield Tokens** that are used to authorize game traffic.

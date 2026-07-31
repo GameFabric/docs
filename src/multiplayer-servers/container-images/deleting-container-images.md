@@ -1,3 +1,8 @@
+---
+title: "Deleting container images"
+description: "In this section, you will learn different methods for deleting container images."
+---
+
 # Deleting container images
 
 In this section, you will learn different methods for deleting container images.

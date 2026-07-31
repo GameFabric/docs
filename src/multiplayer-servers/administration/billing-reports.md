@@ -1,3 +1,8 @@
+---
+title: "Billing reports"
+description: "The Billing section shows what your GameFabric usage costs, broken down by month."
+---
+
 # Billing reports
 
 The Billing section shows what your GameFabric usage costs, broken down by month. Reports are

@@ -1,3 +1,8 @@
+---
+title: "Configuring your cloud provider"
+description: "This document describes the steps required to set up your Cloud provider for use with GameFabric."
+---
+
 # Configuring your cloud provider
 
 This document describes the steps required to set up your Cloud provider for use with GameFabric.

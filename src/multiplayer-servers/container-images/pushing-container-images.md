@@ -1,3 +1,8 @@
+---
+title: "Pushing container images"
+description: "In this section, you will learn how to make a container image available to GameFabric for subsequent deployment."
+---
+
 # Pushing container images
 
 In this section, you will learn how to make a container image available to GameFabric for subsequent deployment.
@@ -125,7 +130,7 @@ Use unique tags for each build:
 
 The registry rejects the `:latest` tag.
 
-To deploy new image versions automatically, enable [autoUpdate](/multiplayer-servers/deploy/vessels#image) in your Vessel or Armada configuration. The system watches for new tags matching a pattern and triggers rollouts when they appear.
+To deploy new image versions automatically, enable [autoUpdate](/multiplayer-servers/deploy/container-configuration#image) in your Vessel or Armada configuration. The system watches for new tags matching a pattern and triggers rollouts when they appear.
 :::
 
 You should now see the game image listed in the branch detail view.

@@ -1,3 +1,8 @@
+---
+title: "Environments"
+description: "An environment is the container every deployment resource lives in."
+---
+
 # Environments
 
 An environment is the container every deployment resource lives in. Regions, Armadas, Formations,

@@ -1,3 +1,8 @@
+---
+title: "Token Provider"
+description: "The Token Provider is the system responsible for acquiring or generating the JWT which is issued to the SteelShield Token Service."
+---
+
 # Token Provider
 
 The Token Provider is the system responsible for acquiring or generating the *JWT* which is issued to the *SteelShield

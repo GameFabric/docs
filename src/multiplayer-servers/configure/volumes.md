@@ -1,3 +1,8 @@
+---
+title: "Volumes"
+description: "Persistent storage for game servers. Volumes, volume stores, snapshots and retention, and how to attach a volume to a game server."
+---
+
 # Volumes
 
 ::: warning Beta

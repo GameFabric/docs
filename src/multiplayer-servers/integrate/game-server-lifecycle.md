@@ -1,3 +1,8 @@
+---
+title: "Game server lifecycle"
+description: "The Agones game server states your code signals through the SDK, and how GameFabric maps them onto its own platform states."
+---
+
 # Game server lifecycle
 
 ::: tip Platform-level states

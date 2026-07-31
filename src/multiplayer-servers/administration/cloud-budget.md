@@ -1,3 +1,8 @@
+---
+title: "Cloud budget"
+description: "Cloud budget lets you monitor your GameFabric Cloud spending by configuring a maximum budget and notification thresholds."
+---
+
 # Cloud budget
 
 Cloud budget lets you monitor your GameFabric Cloud spending by configuring a maximum budget and notification thresholds.

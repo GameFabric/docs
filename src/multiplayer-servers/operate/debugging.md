@@ -1,3 +1,8 @@
+---
+title: "Debugging game server integration"
+description: "This guide helps you diagnose common issues with game server integration, such as misconfigured environment variables, unexpected game server state, and allo..."
+---
+
 # Debugging game server integration
 
 This guide helps you diagnose common issues with game server integration, such as misconfigured environment variables, unexpected game server state, and allocation problems.

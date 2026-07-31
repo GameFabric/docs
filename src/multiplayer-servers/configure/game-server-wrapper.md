@@ -1,3 +1,8 @@
+---
+title: "Game Server Wrapper"
+description: "The game server wrapper, also known as the \"wrapper\", \"gswrapper\" or \"gsw\", can be used to launch your game server executable inside the container image that..."
+---
+
 # Game Server Wrapper
 
 The game server wrapper, also known as the "wrapper", "gswrapper" or "gsw", can be used to launch your game server executable
@@ -27,7 +32,7 @@ Before using the wrapper, make sure that:
   (see [Building a Container Image](/multiplayer-servers/container-images/building-a-container-image) and
   [Pushing Container Images](/multiplayer-servers/container-images/pushing-container-images)),
 - You have either an Armada or Vessel configured to run the container image
-  (see [Running your Game Server](/multiplayer-servers/deploy/vessels) and
+  (see [Vessels](/multiplayer-servers/deploy/vessels) and
   [Hosting Models](/multiplayer-servers/concepts/hosting-models)).
 
 If your game server cannot run in GameFabric because it is missing vital information such as IP address or port numbers,
@@ -73,7 +78,7 @@ Contact us if you need a build that is not available.
 
 We use [semantic versioning](https://semver.org/), which indicates that minor and patch updates are safe to use without breaking changes.
 
-Finally, push your new image to the GameFabric image registry, and ensure that the Armada or Vessel uses it.
+Finally, push your new image to the GameFabric Container Registry, and ensure that the Armada or Vessel uses it.
 
 ### Configure GameFabric
 

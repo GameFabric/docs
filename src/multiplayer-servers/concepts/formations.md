@@ -1,3 +1,8 @@
+---
+title: "Formations and Vessels"
+description: "Formations are how GameFabric runs long-lived game servers that players return to. This page defines the objects and how they relate."
+---
+
 # Formations and Vessels
 
 Formations are how GameFabric runs long-lived game servers that players return to. This page

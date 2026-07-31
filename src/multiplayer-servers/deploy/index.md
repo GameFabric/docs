@@ -1,3 +1,8 @@
+---
+title: "Deploy"
+description: "This section covers running game servers: creating them, scaling them, and shutting them down cleanly."
+---
+
 # Deploy
 
 This section covers running game servers: creating them, scaling them, and shutting them down
@@ -13,6 +18,12 @@ fleets that grow and shrink with player demand.
   server. This is also the clearest way to test a new image, whichever model you use in production.
 - [Vessel states](/multiplayer-servers/deploy/vessel-states) — what each state means and what moves
   a Vessel between them.
+
+## Configuration shared by everything you deploy
+
+- [Container configuration](/multiplayer-servers/deploy/container-configuration) — image,
+  environment variables, ports, mounts, resources, sidecars, health checks and grace periods. The
+  same settings apply to Vessels, Formations, Armadas and ArmadaSets.
 
 ## Dynamic fleets
 

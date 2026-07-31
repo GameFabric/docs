@@ -1,3 +1,8 @@
+---
+title: "Amazon GameLift integration documentation"
+description: "This documentation serves as an integration guide for developers aiming to integrate their game services and game servers into GameFabric Multiplayer Service..."
+---
+
 # Amazon GameLift integration documentation
 
 ## Introduction

@@ -1,3 +1,8 @@
+---
+title: "Protect"
+description: "Game server ports are exposed to the internet and are a common target for attacks."
+---
+
 # Protect
 
 Game server ports are exposed to the internet and are a common target for attacks. This section

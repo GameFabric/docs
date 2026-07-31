@@ -1,3 +1,8 @@
+---
+title: "Matchmaking"
+description: "GameFabric is a hosting specialist. It runs game servers reliably at scale and deliberately does not bundle a matchmaker."
+---
+
 # Matchmaking
 
 GameFabric is a hosting specialist. It runs game servers reliably at scale and deliberately does not bundle a matchmaker. This separation of concerns means studios keep full control over their matchmaking stack while relying on GameFabric for what it does best: server orchestration.

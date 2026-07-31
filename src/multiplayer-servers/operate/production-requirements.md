@@ -1,3 +1,8 @@
+---
+title: "Requirements and best practices"
+description: "To ensure your players have the best possible experience with GameFabric, we recommend adhering to the following requirements and best practices."
+---
+
 # Requirements and best practices
 
 To ensure your players have the best possible experience with GameFabric, we recommend adhering to the following requirements and best practices.
@@ -32,7 +37,7 @@ For more details on the exact eviction flow for allocated game servers, see [Nod
 
 #### Formations
 
-For Formations, you must provide shutdown hints as described in [running your game server](/multiplayer-servers/deploy/vessels#termination-grace-periods).
+For Formations, you must provide shutdown hints as described in [Container configuration](/multiplayer-servers/deploy/container-configuration#termination-grace-periods).
 
 Refer to [Vessel Shutdown Behavior](/multiplayer-servers/deploy/terminating-game-servers#vessels) for additional details.
 

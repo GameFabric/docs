@@ -1,3 +1,8 @@
+---
+title: "Monitoring & Logs"
+description: "Each GameFabric installation comes with its own dedicated monitoring solution. This setup includes a personal Grafana installation."
+---
+
 # Monitoring & Logs
 
 Each GameFabric installation comes with its own dedicated monitoring solution.

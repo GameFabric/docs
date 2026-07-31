@@ -1,3 +1,8 @@
+---
+title: "Game server logs"
+description: "GameFabric lets you download game server logs as a compressed archive."
+---
+
 # Game server logs
 
 GameFabric lets you download game server logs as a compressed archive.

@@ -1,3 +1,8 @@
+---
+title: "Using the Agones SDK"
+description: "Agones provides SDKs for a series of game engines and programming languages."
+---
+
 # Using the Agones SDK
 
 Agones provides [SDKs for a series of game engines and programming languages](https://agones.dev/site/docs/guides/client-sdks/).

@@ -1,3 +1,8 @@
+---
+title: "Player count and capacity tracking"
+description: "Game servers created by GameFabric have a counter for players by default which you can use to track player numbers and capacity per game server."
+---
+
 # Player count and capacity tracking
 
 Game servers created by GameFabric have a counter for players by default which you can use to track player numbers and capacity per game server.

@@ -1,3 +1,8 @@
+---
+title: "Service Accounts"
+description: "Service Accounts are required to push images and interact with the GameFabric REST API."
+---
+
 # Service Accounts
 
 Service Accounts are required to push images and interact with the GameFabric REST API.

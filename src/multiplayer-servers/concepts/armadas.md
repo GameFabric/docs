@@ -1,3 +1,8 @@
+---
+title: "Armadas and ArmadaSets"
+description: "Armadas are how GameFabric runs session-based games. This page defines the objects and how they relate."
+---
+
 # Armadas and ArmadaSets
 
 Armadas are how GameFabric runs session-based games. This page defines the objects and how they

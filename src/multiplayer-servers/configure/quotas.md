@@ -1,3 +1,8 @@
+---
+title: "Quotas"
+description: "This page lists all known system limitations that developers should be aware of when using GameFabric Multiplayer Services."
+---
+
 # Quotas
 
 This page lists all known system limitations that developers should be aware of when using GameFabric Multiplayer Services.

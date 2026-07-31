@@ -1,3 +1,8 @@
+---
+title: "Step 6: Deploy your first game server"
+description: "Deploy a single Vessel from your container image and watch it reach the Running state."
+---
+
 # Step 6: Deploy your first game server
 
 **Goal:** run one game server and see it reach the Running state.
@@ -98,7 +103,7 @@ If it does not reach RUNNING, or cycles between states, go to
 where the logs are.
 
 For every configuration option in the wizard, see
-[Running your game server](/multiplayer-servers/deploy/vessels).
+[Vessels](/multiplayer-servers/deploy/vessels).
 
 ## What you should have now
 

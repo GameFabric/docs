@@ -1,3 +1,8 @@
+---
+title: "Getting Started"
+description: "This guide will help you get started with the SteelShield Plugin for Unreal Engine."
+---
+
 # Getting Started
 
 This guide will help you get started with the SteelShield Plugin for Unreal Engine. The plugin provides integration

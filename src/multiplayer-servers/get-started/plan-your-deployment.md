@@ -1,3 +1,8 @@
+---
+title: "Step 1: Plan your deployment"
+description: "Choose a hosting model and a capacity type before you deploy. Both decisions shape every step that follows."
+---
+
 # Step 1: Plan your deployment
 
 **Goal:** decide how your game servers are managed and what hardware they run on.

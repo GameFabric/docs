@@ -1,3 +1,8 @@
+---
+title: "Token Service API Reference"
+description: "This page describes the API that game clients call to fetch SteelShield Tokens."
+---
+
 # Token Service API Reference
 
 This page describes the API that game clients call to fetch SteelShield Tokens.

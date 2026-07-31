@@ -1,3 +1,8 @@
+---
+title: "Setup Third-Party OAuth Integration"
+description: "GameFabric supports Third-Party OAuth Integration with every OAuth-compatible Identity Provider, allowing you to reuse your existing authentication flows, wi..."
+---
+
 # Setup Third-Party OAuth Integration
 
 ## Overview

@@ -1,3 +1,8 @@
+---
+title: "Get started"
+description: "This track takes you from an empty GameFabric account to a running game server that a client can connect to. Work through the steps in order."
+---
+
 # Get started
 
 This track takes you from an empty GameFabric account to a running game server that a client can

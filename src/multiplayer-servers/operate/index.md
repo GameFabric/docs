@@ -1,3 +1,8 @@
+---
+title: "Operate"
+description: "This section covers running game servers in production: knowing what they are doing, finding out why something broke, and keeping a record of what changed."
+---
+
 # Operate
 
 This section covers running game servers in production: knowing what they are doing, finding out

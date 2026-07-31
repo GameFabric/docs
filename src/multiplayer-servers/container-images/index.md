@@ -1,3 +1,8 @@
+---
+title: "Container images"
+description: "GameFabric runs your game server from a container image held in its own registry. This section covers building that image and managing it over time."
+---
+
 # Container images
 
 GameFabric runs your game server from a container image held in its own registry. This section

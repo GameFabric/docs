@@ -1,3 +1,8 @@
+---
+title: "Resource management"
+description: "This guide explains how to configure CPU and memory resources for your game servers on GameFabric."
+---
+
 # Resource management
 
 This guide explains how to configure CPU and memory resources for your game servers on GameFabric.

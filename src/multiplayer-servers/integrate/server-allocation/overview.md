@@ -1,18 +1,29 @@
+---
+title: "Server Allocation Overview"
+description: "This page explains when the GameFabric Allocator is needed and how to choose the right integration approach."
+---
+
 # Server Allocation Overview
 
-This page explains what the GameFabric Allocator is, when it is needed, and how to choose the right integration approach.
+This page explains when the GameFabric Allocator is needed and how to choose the right integration approach.
 
 ## What is server allocation?
 
-Server allocation is the process of assigning a ready-to-use game server to a group of players. In GameFabric, the **Allocator** is an optional service that manages this process.
+Server allocation is the process of assigning a ready-to-use game server to a group of players.
 
-::: warning Allocator Availability
-The Allocator is not included by default with GameFabric. It is a service that must be ordered separately.
+When using Armadas, GameFabric keeps a pool of game servers running and ready. When your matchmaker
+decides a group of players should play together, it asks for one of them. Because the server was
+already started, players connect immediately rather than waiting for one to boot.
+
+The service that brokers this is the **Allocator**. For what an Allocator is as a resource, how it
+is attached to a Region and the environment variables it injects, see
+[Allocators](/multiplayer-servers/concepts/allocators). This page covers when you need one and how
+to integrate with it.
+
+::: warning Allocator availability
+The Allocator is not included by default with GameFabric. It is a service that must be ordered
+separately.
 :::
-
-When using Armadas, GameFabric automatically maintains a pool of game servers that are running and ready to accept players. The Allocator acts as a broker between the matchmaker (or backend) and this pool of servers. When the matchmaker determines that a group of players should play together, it asks the Allocator for a server. The Allocator picks the best available server, notifies it that players are incoming, and returns the connection details to the matchmaker.
-
-For most games, it takes time for servers to be fully started up and ready for players. On-demand server creation forces players to wait until a server is started after matchmaking. Pre-warmed servers eliminate this delay. The Allocator assigns a server instantly after matchmaking completes, providing a seamless player experience.
 
 This is different from traditional server hosting where players browse a server list and choose which server to join. For that use case, see [Formations](/multiplayer-servers/concepts/hosting-models#formations).
 
@@ -78,7 +89,18 @@ After the match ends, the game server shuts down, and the Armada automatically s
 
 ## Choosing an integration approach
 
-GameFabric offers two ways to integrate with the Allocator, plus an option when you do not use the Allocator:
+GameFabric offers two ways to integrate with the Allocator, plus an option when you do not use the Allocator.
+
+Start from this table, then read the section that matches your answer.
+
+| If | Choose |
+|---|---|
+| Your game server uses the Agones SDK and registration is standard | The allocation sidecar |
+| You cannot add a sidecar container, or need custom registration logic | Manual integration |
+| Your backend already tracks server state and picks servers itself | No Allocator |
+
+The sidecar is the default choice. Manual integration means owning retries, race conditions and
+error recovery yourself, which is real work that the sidecar has already done.
 
 ### Allocation sidecar (recommended)
 

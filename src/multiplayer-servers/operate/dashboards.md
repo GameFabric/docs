@@ -1,3 +1,8 @@
+---
+title: "Dashboards"
+description: "GameFabric provides predefined Grafana dashboards for monitoring your infrastructure. You can find these under \"Dashboards\" in your Grafana instance."
+---
+
 # Dashboards
 
 GameFabric provides predefined Grafana dashboards for monitoring your infrastructure.

@@ -1,3 +1,8 @@
+---
+title: "Introduction"
+description: "SteelShield is a DDoS mitigation solution. It protects game servers from large-scale DDoS attacks."
+---
+
 # Introduction
 
 SteelShield is a DDoS mitigation solution. It protects game servers from large-scale DDoS attacks.

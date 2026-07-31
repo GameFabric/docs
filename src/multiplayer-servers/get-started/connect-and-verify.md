@@ -1,3 +1,8 @@
+---
+title: "Step 7: Connect and verify"
+description: "Find your game server's public address, connect a client, read its logs, and confirm health checks pass."
+---
+
 # Step 7: Connect and verify
 
 **Goal:** connect a client to your game server and confirm the platform is managing it correctly.

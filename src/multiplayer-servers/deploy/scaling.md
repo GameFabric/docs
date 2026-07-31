@@ -1,3 +1,8 @@
+---
+title: "Armada scaling"
+description: "GameFabric provides several ways to control game server capacity per Region Type, balancing cost and player availability."
+---
+
 # Armada scaling
 
 GameFabric provides several ways to control game server capacity per [Region Type](/multiplayer-servers/get-started/glossary#region-type), balancing cost and player availability.

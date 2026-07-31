@@ -1,3 +1,8 @@
+---
+title: "Terminating game servers"
+description: "Shut down game servers cleanly using shutdown hints and termination grace periods, and force termination when needed."
+---
+
 # Terminating game servers
 
 ## Armadas

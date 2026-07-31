@@ -1,3 +1,8 @@
+---
+title: "Regions, Sites & Locations"
+description: "GameFabric organizes compute capacity into three layers."
+---
+
 # Regions, Sites & Locations
 
 GameFabric organizes compute capacity into three layers. Understanding how they relate to each

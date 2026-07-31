@@ -1,3 +1,8 @@
+---
+title: "Concepts"
+description: "This section explains how GameFabric is put together."
+---
+
 # Concepts
 
 This section explains how GameFabric is put together. Read it when you want to understand why the

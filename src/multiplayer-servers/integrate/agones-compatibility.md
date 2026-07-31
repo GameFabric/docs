@@ -1,3 +1,8 @@
+---
+title: "Agones compatibility"
+description: "GameFabric runs game servers with Agones, and your game server talks to the platform through an Agones SDK."
+---
+
 # Agones compatibility
 
 GameFabric runs game servers with [Agones](https://agones.dev/site/docs/), and your game server

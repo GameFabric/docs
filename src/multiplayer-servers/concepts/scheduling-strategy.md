@@ -1,3 +1,8 @@
+---
+title: "Scheduling Strategy"
+description: "The scheduling strategy influences how game servers are placed on nodes. This setting applies to both Armadas and Vessels deployed in the Region."
+---
+
 # Scheduling Strategy
 
 The scheduling strategy influences how game servers are placed on nodes. This setting applies to both Armadas and Vessels deployed in the Region.

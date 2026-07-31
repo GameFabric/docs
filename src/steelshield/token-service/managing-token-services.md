@@ -1,3 +1,8 @@
+---
+title: "Managing Token Services"
+description: "This page describes how to create, edit and delete Token Services through GameFabric."
+---
+
 # Managing Token Services
 
 This page describes how to create, edit and delete Token Services through GameFabric.

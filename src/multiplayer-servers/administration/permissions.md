@@ -1,3 +1,8 @@
+---
+title: "Editing Permissions"
+description: "Manage who can access what in GameFabric by editing users, groups and roles in the Access Management section."
+---
+
 # Editing Permissions
 
 ## Overview

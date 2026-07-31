@@ -1,3 +1,8 @@
+---
+title: "Mitigations"
+description: "A mitigation is the traffic-filtering rule SteelShield applies to a protected port."
+---
+
 # Mitigations
 
 A mitigation is the traffic-filtering rule SteelShield applies to a protected port. Each one

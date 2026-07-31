@@ -1,3 +1,8 @@
+---
+title: "Required Components"
+description: "What you need in place before using the SteelShield plugin for Unreal Engine."
+---
+
 # Required Components
 
 ::: tip Setup Guide

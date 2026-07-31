@@ -1,3 +1,8 @@
+---
+title: "Regions"
+description: "A region groups the locations your game servers run in, usually geographically."
+---
+
 # Regions
 
 A region groups the locations your game servers run in, usually geographically. It is what you

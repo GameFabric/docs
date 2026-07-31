@@ -1,3 +1,8 @@
+---
+title: "Secrets"
+description: "A Secret is a secure placeholder for small amounts of sensitive data such as passwords, API keys, or tokens."
+---
+
 # Secrets
 
 A `Secret` is a secure placeholder for small amounts of sensitive data such as passwords, API keys, or tokens.
