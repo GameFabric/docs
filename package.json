@@ -7,7 +7,9 @@
   "scripts": {
     "docs:dev": "vitepress dev --host 0.0.0.0",
     "docs:build": "vitepress build",
-    "docs:serve": "vitepress serve"
+    "docs:serve": "vitepress serve",
+    "lint": "yarn lint:links",
+    "lint:links": "node scripts/check-links.mjs"
   },
   "devDependencies": {
     "mermaid": "^11.16.0",

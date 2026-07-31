@@ -30,5 +30,5 @@ Our recommendation is **every 15 minutes** which is also implemented in the [Unr
 
 - [Managing Token Services](/steelshield/token-service/managing-token-services): how to create and edit Token Services in the GameFabric UI.
 - [Authentication Types](/steelshield/token-service/authentication-types): details about the different authentication methods.
-- [Token Service API Reference](/steelshield/token-service/authentication-types): details on how to fetch SteelShield Tokens via the Token Service.
+- [Token Service API Reference](/steelshield/token-service/api-reference): details on how to fetch SteelShield Tokens via the Token Service.
 - [GameFabric API Reference](/api/multiplayer-servers/apiserver): the full GameFabric API specification, including the Token Service provisioning endpoints.

@@ -104,7 +104,7 @@ For Armadas, ArmadaSets, Formations, and Protection Protocols, the `status.reaso
 
 ## Dynamic Buffer
 
-Dynamic Buffer is a feature that automatically adjusts the [Buffer](#buffer) based on current game server demand. When enabled, GameFabric monitors the number of `Ready` and `Allocated` game servers, startup time, and demand on each [Site](#site), then scales the buffer accordingly.
+Dynamic Buffer is a feature that automatically adjusts the [Buffer](#buffer-size) based on current game server demand. When enabled, GameFabric monitors the number of `Ready` and `Allocated` game servers, startup time, and demand on each [Site](#site), then scales the buffer accordingly.
 
 ::: warning
 Dynamic Buffer is currently in Beta.
@@ -293,7 +293,7 @@ See [Sidecar Containers](/multiplayer-servers/architecture/sidecars) for a compr
 
 Shutdown hints are annotations on the Agones GameServer object that include a shutdown deadline. Your game server is expected to observe them and exit before the deadline.
 
-See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessel-shutdown-behavior).
+See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessels).
 
 ## Site
 

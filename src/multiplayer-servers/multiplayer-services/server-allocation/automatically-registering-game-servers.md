@@ -224,7 +224,7 @@ you need to add environment variables to the Allocation Sidecar container, which
 - `ALLOC_PAYLOAD_FILE` — Enables and specifies the file name used to store the payload.
 - `ALLOC_PAYLOAD_FILE_TEMPLATE` — [File format template](#alloc_payload_file_template-string). Defaults to the JSON representation of your payload.
 
-Both environment variables are also explained with examples in the [Advanced Configuration](#advanced-configuration) section.
+Both environment variables are also explained with examples in the [Optional configuration](#optional-configuration) section.
 
 ::: warning Shared volume required
 The newly created file must be accessible to your game server,

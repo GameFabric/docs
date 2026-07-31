@@ -38,8 +38,8 @@ The JWT Auth tab lets you choose an authentication method and configure it per p
 
 Choose one of the following authentication methods:
 
-- [Custom Keys](#custom-keys): provide your own PEM public keys.
-- [Generated Keys](#generated-keys): generate a key pair in the browser.
+- [Custom Keys](/steelshield/token-service/authentication-types#custom-keys): provide your own PEM public keys.
+- [Generated Keys](/steelshield/token-service/authentication-types#generated-keys): generate a key pair in the browser.
 - [EOS (Epic Online Services)](#eos-epic-online-services): validate Epic Online Services tokens.
 - [JWKS](#jwks): use a remote JWKS endpoint.
 

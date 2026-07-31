@@ -1,1 +1,0 @@
-../integration/your-game-server.md

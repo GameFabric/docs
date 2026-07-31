@@ -17,27 +17,27 @@
     },
     {
       "text":"GF: API Server ⤴",
-      "link": "/api-specs/apiserver",
+      "link": "/api/multiplayer-servers/apiserver",
       "external": true
     },
     {
       "text": "GF: Web API ⤴",
-      "link": "/api-specs/webapi",
+      "link": "/api/multiplayer-servers/webapi",
       "external": true
     },
     {
       "text": "Allocation: Registry ⤴",
-      "link": "/api-specs/allocation-registry",
+      "link": "/api/multiplayer-servers/allocation-registry",
       "external": true
     },
     {
       "text": "Allocation: Allocator ⤴",
-      "link": "/api-specs/allocation-allocator",
+      "link": "/api/multiplayer-servers/allocation-allocator",
       "external": true
     },
     {
       "text": "Ping Discovery ⤴",
-      "link": "/api-specs/ping-discovery",
+      "link": "/api/multiplayer-servers/ping-discovery",
       "external": true
     }
   ]

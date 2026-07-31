@@ -20,5 +20,7 @@ jobs:
           cache: "yarn"
       - name: Install dependencies
         run: yarn install
+      - name: Check links
+        run: yarn lint:links
       - name: Build Docs
         run: yarn docs:build

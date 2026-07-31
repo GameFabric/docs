@@ -9,6 +9,9 @@ const { page } = useData()
 const { go } = useRouter()
 
 
+// Legacy path redirects. The sidebars link to the real paths; these entries only
+// keep inbound links from before the /api-specs/ -> /api/multiplayer-servers/ move
+// working.
 const redirects = Object.entries({
   '/api-specs/': '/api/multiplayer-servers/',
 })

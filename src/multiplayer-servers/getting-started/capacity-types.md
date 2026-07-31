@@ -1,1 +1,0 @@
-../architecture/capacity-types.md

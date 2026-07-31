@@ -149,4 +149,4 @@ If game servers are not being allocated as expected, increase the log verbosity 
 
 At `debug` level, the Allocation Sidecar logs the full allocation payload from your matchmaker. At `info` level (the default), it logs registration events including the game server address, callback address, and configured [attributes](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers#attributes).
 
-For the full list of Allocation Sidecar configuration options, see [Advanced configuration](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers#advanced-configuration).
+For the full list of Allocation Sidecar configuration options, see [Advanced configuration](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers#optional-configuration).

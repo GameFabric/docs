@@ -25,7 +25,7 @@
     },
     {
       "text": "Using the Agones SDK",
-      "link": "/getting-started/using-the-agones-sdk"
+      "link": "/integration/your-game-server"
     },
     {
       "text": "Pushing Container Images",

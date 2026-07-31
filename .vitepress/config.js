@@ -51,7 +51,7 @@ export default withMermaid(defineConfig({
                 text: 'Documentation',
                 items: [
                     {text: 'Multiplayer Servers', link: '/multiplayer-servers/getting-started/introduction'},
-                    {text: 'SteelShield', link: '/steelshield/unreal-engine-plugin/introduction'},
+                    {text: 'SteelShield', link: '/steelshield/gamefabric/introduction'},
                 ]
             }, {
                 text: 'API Reference',

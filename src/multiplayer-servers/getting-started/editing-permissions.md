@@ -1,1 +1,0 @@
-../authentication/editing-permissions.md

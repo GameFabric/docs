@@ -31,9 +31,11 @@ If you add new tooling (linters/tests), update this file.
 
 ### Linting (current)
 - No ESLint/Prettier/formatter configured.
-- CI “lint” is PR title validation only: Conventional Commits enforced in `.github/workflows/lint.yml`.
-- If you introduce tooling, prefer adding scripts to `package.json`:
-  - `lint` (fast static checks)
+- `yarn lint` (alias for `yarn lint:links`) runs `scripts/check-links.mjs`, which validates
+  internal links, heading anchors, image paths and `sidebar.json` files (link targets, unique
+  numeric `order`). It runs in CI in `.github/workflows/main.yml` before the build.
+- CI also validates PR titles: Conventional Commits enforced in `.github/workflows/lint.yml`.
+- If you introduce more tooling, prefer adding scripts to `package.json`:
   - `format` (apply formatting)
   - `format:check` (CI check)
 
@@ -63,6 +65,7 @@ When adding docs:
 - Update the nearest `sidebar.json` and include an `order` field.
 
 ## Validation checklist
+- Links still resolve: `yarn lint:links`.
 - Build still passes: `yarn docs:build` (or `make build`).
 - Spot-check changed pages in `yarn docs:dev` (or `make dev`).
 - Ensure `sidebar.json` stays valid JSON and `order` values remain unique.
@@ -70,6 +73,10 @@ When adding docs:
 
 ## Common pitfalls
 - Sidebar links should omit `.md` and start with `/`.
+- Sidebar links are rewritten by `.vitepress/config.js`: a non-`external` link is prefixed with
+  the top-level section directory. In `src/api/*/sidebar.json` write `/multiplayer-servers/webapi`,
+  not `/api/multiplayer-servers/webapi`. Use `"external": true` to link across sections verbatim.
+- Do not add symlinked pages. They publish the same content at two URLs and split inbound links.
 - Keep `srcDir: 'src'` assumptions in mind when moving files.
 - Avoid noisy logging in `.vitepress/config.js`.
 - Avoid adding dependencies or large binaries unless required.

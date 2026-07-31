@@ -105,7 +105,7 @@ After becoming ready, a game server can be allocated at any time.
 
 The backend service is required to call the GameFabric Allocator `/allocate` endpoint and request a game server.
 
-See [Allocation: Allocator API documentation](/api/multiplayer-servers/allocation-allocator.html) for details
+See [Allocation: Allocator API documentation](/api/multiplayer-servers/allocation-allocator) for details
 
 The Allocator selects a game server and activates a trigger for the game server.
 

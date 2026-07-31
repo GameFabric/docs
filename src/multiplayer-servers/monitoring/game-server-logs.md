@@ -22,7 +22,7 @@ The dialog opens with the Vessel Name and UID pre-filled from the Vessel you sel
 To download Vessel logs, a user must belong to a `group` with a `role` that has at least `GET` permission for the `vessels/log` resource in the `formation` API group.
 
 ::: tip Access Control
-For more information on managing permissions, see [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
+For more information on managing permissions, see [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
 :::
 
 ### Downloading logs from a previous instance
@@ -55,7 +55,7 @@ Armadas can run many game server pods simultaneously, so you must provide the na
 To download Armada logs, a user must belong to a `group` with a `role` that has at least `GET` permission for the `armadas/log` resource in the `armada` API group.
 
 ::: tip Access Control
-For more information on managing permissions, see [Editing Permissions](/multiplayer-servers/getting-started/editing-permissions).
+For more information on managing permissions, see [Editing Permissions](/multiplayer-servers/authentication/editing-permissions).
 :::
 
 ### Finding a pod name

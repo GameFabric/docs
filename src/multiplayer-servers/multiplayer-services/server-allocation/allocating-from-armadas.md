@@ -6,7 +6,7 @@ Before a game server can be allocated, it first needs to be entered into the poo
 This registration process can be performed [from within your game server code](manually-registering-game-servers) or through a [sidecar](automatically-registering-game-servers) provided by Nitrado.
 
 In order for the server to then get allocated, a `POST` request must be sent to the Allocator service, on its
-[`/allocate`](/api/multiplayer-servers/allocation-allocator.html#tag/Allocator) endpoint.
+[`/allocate`](/api/multiplayer-servers/allocation-allocator#tag/Allocator) endpoint.
 
 ::: tip Related Documentation
 - For API details, see the [Allocator API documentation](/api/multiplayer-servers/allocation-allocator)
