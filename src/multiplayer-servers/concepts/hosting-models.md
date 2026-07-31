@@ -24,6 +24,10 @@ Many aspects remain the same across Armadas and Formations, however they differ 
 are scaled up when needed, and scaled down again later. Each approach has its own benefits and caveats, which are
 outlined in more detail in the following sections.
 
+Once you have chosen, [Armadas and ArmadaSets](/multiplayer-servers/concepts/armadas) and
+[Formations and Vessels](/multiplayer-servers/concepts/formations) define the objects of each model
+in detail.
+
 ## Formations
 
 ::: info UI Navigation

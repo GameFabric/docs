@@ -5,8 +5,10 @@ where they run, what they can consume, and what configuration reaches them at ru
 
 ## The basics every deployment needs
 
-- [Environments and regions](/multiplayer-servers/configure/environments-and-regions) — isolate
-  production from development, and group the locations your servers run in.
+- [Environments](/multiplayer-servers/configure/environments) — isolate production from
+  development, staging and anything else you run.
+- [Regions](/multiplayer-servers/configure/regions) — group the locations your servers run in, and
+  decide which capacity is used first.
 - [Resource management](/multiplayer-servers/configure/resource-management) — size CPU and memory
   requests and limits so servers are scheduled correctly and cost what you expect.
 - [Quotas](/multiplayer-servers/configure/quotas) — the platform limits you work within, including
@@ -14,8 +16,12 @@ where they run, what they can consume, and what configuration reaches them at ru
 
 ## Getting configuration to your servers
 
+- [Config files](/multiplayer-servers/configure/config-files) — configuration your game server
+  reads from disk.
 - [Secrets](/multiplayer-servers/configure/secrets) — credentials and keys your server needs at
   runtime, kept out of your image.
+- [Volumes](/multiplayer-servers/configure/volumes) — persistent storage that survives a game
+  server restart.
 - [Game server wrapper](/multiplayer-servers/configure/game-server-wrapper) — pass connection
   details to a game server binary you cannot modify.
 

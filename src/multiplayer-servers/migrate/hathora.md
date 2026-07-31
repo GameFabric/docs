@@ -105,7 +105,7 @@ See [Building a Container Image](/multiplayer-servers/container-images/building-
 2. Assign [Locations](/multiplayer-servers/get-started/glossary#location) to each Region with priorities
 3. Configure environment variables at the Region level if needed
 
-See [Setup your Environment](/multiplayer-servers/configure/environments-and-regions) for details.
+See [Regions](/multiplayer-servers/configure/regions) for details.
 
 ### Step 4: Deploy with ArmadaSets
 

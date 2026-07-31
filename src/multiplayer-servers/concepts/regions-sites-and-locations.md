@@ -109,7 +109,7 @@ The following operations are available from the Regions list:
 - Must start and end with a lowercase letter or digit
 
 For a step-by-step walkthrough of creating a Region, see
-[Set up your environment](/multiplayer-servers/configure/environments-and-regions).
+[Regions](/multiplayer-servers/configure/regions).
 
 ::: info Filtering
 The Regions list can be filtered by protection status and by type name. Use the type filter to

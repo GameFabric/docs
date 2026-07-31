@@ -9,7 +9,7 @@ Public documentation is currently limited to Google Cloud and AWS.
 For setup instructions for other Cloud providers, please contact your Customer Success Manager at Nitrado.
 
 ::: tip Pre-requisites
-Make sure you understand the [hosting models](/multiplayer-servers/concepts/hosting-models) and have your [environment set up](/multiplayer-servers/configure/environments-and-regions) before configuring cloud capacity.
+Make sure you understand the [hosting models](/multiplayer-servers/concepts/hosting-models) and have your [environment and regions set up](/multiplayer-servers/configure/regions) before configuring cloud capacity.
 :::
 
 ## Google Cloud

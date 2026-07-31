@@ -16,6 +16,10 @@
       "link": "/administration/permissions"
     },
     {
+      "text": "Roles and the permission model",
+      "link": "/administration/roles"
+    },
+    {
       "text": "Service accounts",
       "link": "/administration/service-accounts"
     },
@@ -26,6 +30,10 @@
     {
       "text": "Cloud budget",
       "link": "/administration/cloud-budget"
+    },
+    {
+      "text": "Billing reports",
+      "link": "/administration/billing-reports"
     }
   ]
 }

@@ -9,6 +9,8 @@ what it costs.
   about the 403 a new account sees.
 - [Permissions](/multiplayer-servers/administration/permissions) — how groups, roles and
   capabilities combine to decide what someone can do.
+- [Roles and the permission model](/multiplayer-servers/administration/roles) — how rules, verbs
+  and environments combine, and the built-in roles.
 - [Service accounts](/multiplayer-servers/administration/service-accounts) — non-human identities
   for CI pipelines, registry pushes and API calls.
 - [OIDC providers](/multiplayer-servers/administration/oidc-providers) — connect your own identity
@@ -16,6 +18,8 @@ what it costs.
 
 ## Cost
 
+- [Billing reports](/multiplayer-servers/administration/billing-reports) — what your usage costs,
+  broken down by month.
 - [Cloud budget](/multiplayer-servers/administration/cloud-budget) — cap and track spend on cloud
   capacity.
 

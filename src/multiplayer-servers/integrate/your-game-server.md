@@ -5,7 +5,9 @@ Agones provides [SDKs for a series of game engines and programming languages](ht
 While the SDKs offer an array of advanced functionality, based on our experience we recommend following the [Game Server Lifecycle](/multiplayer-servers/integrate/game-server-lifecycle).
 
 ::: info Agones version
-GameFabric currently runs Agones version 1.58.0. Ensure your SDK integration is compatible with this version.
+GameFabric currently runs Agones version 1.58.0. See
+[Agones compatibility](/multiplayer-servers/integrate/agones-compatibility) for supported SDKs and
+engine-specific notes.
 :::
 
 ## `GameServer()`

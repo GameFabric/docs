@@ -19,7 +19,7 @@ directly from GameFabric, increasing available server capacity.
 
 GameFabric Cloud enables provisioning of server capacity at specific, predefined cloud Locations.
 
-As described in [Environments and regions](/multiplayer-servers/configure/environments-and-regions#create-a-region), [Regions](/multiplayer-servers/get-started/glossary#region)
+As described in [Regions](/multiplayer-servers/configure/regions#create-a-region), [Regions](/multiplayer-servers/get-started/glossary#region)
 should be defined to cover multiple Locations, including inactive cloud Locations.
 
 Provisioning cloud capacity at a specific Location increases the overall capacity in the corresponding Region, allowing game servers to automatically scale into the newly provisioned Location.

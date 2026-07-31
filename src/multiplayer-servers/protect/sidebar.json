@@ -8,6 +8,10 @@
       "link": "/protect/"
     },
     {
+      "text": "Mitigations",
+      "link": "/protect/mitigations"
+    },
+    {
       "text": "Ports and protocols",
       "link": "/protect/protocols"
     },

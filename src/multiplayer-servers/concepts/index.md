@@ -12,6 +12,10 @@ If you just want a game server running, follow the
   Formations for persistent servers. This is the first decision you make.
 - [Capacity types](/multiplayer-servers/concepts/capacity-types) — bare metal, GameFabric Cloud and
   bring your own cloud, and when each makes sense.
+- [Armadas and ArmadaSets](/multiplayer-servers/concepts/armadas) — the object model behind
+  auto-scaling fleets.
+- [Formations and Vessels](/multiplayer-servers/concepts/formations) — the object model behind
+  long-lived servers.
 
 ## Where your servers run
 
@@ -34,9 +38,14 @@ If you just want a game server running, follow the
 - [Sidecar containers](/multiplayer-servers/concepts/sidecars) — extra containers that share a pod
   with your game server, used for allocation, logging and debugging.
 
+## Describing your resources
+
+- [Annotations and labels](/multiplayer-servers/concepts/annotations) — metadata on GameFabric
+  resources, and the reserved keys GameFabric sets itself.
+
 ## Where to go next
 
 The [glossary](/multiplayer-servers/get-started/glossary) defines every term used across these
 docs. For the practical steps that use these concepts, see
-[Configure](/multiplayer-servers/configure/environments-and-regions) and
+[Configure](/multiplayer-servers/configure/regions) and
 [Deploy](/multiplayer-servers/deploy/vessels).

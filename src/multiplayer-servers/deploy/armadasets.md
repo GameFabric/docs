@@ -18,13 +18,11 @@ Log into the GameFabric UI before proceeding.
 
 ## Create an ArmadaSet
 
-Choose an [environment](/multiplayer-servers/configure/environments-and-regions) for your ArmadaSet, then navigate to Armadas > ArmadaSets in the UI and click "Create ArmadaSet" to begin.
+Choose an [environment](/multiplayer-servers/configure/environments) for your ArmadaSet, then navigate to Armadas > ArmadaSets in the UI and click "Create ArmadaSet" to begin.
 
 ### General
 
 Specify a unique name for your ArmadaSet. You can also add a description to help identify its purpose.
-
-<!-- TODO: Add screenshot - GUI_Create_ArmadaSet_General -->
 
 ### Regions
 
@@ -37,8 +35,6 @@ Configure the following scaling settings for each Region and Region Type (e.g., 
 | **Min Replicas** | The minimum number of game server replicas to maintain, even when there is no demand.              |
 | **Max Replicas** | The maximum number of game server replicas that can be scaled up to meet demand.                   |
 | **Buffer**       | The number of unallocated (ready) game servers to keep available for incoming allocation requests. |
-
-<!-- TODO: Add screenshot - GUI_Create_ArmadaSet_Regions -->
 
 ::: tip Scaling Configuration
 For detailed guidance on configuring replicas and buffer size, including examples and best practices, see the [Armada replicas and buffer](/multiplayer-servers/deploy/replicas-and-buffer) guide.
@@ -87,8 +83,6 @@ Health checks are disabled by default for initial testing. To ensure unresponsiv
 ## Visualize and configure
 
 After creating the ArmadaSet, it appears in the Armadas section of the UI. The ArmadaSet automatically creates an Armada for each configured region.
-
-<!-- TODO: Add screenshot - GUI_ArmadaSet_List -->
 
 Click on an ArmadaSet to view its details, including:
 

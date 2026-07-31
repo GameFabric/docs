@@ -8,12 +8,24 @@
       "link": "/configure/"
     },
     {
-      "text": "Environments and regions",
-      "link": "/configure/environments-and-regions"
+      "text": "Environments",
+      "link": "/configure/environments"
+    },
+    {
+      "text": "Regions",
+      "link": "/configure/regions"
     },
     {
       "text": "Secrets",
       "link": "/configure/secrets"
+    },
+    {
+      "text": "Config files",
+      "link": "/configure/config-files"
+    },
+    {
+      "text": "Volumes",
+      "link": "/configure/volumes"
     },
     {
       "text": "Resource management",

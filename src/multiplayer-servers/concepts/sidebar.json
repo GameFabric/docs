@@ -16,6 +16,14 @@
       "link": "/concepts/capacity-types"
     },
     {
+      "text": "Armadas and ArmadaSets",
+      "link": "/concepts/armadas"
+    },
+    {
+      "text": "Formations and Vessels",
+      "link": "/concepts/formations"
+    },
+    {
       "text": "Regions, sites and locations",
       "link": "/concepts/regions-sites-and-locations"
     },
@@ -38,6 +46,10 @@
     {
       "text": "Sidecar containers",
       "link": "/concepts/sidecars"
+    },
+    {
+      "text": "Annotations and labels",
+      "link": "/concepts/annotations"
     }
   ]
 }

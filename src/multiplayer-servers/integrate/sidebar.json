@@ -16,6 +16,10 @@
       "link": "/integrate/game-server-lifecycle"
     },
     {
+      "text": "Agones compatibility",
+      "link": "/integrate/agones-compatibility"
+    },
+    {
       "text": "Player count tracking",
       "link": "/integrate/player-count-tracking"
     },

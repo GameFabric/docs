@@ -68,7 +68,7 @@ This track links out rather than covering everything itself. The other sections 
 
 - [Concepts](/multiplayer-servers/concepts/hosting-models) explains how the platform is put together.
 - [Container images](/multiplayer-servers/container-images/building-a-container-image),
-  [Configure](/multiplayer-servers/configure/environments-and-regions) and
+  [Configure](/multiplayer-servers/configure/regions) and
   [Deploy](/multiplayer-servers/deploy/vessels) are the full references for each step.
 - The [glossary](/multiplayer-servers/get-started/glossary) defines every term used in the docs.
 

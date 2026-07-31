@@ -9,6 +9,8 @@ tooling.
   GameFabric relies on, and how to discover the public address players connect to.
 - [Game server life cycle](/multiplayer-servers/integrate/game-server-lifecycle) — the states a
   server moves through, and what your server must do at each transition.
+- [Agones compatibility](/multiplayer-servers/integrate/agones-compatibility) — the Agones version
+  GameFabric runs and which SDKs work with it.
 - [Player count tracking](/multiplayer-servers/integrate/player-count-tracking) — report player
   counts so scaling and dashboards reflect reality.
 
