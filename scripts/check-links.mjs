@@ -54,7 +54,10 @@ const pages = walk(srcDir, (name) => name.endsWith('.md'))
 // Route ("/multiplayer-servers/get-started/index") -> absolute file path.
 const routes = new Map();
 for (const file of pages) {
-    routes.set('/' + path.relative(srcDir, file).replace(/\.md$/, ''), file);
+    const route = '/' + path.relative(srcDir, file).replace(/\.md$/, '');
+    routes.set(route, file);
+    // "/section/" and "/section" both resolve to "/section/index" in VitePress.
+    if (route.endsWith('/index')) routes.set(route.slice(0, -'/index'.length), file);
 }
 
 // GitHub-style slugs, matching VitePress's anchor generation closely enough for
@@ -171,7 +174,9 @@ for (const sidebarFile of sidebarFiles) {
     const visit = (entry) => {
         for (const item of entry.items ?? []) {
             if (item.link) {
-                const route = item.external ? item.link : `/${section}${item.link}`;
+                const route = item.external
+                    ? item.link
+                    : `/${section}${item.link}`.replace(/(.)\/$/, '$1');
                 sidebarRoutes.add(route);
                 if (!routes.has(route)) {
                     fail(sidebarFile, `sidebar link does not exist: ${item.link} (resolves to ${route})`);
@@ -205,11 +210,16 @@ for (const sidebarFile of sidebarFiles) {
     seen.set(sidebar.order, sidebarFile);
 }
 
+const seenOrphans = new Set();
 for (const [route, file] of routes) {
     if (route === '/index') continue;
-    if (!sidebarRoutes.has(route) && !linkedRoutes.has(route)) {
+    if (seenOrphans.has(file)) continue;
+    const alias = route.endsWith('/index') ? route.slice(0, -'/index'.length) : `${route}/index`;
+    if (!sidebarRoutes.has(route) && !linkedRoutes.has(route)
+        && !sidebarRoutes.has(alias) && !linkedRoutes.has(alias)) {
         warnings.push(`${path.relative(root, file)} is not in any sidebar and is not linked from any page`);
     }
+    seenOrphans.add(file);
 }
 
 for (const warning of warnings) {

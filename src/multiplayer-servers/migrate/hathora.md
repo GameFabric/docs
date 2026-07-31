@@ -4,7 +4,7 @@ This guide explains how to migrate from Hathora to GameFabric.
 
 ::: tip Related Documentation
 - [Introduction to GameFabric](/multiplayer-servers/get-started/introduction)
-- [Quickstart Guide](/multiplayer-servers/get-started/quickstart)
+- [Get started track](/multiplayer-servers/get-started/)
 - [Using the Agones SDK](/multiplayer-servers/integrate/your-game-server)
 - [Server Allocation Overview](/multiplayer-servers/integrate/server-allocation/overview)
 - [Glossary](/multiplayer-servers/get-started/glossary)
@@ -249,7 +249,7 @@ For migration assistance and onboarding support:
 ## Related documentation
 
 - [Introduction to GameFabric](/multiplayer-servers/get-started/introduction)
-- [Quickstart Guide](/multiplayer-servers/get-started/quickstart)
+- [Get started track](/multiplayer-servers/get-started/)
 - [Hosting Models](/multiplayer-servers/concepts/hosting-models)
 - [Game Server Lifecycle](/multiplayer-servers/integrate/game-server-lifecycle)
 - [Using the Agones SDK](/multiplayer-servers/integrate/your-game-server)

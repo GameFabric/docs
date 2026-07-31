@@ -4,12 +4,44 @@
   "order": 1,
   "items": [
     {
-      "text": "Introduction",
-      "link": "/get-started/introduction"
+      "text": "Overview",
+      "link": "/get-started/"
     },
     {
-      "text": "Quickstart",
-      "link": "/get-started/quickstart"
+      "text": "1. Plan your deployment",
+      "link": "/get-started/plan-your-deployment"
+    },
+    {
+      "text": "2. Get access",
+      "link": "/get-started/get-access"
+    },
+    {
+      "text": "3. Prepare your game server",
+      "link": "/get-started/prepare-your-game-server"
+    },
+    {
+      "text": "4. Push your image",
+      "link": "/get-started/push-your-image"
+    },
+    {
+      "text": "5. Set up your environment",
+      "link": "/get-started/set-up-your-environment"
+    },
+    {
+      "text": "6. Deploy your first game server",
+      "link": "/get-started/deploy-your-first-game-server"
+    },
+    {
+      "text": "7. Connect and verify",
+      "link": "/get-started/connect-and-verify"
+    },
+    {
+      "text": "8. Next steps",
+      "link": "/get-started/next-steps"
+    },
+    {
+      "text": "Introduction",
+      "link": "/get-started/introduction"
     },
     {
       "text": "Glossary",

@@ -16,10 +16,10 @@ export interface ShowcaseCard {
 
 export const cards: ShowcaseCard[] = [
     {
-        title: 'Quickstart',
-        description: 'Get your first game server running on GameFabric in minutes: create a Branch, push your image, and launch a Vessel.',
-        link: '/multiplayer-servers/get-started/quickstart',
-        linkText: 'Get started',
+        title: 'Get started',
+        description: 'A guided track that takes you from an empty account to a running game server you can connect to: plan, containerize, push, deploy, verify.',
+        link: '/multiplayer-servers/get-started/',
+        linkText: 'Start the track',
         icon: '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>',
     },
     {

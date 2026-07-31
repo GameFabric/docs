@@ -14,7 +14,7 @@ import { withBase } from 'vitepress'
       <h1 class="home-title">Two Models, One Fabric</h1>
       <p class="home-sub">Game server orchestration and management. Everything you need to run multiplayer infrastructure at launch scale and beyond.</p>
       <div class="home-ctas">
-        <a class="btn btn-y" :href="withBase('/multiplayer-servers/get-started/introduction')">Get Started →</a>
+        <a class="btn btn-y" :href="withBase('/multiplayer-servers/get-started/')">Get Started →</a>
         <a class="btn btn-o" :href="withBase('/steelshield/gamefabric/introduction')">SteelShield™ Docs</a>
       </div>
       <a href="https://gamefabric.com" target="_blank" rel="noopener noreferrer" class="home-ext">gamefabric.com ↗</a>
