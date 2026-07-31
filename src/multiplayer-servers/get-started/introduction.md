@@ -19,3 +19,13 @@ Familiarity with the [hosting models](/multiplayer-servers/concepts/hosting-mode
 
 For games that use matchmaking, consult [Server Allocation Overview](/multiplayer-servers/integrate/server-allocation/overview) to understand how players are assigned to servers.
 :::
+
+## Where to start
+
+If you are new to GameFabric, work through
+[Set up your first game server](/multiplayer-servers/get-started/). It is an ordered track that
+takes you from an empty account to a running game server you can connect to, and it links out to
+the reference sections as it goes.
+
+For definitions of the terms used throughout, see the
+[Glossary](/multiplayer-servers/get-started/glossary).

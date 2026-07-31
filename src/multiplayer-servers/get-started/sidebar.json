@@ -4,7 +4,11 @@
   "order": 1,
   "items": [
     {
-      "text": "Overview",
+      "text": "Introduction",
+      "link": "/get-started/introduction"
+    },
+    {
+      "text": "Set up your first game server",
       "link": "/get-started/"
     },
     {
@@ -38,10 +42,6 @@
     {
       "text": "8. Next steps",
       "link": "/get-started/next-steps"
-    },
-    {
-      "text": "Introduction",
-      "link": "/get-started/introduction"
     },
     {
       "text": "Glossary",

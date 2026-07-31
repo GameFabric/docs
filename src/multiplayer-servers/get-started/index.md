@@ -1,9 +1,9 @@
 ---
-title: "Get started"
+title: "Set up your first game server"
 description: "This track takes you from an empty GameFabric account to a running game server that a client can connect to. Work through the steps in order."
 ---
 
-# Get started
+# Set up your first game server
 
 This track takes you from an empty GameFabric account to a running game server that a client can
 connect to. Work through the steps in order. Each one ends with something you can see in the
