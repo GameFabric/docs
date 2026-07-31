@@ -4,6 +4,10 @@
   "order": 2,
   "items": [
     {
+      "text": "Overview",
+      "link": "/concepts/"
+    },
+    {
       "text": "Hosting models",
       "link": "/concepts/hosting-models"
     },

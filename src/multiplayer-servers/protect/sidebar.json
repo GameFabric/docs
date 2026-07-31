@@ -4,6 +4,10 @@
   "order": 7,
   "items": [
     {
+      "text": "Overview",
+      "link": "/protect/"
+    },
+    {
       "text": "Ports and protocols",
       "link": "/protect/protocols"
     },

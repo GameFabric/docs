@@ -4,6 +4,10 @@
   "order": 5,
   "items": [
     {
+      "text": "Overview",
+      "link": "/deploy/"
+    },
+    {
       "text": "Vessels",
       "link": "/deploy/vessels"
     },

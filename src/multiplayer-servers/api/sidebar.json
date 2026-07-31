@@ -4,6 +4,10 @@
   "order": 10,
   "items": [
     {
+      "text": "Overview",
+      "link": "/api/"
+    },
+    {
       "text": "Guide",
       "link": "/api/guide"
     },
@@ -12,7 +16,7 @@
       "link": "/api/examples"
     },
     {
-      "text":"GF: API Server ⤴",
+      "text": "GF: API Server ⤴",
       "link": "/api/multiplayer-servers/apiserver",
       "external": true
     },

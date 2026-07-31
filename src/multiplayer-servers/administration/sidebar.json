@@ -4,6 +4,10 @@
   "order": 9,
   "items": [
     {
+      "text": "Overview",
+      "link": "/administration/"
+    },
+    {
       "text": "Getting access",
       "link": "/administration/getting-access"
     },

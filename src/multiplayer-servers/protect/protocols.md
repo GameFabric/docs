@@ -4,7 +4,7 @@ Game server ports are often vulnerable to attacks.
 GameFabric offers Protocols to protect your game server traffic with powerful SteelShield mitigations.
 
 ::: tip SteelShield Overview
-For a comprehensive overview of SteelShield DDoS protection, see the [SteelShield Introduction](/steelshield/unreal-engine-plugin/introduction). For additional protection features, see [Gateway Policies](gateway-policies).
+For a comprehensive overview of SteelShield DDoS protection, see the [SteelShield introduction](/steelshield/gamefabric/introduction). For additional protection features, see [Gateway Policies](gateway-policies).
 :::
 
 ## Pre-requisites

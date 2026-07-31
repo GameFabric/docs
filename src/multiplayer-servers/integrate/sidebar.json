@@ -4,6 +4,10 @@
   "order": 6,
   "items": [
     {
+      "text": "Overview",
+      "link": "/integrate/"
+    },
+    {
       "text": "Your game server",
       "link": "/integrate/your-game-server"
     },

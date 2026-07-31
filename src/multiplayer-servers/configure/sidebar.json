@@ -4,6 +4,10 @@
   "order": 4,
   "items": [
     {
+      "text": "Overview",
+      "link": "/configure/"
+    },
+    {
       "text": "Environments and regions",
       "link": "/configure/environments-and-regions"
     },

@@ -4,6 +4,10 @@
   "order": 11,
   "items": [
     {
+      "text": "Overview",
+      "link": "/migrate/"
+    },
+    {
       "text": "Migrating from Hathora",
       "link": "/migrate/hathora"
     }

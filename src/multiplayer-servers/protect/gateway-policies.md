@@ -6,7 +6,7 @@ redirecting specific outgoing game server traffic to destinations such as your g
 If SteelShield is active while unaware of your legitimate outgoing traffic, it might block connection attempts or responses that are not meant to be filtered.
 
 ::: tip Related Protection
-For port-level protection, see [Ports and Protocols](protocols). For an overview of SteelShield, see the [SteelShield Introduction](/steelshield/unreal-engine-plugin/introduction).
+For port-level protection, see [Ports and Protocols](protocols). For an overview of SteelShield, see the [SteelShield introduction](/steelshield/gamefabric/introduction).
 :::
 
 ## Attack scenario

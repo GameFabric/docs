@@ -4,6 +4,10 @@
   "order": 3,
   "items": [
     {
+      "text": "Overview",
+      "link": "/container-images/"
+    },
+    {
       "text": "Building a container image",
       "link": "/container-images/building-a-container-image"
     },
