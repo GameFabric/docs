@@ -27,7 +27,7 @@ would normally be expected for that game server.
 The **SteelShield Plugin for Unreal Engine** enables better and more accurate
 packet matching by the SteelShield service by implementing [Proof of
 Identity](/steelshield/gamefabric/introduction#level-3-proof-of-identity-using-deep-packet-inspection).
-It communicates with the [SteelShield Token Service](/steelshield/token-service/index)
+It communicates with the [SteelShield Token Service](/steelshield/token-service/)
 to prepend a **SteelShield Token** to network packets sent to the game server.
 This allows quick identification of malicious traffic, preventing it from
 propagating all the way to the game server, and offers traceability of attackers

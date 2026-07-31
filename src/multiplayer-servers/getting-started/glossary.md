@@ -329,7 +329,7 @@ See also [SteelShield docs](/steelshield/gamefabric/introduction).
 
 The Token Service is a public-facing API provided by [SteelShield](#steelshieldtm) for [Proof of Identity](/steelshield/gamefabric/introduction#level-3-proof-of-identity-using-deep-packet-inspection) authentication. It verifies game client credentials and issues **SteelShield Tokens** that authorize game traffic to pass through DDoS protection.
 
-See [Token Service Overview](/steelshield/token-service/index) for details on how it works, and [Managing Token Services](/steelshield/token-service/managing-token-services) for setup instructions.
+See [Token Service Overview](/steelshield/token-service/) for details on how it works, and [Managing Token Services](/steelshield/token-service/managing-token-services) for setup instructions.
 
 ## Terraform provider
 
