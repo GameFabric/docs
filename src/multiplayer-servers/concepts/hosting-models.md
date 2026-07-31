@@ -84,7 +84,7 @@ After a session has ended, the respective game server shuts down. If the number 
 the configured buffer, the number of game servers is automatically reduced again. Only unallocated game serves are
 scaled down, to protect ongoing player sessions.
 
-The aforementioned scaling and allocation happens on a per-Region level. However, so-called ArmadaSets can be used to
+The aforementioned scaling and allocation happens on a per-Region level. However, so-called [ArmadaSets](/multiplayer-servers/concepts/armadas) can be used to
 automatically create Armadas for every Region, reducing management overhead.
 
 Armadas have the benefit of being able to serve hundreds of game server sessions every second, even if the game server
@@ -92,3 +92,12 @@ software takes some time to start up. The caveat is that they have to be started
 for the individual game session via the allocation request, not through command-line parameters. To allow this level
 of scale, Armadas also only report aggregated information about the game servers within them, which can be inconvenient
 for development workflows. In these scenarios, it is recommended to use Formations or even individual Vessels.
+
+## Where to go next
+
+- [Armadas and ArmadaSets](/multiplayer-servers/concepts/armadas) — the object model behind
+  auto-scaling fleets.
+- [Formations and Vessels](/multiplayer-servers/concepts/formations) — the object model behind
+  long-lived servers.
+- [Step 1: Plan your deployment](/multiplayer-servers/get-started/plan-your-deployment) — back to
+  the track, if that is where you came from.

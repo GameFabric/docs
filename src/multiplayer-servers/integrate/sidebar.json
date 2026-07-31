@@ -58,8 +58,8 @@
       ]
     },
     {
-      "text": "Your infrastructure",
-      "link": "/integrate/your-backend"
+      "text": "Programmatic access",
+      "link": "/integrate/programmatic-access"
     },
     {
       "text": "Terraform provider",

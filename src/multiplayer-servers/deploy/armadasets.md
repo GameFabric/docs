@@ -29,7 +29,7 @@ Choose an [environment](/multiplayer-servers/configure/environments) for your Ar
 
 Specify a unique name for your ArmadaSet. You can also add a description to help identify its purpose.
 
-### Regions
+### Regions & Scale
 
 You configure scaling for your ArmadaSet in the Regions step. Unlike Vessels, which deploy to a single region, ArmadaSets automatically create an Armada in each region you configure.
 
@@ -45,15 +45,20 @@ Configure the following scaling settings for each Region and Region Type (e.g., 
 For detailed guidance on configuring replicas and buffer size, including examples and best practices, see the [Armada replicas and buffer](/multiplayer-servers/deploy/replicas-and-buffer) guide.
 :::
 
-### Volumes
+### Container Templates & Volumes
 
-Volumes allow you to share data between multiple containers within the same [pod](/multiplayer-servers/get-started/glossary#pod). This is an advanced feature. Skip this step for now.
-
-### Containers
-
-The Containers section defines your game server configuration. This includes the container image, environment variables, ports, commands, ConfigFiles, resources, and sidecars.
+The container configuration defines your game server. This includes the container image, environment variables, ports, commands, ConfigFiles, resources, and sidecars.
 
 The configuration options are identical to those for Vessels. For detailed explanations of each setting, see [Container configuration](/multiplayer-servers/deploy/container-configuration#containers).
+
+This step is also where you declare volumes. Volumes let containers in the same
+[pod](/multiplayer-servers/get-started/glossary#pod) share data. They are scratch space and do not
+outlive the game server, so skip them for now.
+
+::: info Armada volumes are not persistent storage
+Only Vessels and Formations can mount [persistent volumes](/multiplayer-servers/configure/volumes).
+An Armada's game servers are interchangeable and short-lived, so they get scratch space only.
+:::
 
 Key configuration areas:
 
@@ -69,9 +74,9 @@ Key configuration areas:
 For session-based games using the Allocator service, you typically add an Allocation Sidecar container. See [Sidecar Containers](/multiplayer-servers/concepts/sidecars#allocation-sidecar) for setup details and the [Server Allocation Overview](/multiplayer-servers/integrate/server-allocation/overview) for when this is required.
 :::
 
-### Advanced
+### Advanced & Protection
 
-The Advanced section contains options for profiling, health checks, and termination grace periods. These settings work the same way as for Vessels.
+This step contains options for profiling, health checks, and termination grace periods. These settings work the same way as for Vessels.
 
 For detailed explanations, see [Container configuration](/multiplayer-servers/deploy/container-configuration#advanced-options).
 

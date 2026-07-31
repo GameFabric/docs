@@ -12,16 +12,24 @@
       "link": "/deploy/vessels"
     },
     {
-      "text": "Vessel states",
-      "link": "/deploy/vessel-states"
+      "text": "Formations",
+      "link": "/deploy/formations"
+    },
+    {
+      "text": "ArmadaSets",
+      "link": "/deploy/armadasets"
     },
     {
       "text": "Container configuration",
       "link": "/deploy/container-configuration"
     },
     {
-      "text": "ArmadaSets",
-      "link": "/deploy/armadasets"
+      "text": "Vessel states",
+      "link": "/deploy/vessel-states"
+    },
+    {
+      "text": "Deploying a new build",
+      "link": "/deploy/deploying-a-new-build"
     },
     {
       "text": "Scaling",

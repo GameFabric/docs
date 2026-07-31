@@ -17,8 +17,10 @@ server to fleets that scale with demand.
 ## Create the Vessel
 
 1. Check that the correct environment is selected in the top bar.
-2. Go to **Formations** and select **Add**.
-3. Choose **Vessel** as the kind, not Formation.
+2. Go to **Persistent Servers > Vessels** and select **Add**.
+
+The wizard has four steps: General, Region, Container Templates & Volumes, and
+Advanced & Protection.
 
 ### General
 
@@ -36,13 +38,13 @@ A Vessel's region is part of its identity. To move a server to another region, c
 select a different region, then delete the original.
 :::
 
-### Volumes
-
-Skip this. Volumes share data between containers in a pod, which a first deployment does not need.
-
-### Containers
+### Container Templates & Volumes
 
 This is where most of the configuration lives.
+
+**Volumes.** Skip these. A volume gives a container storage that outlives a restart, and lets
+containers in the same pod share data. A first deployment needs neither. See
+[Volumes](/multiplayer-servers/configure/volumes) when you do.
 
 **Image.** Select the image and tag you pushed in step 4.
 
@@ -78,7 +80,7 @@ usually are not. See
 
 **Sidecars.** Skip these. You add an allocation sidecar later if you use matchmaking.
 
-### Advanced options
+### Advanced & Protection
 
 **Enable health checks.** They are off by default to ease first integration, but you did the SDK
 work in step 3, so turn them on now and confirm they pass in step 7. Without them, a frozen server
@@ -91,6 +93,9 @@ down cleanly after receiving a shutdown hint before it is killed. See
 
 **Profiling** is optional. It costs 2-3% CPU and can stay off for a first deployment.
 
+**Protection.** This step also carries the SteelShield settings. Leave them alone for now. Step 8
+points you at [Protect](/multiplayer-servers/protect/) once your server works.
+
 Select **Create** to finish.
 
 ## Watch it start
@@ -99,8 +104,8 @@ The Vessel appears in the **Vessels** list. It moves to **RUNNING** once your co
 your server calls `agones.Ready()`.
 
 If it does not reach RUNNING, or cycles between states, go to
-[Debugging game server integration](/multiplayer-servers/operate/debugging) — step 7 also shows you
-where the logs are.
+[Debugging game server integration](/multiplayer-servers/operate/debugging), which is organized by
+symptom — step 7 also shows you where the logs are.
 
 For every configuration option in the wizard, see
 [Vessels](/multiplayer-servers/deploy/vessels).

@@ -214,3 +214,11 @@ and update your matchmaker's region filter if necessary.
 
 Once confirmed, remove the manual `ALLOC_URL`, `ALLOC_TOKEN`, and `ALLOC_REGION` entries from the
 Region Type template so that the managed values take effect.
+
+## Where to go next
+
+- [Server allocation overview](/multiplayer-servers/integrate/server-allocation/overview) — choose
+  how your game servers register and how your matchmaker asks for one.
+- [Automatically registering game servers](/multiplayer-servers/integrate/server-allocation/automatically-registering-game-servers)
+  — the allocation sidecar, and every variable it takes.
+- [Matchmaking](/multiplayer-servers/concepts/matchmaking) — where the Allocator sits in the flow.

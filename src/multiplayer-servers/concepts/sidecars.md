@@ -58,3 +58,10 @@ For UI guidance, see [Vessels](/multiplayer-servers/deploy/vessels).
 - **Use appropriate resource limits**: Set CPU and memory limits to prevent sidecars from starving your game server.
 - **Handle graceful shutdown**: Ensure your sidecar responds appropriately to termination signals.
 - **Consider network ports**: Sidecars share the [pod's](/multiplayer-servers/get-started/glossary#pod) network namespace. Avoid port conflicts with your game server.
+
+## Where to go next
+
+- [Automatically registering game servers](/multiplayer-servers/integrate/server-allocation/automatically-registering-game-servers)
+  — configuring the allocation sidecar.
+- [Container configuration](/multiplayer-servers/deploy/container-configuration) — adding a sidecar
+  to a deployment.

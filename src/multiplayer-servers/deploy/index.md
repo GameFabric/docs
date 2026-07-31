@@ -16,6 +16,8 @@ fleets that grow and shrink with player demand.
 
 - [Vessels](/multiplayer-servers/deploy/vessels) — create and configure a single long-lived game
   server. This is also the clearest way to test a new image, whichever model you use in production.
+- [Formations](/multiplayer-servers/deploy/formations) — group Vessels under one shared
+  configuration, so an image change rolls out to all of them at once.
 - [Vessel states](/multiplayer-servers/deploy/vessel-states) — what each state means and what moves
   a Vessel between them.
 
@@ -24,6 +26,8 @@ fleets that grow and shrink with player demand.
 - [Container configuration](/multiplayer-servers/deploy/container-configuration) — image,
   environment variables, ports, mounts, resources, sidecars, health checks and grace periods. The
   same settings apply to Vessels, Formations, Armadas and ArmadaSets.
+- [Deploying a new build](/multiplayer-servers/deploy/deploying-a-new-build) — roll a new image out
+  to a running deployment, and roll it back when it goes wrong.
 
 ## Dynamic fleets
 

@@ -30,8 +30,10 @@ For full lifecycle guidance, see [Requirements and best practices](/multiplayer-
 
 ### Name length
 
-- **Limit**: 4 letters maximum
-- **Description**: The name of an Environment uniquely identifies it and is restricted to a maximum of 4 letters. Common names are "prod", "stge" and "dev".
+- **Limit**: 4 characters maximum
+- **Description**: The name of an Environment uniquely identifies it and is restricted to a maximum
+  of 4 characters, using lowercase letters and digits only. It cannot be changed after creation.
+  Common names are "prod", "stge" and "dev".
 
 ## Container limitations
 

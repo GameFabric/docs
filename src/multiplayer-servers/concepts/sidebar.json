@@ -16,14 +16,6 @@
       "link": "/concepts/capacity-types"
     },
     {
-      "text": "Armadas and ArmadaSets",
-      "link": "/concepts/armadas"
-    },
-    {
-      "text": "Formations and Vessels",
-      "link": "/concepts/formations"
-    },
-    {
       "text": "Regions, sites and locations",
       "link": "/concepts/regions-sites-and-locations"
     },
@@ -32,16 +24,24 @@
       "link": "/concepts/scheduling-strategy"
     },
     {
+      "text": "Armadas and ArmadaSets",
+      "link": "/concepts/armadas"
+    },
+    {
+      "text": "Formations and Vessels",
+      "link": "/concepts/formations"
+    },
+    {
+      "text": "Matchmaking",
+      "link": "/concepts/matchmaking"
+    },
+    {
       "text": "Allocators",
       "link": "/concepts/allocators"
     },
     {
       "text": "Ping services",
       "link": "/concepts/ping-services"
-    },
-    {
-      "text": "Matchmaking",
-      "link": "/concepts/matchmaking"
     },
     {
       "text": "Sidecar containers",

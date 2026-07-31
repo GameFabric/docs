@@ -31,8 +31,8 @@ pick the approach that matches your architecture.
 
 ## In your own systems
 
-- [Your infrastructure](/multiplayer-servers/integrate/your-backend) — connect GameFabric to your
-  backend services.
+- [Programmatic access](/multiplayer-servers/integrate/programmatic-access) — the API, Terraform and
+  the registry, and which to use for what.
 - [Terraform provider](/multiplayer-servers/integrate/terraform) — manage GameFabric resources as
   code.
 

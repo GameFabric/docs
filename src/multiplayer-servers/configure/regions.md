@@ -33,12 +33,12 @@ A region type is a group of locations with a priority attached. Types are how yo
 ![The region type step of the region creation wizard](images/region/GUI_Regions_Create_Types.png)
 
 GameFabric places game servers into the lowest priority number that still has capacity, then falls
-through to the next. A typical mixed region looks like this:
+through to the next. Priorities start at `0`. A typical mixed region looks like this:
 
 | Type name | Priority | Locations |
 |---|---|---|
-| `metal` | 1 | Bare metal locations in the region |
-| `cloud` | 2 | GameFabric Cloud or bring your own cloud locations in the region |
+| `metal` | 0 | Bare metal locations in the region |
+| `cloud` | 1 | GameFabric Cloud or bring your own cloud locations in the region |
 
 Game servers then fill leased bare metal capacity first, and only spill into cloud once it is
 full. Since bare metal is a committed cost and cloud is charged on use, this ordering is what
@@ -46,7 +46,8 @@ keeps your [cloud fees](/multiplayer-servers/administration/billing-reports) dow
 
 For each type, set:
 
-- a **name** and a **priority**, where lower numbers are used first
+- a **name**, and a **priority** chosen from a list of the available positions, where lower numbers
+  are used first
 - the **locations** belonging to that type
 - optionally, **environment variables** applied to every game server deployed into those locations
 

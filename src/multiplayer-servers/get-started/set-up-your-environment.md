@@ -19,8 +19,8 @@ a game server can run in, and decides which capacity is used first.
 
 1. Select **Environments** in the sidebar.
 2. Select **Create Environment**.
-3. Enter a name of at most four letters, such as `dev`, `stge` or `prod`. The name uniquely
-   identifies the environment and cannot be changed. See
+3. Enter a name of at most four characters, using lowercase letters and digits, such as `dev`,
+   `stge` or `prod`. The name uniquely identifies the environment and cannot be changed. See
    [Quotas](/multiplayer-servers/configure/quotas#name-length) for the exact limits.
 4. Enter a display name, and optionally a description.
 5. Select **Create Environment**.
@@ -43,14 +43,15 @@ This is how the capacity decision from step 1 becomes real. For a mixed setup yo
 
 | Type name | Priority | Locations |
 |---|---|---|
-| `metal` | 1 | Bare metal locations in the region |
-| `cloud` | 2 | GameFabric Cloud or BYOC locations in the region |
+| `metal` | 0 | Bare metal locations in the region |
+| `cloud` | 1 | GameFabric Cloud or BYOC locations in the region |
 
 Servers then fill your bare metal capacity first and only spill into cloud when it is full.
 
 For this track, one type with your available locations is enough.
 
-1. Enter a type name and a priority.
+1. Enter a type name, and choose a priority. Priorities start at `0`, and lower numbers are filled
+   first.
 2. Select the locations for that type. Locations available to you were provisioned by your Nitrado
    contact, or come from the cloud account you connected.
 3. Optionally add environment variables. They are set on every game server deployed into the

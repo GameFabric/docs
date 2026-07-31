@@ -230,3 +230,11 @@ operator. These variables are injected into all game servers scheduled on that S
 The Sites list can be filtered by state and protection status. Filter by `cordoned` to audit
 Sites that are not accepting new scheduling.
 :::
+
+## Where to go next
+
+- [Regions](/multiplayer-servers/configure/regions) — create and edit regions.
+- [Scheduling strategy](/multiplayer-servers/concepts/scheduling-strategy) — how a game server is
+  placed within a location.
+- [Step 5: Set up your environment](/multiplayer-servers/get-started/set-up-your-environment) —
+  back to the track, if that is where you came from.

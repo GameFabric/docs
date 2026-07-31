@@ -154,8 +154,8 @@ The available template variables are the same as for the [command-line arguments
 
 | Command-line argument    | Environment variable   | Description                                                |
 |--------------------------|------------------------|------------------------------------------------------------|
-| `--config.template-path` | `CONFIG_TEMPLATE_PATH` | Path at which to write the game server configuration file. |
-| `--config.output-path`   | `CONFIG_OUTPUT_PATH`   | Path to the configuration file template.                   |
+| `--config.template-path` | `CONFIG_TEMPLATE_PATH` | Path to the configuration file template.                   |
+| `--config.output-path`   | `CONFIG_OUTPUT_PATH`   | Path at which to write the rendered configuration file.    |
 
 **Example:**
 

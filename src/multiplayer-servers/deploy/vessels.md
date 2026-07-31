@@ -31,16 +31,11 @@ assigns players, use [ArmadaSets](/multiplayer-servers/deploy/armadasets). See
 
 ## Create a Vessel
 
-Visit **Persistent Servers > Formations** in the UI, and click on the blue "Add" button, on the top right of the interface.
+Visit **Persistent Servers > Vessels** in the UI, and select **Add**. Creating from the Vessels
+list produces a standalone Vessel; to create one that inherits from a
+[Formation](/multiplayer-servers/deploy/formations), start from the Formations list instead.
 
-### Kind
-
-You are now given the choice between creating a Formation and an individual Vessel. Pick "Vessel".
-
-Vessels allow you to spin up individual game servers and to define a unique configuration for each of them, which is ideal for a first integration.
-Later, you will use concepts like Formations, Armadas and ArmadaSets to efficiently manage large numbers of game servers at once.
-
-![Choosing the resource kind in the creation wizard](images/formation/GUI_Create_Vessel_Kind.png)
+The wizard has four steps.
 
 ### General
 
@@ -65,19 +60,23 @@ This allows you to easily create multiple similar Vessels in different Regions w
 
 :::
 
-### Volumes
+### Container Templates & Volumes
 
-Declare any [volumes](/multiplayer-servers/configure/volumes) this Vessel needs for data that must
-survive a restart. Skip this step if your game server keeps no state on disk.
+This step holds the bulk of the configuration: image, environment variables, ports, command,
+mounts, resources and sidecars.
 
-### Containers and advanced options
+It is also where you declare any [volumes](/multiplayer-servers/configure/volumes) the Vessel
+needs, either for data that must survive a restart or to share data between containers in the same
+pod. Skip volumes if your game server keeps no state on disk.
 
-The Containers and Advanced sections hold the bulk of the configuration: image, environment
-variables, ports, command, mounts, resources, sidecars, profiling, health checks and termination
-grace periods.
+### Advanced & Protection
 
-These settings are identical for Vessels, Formations, Armadas and ArmadaSets. See
-[Container configuration](/multiplayer-servers/deploy/container-configuration) for every option.
+This step holds health checks, termination grace periods, profiling, and the SteelShield
+protection settings.
+
+The container and advanced settings are identical for Vessels, Formations, Armadas and ArmadaSets.
+See [Container configuration](/multiplayer-servers/deploy/container-configuration) for every
+option.
 
 ::: warning Enable health checks
 They are disabled by default to ease first integration. A game server without health checks cannot
@@ -105,8 +104,11 @@ On the same page, you can also inspect the logs of your game server, to troubles
 ## Where to go next
 
 - [Container configuration](/multiplayer-servers/deploy/container-configuration) — every setting in
-  the Containers and Advanced sections.
+  the container and advanced steps.
+- [Formations](/multiplayer-servers/deploy/formations) — group Vessels under one shared
+  configuration.
 - [Vessel states](/multiplayer-servers/deploy/vessel-states) — what each state means.
+- [Deploying a new build](/multiplayer-servers/deploy/deploying-a-new-build) — roll a new image out.
 - [Debugging](/multiplayer-servers/operate/debugging) — when a Vessel does not reach RUNNING.
 - [Terminating game servers](/multiplayer-servers/deploy/terminating-game-servers) — shut one down
   cleanly.

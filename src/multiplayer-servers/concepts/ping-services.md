@@ -58,3 +58,14 @@ The Ping Services table can be filtered by:
 
 - **Name** — free-text search.
 - **Phase** — multi-select (`Active`, `Terminating`).
+
+## Where to go next
+
+Ping Services are provisioned by the platform operator. To request one, or to have one
+decommissioned, raise a request in the
+[GameFabric Help Center](/multiplayer-servers/get-started/glossary#gamefabric-help-center).
+
+- [Allocators](/multiplayer-servers/concepts/allocators) — the service a Ping Service discovers
+  game servers through.
+- [Automatically registering game servers](/multiplayer-servers/integrate/server-allocation/automatically-registering-game-servers)
+  — how servers become visible to the Ping Service.

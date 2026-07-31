@@ -27,7 +27,7 @@ per region.
   idle
 
 If you chose **Formations**, group your Vessels into a Formation so they share one configuration.
-See [Vessels](/multiplayer-servers/deploy/vessels).
+See [Formations](/multiplayer-servers/deploy/formations).
 
 ## Connect your matchmaker
 
@@ -53,6 +53,8 @@ To route players to the closest region, see
 
 The track kept configuration minimal. Real deployments usually need more:
 
+- [Deploying a new build](/multiplayer-servers/deploy/deploying-a-new-build) — get your next image
+  version onto a running deployment, and roll it back if it goes wrong
 - [Secrets](/multiplayer-servers/configure/secrets) — credentials your server needs at runtime
 - [Resource management](/multiplayer-servers/configure/resource-management) — size CPU and memory
   from real usage
@@ -64,8 +66,8 @@ The track kept configuration minimal. Real deployments usually need more:
 
 - [API guide](/multiplayer-servers/api/guide) — drive GameFabric from your own tooling
 - [Terraform](/multiplayer-servers/integrate/terraform) — manage GameFabric resources as code
-- [Your backend](/multiplayer-servers/integrate/your-backend) — connect GameFabric to your
-  services
+- [Programmatic access](/multiplayer-servers/integrate/programmatic-access) — drive GameFabric
+  from your own services and pipelines
 
 Use the service account from step 2 for all of these.
 

@@ -65,7 +65,8 @@ For the full reference, see
 The Vessel details page includes a log view. Use it to confirm your server started cleanly and
 called `Ready()`.
 
-To view logs you need the `gameservers/logs` read permission in the environment. If the log panel
+To view logs you need read permission on `vessels/log` in the environment, which the
+`default:gameserver-logs` group grants. If the log panel
 is empty or refuses access, ask an administrator to add that capability to your group.
 
 Logs from a previous instance are also available, which is how you find out why a server crashed.
@@ -75,14 +76,10 @@ See [Game server logs](/multiplayer-servers/operate/game-server-logs).
 
 Point your game client at the public IP and the public `game` port from the details page.
 
-If the client cannot connect:
-
-- Confirm the port name, protocol and container port on the Vessel match what your server binds
-  to.
-- Confirm your server binds to `0.0.0.0` and not to `127.0.0.1`. A server bound to loopback is
-  unreachable from outside the container.
-- Check the logs for a bind failure or a crash loop.
-- Work through [Debugging game server integration](/multiplayer-servers/operate/debugging).
+If the client cannot connect, the most common cause is a server bound to `127.0.0.1` rather than
+`0.0.0.0`. Work through
+[A client that cannot connect](/multiplayer-servers/operate/debugging#a-client-that-cannot-connect),
+which covers that and the rest in order.
 
 ## Confirm health checks pass
 

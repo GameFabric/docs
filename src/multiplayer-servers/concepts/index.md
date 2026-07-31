@@ -11,16 +11,14 @@ platform behaves the way it does, or before making a decision you cannot easily 
 If you just want a game server running, follow the
 [get started track](/multiplayer-servers/get-started/) instead and come back here for depth.
 
-## How your servers are managed
+The pages are ordered so each one builds on the last. Read them in order the first time.
+
+## What you decide first
 
 - [Hosting models](/multiplayer-servers/concepts/hosting-models) — Armadas for session-based games,
   Formations for persistent servers. This is the first decision you make.
 - [Capacity types](/multiplayer-servers/concepts/capacity-types) — bare metal, GameFabric Cloud and
   bring your own cloud, and when each makes sense.
-- [Armadas and ArmadaSets](/multiplayer-servers/concepts/armadas) — the object model behind
-  auto-scaling fleets.
-- [Formations and Vessels](/multiplayer-servers/concepts/formations) — the object model behind
-  long-lived servers.
 
 ## Where your servers run
 
@@ -28,15 +26,22 @@ If you just want a game server running, follow the
   physical capacity is grouped and presented to you.
 - [Scheduling strategy](/multiplayer-servers/concepts/scheduling-strategy) — how GameFabric decides
   which machine a given game server lands on.
-- [Ping services](/multiplayer-servers/concepts/ping-services) — how clients measure latency so you
-  can route players to the closest region.
+
+## How your servers are managed
+
+- [Armadas and ArmadaSets](/multiplayer-servers/concepts/armadas) — the object model behind
+  auto-scaling fleets.
+- [Formations and Vessels](/multiplayer-servers/concepts/formations) — the object model behind
+  long-lived servers.
 
 ## How players reach your servers
 
 - [Matchmaking](/multiplayer-servers/concepts/matchmaking) — where GameFabric fits alongside your
-  matchmaker.
+  matchmaker, and why allocation exists at all.
 - [Allocators](/multiplayer-servers/concepts/allocators) — the service that assigns a session to a
   specific game server.
+- [Ping services](/multiplayer-servers/concepts/ping-services) — how clients measure latency so you
+  can route players to the closest region.
 
 ## What runs beside your server
 

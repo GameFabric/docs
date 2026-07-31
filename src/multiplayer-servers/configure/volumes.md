@@ -52,10 +52,10 @@ This is a deliberate constraint: two game servers writing the same world data wo
 
 ## Attach a volume to a game server
 
-Attaching happens in two places in the deploy wizard.
+Attaching happens in two parts of the **Container Templates & Volumes** step of the deploy wizard.
 
-1. In the **Volumes** step, declare the volume on the Vessel, Formation or Armada.
-2. In the **Containers** step, add a volume mount to the container that needs it:
+1. Declare the volume on the Vessel, Formation or Armada.
+2. Add a volume mount to the container that needs it:
 
 | Field | Required | Notes |
 |---|---|---|
