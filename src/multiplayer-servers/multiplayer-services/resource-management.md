@@ -31,7 +31,7 @@ The size of the platform-reserved resources can vary by a small margin, but as a
 
 ### Examples
 
-#### Small node: `n4-standard-2` (2 vCPUs, 8Gi RAM)
+#### Small node (2 vCPUs, 8Gi RAM)
 
 - **CPU allocatable for game servers after deducting system- and platform-reserved CPU**: ~1500m
 - **Memory allocatable for game servers after deducting system- and platform-reserved memory**: ~4Gi
@@ -40,7 +40,7 @@ In this scenario, a game server requesting more than ~1500m CPU or more than ~4G
 
 On small nodes, system- and platform-reserved resources account for roughly 50% of total memory, making them less efficient for hosting game servers.
 
-#### Large node: `n4-standard-16` (16 vCPUs, 64Gi RAM)
+#### Large node (16 vCPUs, 64Gi RAM)
 
 - **CPU allocatable for game servers after deducting system- and platform-reserved CPU**: ~15500m
 - **Memory allocatable for game servers after deducting system- and platform-reserved memory**: ~55.25Gi
