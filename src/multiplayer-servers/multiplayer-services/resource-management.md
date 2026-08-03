@@ -5,9 +5,52 @@ Proper resource configuration ensures optimal game performance while controlling
 
 ## Overview
 
-Your game servers run as containers with defined resource constraints.
-These constraints ensure fair resource sharing across multiple game servers on the same physical hardware while preventing
-any single server from consuming excessive resources that could impact other games.
+Your game servers run as containers with defined resource requests.
+These requests ensure that resources are distributed efficiently across multiple game servers on the same physical hardware without wasting capacity.
+
+## Node capacity and platform overhead
+
+Not all node resources (i.e., CPU and memory) are available for your game servers.
+Each node reserves a small portion of its CPU and memory for platform services such as log collection, networking, hardware metrics, connectivity checks, OS update management and optimization of image distribution to enable specific GameFabric platform features and improve the reliability of the node.
+
+The resources available for game server scheduling are:
+
+**Allocatable capacity = Total node resources - System-reserved resources - Platform-reserved resources**
+
+::: warning Scheduling failures
+If a game server's CPU or memory request exceeds the node's allocatable capacity for that resource, scheduling will fail — even with autoscaling enabled, because every newly provisioned node comes with the same allocatable capacity.
+To resolve this, either reduce your per-server resource requests or switch to a larger node type.
+:::
+
+### Typical size of platform-reserved resources
+
+The size of the platform-reserved resources can vary by a small margin, but as a general guideline:
+
+- **CPU**: Approximately 0.5 vCPU (500m) is reserved per node for platform services.
+- **Memory**: Up to 2Gi memory per node is reserved for platform services.
+
+### Examples
+
+#### Small node (2 vCPUs, 8Gi RAM)
+
+- **CPU allocatable for game servers after deducting system- and platform-reserved CPU**: ~1500m
+- **Memory allocatable for game servers after deducting system- and platform-reserved memory**: ~4Gi
+
+In this scenario, a game server requesting more than ~1500m CPU or more than ~4Gi memory cannot be scheduled on any node — regardless of how many nodes autoscaling adds.
+
+On small nodes, system- and platform-reserved resources account for roughly 50% of total memory, making them less efficient for hosting game servers.
+
+#### Large node (16 vCPUs, 64Gi RAM)
+
+- **CPU allocatable for game servers after deducting system- and platform-reserved CPU**: ~15500m
+- **Memory allocatable for game servers after deducting system- and platform-reserved memory**: ~55.25Gi
+
+On larger nodes, the reserved resources make up only about 12% of total memory, leaving significantly more capacity for game servers.
+
+### Sizing your node type
+
+When choosing a node type, ensure that after deducting system- and platform-reserved resources, there is enough allocatable capacity for at least one game server plus a small safety buffer.
+If your game servers require large resource requests, select a node type with proportionally more resources.
 
 ## Resource requests vs limits
 
