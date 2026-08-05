@@ -151,9 +151,3 @@ This guide uses a single Vessel with a hardcoded session name for simplicity. In
 - [GameFabric Allocator](/multiplayer-servers/architecture/allocators)
 - [Allocating from Armadas](/multiplayer-servers/multiplayer-services/server-allocation/allocating-from-armadas)
 - [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview)
-
-## Full Example
-
-The complete source code including the Unity project, Dockerfile, and deployment instructions is available at:
-
-→ [GameFabric Examples: Photon Fusion Integration](https://github.com/GameFabric/examples/tree/main/examples/integrations/photon)
