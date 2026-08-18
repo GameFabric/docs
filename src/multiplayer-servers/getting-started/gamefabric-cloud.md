@@ -7,14 +7,13 @@ server capacity without requiring operator involvement.
 ## Key features
 
 - **Integrated management**: Request, monitor, and remove cloud capacity directly in GameFabric.
-- **Quota-aware provisioning**: Machine types and node counts are filtered to your assigned compute quota, so you can only request what is available to you.
 - **Automated scaling**: Game servers automatically scale into newly provisioned Locations, provided the Location is already part of a Region's Types. Adding it to a Region before provisioning is the recommended setup.
 - **Simplified billing**: No separate cloud provider subscription required. All costs are transparently displayed and delivered through the GameFabric billing system.
 
 ## Limitations
 
 - **Supported providers**: GameFabric Cloud only supports [Google Cloud Platform](https://cloud.google.com/) (GCP).
-- **Resource types**: A curated selection of machine types can be provisioned. Available types are shown when creating a Cloud Object and are filtered by your compute quota.
+- **Resource types**: A curated selection of machine types can be provisioned. Available types are shown in the GameFabric UI when creating a Cloud Object.
 - **BYOC restrictions**: GameFabric Cloud capacity cannot be added at Locations that are already provisioned through <span class="nbsp">Bring Your Own Cloud</span> (BYOC).
 
 ## Concepts
@@ -40,17 +39,6 @@ A Location can have multiple Cloud Objects, each with a different machine type.
 | `Deprovisioning` | Removal is in progress |
 | `Error` | Provisioning failed; the reason is shown on the Cloud Object card |
 
-### Compute quota
-
-Each eligible Location has a **compute quota** per machine-type family that limits how many CPU
-cores can be provisioned. The **Manage Cloud** drawer shows your current usage as a bar (cores
-used / limit) broken down by family. When you create a Cloud Object, the form shows a live
-preview of how your requested node count affects the remaining quota.
-
-::: info
-To increase your quota, contact us through the Help Center link shown in the Manage Cloud drawer.
-:::
-
 ## Required permissions
 
 Managing Cloud Objects requires the following capabilities in the `provisioning` API group:
@@ -66,32 +54,26 @@ necessary capabilities. Contact your account administrator.
 
 ## Provision a Cloud Object
 
-Navigate to the Locations dashboard under <span class="nbsp">**Capacity » Locations**</span> in
-the GameFabric sidebar.
+Open the request form in one of two ways:
 
-1. Find a GameFabric Cloud Location (marked with a **Managed** tag) and click **Manage Cloud** in
-   its row.
+- Click **Request Cloud** in the GameFabric header, or
+- Navigate to <span class="nbsp">**Capacity » Locations**</span>, find a GameFabric Cloud
+  Location (marked with a **Managed** tag), click **Manage Cloud** in its row, then click
+  **Request Cloud Object**.
 
-   <!-- TODO: Screenshot of the Locations list with a managed Location row, highlighting the "Manage Cloud" button in the actions column -->
+<!-- TODO: Screenshot showing both entry points: the "Request Cloud" button in the header and the "Manage Cloud" button on a managed Location row in the Locations list -->
 
-2. The **Manage Cloud** drawer opens, showing any existing Cloud Objects for that Location and
-   your current compute quota usage. Click **Request Cloud Object**.
+Both open the same form. Fill in:
 
-   <!-- TODO: Screenshot of the Manage Cloud drawer in list mode, showing quota usage bars and the "Request Cloud Object" button -->
+- **Cloud Location** — select the GFC Location to provision into.
+- **Machine Type** — select a machine type. Each option shows the vCPU and memory configuration.
+- **Scaling limit — nodes** — enter the number of nodes to provision.
 
-3. Fill in the form:
-   - **Cloud Location** — select the GFC Location to provision into. Only Locations with an
-     assigned compute quota are shown.
-   - **Machine Type** — select a machine type. Options are filtered to families covered by the
-     selected Location's quota. Each option shows the vCPU and memory configuration.
-   - **Scaling limit — nodes** — enter the number of nodes to provision. The form shows the
-     remaining quota and a live preview of the cores your request will consume.
+<!-- TODO: Screenshot of the "Request Cloud Object" form showing the location selector, machine type selector, and node count input -->
 
-   <!-- TODO: Screenshot of the "Request Cloud Object" create form showing the location selector, machine type selector, and node count input with the quota preview bar -->
-
-4. Accept the pricing terms checkbox.
-
-5. Click **Request Cloud Object**.
+Review the pricing terms and check the acknowledgement checkbox to confirm you accept the
+recurring costs before proceeding. Then click **Request Cloud Object**. The drawer shows the
+Manage Cloud view for the selected Location once the request is submitted.
 
 Once submitted, the Cloud Object appears in the drawer with state `Pending`, then transitions to
 `Provisioning`, and finally `Provisioned` when capacity is live. Sites appear under the Location
@@ -134,7 +116,7 @@ You can reduce the node count of a `Provisioned` Cloud Object without removing i
 <!-- TODO: Screenshot of the downsize form showing the node count stepper and the pricing terms checkbox -->
 
 ::: warning
-Node count can only be decreased from this screen, not increased. If you need more capacity,
+Node count can only be decreased, not increased. If you need more capacity,
 request an additional Cloud Object. Downsizing is blocked while a deprovisioning is scheduled.
 :::
 
