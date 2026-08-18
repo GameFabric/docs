@@ -158,9 +158,11 @@ drawer and the Location's Sites are removed.
 
 ## Find managed cloud Locations
 
-The Locations dashboard shows all Locations by default, filtered to those with active Sites.
+The Locations dashboard opens with default filters that exclude unprovisioned and unassigned
+Locations.
 
-To find all managed cloud Locations, select **managed** from the **Filter by Types** dropdown:
+To find all managed cloud Locations, clear the default filters, then select **managed** from the
+**Filter by Types** dropdown:
 
 <!-- TODO: Screenshot of the Locations list with the "Filter by Types" dropdown open and "managed" selected -->
 
