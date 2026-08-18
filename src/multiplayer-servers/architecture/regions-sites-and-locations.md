@@ -152,19 +152,26 @@ The Locations list opens with default filters applied to reduce noise:
 
 Clear these filters to see all Locations including those with no active capacity.
 
-### Requesting GameFabric Cloud capacity
+### Managing GameFabric Cloud capacity
 
-On a Location that supports GameFabric Cloud provisioning, a **Request Cloud Location** button
-appears in the actions column. Clicking it opens a form to request capacity at that Location.
-While provisioning is in progress the row shows a `Provisioning requested` badge. Once complete,
-the Location's type becomes `managed` and Sites appear under it.
+On a GameFabric Cloud Location (marked with a **Managed** tag), a **Manage Cloud** button appears
+in the actions column. Clicking it opens the **Manage Cloud** drawer, where you can view,
+request, resize, and remove **Cloud Objects** — provisioning requests for GFC-managed compute at
+that Location.
 
-To deprovision previously requested capacity, click **Remove Cloud Location** on a managed
-Location. The row shows `Deprovisioning requested` while the operation is in progress.
+- While a Cloud Object is being set up, its state card shows `Provisioning`. Once live, it shows
+  `Provisioned` and Sites appear under the Location.
+- To release capacity, use the **Remove** button on a Cloud Object card and choose between
+  **Immediate** (force-stop all sessions now) or **Delayed** (cordon & drain with a 1–24 hour
+  timer before force-teardown).
+- While removal is in progress the Cloud Object shows `Deprovisioning`.
 
 ::: info
 GameFabric Cloud capacity cannot be added to Locations that already have BYOC capacity.
 :::
+
+For a full walkthrough of the provisioning and deprovisioning flows, see
+[GameFabric Cloud](/multiplayer-servers/getting-started/gamefabric-cloud).
 
 ### Cross-references in the Locations view
 
