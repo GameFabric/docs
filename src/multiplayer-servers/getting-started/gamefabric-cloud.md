@@ -31,23 +31,34 @@ A Location can have multiple Cloud Objects, each with a different machine type.
 
 ### Cloud Object states
 
-| State | Meaning |
-|---|---|
-| `Pending` | The request has been submitted and is queued |
-| `Provisioning` | Infrastructure is being created |
-| `Provisioned` | Capacity is live and available for game server scheduling |
-| `Deprovisioning` | Removal is in progress |
-| `Error` | Provisioning failed; the reason is shown on the Cloud Object card |
+| State            | Meaning                                                           |
+|------------------|-------------------------------------------------------------------|
+| `Pending`        | The request has been submitted and is queued                      |
+| `Provisioning`   | Infrastructure is being created                                   |
+| `Provisioned`    | Capacity is live and available for game server scheduling         |
+| `Deprovisioning` | Removal is in progress                                            |
+| `Error`          | Provisioning failed; the reason is shown on the Cloud Object card |
+
+## Quotas
+
+Access to GameFabric Cloud capacity is governed by quotas. Quotas apply per
+Location, and per machine type family, and control how much compute can be provisioned at any
+given time.
+
+Cloud Locations themselves come with a predefined set of available machine types and quota
+limits. If they do not meet your requirements, you can request a different quota,
+different machine types, and in exceptional cases different locations through the 
+Help Center or by contacting the Customer Success Management team.
 
 ## Required permissions
 
 Managing Cloud Objects requires the following capabilities in the `provisioning` API group:
 
-| Action | Required capability |
-|---|---|
-| Request a Cloud Object | `clouds: post` |
-| Downsize or schedule removal | `clouds: patch` |
-| Remove a Cloud Object | `clouds: delete` |
+| Action                       | Required capability |
+|------------------------------|---------------------|
+| Request a Cloud Object       | `clouds: post`      |
+| Downsize or schedule removal | `clouds: patch`     |
+| Remove a Cloud Object        | `clouds: delete`    |
 
 If the **Manage Cloud** button is not visible on a Location row, your Role does not include the
 necessary capabilities. Contact your account administrator.
@@ -65,7 +76,7 @@ Open the request form in one of two ways:
 
 Both open the same form. Fill in:
 
-- **Cloud Location** — select the GFC Location to provision into.
+- **Cloud Location** — select the GameFabric Cloud Location to provision into.
 - **Machine Type** — select a machine type. Each option shows the vCPU and memory configuration.
 - **Scaling limit — nodes** — enter the number of nodes to provision.
 
@@ -152,7 +163,7 @@ To remove a Cloud Object and deprovision the underlying infrastructure:
 5. Click **Remove Cloud Object**.
 
 The Cloud Object transitions to `Deprovisioning` state. Once complete, it disappears from the
-drawer and the Location's Sites are removed.
+drawer and the Sites associated with this Cloud Object are removed.
 
 ## Find managed cloud Locations
 

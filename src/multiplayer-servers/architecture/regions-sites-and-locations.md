@@ -157,7 +157,7 @@ Clear these filters to see all Locations including those with no active capacity
 On a GameFabric Cloud Location (marked with a **Managed** tag), a **Manage Cloud** button appears
 in the actions column. Clicking it opens the **Manage Cloud** drawer, where you can view,
 request, downsize, and remove **Cloud Objects** — provisioning requests for GameFabric-managed
-that Location.
+compute at that Location.
 
 - While a Cloud Object is being set up, its state card shows `Provisioning`. Once live, it shows
   `Provisioned` and Sites appear under the Location.
