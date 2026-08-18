@@ -126,8 +126,6 @@ To remove a Cloud Object and deprovision the underlying infrastructure:
 
 1. Open **Manage Cloud** for the Location.
 2. Click **Remove** on the Cloud Object card.
-
-   <!-- TODO: Screenshot of a Cloud Object card with the "Remove" button highlighted -->
 3. The **Remove Cloud Object** dialog opens. Choose a deprovisioning mode:
 
    ### Immediate
@@ -164,12 +162,9 @@ Locations.
 To find all managed cloud Locations, clear the default filters, then select **managed** from the
 **Filter by Types** dropdown:
 
-<!-- TODO: Screenshot of the Locations list with the "Filter by Types" dropdown open and "managed" selected -->
-
 To narrow to only Locations with active capacity, also select **used** from the **Filter by
 Sites** dropdown:
 
-<!-- TODO: Screenshot of the Locations list filtered by both "managed" type and "used" site state -->
 ## Important configuration
 
 ### Configure regions (required)
