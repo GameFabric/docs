@@ -61,7 +61,7 @@ Open the request form in one of two ways:
   Location (marked with a **Managed** tag), click **Manage Cloud** in its row, then click
   **Request Cloud Object**.
 
-<!-- TODO: Screenshot showing both entry points: the "Request Cloud" button in the header and the "Manage Cloud" button on a managed Location row in the Locations list -->
+![Locations list showing managed Location rows with the "Manage Cloud" button and the "Request Cloud" button in the page header](images/cloud/locations-overview.png)
 
 Both open the same form. Fill in:
 
@@ -69,7 +69,7 @@ Both open the same form. Fill in:
 - **Machine Type** — select a machine type. Each option shows the vCPU and memory configuration.
 - **Scaling limit — nodes** — enter the number of nodes to provision.
 
-<!-- TODO: Screenshot of the "Request Cloud Object" form showing the location selector, machine type selector, and node count input -->
+![Request Cloud Object form showing the location selector, machine type selector, node count input, and pricing terms acknowledgement checkbox](images/cloud/manage-cloud-form.png)
 
 Review the pricing terms and check the acknowledgement checkbox to confirm you accept the
 recurring costs before proceeding. Then click **Request Cloud Object**. The drawer shows the
@@ -98,7 +98,7 @@ Open **Manage Cloud** on a Location to see all Cloud Objects as cards. Each card
 - CPU and memory of the machine type.
 - If a delayed removal is scheduled, the time remaining until force-teardown.
 
-<!-- TODO: Screenshot of the Manage Cloud drawer in list mode showing one or more Cloud Object cards with their state tags, machine type details, and action buttons -->
+![Manage Cloud drawer showing a Cloud Object card with its state tag, machine type details, and Decrease capacity and Remove action buttons](images/cloud/manage-cloud-list.png)
 
 If a Cloud Object is in `Error` state, a warning icon appears on the card. Hover over it to read
 the reason.
@@ -113,7 +113,7 @@ You can reduce the node count of a `Provisioned` Cloud Object without removing i
 4. Accept the pricing terms checkbox.
 5. Click **Decrease Capacity**.
 
-<!-- TODO: Screenshot of the downsize form showing the node count stepper and the pricing terms checkbox -->
+![Downsize form showing the node count stepper and pricing terms checkbox](images/cloud/manage-cloud-downsize.png)
 
 ::: warning
 Node count can only be decreased, not increased. If you need more capacity,
@@ -128,7 +128,6 @@ To remove a Cloud Object and deprovision the underlying infrastructure:
 2. Click **Remove** on the Cloud Object card.
 
    <!-- TODO: Screenshot of a Cloud Object card with the "Remove" button highlighted -->
-
 3. The **Remove Cloud Object** dialog opens. Choose a deprovisioning mode:
 
    ### Immediate
@@ -149,7 +148,7 @@ To remove a Cloud Object and deprovision the underlying infrastructure:
    point forward.
    :::
 
-   <!-- TODO: Screenshot of the "Remove Cloud Object" dialog showing both deprovisioning mode options (Immediate and Delayed), the delay hours input (visible when Delayed is selected), and the consent checkbox -->
+   ![Remove Cloud Object dialog showing the Immediate and Delayed deprovisioning options, the delay hours input (with Delayed selected), and the consent checkbox](images/cloud/remove-cloud-dialog.png)
 
 4. Accept the consent checkbox confirming the removal is permanent.
 5. Click **Remove Cloud Object**.
@@ -163,13 +162,12 @@ The Locations dashboard shows all Locations by default, filtered to those with a
 
 To find all managed cloud Locations, select **managed** from the **Filter by Types** dropdown:
 
-<!-- TODO: Screenshot of the Locations list with the "Filter by Types" dropdown open and "managed" selected, showing managed Locations in the list -->
+<!-- TODO: Screenshot of the Locations list with the "Filter by Types" dropdown open and "managed" selected -->
 
 To narrow to only Locations with active capacity, also select **used** from the **Filter by
 Sites** dropdown:
 
 <!-- TODO: Screenshot of the Locations list filtered by both "managed" type and "used" site state -->
-
 ## Important configuration
 
 ### Configure regions (required)
