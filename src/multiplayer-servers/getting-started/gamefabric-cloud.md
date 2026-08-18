@@ -132,9 +132,9 @@ To remove a Cloud Object and deprovision the underlying infrastructure:
 
    ### Immediate
 
-   All active game sessions in the Location are force-stopped instantly and infrastructure is
-   torn down right away. Use this when you need to release capacity immediately and have no
-   active players in the Location.
+   Active game sessions using this Cloud Object's capacity are force-stopped immediately, and its
+   infrastructure is torn down. Use this when you need to release capacity immediately and have no
+   active players using this Cloud Object.
 
    ### Delayed — cordon & drain
 
