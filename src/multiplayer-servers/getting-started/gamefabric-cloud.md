@@ -9,7 +9,7 @@ Cloud capacity is requested per Location. Each request specifies a machine type 
 Navigate to <span class="nbsp">**Capacity » Locations**</span> and either:
 
 - Click **Request Cloud** in the page header, or
-- Find a GameFabric Cloud Location and click **Manage Cloud** in its row, then **Request Cloud Object**.
+- Find a GameFabric Cloud Location and click **Manage Cloud** in its row, then click **Request Cloud Object**.
 
 ![Locations list showing managed Location rows with the "Manage Cloud" button and the "Request Cloud" button in the page header](images/cloud/locations-overview.png)
 
@@ -69,23 +69,25 @@ To remove a Cloud Location and deprovision the underlying infrastructure:
 
 1. Open **Manage Cloud** for the Location.
 2. Click **Remove** on the Cloud Location card.
-3. Choose a deprovisioning mode.
+3. Choose a [deprovisioning mode](#deprovision-modes) (explained below).
+4. Accept the consent checkbox confirming the removal is permanent.
+5. Click **Remove Cloud Location**.
 
 ![Remove Cloud Object dialog showing the Immediate and Delayed deprovisioning options, the delay hours input (with Delayed selected), and the consent checkbox](images/cloud/remove-cloud-dialog.png)
+
+### Deprovision modes
 
 **Immediate** — Active game sessions using this Cloud Location's capacity are force-stopped and the infrastructure is torn down right away. 
 Use this when you need to release capacity immediately and no active players are using this Cloud Location.
 
-**Delayed (cordon & drain)** — New game server allocations stop immediately, but the cluster stays alive so running sessions can finish naturally. 
-Set a delay of up to 24 hours.
-Once the timer expires, infrastructure is force-torn down even if game servers are still running.
+**Delayed (cordon & drain)** — New game server allocations stop immediately, but the cluster stays alive so running sessions can finish naturally. Set a delay of up to 24 hours. Once the timer expires, infrastructure is force-torn down even if game servers are still running.
 
 ::: warning
-Billing continues for the full duration of the delay countdown. Once a delayed removal is in progress it cannot be cancelled. Only **Immediate** removal remains available from that point forward.
-:::
+Billing continues for the full duration of the delay countdown. 
+Once a delayed removal is in progress it cannot be cancelled. 
+Only **Immediate** removal remains available from that point forward.
 
-4. Accept the consent checkbox confirming the removal is permanent.
-5. Click **Remove Cloud Location**.
+:::
 
 The Cloud Location transitions to `Deprovisioning` state. Once complete, it disappears from the drawer and the associated Sites are removed.
 
