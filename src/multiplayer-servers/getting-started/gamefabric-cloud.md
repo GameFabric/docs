@@ -65,11 +65,10 @@ necessary capabilities. Contact your account administrator.
 
 ## Provision a Cloud Object
 
-Open the request form in one of two ways:
+Navigate to <span class="nbsp">**Capacity » Locations**</span> and either:
 
-- Click **Request Cloud** in the GameFabric header, or
-- Navigate to <span class="nbsp">**Capacity » Locations**</span>, find a GameFabric Cloud
-  Location (marked with a **Managed** tag), click **Manage Cloud** in its row, then click
+- Click **Request Cloud** in the page header, or
+- Find a GameFabric Cloud Location and click **Manage Cloud** in its row.
   **Request Cloud Object**.
 
 ![Locations list showing managed Location rows with the "Manage Cloud" button and the "Request Cloud" button in the page header](images/cloud/locations-overview.png)
@@ -170,7 +169,7 @@ drawer and the Sites associated with this Cloud Object are removed.
 The Locations dashboard opens with default filters that exclude unprovisioned and unassigned
 Locations.
 
-To find all managed cloud Locations, clear the default filters, then select **managed** from the
+To find all managed cloud Locations, clear the default filters, then select **gamefabric** from the
 **Filter by Types** dropdown:
 
 To narrow to only Locations with active capacity, also select **used** from the **Filter by
