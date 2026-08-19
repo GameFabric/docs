@@ -4,12 +4,12 @@ GameFabric Cloud enables self-service provisioning and deprovisioning of cloud c
 
 ## Provision a Cloud Location
 
-Cloud capacity is requested per Location. Each request specifies a machine type and a node count (the scaling limit). Multiple requests can be made per Location.
+Cloud capacity is requested per Location. Each request specifies a machine type and a node count (the scaling limit).
 
 Navigate to <span class="nbsp">**Capacity » Locations**</span> and either:
 
 - Click **Request Cloud** in the page header, or
-- Find a GameFabric Cloud Location and click **Manage Cloud** in its row, then click **Request Cloud Object**.
+- [Find a GameFabric Cloud Location](#find-managed-cloud-locations) and click **Manage Cloud** in its row.
 
 ![Locations list showing managed Location rows with the "Manage Cloud" button and the "Request Cloud" button in the page header](images/cloud/locations-overview.png)
 
@@ -22,23 +22,23 @@ Fill in the form:
 If a desired Location or Machine Type is not available, or when a Scaling Limit is not sufficient, contact the Help Center to request a quota change.
 See also [Quotas and other limitations](#quotas-and-other-limitations).
 
-![Request Cloud Object form showing the location selector, machine type selector, node count input, and pricing terms acknowledgement checkbox](images/cloud/manage-cloud-form.png)
+![Request Cloud Location form showing the location selector, machine type selector, node count input, and pricing terms acknowledgement checkbox](images/cloud/manage-cloud-form.png)
 
-Review the pricing terms, check the acknowledgement checkbox, and click **Request Cloud Object**.
+Review the pricing terms, check the acknowledgement checkbox, and click **Request Cloud Location**.
 
-The Cloud Object appears in the drawer and moves through the following states:
+The Cloud Location appears in the drawer and moves through the following states:
 
-| State            | Meaning                                                           |
-|------------------|-------------------------------------------------------------------|
-| `Pending`        | The request has been submitted and is queued                      |
-| `Provisioning`   | Infrastructure is being created                                   |
-| `Provisioned`    | Capacity is live and available for game server scheduling         |
-| `Deprovisioning` | Removal is in progress                                            |
-| `Error`          | Provisioning failed; the reason is shown on the Cloud Object card |
+| State            | Meaning                                                             |
+|------------------|---------------------------------------------------------------------|
+| `Pending`        | The request has been submitted and is queued                        |
+| `Provisioning`   | Infrastructure is being created                                     |
+| `Provisioned`    | Capacity is live and available for game server scheduling           |
+| `Deprovisioning` | Removal is in progress                                              |
+| `Error`          | Provisioning failed; the reason is shown on the Cloud Location card |
 
-Once `Provisioned`, Sites appear under the Location. Open **Manage Cloud** on a Location at any time to see all Cloud Objects as cards with their current state, machine type details, and scaling limit.
+Once `Provisioned`, Sites appear under the Location. Open **Manage Cloud** on a Location at any time to see all Cloud Locations as cards with their current state, machine type details, and scaling limit.
 
-![Manage Cloud drawer showing a Cloud Object card with its state tag, machine type details, and Decrease capacity and Remove action buttons](images/cloud/manage-cloud-list.png)
+![Manage Cloud drawer showing a Cloud Location card with its state tag, machine type details, and Decrease capacity and Remove action buttons](images/cloud/manage-cloud-list.png)
 
 ::: tip
 Ensure your Regions include the cloud Location so that newly provisioned capacity is used by your Armadas and Vessels automatically. See [Regions, Sites & Locations](/multiplayer-servers/architecture/regions-sites-and-locations).
@@ -46,10 +46,10 @@ Ensure your Regions include the cloud Location so that newly provisioned capacit
 
 ## Resize a Cloud Location
 
-You can reduce the node count of a `Provisioned` Cloud Object without removing it:
+You can reduce the node count of a `Provisioned` Cloud Location without removing it:
 
 1. Open **Manage Cloud** for the Location.
-2. Click **Decrease capacity** on the Cloud Object card.
+2. Click **Decrease capacity** on the Cloud Location card.
 3. Enter the new node count. It must be lower than the current count and at least 1.
 4. Accept the pricing terms checkbox.
 5. Click **Decrease Capacity**.
@@ -60,7 +60,7 @@ Editing to increase the node count is not supported, as capacity is already boun
 To get more capacity of the same machine type at a Location, request an additional Cloud Location at the same Location.
 
 ::: warning
-Downsizing is blocked while a deprovisioning is scheduled for the Cloud Object.
+Downsizing is blocked while a deprovisioning is scheduled for the Cloud Location.
 :::
 
 ## Deprovision a Cloud Location
@@ -73,7 +73,7 @@ To remove a Cloud Location and deprovision the underlying infrastructure:
 4. Accept the consent checkbox confirming the removal is permanent.
 5. Click **Remove Cloud Location**.
 
-![Remove Cloud Object dialog showing the Immediate and Delayed deprovisioning options, the delay hours input (with Delayed selected), and the consent checkbox](images/cloud/remove-cloud-dialog.png)
+![Remove Cloud Location dialog showing the Immediate and Delayed deprovisioning options, the delay hours input (with Delayed selected), and the consent checkbox](images/cloud/remove-cloud-dialog.png)
 
 ### Deprovision modes
 
@@ -111,12 +111,7 @@ Capacity cannot be added at Locations already provisioned through <span class="n
 
 ## Required permissions
 
-Managing Cloud Objects requires the following capabilities in the `provisioning` API group:
+To provision a Cloud Location, a user must have `post` capability on the `clouds` resource in the `provisioning/v1beta2` API group.
+To resize or deprovision a Cloud Location, `patch` and `put` capabilities are required, where as deprovision also requires `delete` capability.
 
-| Action                       | Required capability |
-|------------------------------|---------------------|
-| Request a Cloud Object       | `clouds: post`      |
-| Downsize or schedule removal | `clouds: patch`     |
-| Remove a Cloud Object        | `clouds: delete`    |
-
-If the **Manage Cloud** button is not visible on a Location row, your Role does not include the necessary capabilities. Contact your account administrator.
+If the **Manage Cloud** button is not clickable on a Location row, your Role does not include the necessary capabilities.
