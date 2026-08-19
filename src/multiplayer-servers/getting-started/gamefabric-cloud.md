@@ -107,8 +107,7 @@ Quotas apply per Location and per machine type family, controlling how much comp
 Cloud Locations come with a predefined set of available machine types, quota limits, and supported regions. 
 If these do not meet your requirements, contact the Help Center to request different quotas, machine types, or in exceptional cases also locations.
 
-GameFabric Cloud only supports [Google Cloud Platform](https://cloud.google.com/) (GCP). 
-Capacity cannot be added at Locations already provisioned through <span class="nbsp">Bring Your Own Cloud</span> (BYOC).
+GameFabric Cloud only supports [Google Cloud Platform](https://cloud.google.com/) (GCP).
 
 ## Required permissions
 
