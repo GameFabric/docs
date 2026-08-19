@@ -75,6 +75,15 @@ To remove a Cloud Location and deprovision the underlying infrastructure:
 
 ![Remove Cloud Location dialog showing the Immediate and Delayed deprovisioning options, the delay hours input (with Delayed selected), and the consent checkbox](images/cloud/remove-cloud-dialog.png)
 
+::: warning
+Billing continues for the full duration of the delay countdown.
+Once a delayed removal is in progress it cannot be cancelled.
+Only **Immediate** removal remains available from that point forward.
+
+:::
+
+The Cloud Location transitions to `Deprovisioning` state. Once complete, it disappears from the drawer and the associated Sites are removed.
+
 ### Deprovision modes
 
 **Immediate** — Active game sessions using this Cloud Location's capacity are force-stopped and the infrastructure is torn down right away. 
@@ -82,14 +91,6 @@ Use this when you need to release capacity immediately and no active players are
 
 **Delayed (cordon & drain)** — New game server allocations stop immediately, but the cluster stays alive so running sessions can finish naturally. Set a delay of up to 24 hours. Once the timer expires, infrastructure is force-torn down even if game servers are still running.
 
-::: warning
-Billing continues for the full duration of the delay countdown. 
-Once a delayed removal is in progress it cannot be cancelled. 
-Only **Immediate** removal remains available from that point forward.
-
-:::
-
-The Cloud Location transitions to `Deprovisioning` state. Once complete, it disappears from the drawer and the associated Sites are removed.
 
 ## Find managed Cloud Locations
 
