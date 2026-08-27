@@ -823,8 +823,8 @@ With OpenTofu:
 
 ```shell
 tofu init
-tofu plan
-tofu apply
+tofu plan -var="customer_subscription_id=00000000-0000-0000-0000-000000000000"
+tofu apply -var="customer_subscription_id=00000000-0000-0000-0000-000000000000"
 ```
 
 With Terraform:
