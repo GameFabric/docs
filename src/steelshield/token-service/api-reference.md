@@ -38,10 +38,38 @@ See [Authentication Types](/steelshield/token-service/authentication-types) for 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `environment` | string | Yes | An arbitrary identifier for the *game client*'s environment. Not the same as the *Token Service*'s **Environment** configuration. |
-| `authProvider` | string | Yes | When using **Custom Keys** or **JWKS** authentication, the `authProvider` value is the **Developer** name configured in the Token Service. When using **EOS** authentication, the `authProvider` is always `eos`. |
+| `authProvider` | string | Yes | Identifies the source of the `gameClientToken`. Use `eos` for **EOS**, or your GameFabric tenant name for **Custom Keys**, **Generated Keys**, and **JWKS**. See [authProvider](#authprovider) for details. |
 | `gameClientToken` | string | Yes | A JSON Web Token (JWT) identifying the client, as handed out by the authentication provider. For **Custom keys** or **JWKS** authentication, the JWT payload must contain a `ui` field providing the player's ID. |
 | `clientVersion` | string | Yes | The version of the game client making the request. |
 | `userLocalTime` | string | No | The current timestamp of the system the game client is running on (RFC 3339 format). Used to detect client-side time drift. |
+
+#### authProvider
+
+The `authProvider` value identifies the source of the `gameClientToken`.
+The Token Service compares it with the value it was provisioned with, and rejects the request if they do not match.
+The correct value depends on the authentication method of your Token Service.
+See [Authentication Types](/steelshield/token-service/authentication-types) for details on each method.
+
+- **EOS authentication**: always `eos`, regardless of your tenant name.
+- **Custom Keys**, **Generated Keys**, or **JWKS** authentication: your GameFabric tenant name (the first segment of your GameFabric installation URL, e.g. `example` in `https://example.gamefabric.dev`).
+
+GameFabric determines the provisioned value when it creates your Token Service.
+You do not configure it in the GameFabric UI; your game client has to send it in every request.
+On *Development* Token Services, a mismatch results in a `400` error, while *Production* instances respond with success and a non-functional token instead (see [Error responses](#error-responses)).
+
+You can find the value in the Token Service endpoint URL: it is the segment after `v1` in the path.
+
+The following example shows a request for a Token Service of the tenant `example` that uses **Custom Keys** authentication:
+
+```json
+{
+  "environment": "prod",
+  "authProvider": "example",
+  "gameClientToken": "<JWT signed by your authentication backend>",
+  "clientVersion": "1.0.0",
+  "userLocalTime": "2024-02-01T09:00:22Z"
+}
+```
 
 ## Response
 
