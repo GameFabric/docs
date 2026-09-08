@@ -24,6 +24,10 @@
       "link": "/monitoring/audit-log-exports"
     },
     {
+      "text": "Events",
+      "link": "/monitoring/events"
+    },
+    {
       "text": "Debugging",
       "link": "/monitoring/debugging"
     },
