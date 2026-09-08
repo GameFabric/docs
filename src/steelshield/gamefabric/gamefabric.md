@@ -4,7 +4,7 @@ By default, every service started in GameFabric has Level 1 protection in place.
 
 Correctly configured services greatly reduce the impact on your players during larger attacks. Basic rate limiting drops both good and bad traffic. With Level 2 protection, SteelShield uses the information you provide to keep good player traffic flowing to the server while it mitigates the attack traffic.
 
-## How to configure Level 2+ protection for game servers
+## Configuring Level 2+ protection for game servers
 
 To enable higher levels of protection for your game servers:
 
