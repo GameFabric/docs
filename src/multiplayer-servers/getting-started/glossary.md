@@ -181,10 +181,6 @@ Locations are managed by Nitrado for all capacity types. To request bare metal o
 
 See also [Capacity Types](/multiplayer-servers/architecture/capacity-types) and [Region](#region).
 
-## Mitigation
-
-See also [SteelShield docs](/steelshield/gamefabric/gamefabric#mitigations).
-
 ## Observability tap
 
 The observability tap exposes your GameFabric installation's [monitoring](/multiplayer-servers/monitoring/introduction) data to external tooling. It provides read-only access to a Prometheus-compatible metrics API and a Loki-compatible logs API, allowing you to query metrics and logs from your own observability stack.
