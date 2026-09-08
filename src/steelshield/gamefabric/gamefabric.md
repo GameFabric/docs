@@ -67,7 +67,7 @@ Use Gateway Policies when your server communicates with other backend services w
 
 An attacker can perform a reflection attack against your backend service provider by spoofing the main IP of your game server. The provider can interpret this traffic as an attack from your game server and start blocking it. As a result, your game server loses connectivity with your backend services.
 
-A Gateway Policy hides the IP address used to communicate with your backend service. The attacker cannot use that address in a reflection attack against your provider, so your game server keeps communicating with your backend services.
+A Gateway Policy routes backend traffic through separate gateway IP addresses that are typically unknown to attackers. This makes spoofing the game server's main IP address largely ineffective at disrupting communication with your backend services.
 
 For the best protection, configure a Gateway Policy for all your backend services. This prevents attacks on the main game IP from disrupting how your servers communicate with those services.
 
