@@ -183,7 +183,7 @@ See also [Capacity Types](/multiplayer-servers/architecture/capacity-types) and 
 
 ## Mitigation
 
-See also [SteelShield docs](/steelshield/gamefabric/gamefabric#mitigations).
+See also [Ports and Protocols](/multiplayer-servers/multiplayer-services/server-protection/protocols#mitigations).
 
 ## Observability tap
 
@@ -343,7 +343,7 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-status
 
 ## Protection Protocol
 
-See also [SteelShield docs](/steelshield/gamefabric/gamefabric#managing-protocols).
+See also [Ports and Protocols](/multiplayer-servers/multiplayer-services/server-protection/protocols#protocols).
 
 ## Vessel
 
