@@ -9,7 +9,7 @@ Navigate to **SteelShield™ → Token Services** in the left sidebar to open th
 ![Token Services table](images/token-services-table.png)
 
 The list shows every Token Service with its current **state**, **endpoint** for each enabled platform, and the **platform key** needed to contact them.
-If the state has a reason, hover over the question mark icon next to it to read the reason.
+If the state has a **reason**, hover over the question mark icon next to it to read the reason.
 
 ## Adding a Token Service
 
@@ -45,11 +45,13 @@ Choose one of the following authentication methods:
 
 See [Authentication Types](/steelshield/token-service/authentication-types) for full details.
 
-#### Custom/Generated Keys
+#### Custom Keys
 
 Upload one or more PEM public keys and specify a signing algorithm for each. Supported algorithms are RS256, RS384, RS512, ES256, ES384, and ES512.
 
-Alternatively, you can generate an RSA key pair locally in the web interface.
+#### Generated Keys
+
+Instead of providing your own keys, generate an RSA key pair locally in the web interface.
 
 ::: warning
 The private key never reaches GameFabric's backend. It is shown only once and cannot be retrieved later.
@@ -98,15 +100,15 @@ To rotate the key:
 3. Choose one of two options:
    - **New custom key**: upload a new PEM public key file or paste the PEM content, then select a signing algorithm.
    - **Generate new pair**: click **Generate New Key Pair** to create a new RSA key pair in the browser. The private key is shown only once and cannot be retrieved later.
-4. Click **Done** to exit the key input and then **Save** to finally apply the new key.
+4. Click **Done** to exit the key input, then click **Save** to apply the new key.
 
 ::: warning
 Generating a new key pair invalidates the current public key **immediately**.
-Existing integrations using the old key will stop authenticating until they are updated with the new public key.
+Existing integrations that use the old key stop authenticating until you update them with the new public key.
 :::
 
 ::: warning
-The private key generated during key rotation is shown only once. Make sure to save it securely before closing the dialog.
+The private key generated during key rotation is shown only once. Save it securely before closing the dialog.
 :::
 
 The new key takes effect immediately on save. The Token Service does **not** enter a pending state during key rotation.
@@ -129,6 +131,6 @@ Each Token Service has a status that reflects its current state:
 
 - **Pending**: the Token Service is being provisioned or updated.
 - **Available**: the Token Service is ready to accept requests.
-- **Error**: the Token Service encountered an error. An error reason is displayed alongside the status.
+- **Error**: the Token Service encountered an error. GameFabric displays an error reason alongside the status.
 
 When a Token Service is available, its status includes a hostname and platform keys for authenticating requests.
