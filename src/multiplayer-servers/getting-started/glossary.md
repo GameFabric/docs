@@ -339,7 +339,7 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-status
 
 ## Protection Protocol
 
-See also [SteelShield docs](/steelshield/gamefabric/gamefabric#managing-protocols).
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-protocols).
 
 ## Vessel
 
