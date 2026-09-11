@@ -1,6 +1,6 @@
 # Configure protection in GameFabric
 
-By default, every service started in GameFabric has Level 1 protection in place. Level 1 protection handles smaller attacks with rate limiting. For stronger protection against larger attacks, configure Level 2 protection for your services wherever possible.
+By default, every service started in GameFabric has Level 1 protection in place. Level 1 protection handles smaller attacks with rate limiting. For stronger protection against larger attacks, configure Level 2 protection for your services wherever possible. See [Protection Levels](/steelshield/gamefabric/introduction#protection-levels) for information about the different levels.
 
 Correctly configured services greatly reduce the impact on your players during larger attacks. Basic rate limiting drops both good and bad traffic. With Level 2 protection, SteelShield uses the information you provide to keep good player traffic flowing to the server while it mitigates the attack traffic.
 
@@ -30,7 +30,7 @@ To enable higher levels of protection for your game servers:
 
 ![Screenshot of the Container Ports settings page showing how to select a Protection Protocol for each port.](images/ports_legacy.png)
 
-### Protection Protocols
+### Protection protocols
 
 GameFabric provides the following protection protocols:
 
@@ -82,9 +82,9 @@ To check your protection status:
 
 The system shows one of three protection states:
 
-- **Unprotected**: No nodes in this site have protection
-- **Protected**: All nodes in this site have protection
-- **Partially Protected**: Some nodes in this site have protection
+- **Unprotected**: No nodes in this site have protection.
+- **Protected**: All nodes in this site have protection.
+- **Partially Protected**: Some nodes in this site have protection.
 
 ::: info
 **Partially Protected** may also appear when all your nodes are protected but buffer nodes are not. For regular operations, this means all your capacity is protected.
