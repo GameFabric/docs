@@ -167,6 +167,14 @@ See also [SteelShield docs](/steelshield/gamefabric/gamefabric#gateway-policies)
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#group).
 
+## Image promotion
+
+Image promotion copies a container image from one [branch](#branch) to another and optionally assigns it a new tag. For example, after testing an image in a QA branch, you can promote it to a production branch.
+
+In the UI, open the branch view, open the image's three-dot menu, and select **Promote Image**. Select the target **Branch** and optionally enter a new **Tag**.
+
+To promote an image through the API, create an `ImagePromotion` resource. See [Creating an ImagePromotion](/multiplayer-servers/api/examples#step-2-create-the-imagepromotion) for an example.
+
 ## Kubernetes
 
 Kubernetes is the open-source container orchestration platform that powers GameFabric's infrastructure. It manages the deployment, scaling, and operation of your game servers across [Sites](#site). While GameFabric abstracts most Kubernetes complexity, some concepts like [pods](#pod) and [containers](#container) appear in the documentation and UI.
