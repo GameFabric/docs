@@ -1,7 +1,7 @@
 # Events
 
 ::: info Availability
-Events are currently in alpha and available only to customers enrolled in the private preview. Contact your Customer Success Manager to discuss enrollment.
+Events are currently available only to customers enrolled in the private preview. Contact your Customer Success Manager to request enrollment.
 :::
 
 Events are system-level occurrences reported by GameFabric components, such as image promotions, location syncs, and security detections. Use the Events feature to monitor activity across your installation, investigate incidents, and correlate related occurrences across time.
