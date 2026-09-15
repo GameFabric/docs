@@ -1,5 +1,9 @@
 # Events
 
+::: info Availability
+Events are currently available only to customers enrolled in the private preview. Contact your Customer Success Manager to request enrollment.
+:::
+
 Events are system-level occurrences reported by GameFabric components, such as image promotions, location syncs, and security detections. Use the Events feature to monitor activity across your installation, investigate incidents, and correlate related occurrences across time.
 
 GameFabric surfaces events in two places: the event panel (accessible from the bell icon on any page) for a quick view of recent activity, and the Events page for a full searchable log.
