@@ -18,7 +18,7 @@ In order to protect your game server's traffic, your GameFabric installation req
 ## Mitigations
 
 SteelShield provides mitigations that are tailored to check and only allow specific network traffic.
-To make use of the pre-defined mitigations you must create a new Protocol.
+These mitigations are made available to you through pre-defined Protocols.
 
 ## Protocols
 
@@ -26,17 +26,16 @@ A Protocol — sometimes referred to as Protection Protocol,
 to distinguish it from a network protocol such as UDP or TCP,
 describes the application protocol used by your game or service.
 
+Protocols are provided by GameFabric and cannot be created or edited in the UI.
+
 Some Mitigations only support specific network protocols, such as UDP and TCP.
-In those cases, it is impossible to select a network protocol that is not supported by the Mitigation you selected.
+For this reason, each provided Protocol supports only the network protocols allowed by its underlying Mitigation.
 
-![create-protocol.png](images/create-protocol.png)
-
-::: warning
-You can restrict your Protocol to only support either UDP or TCP, even though the Mitigation would allow both.
-Allowing both protocols while only one is supported by the Mitigation is not allowed.
+::: tip
+A provided Protocol may be restricted to only support either UDP or TCP, even when its Mitigation would allow both.
 :::
 
-Once the Protocol is created, you may use it in any ArmadaSet, Armada, Formation or Vessel.
+The provided Protocols can be used in any ArmadaSet, Armada, Formation or Vessel.
 In order to do so, in their Container configuration page, you must select a Protection Protocol for each game server port.
 
 ## Protect game server ports

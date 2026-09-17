@@ -9,18 +9,6 @@ To enable protection for your game servers:
 
 ![Screenshot of the Container Ports settings page showing how to select a Protection Protocol for each port.](images/ports.png)
 
-# Managing Protocols
-
-To manage your Protection Protocols:
-
-1. Go to `SteelShield` → `Protocols`
-
-# Mitigations
-
-To view available mitigations:
-
-1. Go to `SteelShield` → `Mitigations`
-
 # Gateway Policies
 
 Gateway Policies control which external IP addresses can reach your service without passing through SteelShield.
