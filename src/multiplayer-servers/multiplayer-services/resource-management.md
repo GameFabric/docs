@@ -132,7 +132,7 @@ Choose exclusive cores only when your workload benefits from dedicated CPU acces
 
 On GameFabric bare metal nodes, the `prefer-align-cpus-by-uncorecache` CPU Manager policy option is enabled. When Kubernetes selects the pinned CPUs, it prefers CPUs that share a CPU cache to improve cache efficiency. This behavior requires no additional game-server configuration.
 
-::: caution Exclusive cores are usually less efficient
+::: warning Exclusive cores are usually less efficient
 Most game servers should use fractional CPU requests without CPU limits.
 Exclusive full cores reserve entire cores for one game server, so unused CPU capacity cannot be allocated to other game servers.
 This usually fits fewer game servers on each node, wastes resources, and increases capacity costs.
