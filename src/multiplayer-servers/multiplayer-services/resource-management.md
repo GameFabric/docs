@@ -130,7 +130,7 @@ Only set CPU limits if you have specific requirements and thoroughly understand 
 GameFabric supports core pinning with exclusive full CPU cores through Kubernetes' [static CPU Manager policy](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/). For eligible game server containers, Kubernetes pins the workload to dedicated CPU cores instead of scheduling it across shared CPUs.
 Choose exclusive cores only when your workload benefits from dedicated CPU access and you have tested the configuration.
 
-On GameFabric bare metal nodes, the `prefer-align-cpus-by-uncorecache` CPU Manager policy option is enabled. When Kubernetes selects the pinned CPUs, it prefers CPUs that share a CPU cache to improve cache efficiency. This behavior requires no additional game-server configuration.
+On GameFabric bare metal nodes, the `prefer-align-cpus-by-uncorecache` CPU Manager policy option is enabled. When Kubernetes selects the pinned CPUs, it prefers CPUs that share a CPU cache to improve cache efficiency. This behavior requires no additional game server configuration.
 
 ::: warning Exclusive cores are usually less efficient
 Most game servers should use fractional CPU requests without CPU limits.
@@ -139,16 +139,16 @@ This usually fits fewer game servers on each node, wastes resources, and increas
 Use exclusive cores only when testing demonstrates that the performance benefit justifies this lower efficiency.
 :::
 
-To make the pod eligible for Guaranteed quality of service (QoS), configure every container, including sidecars, as follows:
+To make the pod eligible for [guaranteed quality of service (QoS)](https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/#guaranteed), configure every container, including sidecars, as follows:
 
 - Set the CPU request and CPU limit to the same value.
 - Set the memory request and memory limit to the same value.
 
-For the game-server container, set the CPU request and CPU limit to the same whole number of cores, such as `1`, `2`, or `4`. Other containers do not need whole CPU cores. For example, a sidecar can set both its CPU request and limit to `100m`.
+For the game server container, set the CPU request and CPU limit to the same whole number of cores, such as `1`, `2`, or `4`. Other containers do not need whole CPU cores. For example, a sidecar can set both its CPU request and limit to `100m`.
 
 ::: warning Whole cores and matching values are required
-For the game-server container, enter CPU values in the GameFabric `cores` unit and use integers only. For example, set both its CPU request and CPU limit to `2`.
-Fractional game-server values such as `0.5` or `1.2` are not eligible for exclusive CPU allocation.
+For the game server container, enter CPU values in the GameFabric `cores` unit and use integers only. For example, set both its CPU request and CPU limit to `2`.
+Fractional game server values such as `0.5` or `1.2` are not eligible for exclusive CPU allocation.
 For every container in the pod, CPU requests must match CPU limits and memory requests must match memory limits. For example, set both memory values to `2Gi`.
 :::
 
@@ -253,7 +253,7 @@ When creating game servers in GameFabric (through the UI or Terraform), you'll s
 ### Step 4: Avoid CPU limits (recommended)
 
 Unless you have specific requirements, **do not set CPU limits**. CPU limits can cause performance issues through throttling, which leads to stuttering and lag in real-time games.
-The exception is when you require [exclusive full CPU cores](#using-exclusive-full-cpu-cores). Set a matching whole-number CPU request and limit for the game-server container. For every container in the pod, including sidecars, CPU requests must match CPU limits and memory requests must match memory limits.
+The exception is when you require [exclusive full CPU cores](#using-exclusive-full-cpu-cores). Set a matching whole-number CPU request and limit for the game server container. For every container in the pod, including sidecars, CPU requests must match CPU limits and memory requests must match memory limits.
 
 ### Configuration strategies by development phase
 
