@@ -127,7 +127,7 @@ Only set CPU limits if you have specific requirements and thoroughly understand 
 
 #### Using exclusive full CPU cores
 
-GameFabric supports core pinning with exclusive full CPU cores through Kubernetes' [static CPU Manager policy](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/). For eligible game-server containers, Kubernetes pins the workload to dedicated CPU cores instead of scheduling it across shared CPUs.
+GameFabric supports core pinning with exclusive full CPU cores through Kubernetes' [static CPU Manager policy](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/). For eligible game server containers, Kubernetes pins the workload to dedicated CPU cores instead of scheduling it across shared CPUs.
 Choose exclusive cores only when your workload benefits from dedicated CPU access and you have tested the configuration.
 
 On GameFabric bare metal nodes, the `prefer-align-cpus-by-uncorecache` CPU Manager policy option is enabled. When Kubernetes selects the pinned CPUs, it prefers CPUs that share a CPU cache to improve cache efficiency. This behavior requires no additional game-server configuration.
