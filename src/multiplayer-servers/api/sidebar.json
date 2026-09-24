@@ -26,6 +26,11 @@
       "external": true
     },
     {
+      "text": "GF: Metrics API ⤴",
+      "link": "/api-specs/metricsserver",
+      "external": true
+    },
+    {
       "text": "Allocation: Registry ⤴",
       "link": "/api-specs/allocation-registry",
       "external": true
