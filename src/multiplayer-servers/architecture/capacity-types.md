@@ -16,6 +16,14 @@ Key characteristics:
 
 Bare metal Locations are not configurable through the GameFabric UI. To request additional bare metal capacity, submit a request via the [GameFabric Help Center](/multiplayer-servers/getting-started/glossary#gamefabric-help-center).
 
+### Buffer nodes
+
+Every bare metal cluster includes buffer nodes alongside customers' exclusive capacity. They automatically provide replacement capacity at no additional charge and are used only when needed during maintenance or node failures.
+
+Once your exclusive capacity is available again, new game servers are scheduled on it again. The [node maintenance eviction policy](/multiplayer-servers/production-workloads/requirements#node-maintenance-eviction-policy) still applies.
+
+Buffer nodes are distinct from the [Armada Buffer Size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#buffer-size), which controls the number of game servers kept in the `Ready` state.
+
 ## GameFabric Cloud
 
 GameFabric Cloud enables provisioning and deprovisioning of cloud Locations directly from the GameFabric UI, without requiring a separate cloud provider subscription.

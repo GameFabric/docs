@@ -64,11 +64,19 @@ BYOC (Bring Your Own Cloud) is a capacity type where GameFabric manages resource
 
 See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup) and [Capacity Types](/multiplayer-servers/architecture/capacity-types).
 
+## Buffer node
+
+A buffer node provides spare infrastructure capacity in a bare metal cluster, automatically used at no additional charge when needed during maintenance or node failures. It is distinct from the [Buffer Size](#buffer-size) of `Ready` game servers.
+
+See [Buffer nodes](/multiplayer-servers/architecture/capacity-types#buffer-nodes) for details on automatic replacement capacity.
+
 ## Buffer Size
 
 The Buffer Size is the number of game servers kept in the `Ready` state, waiting to be allocated. Maintaining a buffer ensures players can be matched to a server quickly without waiting for a new server to start.
 
 The Buffer Size can be set to a fixed value or managed automatically using [Dynamic Buffer](#dynamic-buffer).
+
+This game server buffer is distinct from [buffer nodes](#buffer-node), which provide spare infrastructure capacity.
 
 See [Armada Replicas and Buffer](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#buffer-size) for configuration guidance.
 
