@@ -66,7 +66,11 @@ See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/
 
 ## Buffer node
 
-A buffer node provides spare infrastructure capacity in a bare metal cluster, automatically used at no additional charge when needed during maintenance or node failures. It is distinct from the [Buffer Size](#buffer-size) of `Ready` game servers.
+A buffer node provides spare infrastructure capacity in a bare metal cluster, automatically used at no additional charge when needed during maintenance or node failures.
+
+::: info
+Buffer nodes provide spare infrastructure capacity. [Buffer Size](#buffer-size) controls the number of game servers kept in the `Ready` state.
+:::
 
 See [Buffer nodes](/multiplayer-servers/architecture/capacity-types#buffer-nodes) for details on automatic replacement capacity.
 
