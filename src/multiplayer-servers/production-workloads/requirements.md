@@ -50,6 +50,8 @@ Ready or unallocated game servers are evicted immediately when node drain starts
 
 This policy does not introduce a general 24-hour lifetime limit for all game servers. Eviction occurs only when GameFabric actively drains a node, for example to apply critical security updates or perform required reboots.
 
+In bare metal clusters, [buffer nodes](/multiplayer-servers/architecture/capacity-types#buffer-nodes) automatically provide replacement capacity at no additional charge when needed during maintenance.
+
 ## Best practices
 
 * **Keep your game server image as small as possible**: A small game server image makes everything faster and also saves money in the long run.
