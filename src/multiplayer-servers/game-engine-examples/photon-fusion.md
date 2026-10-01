@@ -33,7 +33,7 @@ The Fusion Dedicated Server connects to the Photon Cloud on startup and register
 | Unity | 6 (6000.x) | See [Unity on GameFabric](/multiplayer-servers/game-engine-examples/unity) for build setup |
 | Photon Fusion SDK | 2.1+ | [Unity Asset Store](https://assetstore.unity.com/packages/tools/network/photon-fusion-multiplayer-sdk-267958) |
 | Photon Fusion AppId | Free tier (20 CCU) | [Photon Dashboard](https://dashboard.photonengine.com) |
-| Agones SDK for Unity | v1.59.0 | See [Unity on GameFabric](/multiplayer-servers/game-engine-examples/unity#agones-sdk-for-unity) |
+| Agones SDK for Unity | v1.61.0 | See [Unity on GameFabric](/multiplayer-servers/game-engine-examples/unity#agones-sdk-for-unity) |
 
 ## Fusion + Agones Lifecycle
 

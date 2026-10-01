@@ -23,14 +23,14 @@ The Agones Unity SDK is available as a Unity Package Manager (UPM) dependency. A
 ```json
 {
   "dependencies": {
-    "com.googleforgames.agones": "https://github.com/agones-dev/agones.git?path=/sdks/unity#v1.59.0",
+    "com.googleforgames.agones": "https://github.com/agones-dev/agones.git?path=/sdks/unity#v1.61.0",
     ...
   }
 }
 ```
 
 ::: warning Version pinning
-Always pin the Agones SDK to a specific version tag (e.g. `#v1.59.0`). Without a version pin, Unity will pull the latest commit from the main branch, which may introduce breaking changes.
+Always pin the Agones SDK to a specific version tag (e.g. `#v1.61.0`). Without a version pin, Unity will pull the latest commit from the main branch, which may introduce breaking changes.
 :::
 
 The SDK provides the `AgonesSdk` [`MonoBehaviour`](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html) with the following async methods:
