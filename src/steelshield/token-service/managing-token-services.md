@@ -51,7 +51,7 @@ Upload one or more PEM public keys and specify a signing algorithm for each. Sup
 
 #### Generated Keys
 
-Instead of providing your own keys, generate an RSA key pair locally in the web interface.
+Instead of providing your own keys, you can generate an RSA key pair locally in the web interface.
 
 ::: warning
 The private key never reaches GameFabric's backend. It is shown only once and cannot be retrieved later.
