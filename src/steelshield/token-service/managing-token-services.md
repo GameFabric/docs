@@ -104,7 +104,7 @@ To rotate the key:
 
 ::: warning
 Generating a new key pair invalidates the current public key **immediately**.
-Existing integrations that use the old key stop authenticating until you update them with the new public key.
+Tokens signed with the old private key are rejected until you update the authentication backend to use the new private signing key.
 :::
 
 ::: warning
