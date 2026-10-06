@@ -7,7 +7,7 @@ This page covers the Agones game server states your code signals through the SDK
 - For [Armadas](/multiplayer-servers/getting-started/glossary#armada) (Dynamic Fleets), individual game servers are managed as part of a Fleet and are not assigned named states in the same way. Scaling and allocation behavior is described in [Armada scaling](/multiplayer-servers/multiplayer-services/scaling).
 :::
 
-1. **Start:** Game server process is launched.
+1. **Start:** The game server process launches and establishes communication with the Agones sidecar, [retrying transient connection failures](/multiplayer-servers/integration/your-game-server#connecting-to-the-agones-sidecar) while the sidecar is unavailable.
 2. **Ready:** The server signals `Ready()` after initialization and when it is prepared to accept players.
 3. **Allocated:** The server should call `Allocate()` only when the first player has joined. While in this state, the server is guaranteed not to be shut down for maintenance or scaling.
 4. **Shutdown or Return to Ready:** Once the last player leaves, call `Shutdown()` (or return to `Ready` for reuse if your design requires it).
@@ -32,6 +32,8 @@ The SDKs for [Unreal Engine](https://agones.dev/site/docs/guides/client-sdks/unr
 
 Once the game server has fully started up and would be ready to accept players, the game server
 must call the `Ready()` function once.
+
+The Agones sidecar being available does not mean the game server is ready to accept players. Establish communication with the sidecar before calling `Ready()`, and handle transient connection failures as described in [Connecting to the Agones sidecar](/multiplayer-servers/integration/your-game-server#connecting-to-the-agones-sidecar).
 
 By default, the Unreal Engine SDK automatically calls `Connect()` once the SDK is initialized.
 `Connect()` polls the game server endpoint until a successful response is received and then calls `Ready()`.
