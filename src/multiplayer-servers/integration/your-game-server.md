@@ -8,6 +8,20 @@ While the SDKs offer an array of advanced functionality, based on our experience
 GameFabric currently runs Agones version 1.61.0. Ensure your SDK integration is compatible with this version.
 :::
 
+## Connecting to the Agones sidecar
+
+Your game server communicates with Agones through a local sidecar. Startup order is not guaranteed: the game server process can start before the sidecar is available. The sidecar can also restart while your game server is running, temporarily interrupting communication.
+
+Handle these interruptions in both SDK integrations and direct REST API calls:
+
+- At startup, retry transient connection failures with backoff until the sidecar responds. Use a configurable startup timeout rather than terminating on the first failed request or relying on a fixed startup delay.
+- During operation, retry temporary connection failures with backoff and a configurable recovery timeout. Reconnect and resume health reporting and watches after communication is restored.
+- Check your SDK's retry and reconnection behavior. Implement any recovery it does not provide, and log failures to help diagnose persistent problems.
+
+Bound individual requests as well as the total retry period. If the startup or recovery timeout expires, log the failure and initiate graceful shutdown rather than retrying indefinitely. Shutdown must not depend on reaching the unavailable sidecar. Choose timeouts that account for your game's startup time, health-check settings, and shutdown grace period. Termination signals must cancel pending requests and retries so they do not delay shutdown.
+
+A successful connection only means the sidecar is available. Call [`Ready()`](/multiplayer-servers/integration/game-server-lifecycle#ready) only after communication with Agones is established and your game server is prepared to accept players.
+
 ## `GameServer()`
 
 This function returns metadata about the game server, including public IP and ports.

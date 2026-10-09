@@ -7,7 +7,7 @@ This page covers the Agones game server states your code signals through the SDK
 - For [Armadas](/multiplayer-servers/getting-started/glossary#armada) (Dynamic Fleets), individual game servers are managed as part of a Fleet and are not assigned named states in the same way. Scaling and allocation behavior is described in [Armada scaling](/multiplayer-servers/multiplayer-services/scaling).
 :::
 
-1. **Start:** Game server process is launched.
+1. **Start:** The game server process launches and establishes communication with the Agones sidecar, [retrying transient connection failures](/multiplayer-servers/integration/your-game-server#connecting-to-the-agones-sidecar) while the sidecar is still starting.
 2. **Ready:** The server signals `Ready()` after initialization and when it is prepared to accept players.
 3. **Allocated:** The server should call `Allocate()` only when the first player has joined. While in this state, the server is guaranteed not to be shut down for maintenance or scaling.
 4. **Shutdown or Return to Ready:** Once the last player leaves, call `Shutdown()` (or return to `Ready` for reuse if your design requires it).
