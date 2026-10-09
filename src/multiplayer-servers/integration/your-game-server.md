@@ -15,10 +15,12 @@ Your game server communicates with Agones through a local sidecar. Startup order
 Handle these interruptions in both SDK integrations and direct REST API calls:
 
 - At startup, retry transient connection failures with backoff until the sidecar responds. Use a configurable startup timeout rather than terminating on the first failed request or relying on a fixed startup delay.
-- During operation, handle temporary connection failures without immediately crashing the game server. Reconnect and resume health reporting and watches after communication is restored.
+- During operation, retry temporary connection failures with backoff and a configurable recovery timeout. Reconnect and resume health reporting and watches after communication is restored.
 - Check your SDK's retry and reconnection behavior. Implement any recovery it does not provide, and log failures to help diagnose persistent problems.
 
-A successful connection only means the sidecar is available. Call [`Ready()`](/multiplayer-servers/integration/game-server-lifecycle#ready) only after communication with Agones is established and your game server is prepared to accept players. Retry handling must still respect termination signals and allow the game server to shut down gracefully.
+Bound individual requests as well as the total retry period. If the startup or recovery timeout expires, log the failure and initiate graceful shutdown rather than retrying indefinitely. Shutdown must not depend on reaching the unavailable sidecar. Choose timeouts that account for your game's startup time, health-check settings, and shutdown grace period. Termination signals must cancel pending requests and retries so they do not delay shutdown.
+
+A successful connection only means the sidecar is available. Call [`Ready()`](/multiplayer-servers/integration/game-server-lifecycle#ready) only after communication with Agones is established and your game server is prepared to accept players.
 
 ## `GameServer()`
 
