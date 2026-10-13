@@ -65,10 +65,6 @@ export default withMermaid(defineConfig({
                         "link": "/api/multiplayer-servers/webapi"
                     },
                     {
-                        "text": "Multiplayer Servers: Metrics API",
-                        "link": "/api/multiplayer-servers/metricsserver"
-                    },
-                    {
                         "text": "Allocation: Registry",
                         "link": "/api/multiplayer-servers/allocation-registry"
                     },
