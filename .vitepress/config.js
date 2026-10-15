@@ -94,6 +94,11 @@ export default withMermaid(defineConfig({
         ],
         sidebar: getSidebar()
     },
+    markdown: {
+        languages: [
+            JSON.parse(fs.readFileSync(path.join(__dirname, 'promql.tmLanguage.json'), 'utf-8')),
+        ],
+    },
     mermaid: {
         // Mermaid configuration options
     },
