@@ -1,9 +1,8 @@
 import { defineConfig } from "vitepress";
-import { withMermaid } from "vitepress-plugin-mermaid";
 import fs from 'node:fs';
 import path from 'node:path';
 
-export default withMermaid(defineConfig({
+export default defineConfig({
     srcDir: 'src',
     lang: 'en-US',
     description: "GameFabric Documentation | gamefabric.com",
@@ -94,13 +93,19 @@ export default withMermaid(defineConfig({
         ],
         sidebar: getSidebar()
     },
-    mermaid: {
-        // Mermaid configuration options
+    markdown: {
+        config: (md) => {
+            const fence = md.renderer.rules.fence;
+            md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+                const token = tokens[idx];
+                if (token.info.trim() === 'mermaid') {
+                    return `<Mermaid code="${encodeURIComponent(token.content)}" />`;
+                }
+                return fence(tokens, idx, options, env, self);
+            };
+        }
     },
-    mermaidPlugin: {
-        class: "mermaid"
-    },
-}));
+});
 
 function getSidebar() {
     const sidebar = {}
