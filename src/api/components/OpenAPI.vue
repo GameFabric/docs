@@ -1,25 +1,20 @@
 <template>
-<div id="redocly" ref="container">
+<div id="redocly" class="vp-raw">
   <div v-if="!ready" class="loading"/>
-  <div v-else v-html="html"></div>
+  <div ref="container"></div>
 </div>
 </template>
 
 <script setup lang="ts">
 import React from "react";
-import { hydrateRoot, type Root } from "react-dom/client";
-import { renderToString } from "react-dom/server";
+import { createRoot, type Root } from "react-dom/client";
+import { HashRouter } from "react-router";
 import {
   onBeforeUnmount,
   onMounted,
   onUnmounted,
   ref,
-  watch,
 } from "vue";
-import { useData } from "vitepress";
-import { dark } from './dark-theme';
-
-const { isDark } = useData()
 
 const props = defineProps(['specUrl'])
 
@@ -27,17 +22,10 @@ let redoc: typeof import('redoc') | undefined = undefined;
 
 const container = ref(null);
 let reactRoot: Root | undefined = undefined;
-let html: string
-
-// Brand redesign: override just the accent color Redoc uses for links/buttons/
-// borders, without touching the rest of dark-theme.js's tuned zinc palette.
-const brandTheme = {
-  light: { colors: { primary: { main: '#6E5300' } } },
-  dark: { ...dark, colors: { ...dark.colors, primary: { main: '#FFD744' } } },
-}
 
 // observer callback to control loading state once the docs are hydrated.
 let observer = null
+let menuObserver: MutationObserver | null = null
 const ready = ref(false)
 const callback = (mutationList, observer) => {
   for (const mutation of mutationList) {
@@ -57,36 +45,53 @@ const init = () => {
 
 
   // hydrate placeholder div with redoc using react
-  const reactComponent = React.createElement(redoc.RedocStandalone, {
-    specUrl: props.specUrl,
-    options: {
-      hideHostname: true,
-      hideLoading: true,
-      theme: isDark.value ? brandTheme.dark : brandTheme.light,
-      scrollYOffset: 64 // navbar height
-    },
-  });
-  html = renderToString(reactComponent);
+  const reactComponent = React.createElement(HashRouter, null,
+    React.createElement(redoc.RedocStandalone, {
+      specUrl: props.specUrl,
+      options: {
+        hideLoading: true,
+        disableTelemetry: true,
+        scrollYOffset: 64 // navbar height
+      },
+    })
+  );
 
   if (reactRoot) {
     reactRoot.render(reactComponent)
   } else {
-    if (container) { reactRoot = hydrateRoot(container.value, reactComponent); }
+    if (container.value) {
+      reactRoot = createRoot(container.value);
+      reactRoot.render(reactComponent);
+    }
   }
 
   // observers the doc hydration to control the loading state
   observer = new MutationObserver(callback);
   observer.observe(container.value, { childList: true });
+
+  // expand the first section ("+ Show") once rendered, unless a deep link is open
+  menuObserver?.disconnect();
+  if (window.location.hash) return;
+  menuObserver = new MutationObserver(() => {
+    const button = [...container.value?.querySelectorAll('button') ?? []]
+      .find((b) => b.textContent?.trim().startsWith('+ '));
+    if (!button) return;
+    menuObserver.disconnect();
+    // Redoc pushes a history entry on expand; make this automatic one a replace
+    const pushState = history.pushState;
+    history.pushState = history.replaceState;
+    try {
+      button.click();
+    } finally {
+      history.pushState = pushState;
+    }
+  });
+  menuObserver.observe(container.value, { childList: true, subtree: true });
 }
 
 onMounted(async () => {
   redoc = await import('redoc')
 
-  init();
-});
-
-// watch theme changes
-watch(isDark, ()=> {
   init();
 });
 
@@ -97,6 +102,7 @@ onUnmounted(() => {
   reactRoot?.unmount();
 
   observer.disconnect()
+  menuObserver?.disconnect()
 });
 
 </script>
@@ -104,9 +110,6 @@ onUnmounted(() => {
 <style scoped>
 .dark, :deep(tbody > tr > td > div ) {
     background:var(--vp-c-bg) !important;
-}
-.dark, :deep(.react-tabs__tab--selected) {
-  background: rgba(57, 57, 55, 0.4) !important;
 }
 #redocly {
   background-color: #fff;
