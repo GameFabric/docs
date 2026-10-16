@@ -12,6 +12,10 @@
       "link": "/authentication/editing-permissions"
     },
     {
+      "text": "Features",
+      "link": "/authentication/features"
+    },
+    {
       "text": "Service Accounts",
       "link": "/authentication/service-accounts"
     },
