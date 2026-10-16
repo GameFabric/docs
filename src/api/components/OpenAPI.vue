@@ -77,7 +77,14 @@ const init = () => {
       .find((b) => b.textContent?.trim().startsWith('+ '));
     if (!button) return;
     menuObserver.disconnect();
-    button.click();
+    // Redoc pushes a history entry on expand; make this automatic one a replace
+    const pushState = history.pushState;
+    history.pushState = history.replaceState;
+    try {
+      button.click();
+    } finally {
+      history.pushState = pushState;
+    }
   });
   menuObserver.observe(container.value, { childList: true, subtree: true });
 }
