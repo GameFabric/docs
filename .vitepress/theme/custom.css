@@ -226,3 +226,16 @@ div[class*='language-'] > .lang {
 .nbsp {
     white-space: nowrap;
 }
+
+/* Redoc 3 design tokens */
+:root:not(.dark) #redocly {
+    --color-primary-base: #6E5300;
+}
+
+.dark #redocly {
+    --color-primary-base: #FFD744;
+    --bg-color: #18181b;
+    --code-block-bg-color: #18181b;
+    --text-color-primary: #fafafa;
+    --border-color-primary: #27272a;
+}
