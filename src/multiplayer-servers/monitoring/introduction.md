@@ -46,6 +46,10 @@ Some examples of data available in Grafana:
 
 For practical guidance on sizing CPU and memory requests and limits using these metrics, see [Resource management](/multiplayer-servers/multiplayer-services/resource-management).
 
+### Game server metrics
+
+You can expose your own Prometheus-style metrics from your game servers through metric ports. GameFabric scrapes them automatically. See [Game server metrics](/multiplayer-servers/monitoring/game-server-metrics).
+
 ## Logs
 
 Everything that the game server prints to either `stdout` or `stderr` is automatically collected and available in the [monitoring dashboards](/multiplayer-servers/monitoring/debugging#viewing-container-logs).

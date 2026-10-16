@@ -56,6 +56,16 @@ Burst amounts allow for temporarily exceeding rate limits, for example if the lo
 - **Limit**: 10 megabytes per second globally (with a burst size of 50 megabytes)
 - **Description**: If your aggregated log stream exceeds this rate, additional log lines may be dropped.
 
+## Metrics limitations
+
+Limits for [game server metrics](/multiplayer-servers/monitoring/game-server-metrics) apply *per game server*.
+
+- **Metric ports**: A maximum of 10 metric ports across all containers.
+- **Sample limit**: A maximum of 30 samples per scrape.
+- **Series limit**: A maximum of 60 unique series over 24 hours.
+
+If a game server exceeds the sample limit or the series limit, GameFabric discards all metrics of that game server. See [Scraping and limits](/multiplayer-servers/monitoring/game-server-metrics#scraping-and-limits).
+
 ## Additional information
 
 For questions about increasing these limits or if you encounter other limitations not documented here, please contact GameFabric support.

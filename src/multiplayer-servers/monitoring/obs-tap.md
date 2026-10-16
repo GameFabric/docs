@@ -47,6 +47,8 @@ The following Prometheus HTTP API paths are available:
 - `/observability/metrics/api/v1/metadata` — metric metadata
 - `/observability/metrics/api/v1/status/buildinfo` — build information
 
+Custom metrics scraped from your game servers carry the label `source="gameserver"`. See [Game server metrics](/multiplayer-servers/monitoring/game-server-metrics).
+
 Refer to the [Prometheus query documentation](https://prometheus.io/docs/prometheus/latest/querying/basics/) for the full query language reference.
 
 ## Querying logs

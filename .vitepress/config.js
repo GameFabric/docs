@@ -94,6 +94,9 @@ export default defineConfig({
         sidebar: getSidebar()
     },
     markdown: {
+        languages: [
+            JSON.parse(fs.readFileSync(path.join(__dirname, 'promql.tmLanguage.json'), 'utf-8')),
+        ],
         config: (md) => {
             const fence = md.renderer.rules.fence;
             md.renderer.rules.fence = (tokens, idx, options, env, self) => {

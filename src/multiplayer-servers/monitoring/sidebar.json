@@ -36,6 +36,10 @@
       "link": "/monitoring/obs-tap"
     },
     {
+      "text": "Game Server Metrics",
+      "link": "/monitoring/game-server-metrics"
+    },
+    {
       "text": "Game Server Logs",
       "link": "/monitoring/game-server-logs"
     }

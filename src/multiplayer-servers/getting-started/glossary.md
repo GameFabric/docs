@@ -213,6 +213,12 @@ Access is not enabled by default and must be requested through your Customer Suc
 
 See [Observability tap](/multiplayer-servers/monitoring/obs-tap) for endpoint details and setup instructions.
 
+## Metric port
+
+A container port with the port policy `None` that serves a Prometheus-style metrics endpoint. GameFabric scrapes it automatically. It is not exposed to the internet.
+
+See [Game server metrics](/multiplayer-servers/monitoring/game-server-metrics).
+
 ## User
 
 See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#user).
