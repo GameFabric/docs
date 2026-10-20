@@ -3,6 +3,14 @@
 In GameFabric, there are multiple objects you need to be aware of, that are referenced throughout the documentation.
 Their names and description are detailed in this section in alphabetical order.
 
+## Agones
+
+Agones is an open-source game server hosting and scaling framework built on [Kubernetes](#kubernetes). GameFabric uses Agones as its underlying orchestration layer to manage game server lifecycles, health checking, and scaling.
+
+Game servers integrate with Agones through its SDK, which provides client libraries for multiple languages and engines. The SDK is used to signal lifecycle state (`Ready`, `Allocated`, `Shutdown`) and send health check pings.
+
+See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) for integration details and the [Agones documentation](https://agones.dev/site/docs/) for the full reference.
+
 ## Allocation Sidecar
 
 The Allocation Sidecar is a [Sidecar](#sidecar) provided by GameFabric for automatic integration with the [Allocator](#allocator). It handles game server registration, allocation callbacks, and cleanup.
@@ -23,14 +31,6 @@ For each Allocator you order, you receive both tokens.
 The Allocator is typically used with [Armadas](#armada) for games where players are assigned to servers by matchmaking rather than choosing from a server list. For persistent servers where players browse and select their own server, use [Formations](#formation) without the Allocator.
 
 See [Server Allocation Overview](/multiplayer-servers/multiplayer-services/server-allocation/overview) for details on when to use the Allocator and integration options.
-
-## Agones
-
-Agones is an open-source game server hosting and scaling framework built on [Kubernetes](#kubernetes). GameFabric uses Agones as its underlying orchestration layer to manage game server lifecycles, health checking, and scaling.
-
-Game servers integrate with Agones through its SDK, which provides client libraries for multiple languages and engines. The SDK is used to signal lifecycle state (`Ready`, `Allocated`, `Shutdown`) and send health check pings.
-
-See [Using the Agones SDK](/multiplayer-servers/integration/your-game-server) for integration details and the [Agones documentation](https://agones.dev/site/docs/) for the full reference.
 
 ## API
 
@@ -58,12 +58,6 @@ GameFabric runs its own internal Container registry proxy, which is where you sh
 Those images are scoped by branch. For example, a standard use case would be to have a development branch and a production branch.
 The development branch would contain dev images to be used by a development Armada, while the production branch would only contain releases of the game server that make it to production.
 
-## BYOC
-
-BYOC (Bring Your Own Cloud) is a capacity type where GameFabric manages resources within a customer's own cloud provider account (GCP, AWS, or Azure). The customer grants Nitrado access to create and manage Locations in their cloud infrastructure, while maintaining their own cloud subscription and billing relationship.
-
-See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup) and [Capacity Types](/multiplayer-servers/architecture/capacity-types).
-
 ## Buffer node
 
 A buffer node provides spare infrastructure capacity in a bare metal cluster, automatically used at no additional charge when needed during maintenance or node failures.
@@ -83,6 +77,12 @@ The Buffer Size can be set to a fixed value or managed automatically using [Dyna
 This game server buffer is distinct from [buffer nodes](#buffer-node), which provide spare infrastructure capacity.
 
 See [Armada Replicas and Buffer](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#buffer-size) for configuration guidance.
+
+## BYOC
+
+BYOC (Bring Your Own Cloud) is a capacity type where GameFabric manages resources within a customer's own cloud provider account (GCP, AWS, or Azure). The customer grants Nitrado access to create and manage Locations in their cloud infrastructure, while maintaining their own cloud subscription and billing relationship.
+
+See also [Configuring your Cloud Provider](/multiplayer-servers/getting-started/cloud-provider-setup) and [Capacity Types](/multiplayer-servers/architecture/capacity-types).
 
 ## CCU
 
@@ -201,6 +201,12 @@ Locations are managed by Nitrado for all capacity types. To request bare metal o
 
 See also [Capacity Types](/multiplayer-servers/architecture/capacity-types) and [Region](#region).
 
+## Metric port
+
+A container port with the port policy `None` that serves a Prometheus-style metrics endpoint. GameFabric scrapes it automatically. It is not exposed to the internet.
+
+See [Game server metrics](/multiplayer-servers/monitoring/game-server-metrics).
+
 ## Mitigation
 
 See also [Ports and Protocols](/multiplayer-servers/multiplayer-services/server-protection/protocols#mitigations).
@@ -212,16 +218,6 @@ The observability tap exposes your GameFabric installation's [monitoring](/multi
 Access is not enabled by default and must be requested through your Customer Success Manager or the [GameFabric Help Center](#gamefabric-help-center).
 
 See [Observability tap](/multiplayer-servers/monitoring/obs-tap) for endpoint details and setup instructions.
-
-## Metric port
-
-A container port with the port policy `None` that serves a Prometheus-style metrics endpoint. GameFabric scrapes it automatically. It is not exposed to the internet.
-
-See [Game server metrics](/multiplayer-servers/monitoring/game-server-metrics).
-
-## User
-
-See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#user).
 
 ## Permission
 
@@ -238,6 +234,16 @@ See [Identifying your Hosting Model](/multiplayer-servers/architecture/identifyi
 A pod is a [Kubernetes](#kubernetes) unit that runs one or more [containers](#container) together with shared networking and storage. In GameFabric, each game server runs in its own pod alongside [Sidecar](#sidecar) containers.
 
 For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/pods/).
+
+## Protection Protocol
+
+See also [Ports and Protocols](/multiplayer-servers/multiplayer-services/server-protection/protocols#protocols).
+
+## Protection Status
+
+Status of the [SteelShield](#steelshieldtm) protection status for each [Site](#site) on the Sites overview in the GameFabric UI.
+
+See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-status).
 
 ## RBAC
 
@@ -305,6 +311,16 @@ See [Scheduling Strategy](/multiplayer-servers/api/scheduling-strategy) for conf
 
 See [Secrets](/multiplayer-servers/getting-started/secrets).
 
+## Service Account
+
+An account used for accessing GameFabric programmatically. For details, see the documentation in [Service Accounts](/multiplayer-servers/authentication/service-accounts#managing-service-accounts).
+
+## Shutdown hints
+
+Shutdown hints are annotations on the Agones GameServer object that include a shutdown deadline. Your game server is expected to observe them and exit before the deadline.
+
+See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessel-shutdown-behavior).
+
 ## Sidecar
 
 A sidecar is a container that runs alongside your game server container within the same [pod](#pod), sharing network and storage. Sidecars provide additional functionality without modifying your game server code.
@@ -315,12 +331,6 @@ Sidecars can be added to [Armadas](#armada), [ArmadaSets](#armadaset), [Formatio
 
 See [Sidecar Containers](/multiplayer-servers/architecture/sidecars) for a comprehensive guide.
 
-## Shutdown hints
-
-Shutdown hints are annotations on the Agones GameServer object that include a shutdown deadline. Your game server is expected to observe them and exit before the deadline.
-
-See [Vessel Shutdown Behavior](/multiplayer-servers/getting-started/terminating-game-servers#vessel-shutdown-behavior).
-
 ## Site
 
 A Site is the capacity (cluster of bare metal or cloud servers) that belongs to a [Location](#location).
@@ -330,10 +340,6 @@ Sites are managed by Nitrado. For [GameFabric Cloud](#gamefabric-cloud) Location
 A Site can be marked as cordoned, making it unschedulable. Allocated game servers continue to run until they shut down, but no new game servers get scheduled on that Site.
 
 This can be the case, for example, when a Site has just been provisioned to prevent premature allocations, or when a Site is being prepared for deprovisioning.
-
-## Service Account
-
-An account used for accessing GameFabric programmatically. For details, see the documentation in [Service Accounts](/multiplayer-servers/authentication/service-accounts#managing-service-accounts).
 
 ## State
 
@@ -351,25 +357,19 @@ SteelShield is a DDoS protection system designed for the specific purpose of pro
 
 See also [SteelShield docs](/steelshield/gamefabric/introduction).
 
+## Terraform provider
+
+GameFabric offers its own Terraform provider to interact with the platform. See the [Terraform provider](/multiplayer-servers/integration/terraform) documentation for installation and usage instructions.
+
 ## Token Service
 
 The Token Service is a public-facing API provided by [SteelShield](#steelshieldtm) for [Proof of Identity](/steelshield/gamefabric/introduction#level-3-proof-of-identity-using-deep-packet-inspection) authentication. It verifies game client credentials and issues **SteelShield Tokens** that authorize game traffic to pass through DDoS protection.
 
 See [Token Service Overview](/steelshield/token-service/) for details on how it works, and [Managing Token Services](/steelshield/token-service/managing-token-services) for setup instructions.
 
-## Terraform provider
+## User
 
-GameFabric offers its own Terraform provider to interact with the platform. See the [Terraform provider](/multiplayer-servers/integration/terraform) documentation for installation and usage instructions.
-
-## Protection Status
-
-Status of the [SteelShield](#steelshieldtm) protection status for each [Site](#site) on the Sites overview in the GameFabric UI.
-
-See also [SteelShield docs](/steelshield/gamefabric/gamefabric#protection-status).
-
-## Protection Protocol
-
-See also [Ports and Protocols](/multiplayer-servers/multiplayer-services/server-protection/protocols#protocols).
+See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions#user).
 
 ## Vessel
 
