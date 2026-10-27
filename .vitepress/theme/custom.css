@@ -239,3 +239,12 @@ div[class*='language-'] > .lang {
     --text-color-primary: #fafafa;
     --border-color-primary: #27272a;
 }
+
+/* Light/dark screenshot pairs (x.png + x.dark.png), see markdown image rule in config.js */
+.dark img.light-only {
+    display: none;
+}
+
+html:not(.dark) img.dark-only {
+    display: none;
+}

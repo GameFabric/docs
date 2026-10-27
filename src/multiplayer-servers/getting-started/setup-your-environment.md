@@ -47,11 +47,11 @@ First, visit the "Regions" section in the Environment you wish to create a Regio
 
 ![GUI_Regions.png](images/region/GUI_Regions.png)
 
-Create a new Region by clicking the "Create Region" button.
+Create a new Region by clicking the "Create Region" button. This opens a drawer.
 
 ![GUI_Regions_Create.png](images/region/GUI_Regions_Create.png)
 
-Give it a name that makes its purpose explicit and a display name to match, then click the "Next" button.
+Give it a name that makes its purpose explicit and a display name to match, then click the "Next" button to go to the "Infrastructure Types" step.
 
 ![GUI_Regions_Create_Types.png](images/region/GUI_Regions_Create_Types.png)
 

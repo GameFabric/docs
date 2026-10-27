@@ -141,8 +141,6 @@ represent:
 | `byoc` | Bring Your Own Cloud (customer's cloud account) |
 | `unknown` | Type has not been classified |
 
-GameFabric Cloud Locations display a `Managed` tag in the Locations list.
-
 ### Default filters
 
 The Locations list opens with default filters applied to reduce noise:
@@ -154,17 +152,17 @@ Clear these filters to see all Locations including those with no active capacity
 
 ### Managing GameFabric Cloud capacity
 
-On a GameFabric Cloud Location (marked with a **Managed** tag), a **Manage Cloud** button appears
+On a GameFabric Cloud Location, a **Manage Cloud** button appears
 in the actions column. Clicking it opens the **Manage Cloud** drawer, where you can view,
-request, downsize, and remove **Cloud Objects** — provisioning requests for GameFabric-managed
+request, downsize, and remove **Cloud Locations** — provisioning requests for GameFabric-managed
 compute at that Location.
 
-- While a Cloud Object is being set up, its state card shows `Provisioning`. Once live, it shows
+- While a Cloud Location is being set up, its state card shows `Provisioning`. Once live, it shows
   `Provisioned` and Sites appear under the Location.
-- To release capacity, use the **Remove** button on a Cloud Object card and choose between
+- To release capacity, use the **Remove** button on a Cloud Location card and choose between
   **Immediate** (force-stop all sessions now) or **Delayed** (cordon & drain with a 1–24 hour
   timer before force-teardown).
-- While removal is in progress the Cloud Object shows `Deprovisioning`.
+- While removal is in progress the Cloud Location shows `Deprovisioning`.
 
 ::: info
 GameFabric Cloud capacity cannot be added to Locations that already have BYOC capacity.
