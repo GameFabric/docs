@@ -6,7 +6,7 @@ GameFabric Cloud enables self-service provisioning and deprovisioning of cloud c
 
 Cloud capacity is requested per Location. Each request specifies a machine type and a node count (the scaling limit).
 
-Navigate to <span class="nbsp">**Capacity » Locations**</span> and either:
+Navigate to <span class="nbsp">**Locate » Locations & Sites**</span>, open the **Locations** tab, and either:
 
 - Click **Request Cloud** in the page header, or
 - [Find a GameFabric Cloud Location](#find-managed-cloud-locations) and click **Manage Cloud** in its row.
@@ -94,9 +94,9 @@ Use this when you need to release capacity immediately and no active players are
 
 ## Find managed Cloud Locations
 
-The Locations dashboard opens with default filters that exclude unprovisioned and unassigned Locations.
+The **Locations** tab opens with default filters that exclude unprovisioned and unassigned Locations.
 
-To find all managed Cloud Locations, clear the default filters, then select **gamefabric** from the **Filter by Types** dropdown. 
+To find all managed Cloud Locations, clear the default filters, click **Filters**, then select **gamefabric** from the **Filter by Types** dropdown. 
 To narrow to only Locations with active capacity, also select **used** from the **Filter by Sites** dropdown.
 
 ![Locations list filtered to show only GameFabric-managed cloud Locations](images/cloud/find-managed-cloud-locations.png)
