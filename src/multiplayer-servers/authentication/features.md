@@ -8,7 +8,7 @@ Enabling or disabling a feature is done by an [authorized contact](#authorized-c
 
 ## Authorized contacts
 
-An authorized contact is a person at your company who is allowed to manage features on behalf of your organization. Authorized contacts can enable features, and disable features. If you aren't an authorized contact, ask one at your company or your Customer Success Manager.
+An authorized contact is a person at your company who is allowed to manage features on behalf of your organization. Authorized contacts can enable and disable features. If you aren't an authorized contact, ask one at your company or your Customer Success Manager.
 
 Every installation includes the `default:authorized-contacts` group. To make a user an authorized contact, add them to this group. To remove them, unassign them from the group. See [Editing Permissions](/multiplayer-servers/authentication/editing-permissions) for how to assign users to groups.
 
