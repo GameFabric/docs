@@ -8,8 +8,6 @@ Correctly configured services greatly reduce the impact on your players during l
 
 To enable higher levels of protection for your game servers:
 
-### Modern UI
-
 1. Navigate to your Armada or Vessel
 2. Go to `Settings` → `Container Template & Volume` → `Container Ports`
 3. Click `Add` to add a new port mapping
@@ -18,17 +16,6 @@ To enable higher levels of protection for your game servers:
 6. Click `Save`
 
 ![Screenshot of the Container Ports settings page showing how to select a Protection Protocol for each port.](images/ports_modern.png)
-
-### Legacy UI
-
-1. Navigate to your Armada or Vessel
-2. Go to `Settings` → `Containers` → `Container Ports`
-3. Click `Add` to add a new port mapping
-4. Choose `Dynamic` for the **Policy**
-5. Fill in the **Name**, **Port/Protocol**, and **Protection Protocol** for each port
-6. Click `Save`
-
-![Screenshot of the Container Ports settings page showing how to select a Protection Protocol for each port.](images/ports_legacy.png)
 
 ### Protection protocols
 

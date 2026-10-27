@@ -27,16 +27,13 @@ press "Next", verify that the configuration file is correct, and click "Create C
 
 ## Create a Vessel
 
-Visit the Formations section of the UI, and click on the blue "Add" button, on the top right of the interface.
-
-### Kind
-
-You are now given the choice between creating a Formation and an individual Vessel. Pick "Vessel".
+Visit the Vessels page under Persistent Servers in the UI, and click on the "Create New Vessel" button, on the top right of the interface.
 
 Vessels allow you to spin up individual game servers and to define a unique configuration for each of them, which is ideal for a first integration.
 Later, you will use concepts like Formations, Armadas and ArmadaSets to efficiently manage large numbers of game servers at once.
+To create a Formation instead, visit the Formations page and click on the "Create New Formation" button.
 
-![GUI_Create_Vessel_Kind.png](images/formation/GUI_Create_Vessel_Kind.png)
+![GUI_Create_Vessel_Buttons.png](images/formation/GUI_Create_Vessel_Buttons.png)
 
 ### General
 

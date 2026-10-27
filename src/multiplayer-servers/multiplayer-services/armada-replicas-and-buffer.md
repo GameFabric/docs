@@ -224,13 +224,13 @@ experience and costs, and adjust the configuration as needed.
 
 ### Enabling dynamic buffer
 
-To enable the Dynamic Buffer, toggle the `Dynamic Buffer` option on a `Region - Type`. You will be asked to confirm that you understand
-the implications of enabling this feature.
+To enable the Dynamic Buffer, select one or more `Region - Type` rows using their checkboxes, click the bulk edit icon in the table header,
+and toggle the `Dynamic Buffer` option in the menu that opens. The change applies on infrastructure type level. Click `Save Changes` to apply it.
 
 Once enabled GameFabric starts to control the Buffer Size, and any manual adjustments to the Buffer Size are be overridden by GameFabric's adjustments
 based on player demand. Minimum and Maximum Replicas settings will still apply, and can still be adjusted.
 
-![Enable Dynamic Buffer](images/armada/dynamic-buffers-enable-modal.png)
+![Enable Dynamic Buffer](images/armada/dynamic-buffers-enable-popover.png)
 
 ### Configuring dynamic buffer
 
