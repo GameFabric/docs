@@ -165,7 +165,7 @@ To add a volume, click "Add Volume" and configure the following settings:
 * **Volume Name** (required): A name that identifies the volume, such as `shared`. Use the same name to mount the volume in more than one container.
 * **Size Limit** (optional): The maximum amount of data the volume can hold. Enter a number and select a unit from the dropdown, such as `Mi` (mebibytes). If you leave this field empty, the volume is limited only by the storage available on the node.
 * **Storage Medium** (optional): Where the volume stores its data.
-  * **Default** stores data on the disk of the node. This is the right choice for most use cases. If the volume grows beyond its size limit, the game server is evicted, which disconnects all players.
+  * **Default** stores data on the disk of the node. This is the right choice for most use cases. If the volume grows beyond its size limit, the game server is terminated, which disconnects all players.
   * **Memory** stores data in RAM. Reads and writes are faster, but the data counts toward the memory usage of your game server. Include the expected volume size in the memory values in [Resources](#resources), and set a size limit.
 
 ##### Mount settings
