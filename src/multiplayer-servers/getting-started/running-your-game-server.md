@@ -60,10 +60,6 @@ This allows you to easily create multiple similar Vessels in different Regions w
 
 ![GUI_Create_Vessel_Region.png](images/formation/GUI_Create_Vessel_General.png)
 
-### Volumes
-
-Volumes are an advanced mechanism to share data between multiple containers within the same pod. Skip it for now.
-
 ### Containers
 
 The Containers section contains the majority of your game server configuration.
@@ -147,13 +143,71 @@ properties CMD and ARGS, respectively.
 
 #### Volumes
 
-In this section, you can point previously specified volumes to specific paths in your container.
-Since you likely have not set up a volume for this first game server, skip this for now.
+Volumes provide temporary storage that the containers of a game server can share until the game server stops.
+Use them to exchange files between your game server and a [sidecar container](/multiplayer-servers/architecture/sidecars), such as the allocation payload written by the Allocation Sidecar, or as scratch space for a single container.
+If your game server needs neither, skip this section.
+
+Game servers use `emptyDir` volumes.
+An `emptyDir` volume is created empty when the game server starts, and every container that mounts it can read and write its files.
+The data is deleted when the game server stops.
+
+::: warning Volumes are not persistent
+Do not store data in a volume that must survive a restart or an update, such as save games or player progress.
+Store this data outside the game server, for example in your own backend.
+:::
+
+![GUI_Create_Vessel_Containers_Volumes.png](images/formation/GUI_Create_Vessel_Containers_Volumes.png)
+
+##### Volume settings
+
+To add a volume, click "Add Volume" and configure the following settings:
+
+* **Volume Name** (required): A name that identifies the volume, such as `shared`. Use the same name to mount the volume in more than one container.
+* **Size Limit** (optional): The maximum amount of data the volume can hold. Enter a number and select a unit from the dropdown, such as `Mi` (mebibytes). If you leave this field empty, the volume is limited only by the storage available on the node.
+* **Storage Medium** (optional): Where the volume stores its data.
+  * **Default** stores data on the disk of the node. This is the right choice for most use cases. If the volume grows beyond its size limit, the game server is evicted, which disconnects all players.
+  * **Memory** stores data in RAM. Reads and writes are faster, but the data counts toward the memory usage of your game server. Include the expected volume size in the memory values in [Resources](#resources), and set a size limit.
+
+##### Mount settings
+
+Every volume must be mounted in at least one container.
+To mount a volume, click "Add Mount" and configure the following settings:
+
+* **Mount Path** (required): The absolute path in the container where the volume appears, such as `/shared`.
+* **SubPath** (optional): A path inside the volume to mount instead of the volume root, such as `logs`. Use it to give each container its own directory within the same volume.
+
+You can add several mounts for the same volume, for example to mount different SubPaths at different locations.
+
+::: warning Mount paths hide existing files
+A mounted volume replaces the content at its mount path.
+If your container image already contains files at that path, such as your game server binaries or default configuration, they are no longer visible to the container.
+Choose a mount path that does not exist in the image, or that is empty.
+:::
+
+::: info SubPaths are created as directories
+Because an `emptyDir` volume starts empty, a SubPath does not exist when the game server starts and is created as a directory.
+A SubPath such as `path.txt` results in a directory named `path.txt`, not a file.
+To share a single file, mount the volume or a SubPath directory, and read or write the file inside it.
+:::
+
+##### Example: Share the allocation payload with the Allocation Sidecar
+
+The Allocation Sidecar can [write the allocation payload to a file](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers#write-payload-to-a-file).
+Your game server can only read this file if both containers mount the same volume.
+
+To set up the shared volume:
+
+1. Add a volume named `payload` with a size limit of `10` `Mi`. Keep the default storage medium.
+1. Mount the `payload` volume at `/payload` in the game server container.
+1. Mount the `payload` volume at `/payload` in the Allocation Sidecar container.
+1. On the Allocation Sidecar container, set the environment variable `ALLOC_PAYLOAD_FILE` to `/payload/payload.json`.
+
+When the game server is allocated, the Allocation Sidecar writes the payload to `/payload/payload.json`, and your game server reads it from the same path.
+If both containers run as different users, adjust the file permissions with [`ALLOC_PAYLOAD_FILE_MODE`](/multiplayer-servers/multiplayer-services/server-allocation/automatically-registering-game-servers#alloc-payload-file-mode-string-0660).
 
 #### ConfigFiles
 
-In the next section, you may mount the volumes previously configured, as well as any [configuration files
-previously defined](#create-configuration-files-optional) within your environment.
+In this section, you can mount any [configuration files previously defined](#create-configuration-files-optional) within your environment.
 
 ![GUI_Create_Vessel_Containers_Config_Files.png](images/formation/GUI_Create_Vessel_Containers_Config_Files.png)
 
