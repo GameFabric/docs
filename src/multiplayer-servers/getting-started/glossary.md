@@ -118,10 +118,6 @@ For Armadas, ArmadaSets, Formations, and Protection Protocols, the `status.reaso
 
 Dynamic Buffer is a feature that automatically adjusts the [Buffer](#buffer) based on current game server demand. When enabled, GameFabric monitors the number of `Ready` and `Allocated` game servers, startup time, and demand on each [Site](#site), then scales the buffer accordingly.
 
-::: warning
-Dynamic Buffer is currently in Beta.
-:::
-
 See [Dynamically configuring the buffer size](/multiplayer-servers/multiplayer-services/armada-replicas-and-buffer#dynamically-configuring-the-buffer-size) for details.
 
 ## Dynamic Fleets
