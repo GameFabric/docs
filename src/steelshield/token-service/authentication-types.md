@@ -7,21 +7,25 @@ Each method determines how the Token Service verifies game client tokens.
 
 With the **Custom Keys** mode, you provide one or more PEM public keys.
 The Token Service uses these keys to verify the signature of game client tokens.
-This is your most flexible option: It can be used with your own signing infrastructure, e.g. a custom unified login platform for your players.
+This mode suits a setup where your own infrastructure signs the tokens, for example a custom login platform for your players.
 
 - **Supported algorithms:** RS256, RS384, RS512, ES256, ES384, ES512.
 - **Key format:** PEM (RSA or EC public keys).
+- **Number of keys:** a primary key and an optional secondary key.
 
-::: warning API Only
-Defining multiple signature methods is an API-only feature.
+For rotating keys without downtime, see [Rotating the key](/steelshield/token-service/managing-token-services#rotating-the-key).
+
+::: info API
+The API takes the keys as a list per platform, with up to two keys per signing algorithm and platform.
+The GameFabric UI shows the first key of that list as the primary key and the second as the secondary key.
 :::
 
 ### Generated Keys
 
-As a variation to **Custom Keys**, you can select **Generated Keys** to generate an RSA key pair in the browser.
+Instead of **Custom Keys**, you can select **Generated Keys** to generate an ES256 key pair in the web interface.
 The public key is stored in the Token Service configuration and the private key is given to you once to be used by your game's authentication backend.
 
-- **Algorithm:** RS256.
+- **Algorithm:** ES256.
 - **Key format:** PEM.
 - **Use case:** When you need a quick setup without external key management.
 
